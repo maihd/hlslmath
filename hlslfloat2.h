@@ -3,27 +3,27 @@
 
 #include "hlslfloat.h"
 
-inline float2 neg(const float2& v)
+inline float2 operator-(const float2& v)
 {
     return float2(-v.x, -v.y);
 }
 
-inline float2 add(const float2& a, const float2& b)
+inline float2 operator+(const float2& a, const float2& b)
 {
     return float2(a.x + b.x, a.y + b.y);
 }
 
-inline float2 sub(const float2& a, const float2& b)
+inline float2 operator-(const float2& a, const float2& b)
 {
     return float2(a.x - b.x, a.y - b.y);
 }
 
-inline float2 mul(const float2& a, const float2& b)
+inline float2 operator*(const float2& a, const float2& b)
 {
     return float2(a.x * b.x, a.y * b.y);
 }
 
-inline float2 div(const float2& a, const float2& b)
+inline float2 operator/(const float2& a, const float2& b)
 {
     return float2(a.x / b.x, a.x / b.y);
 }
@@ -199,12 +199,12 @@ inline float length(const float2& v)
 
 inline float distance(const float2& a, const float2& b)
 {
-    return length(sub(a, b));
+    return length(a - b);
 }
 
 inline float distancesquared(const float2& a, const float2& b)
 {
-    return lengthsquared(sub(a, b));
+    return lengthsquared(a - b);
 }
 
 inline float2 normalize(const float2& v)
@@ -223,7 +223,7 @@ inline float2 normalize(const float2& v)
 
 inline float2 reflect(const float2& v, const float2& n)
 {
-    return sub(v, mul(n, 2.0f * dot(v, n)));
+    return v - 2.0f * dot(v, n) * n;
 }
 
 inline float2 refract(const float2& v, const float2& n, float eta)
@@ -231,12 +231,12 @@ inline float2 refract(const float2& v, const float2& n, float eta)
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
     return k < 0.0f
         ? 0.0f
-        : sub(mul(v, eta), mul(v, eta * dot(v, n) + sqrt(k)));
+        : eta * v - (eta * dot(v, n) + sqrt(k)) * v;
 }
 
 inline float2 faceforward(const float2& n, const float2& i, const float2& nref)
 {
-    return dot(i, nref) < 0.0f ? n : neg(n);
+    return dot(i, nref) < 0.0f ? n : -n;
 }
 
 #endif /* __HLSL_FLOAT2_H__ */

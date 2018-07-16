@@ -87,17 +87,17 @@ union float2x2
 {
     struct
     {
-        float2 a, b;
+        float2 data[2];
     };
     
     inline float2& operator[](int index)
     {
-        return ((float2*)this)[index];
+        return data[index];
     }
 
     inline const float2& operator[](int index) const
     {
-        return ((float2*)this)[index];
+        return data[index];
     }
 };
 
@@ -105,17 +105,17 @@ union float3x3
 {
     struct
     {
-        float3 a, b, c;
+        float3 data[3];
     };
     
     inline float3& operator[](int index)
     {
-        return ((float3*)this)[index];
+        return data[index];
     }
 
     inline const float3& operator[](int index) const
     {
-        return ((float3*)this)[index];
+        return data[index];
     }
 };
 
@@ -123,17 +123,20 @@ union float4x4
 {
     struct
     {
-        float4 a, b, c, d;
+        float4 data[4];
     };
+
+    inline explicit float4x4(float s = 0.0f)
+    {}
     
     inline float4& operator[](int index)
     {
-        return ((float4*)this)[index];
+        return data[index];
     }
 
     inline const float4& operator[](int index) const
     {
-        return ((float4*)this)[index];
+        return data[index];
     }
 };
 

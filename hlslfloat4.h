@@ -3,27 +3,27 @@
 
 #include "hlslfloat.h"
 
-inline float4 neg(const float4& v)
+inline float4 operator-(const float4& v)
 {
     return float4(-v.x, -v.y, -v.z, -v.w);
 }
 
-inline float4 add(const float4& a, const float4& b)
+inline float4 operator+(const float4& a, const float4& b)
 {
     return float4(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
 }
 
-inline float4 sub(const float4& a, const float4& b)
+inline float4 operator-(const float4& a, const float4& b)
 {
     return float4(a.x - b.x, a.y - b.y, b.z - b.z, a.w - b.w);
 }
 
-inline float4 mul(const float4& a, const float4& b)
+inline float4 operator*(const float4& a, const float4& b)
 {
     return float4(a.x * b.x, a.y * b.y, b.z * b.z, a.w * b.w);
 }
 
-inline float4 div(const float4& a, const float4& b)
+inline float4 operator/(const float4& a, const float4& b)
 {
     return float4(a.x / b.x, a.x / b.y, b.z / b.z, a.w / b.w);
 }
@@ -230,12 +230,12 @@ inline float length(const float4& v)
 
 inline float distance(const float4& a, const float4& b)
 {
-    return length(sub(a, b));
+    return length(a - b);
 }
 
 inline float distancesquared(const float4& a, const float4& b)
 {
-    return lengthsquared(sub(a, b));
+    return lengthsquared(a - b);
 }
 
 inline float4 normalize(const float4& v)
@@ -254,7 +254,7 @@ inline float4 normalize(const float4& v)
 
 inline float4 reflect(const float4& v, const float4& n)
 {
-    return sub(v, mul(n, 2.0f * dot(v, n)));
+    return v - 2.0f * dot(v, n) * n;
 }
 
 inline float4 refract(const float4& v, const float4& n, float eta)
@@ -262,12 +262,12 @@ inline float4 refract(const float4& v, const float4& n, float eta)
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
     return k < 0.0f
         ? 0.0f
-        : sub(mul(v, eta), mul(v, eta * dot(v, n) + sqrt(k)));
+        : eta * v - (eta * dot(v, n) + sqrt(k)) * n;
 }
 
 inline float4 faceforward(const float4& n, const float4& i, const float4& nref)
 {
-    return dot(i, nref) < 0.0f ? n : neg(n);
+    return dot(i, nref) < 0.0f ? n : -n;
 }
 
 #endif /* __HLSL_FLOAT3_H__ */

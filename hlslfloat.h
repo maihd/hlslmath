@@ -3,31 +3,6 @@
 
 #include "hlslcommon.h"
 
-inline float neg(float x)
-{
-    return -x;
-}
-
-inline float add(float a, float b)
-{
-    return a + b;
-}
-
-inline float sub(float a, float b)
-{
-    return a - b;
-}
-
-inline float mul(float a, float b)
-{
-    return a * b;
-}
-
-inline float div(float a, float b)
-{
-    return a / b;
-}
-
 inline float cos(float x)
 {
     return cosf(x);
