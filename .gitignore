@@ -5,3 +5,7 @@
 /msvc2017_test/.vs
 /msvc2017_test/Debug
 /msvc2017_test/Release
+
+/msvc2017_test/x64/.vs
+/msvc2017_test/x64/Debug
+/msvc2017_test/x64/Release
