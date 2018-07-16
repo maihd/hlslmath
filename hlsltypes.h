@@ -5,6 +5,242 @@
 #error "HLSL math require C++"
 #endif
 
+typedef unsigned int uint;
+
+union int2
+{
+    struct
+    {
+        int x, y;
+    };
+
+    inline int2(int x, int y)
+        : x(x)
+        , y(y) {}
+
+    inline int2(int s = 0)
+        : int2(s, s) {}
+
+    inline int& operator[](int index)
+    {
+        return ((int*)this)[index];
+    }
+
+    inline int  operator[](int index) const
+    {
+        return ((int*)this)[index];
+    }
+};
+
+union int3
+{
+    struct
+    {
+        int x, y, z;
+    };
+
+    inline int3(int x, int y, int z)
+        : x(x)
+        , y(y) 
+        , z(z) {}
+
+    inline int3(int s = 0)
+        : int3(s, s, s) {}
+
+    inline int& operator[](int index)
+    {
+        return ((int*)this)[index];
+    }
+
+    inline int  operator[](int index) const
+    {
+        return ((int*)this)[index];
+    }
+};
+
+union int4
+{
+    struct
+    {
+        int x, y, z, w;
+    };
+
+    inline int4(int x, int y, int z, int w)
+        : x(x)
+        , y(y) 
+        , z(z)
+        , w(w) {}
+
+    inline int4(int s = 0)
+        : int4(s, s, s, s) {}
+
+    inline int& operator[](int index)
+    {
+        return ((int*)this)[index];
+    }
+
+    inline int  operator[](int index) const
+    {
+        return ((int*)this)[index];
+    }
+};
+
+union uint2
+{
+    struct
+    {
+        uint x, y;
+    };
+
+    inline uint2(uint x, uint y)
+        : x(x)
+        , y(y) {}
+
+    inline uint2(uint s = 0)
+        : uint2(s, s) {}
+
+    inline uint& operator[](uint index)
+    {
+        return ((uint*)this)[index];
+    }
+
+    inline uint  operator[](uint index) const
+    {
+        return ((uint*)this)[index];
+    }
+};
+
+union uint3
+{
+    struct
+    {
+        uint x, y, z;
+    };
+
+    inline uint3(uint x, uint y, uint z)
+        : x(x)
+        , y(y) 
+        , z(z) {}
+
+    inline uint3(uint s = 0)
+        : uint3(s, s, s) {}
+
+    inline uint& operator[](int index)
+    {
+        return ((uint*)this)[index];
+    }
+
+    inline uint  operator[](int index) const
+    {
+        return ((uint*)this)[index];
+    }
+};
+
+union uint4
+{
+    struct
+    {
+        int x, y, z, w;
+    };
+
+    inline uint4(int x, int y, int z, int w)
+        : x(x)
+        , y(y) 
+        , z(z)
+        , w(w) {}
+
+    inline uint4(int s = 0)
+        : uint4(s, s, s, s) {}
+
+    inline uint& operator[](int index)
+    {
+        return ((uint*)this)[index];
+    }
+
+    inline int  operator[](int index) const
+    {
+        return ((uint*)this)[index];
+    }
+};
+
+union bool2
+{
+    struct
+    {
+        bool x, y;
+    };
+
+    inline bool2(bool x, bool y)
+        : x(x)
+        , y(y) {}
+
+    inline bool2(bool s = 0)
+        : bool2(s, s) {}
+
+    inline bool& operator[](int index)
+    {
+        return ((bool*)this)[index];
+    }
+
+    inline int  operator[](int index) const
+    {
+        return ((bool*)this)[index];
+    }
+};
+
+union bool3
+{
+    struct
+    {
+        bool x, y, z;
+    };
+
+    inline bool3(bool x, bool y, bool z)
+        : x(x)
+        , y(y) 
+        , z(z) {}
+
+    inline bool3(int s = 0)
+        : bool3(s, s, s) {}
+
+    inline bool& operator[](int index)
+    {
+        return ((bool*)this)[index];
+    }
+
+    inline bool  operator[](int index) const
+    {
+        return ((bool*)this)[index];
+    }
+};
+
+union bool4
+{
+    struct
+    {
+        bool x, y, z, w;
+    };
+
+    inline bool4(int x, int y, int z, int w)
+        : x(x)
+        , y(y) 
+        , z(z)
+        , w(w) {}
+
+    inline bool4(int s = 0)
+        : bool4(s, s, s, s) {}
+
+    inline bool& operator[](int index)
+    {
+        return ((bool*)this)[index];
+    }
+
+    inline bool  operator[](int index) const
+    {
+        return ((bool*)this)[index];
+    }
+};
+
 union float2
 {
     struct
