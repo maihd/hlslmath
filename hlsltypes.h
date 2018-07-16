@@ -319,6 +319,64 @@ union float4
     }
 };
 
+union bool2x2
+{
+    struct
+    {
+        bool2 data[2];
+    };
+
+    inline bool2& operator[](int index)
+    {
+        return data[index];
+    }
+
+    inline const bool2& operator[](int index) const
+    {
+        return data[index];
+    }
+};
+
+union bool3x3
+{
+    struct
+    {
+        bool3 data[3];
+    };
+
+    inline bool3& operator[](int index)
+    {
+        return data[index];
+    }
+
+    inline const bool3& operator[](int index) const
+    {
+        return data[index];
+    }
+};
+
+union bool4x4
+{
+    struct
+    {
+        bool4 data[4];
+    };
+    
+    inline explicit bool4x4(bool s = false)
+    {
+    }
+
+    inline bool4& operator[](int index)
+    {
+        return data[index];
+    }
+
+    inline const bool4& operator[](int index) const
+    {
+        return data[index];
+    }
+};
+
 union float2x2
 {
     struct

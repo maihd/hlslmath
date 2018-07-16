@@ -9,5 +9,6 @@
 #include "hlslfloat2.h"
 #include "hlslfloat3.h"
 #include "hlslfloat4.h"
+#include "hlslfloat4x4.h"
 
 #endif /* __HLSL_H__ */
