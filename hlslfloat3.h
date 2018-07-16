@@ -15,17 +15,47 @@ inline float3 operator+(const float3& a, const float3& b)
 
 inline float3 operator-(const float3& a, const float3& b)
 {
-    return float3(a.x - b.x, a.y - b.y, b.z - b.z);
+    return float3(a.x - b.x, a.y - b.y, a.z - b.z);
 }
 
 inline float3 operator*(const float3& a, const float3& b)
 {
-    return float3(a.x * b.x, a.y * b.y, b.z * b.z);
+    return float3(a.x * b.x, a.y * b.y, a.z * b.z);
 }
 
 inline float3 operator/(const float3& a, const float3& b)
 {
-    return float3(a.x / b.x, a.x / b.y, b.z / b.z);
+    return float3(a.x / b.x, a.y / b.y, a.z / b.z);
+}
+
+inline bool3 operator==(const float3& a, const float3& b)
+{
+    return bool3(a.x == b.x, a.y == b.y, a.z == b.z);
+}
+
+inline bool3 operator!=(const float3& a, const float3& b)
+{
+    return bool3(a.x != b.x, a.y != b.y, a.z != b.z);
+}
+
+inline bool3 operator<(const float3& a, const float3& b)
+{
+    return bool3(a.x < b.x, a.y < b.y, a.z < b.z);
+}
+
+inline bool3 operator>(const float3& a, const float3& b)
+{
+    return bool3(a.x > b.x, a.y > b.y, a.z > b.z);
+}
+
+inline bool3 operator<=(const float3& a, const float3& b)
+{
+    return bool3(a.x <= b.x, a.y <= b.y, a.z <= b.z);
+}
+
+inline bool3 operator>=(const float3& a, const float3& b)
+{
+    return bool3(a.x >= b.x, a.y >= b.y, a.z >= b.z);
 }
 
 inline float3 cos(const float3& v)

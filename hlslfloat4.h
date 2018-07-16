@@ -15,17 +15,47 @@ inline float4 operator+(const float4& a, const float4& b)
 
 inline float4 operator-(const float4& a, const float4& b)
 {
-    return float4(a.x - b.x, a.y - b.y, b.z - b.z, a.w - b.w);
+    return float4(a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
 }
 
 inline float4 operator*(const float4& a, const float4& b)
 {
-    return float4(a.x * b.x, a.y * b.y, b.z * b.z, a.w * b.w);
+    return float4(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
 }
 
 inline float4 operator/(const float4& a, const float4& b)
 {
-    return float4(a.x / b.x, a.x / b.y, b.z / b.z, a.w / b.w);
+    return float4(a.x / b.x, a.y / b.y, a.z / b.z, a.w / b.w);
+}
+
+inline bool4 operator==(const float4& a, const float4& b)
+{
+    return bool4(a.x == b.x, a.y == b.y, a.z == b.z, a.w == b.w);
+}
+
+inline bool4 operator!=(const float4& a, const float4& b)
+{
+    return bool4(a.x != b.x, a.y != b.y, a.z != b.z, a.w != b.w);
+}
+
+inline bool4 operator<(const float4& a, const float4& b)
+{
+    return bool4(a.x < b.x, a.y < b.y, a.z < b.z, a.w < b.w);
+}
+
+inline bool4 operator>(const float4& a, const float4& b)
+{
+    return bool4(a.x > b.x, a.y > b.y, a.z > b.z, a.w > b.w);
+}
+
+inline bool4 operator<=(const float4& a, const float4& b)
+{
+    return bool4(a.x <= b.x, a.y <= b.y, a.z <= b.z, a.w <= b.w);
+}
+
+inline bool4 operator>=(const float4& a, const float4& b)
+{
+    return bool4(a.x >= b.x, a.y >= b.y, a.z >= b.z, a.w >= b.w);
 }
 
 inline float4 cos(const float4& v)

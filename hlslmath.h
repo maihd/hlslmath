@@ -7,5 +7,7 @@
 
 #include "hlslfloat.h"
 #include "hlslfloat2.h"
+#include "hlslfloat3.h"
+#include "hlslfloat4.h"
 
 #endif /* __HLSL_H__ */
