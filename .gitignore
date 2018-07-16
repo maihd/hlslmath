@@ -1,3 +1,7 @@
 .vs
 .vscode
 .DS_Store
+
+/msvc2017_test/.vs
+/msvc2017_test/Debug
+/msvc2017_test/Release
