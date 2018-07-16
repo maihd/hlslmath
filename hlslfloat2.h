@@ -1,7 +1,7 @@
 #ifndef __HLSL_FLOAT2_H__
 #define __HLSL_FLOAT2_H__
 
-#include "hlslcommon.h"
+#include "hlslfloat.h"
 
 inline float2 neg(const float2& v)
 {
