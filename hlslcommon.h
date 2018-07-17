@@ -1,4 +1,4 @@
-#ifndef __HLSL_COMMON_H__
+﻿#ifndef __HLSL_COMMON_H__
 #define __HLSL_COMMON_H__
 
 #include "hlsltypes.h"
@@ -41,54 +41,6 @@ inline double radians(double x)
 {
     const double factor = PI<double>() / 180.0f;
     return x * factor;
-}
-
-inline int asint(float v)
-{
-    union
-    {
-        int   ival;
-        float fval;
-    };
-
-    fval = v;
-    return ival;
-}
-
-inline int asuint(float v)
-{
-    union
-    {
-        int   ival;
-        float fval;
-    };
-
-    fval = v;
-    return ival;
-}
-
-inline float asfloat(int v)
-{
-    union
-    {
-        int   ival;
-        float fval;
-    };
-
-    ival = v;
-    return fval;
-}
-
-inline double asdouble(int v)
-{
-    union
-    {
-        int    ival;
-        double dval;
-    };
-
-    ival = v;
-    return dval;
 }
 
 #endif /* __HLSL_COMMON_H__ */
