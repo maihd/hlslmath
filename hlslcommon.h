@@ -43,4 +43,52 @@ inline double radians(double x)
     return x * factor;
 }
 
+inline int asint(float v)
+{
+    union
+    {
+        int   ival;
+        float fval;
+    };
+
+    fval = v;
+    return ival;
+}
+
+inline int asuint(float v)
+{
+    union
+    {
+        int   ival;
+        float fval;
+    };
+
+    fval = v;
+    return ival;
+}
+
+inline float asfloat(int v)
+{
+    union
+    {
+        int   ival;
+        float fval;
+    };
+
+    ival = v;
+    return fval;
+}
+
+inline double asdouble(int v)
+{
+    union
+    {
+        int    ival;
+        double dval;
+    };
+
+    ival = v;
+    return dval;
+}
+
 #endif /* __HLSL_COMMON_H__ */
