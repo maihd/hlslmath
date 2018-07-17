@@ -34,7 +34,7 @@ inline float3x3& operator++(float3x3& m)
     return m;
 }
 
-inline float3x3 operator--(float3x3& m, int)
+inline const float3x3& operator--(float3x3& m, int)
 {
     m[0]--;
     m[1]--;
@@ -42,7 +42,7 @@ inline float3x3 operator--(float3x3& m, int)
     return m;
 }
 
-inline float3x3 operator++(float3x3& m, int)
+inline const float3x3& operator++(float3x3& m, int)
 {
     m[0]++;
     m[1]++;

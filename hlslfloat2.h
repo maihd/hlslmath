@@ -27,14 +27,14 @@ inline float2& operator++(float2& v)
     return v;
 }
 
-inline float2& operator--(float2& v, int)
+inline const float2& operator--(float2& v, int)
 {
     v.x--;
     v.y--;
     return v;
 }
 
-inline float2& operator++(float2& v, int)
+inline const float2& operator++(float2& v, int)
 {
     v.x++;
     v.y++;

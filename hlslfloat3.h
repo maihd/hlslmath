@@ -29,7 +29,7 @@ inline float3& operator++(float3& v)
     return v;
 }
 
-inline float3 operator--(float3& v, int)
+inline const float3& operator--(float3& v, int)
 {
     v.x--;
     v.y--;
@@ -37,7 +37,7 @@ inline float3 operator--(float3& v, int)
     return v;
 }
 
-inline float3 operator++(float3& v, int)
+inline const float3& operator++(float3& v, int)
 {
     v.x++;
     v.y++;

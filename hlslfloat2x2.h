@@ -31,14 +31,14 @@ inline float2x2& operator++(float2x2& m)
     return m;
 }
 
-inline float2x2 operator--(float2x2& m, int)
+inline const float2x2& operator--(float2x2& m, int)
 {
     m[0]--;
     m[1]--;
     return m;
 }
 
-inline float2x2 operator++(float2x2& m, int)
+inline const float2x2& operator++(float2x2& m, int)
 {
     m[0]++;
     m[1]++;

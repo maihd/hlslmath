@@ -37,7 +37,7 @@ inline float4x4& operator++(float4x4& m)
     return m;
 }
 
-inline float4x4 operator--(float4x4& m, int)
+inline const float4x4& operator--(float4x4& m, int)
 {
     m[0]--;
     m[1]--;
@@ -46,7 +46,7 @@ inline float4x4 operator--(float4x4& m, int)
     return m;
 }
 
-inline float4x4 operator++(float4x4& m, int)
+inline const float4x4& operator++(float4x4& m, int)
 {
     m[0]++;
     m[1]++;
