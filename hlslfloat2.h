@@ -15,12 +15,26 @@ inline const float2& operator+(const float2& v)
 
 inline float2& operator--(float2& v)
 {
+    --v.x;
+    --v.y;
+    return v;
+}
+
+inline float2& operator++(float2& v)
+{
+    ++v.x;
+    ++v.y;
+    return v;
+}
+
+inline float2& operator--(float2& v, int)
+{
     v.x--;
     v.y--;
     return v;
 }
 
-inline float2& operator++(float2& v)
+inline float2& operator++(float2& v, int)
 {
     v.x++;
     v.y++;

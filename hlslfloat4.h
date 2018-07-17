@@ -13,6 +13,42 @@ inline const float4& operator+(const float4& v)
     return v;
 }
 
+inline float4& operator--(float4& v)
+{
+    --v.x;
+    --v.y;
+    --v.z;
+    --v.w;
+    return v;
+}
+
+inline float4& operator++(float4& v)
+{
+    ++v.x;
+    ++v.y;
+    ++v.z;
+    ++v.w;
+    return v;
+}
+
+inline float4 operator--(float4& v, int)
+{
+    v.x--;
+    v.y--;
+    v.z--;
+    v.w--;
+    return v;
+}
+
+inline float4 operator++(float4& v, int)
+{
+    v.x++;
+    v.y++;
+    v.z++;
+    v.w++;
+    return v;
+}
+
 inline float4 operator+(const float4& a, const float4& b)
 {
     return float4(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);

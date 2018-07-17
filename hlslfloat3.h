@@ -8,6 +8,43 @@ inline float3 operator-(const float3& v)
     return float3(-v.x, -v.y, -v.z);
 }
 
+inline const float3& operator+(const float3& v)
+{
+    return v;
+}
+
+inline float3& operator--(float3& v)
+{
+    --v.x;
+    --v.y;
+    --v.z;
+    return v;
+}
+
+inline float3& operator++(float3& v)
+{
+    ++v.x;
+    ++v.y;
+    ++v.z;
+    return v;
+}
+
+inline float3 operator--(float3& v, int)
+{
+    v.x--;
+    v.y--;
+    v.z--;
+    return v;
+}
+
+inline float3 operator++(float3& v, int)
+{
+    v.x++;
+    v.y++;
+    v.z++;
+    return v;
+}
+
 inline float3 operator+(const float3& a, const float3& b)
 {
     return float3(a.x + b.x, a.y + b.y, a.z + b.z);

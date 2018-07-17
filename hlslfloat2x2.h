@@ -19,11 +19,29 @@ inline const float2x2& operator+(const float2x2& m)
 
 inline float2x2& operator--(float2x2& m)
 {
+    --m[0];
+    --m[1];
     return m;
 }
 
 inline float2x2& operator++(float2x2& m)
 {
+    ++m[0];
+    ++m[1];
+    return m;
+}
+
+inline float2x2 operator--(float2x2& m, int)
+{
+    m[0]--;
+    m[1]--;
+    return m;
+}
+
+inline float2x2 operator++(float2x2& m, int)
+{
+    m[0]++;
+    m[1]++;
     return m;
 }
 

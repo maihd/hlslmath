@@ -14,6 +14,47 @@ inline float4x4 operator-(const float4x4& m)
     return result;
 }
 
+inline const float4x4& operator+(const float4x4& m)
+{
+    return m;
+}
+
+inline float4x4& operator--(float4x4& m)
+{
+    --m[0];
+    --m[1];
+    --m[2];
+    --m[3];
+    return m;
+}
+
+inline float4x4& operator++(float4x4& m)
+{
+    ++m[0];
+    ++m[1];
+    ++m[2];
+    ++m[3];
+    return m;
+}
+
+inline float4x4 operator--(float4x4& m, int)
+{
+    m[0]--;
+    m[1]--;
+    m[2]--;
+    m[3]--;
+    return m;
+}
+
+inline float4x4 operator++(float4x4& m, int)
+{
+    m[0]++;
+    m[1]++;
+    m[2]++;
+    m[3]++;
+    return m;
+}
+
 inline float4x4 operator+(const float4x4& a, const float4x4& b)
 {
     float4x4 result;
