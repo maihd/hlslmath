@@ -8,6 +8,11 @@ inline float4 operator-(const float4& v)
     return float4(-v.x, -v.y, -v.z, -v.w);
 }
 
+inline const float4& operator+(const float4& v)
+{
+    return v;
+}
+
 inline float4 operator+(const float4& a, const float4& b)
 {
     return float4(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
@@ -26,6 +31,46 @@ inline float4 operator*(const float4& a, const float4& b)
 inline float4 operator/(const float4& a, const float4& b)
 {
     return float4(a.x / b.x, a.y / b.y, a.z / b.z, a.w / b.w);
+}
+
+inline float4 operator+(const float4& a, float b)
+{
+    return float4(a.x + b, a.y + b, a.z + b, a.w + b);
+}
+
+inline float4 operator-(const float4& a, float b)
+{
+    return float4(a.x - b, a.y - b, a.z - b, a.w - b);
+}
+
+inline float4 operator*(const float4& a, float b)
+{
+    return float4(a.x * b, a.y * b, a.z * b, a.w * b);
+}
+
+inline float4 operator/(const float4& a, float b)
+{
+    return float4(a.x / b, a.y / b, a.z / b, a.w / b);
+}
+
+inline float4 operator+(float a, const float4& b)
+{
+    return float4(a + b.x, a + b.y, a + b.z, a + b.w);
+}
+
+inline float4 operator-(float a, const float4& b)
+{
+    return float4(a - b.x, a - b.y, a - b.z, a - b.w);
+}
+
+inline float4 operator*(float a, const float4& b)
+{
+    return float4(a * b.x, a * b.y, a * b.z, a * b.w);
+}
+
+inline float4 operator/(float a, const float4& b)
+{
+    return float4(a / b.x, a / b.y, a / b.z, a / b.w);
 }
 
 inline bool4 operator==(const float4& a, const float4& b)
@@ -291,7 +336,7 @@ inline float4 refract(const float4& v, const float4& n, float eta)
 {
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
     return k < 0.0f
-        ? 0.0f
+        ? float4(0.0f)
         : eta * v - (eta * dot(v, n) + sqrt(k)) * n;
 }
 

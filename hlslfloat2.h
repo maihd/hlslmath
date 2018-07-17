@@ -8,6 +8,25 @@ inline float2 operator-(const float2& v)
     return float2(-v.x, -v.y);
 }
 
+inline const float2& operator+(const float2& v)
+{
+    return v;
+}
+
+inline float2& operator--(float2& v)
+{
+    v.x--;
+    v.y--;
+    return v;
+}
+
+inline float2& operator++(float2& v)
+{
+    v.x++;
+    v.y++;
+    return v;
+}
+
 inline float2 operator+(const float2& a, const float2& b)
 {
     return float2(a.x + b.x, a.y + b.y);
@@ -26,6 +45,46 @@ inline float2 operator*(const float2& a, const float2& b)
 inline float2 operator/(const float2& a, const float2& b)
 {
     return float2(a.x / b.x, a.y / b.y);
+}
+
+inline float2 operator+(const float2& a, float b)
+{
+    return float2(a.x + b, a.y + b);
+}
+
+inline float2 operator-(const float2& a, float b)
+{
+    return float2(a.x - b, a.y - b);
+}
+
+inline float2 operator*(const float2& a, float b)
+{
+    return float2(a.x * b, a.y * b);
+}
+
+inline float2 operator/(const float2& a, float b)
+{
+    return float2(a.x / b, a.y / b);
+}
+
+inline float2 operator+(float a, const float2& b)
+{
+    return float2(a + b.x, a + b.y);
+}
+
+inline float2 operator-(float a, const float2& b)
+{
+    return float2(a - b.x, a - b.y);
+}
+
+inline float2 operator*(float a, const float2& b)
+{
+    return float2(a * b.x, a * b.y);
+}
+
+inline float2 operator/(float a, const float2& b)
+{
+    return float2(a / b.x, a / b.y);
 }
 
 inline bool2 operator==(const float2& a, const float2& b)
@@ -260,7 +319,7 @@ inline float2 refract(const float2& v, const float2& n, float eta)
 {
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
     return k < 0.0f
-        ? 0.0f
+        ? float2(0.0f)
         : eta * v - (eta * dot(v, n) + sqrt(k)) * v;
 }
 

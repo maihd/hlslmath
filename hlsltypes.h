@@ -18,7 +18,7 @@ union int2
         : x(x)
         , y(y) {}
 
-    inline int2(int s = 0)
+    inline explicit int2(int s = 0)
         : int2(s, s) {}
 
     inline int& operator[](int index)
@@ -44,7 +44,7 @@ union int3
         , y(y) 
         , z(z) {}
 
-    inline int3(int s = 0)
+    inline explicit int3(int s = 0)
         : int3(s, s, s) {}
 
     inline int& operator[](int index)
@@ -71,7 +71,7 @@ union int4
         , z(z)
         , w(w) {}
 
-    inline int4(int s = 0)
+    inline explicit int4(int s = 0)
         : int4(s, s, s, s) {}
 
     inline int& operator[](int index)
@@ -96,7 +96,7 @@ union uint2
         : x(x)
         , y(y) {}
 
-    inline uint2(uint s = 0)
+    inline explicit uint2(uint s = 0)
         : uint2(s, s) {}
 
     inline uint& operator[](uint index)
@@ -122,7 +122,7 @@ union uint3
         , y(y) 
         , z(z) {}
 
-    inline uint3(uint s = 0)
+    inline explicit uint3(uint s = 0)
         : uint3(s, s, s) {}
 
     inline uint& operator[](int index)
@@ -149,7 +149,7 @@ union uint4
         , z(z)
         , w(w) {}
 
-    inline uint4(int s = 0)
+    inline explicit uint4(int s = 0)
         : uint4(s, s, s, s) {}
 
     inline uint& operator[](int index)
@@ -174,7 +174,7 @@ union bool2
         : x(x)
         , y(y) {}
 
-    inline bool2(bool s = 0)
+    inline explicit bool2(bool s = false)
         : bool2(s, s) {}
 
     inline bool& operator[](int index)
@@ -200,7 +200,7 @@ union bool3
         , y(y) 
         , z(z) {}
 
-    inline bool3(int s = 0)
+    inline explicit bool3(int s = false)
         : bool3(s, s, s) {}
 
     inline bool& operator[](int index)
@@ -227,7 +227,7 @@ union bool4
         , z(z)
         , w(w) {}
 
-    inline bool4(int s = 0)
+    inline explicit bool4(int s = false)
         : bool4(s, s, s, s) {}
 
     inline bool& operator[](int index)
@@ -252,7 +252,7 @@ union float2
         : x(x)
         , y(y) {}
 
-    inline float2(float s = 0.0f)
+    inline explicit float2(float s = 0.0f)
         : float2(s, s) {}
 
     inline float& operator[](int index)
@@ -278,7 +278,7 @@ union float3
         , y(y)
         , z(z) {}
 
-    inline float3(float s = 0.0f)
+    inline explicit float3(float s = 0.0f)
         : float3(s, s, s) {}
 
     inline float& operator[](int index)
@@ -305,7 +305,7 @@ union float4
         , z(z)
         , w(w) {}
 
-    inline float4(float s = 0.0f)
+    inline explicit float4(float s = 0.0f)
         : float4(s, s, s, s) {}
 
     inline float& operator[](int index)

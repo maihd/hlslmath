@@ -28,6 +28,46 @@ inline float3 operator/(const float3& a, const float3& b)
     return float3(a.x / b.x, a.y / b.y, a.z / b.z);
 }
 
+inline float3 operator+(const float3& a, float b)
+{
+    return float3(a.x + b, a.y + b, a.z + b);
+}
+
+inline float3 operator-(const float3& a, float b)
+{
+    return float3(a.x - b, a.y - b, a.z - b);
+}
+
+inline float3 operator*(const float3& a, float b)
+{
+    return float3(a.x * b, a.y * b, a.z * b);
+}
+
+inline float3 operator/(const float3& a, float b)
+{
+    return float3(a.x / b, a.y / b, a.z / b);
+}
+
+inline float3 operator+(float a, const float3& b)
+{
+    return float3(a + b.x, a + b.y, a + b.z);
+}
+
+inline float3 operator-(float a, const float3& b)
+{
+    return float3(a - b.x, a - b.y, a - b.z);
+}
+
+inline float3 operator*(float a, const float3& b)
+{
+    return float3(a * b.x, a * b.y, a * b.z);
+}
+
+inline float3 operator/(float a, const float3& b)
+{
+    return float3(a / b.x, a / b.y, a / b.z);
+}
+
 inline bool3 operator==(const float3& a, const float3& b)
 {
     return bool3(a.x == b.x, a.y == b.y, a.z == b.z);
@@ -286,7 +326,7 @@ inline float3 refract(const float3& v, const float3& n, float eta)
 {
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
     return k < 0.0f
-        ? 0.0f
+        ? float3(0.0f)
         : eta * v - (eta * dot(v, n) + sqrt(k)) * n;
 }
 

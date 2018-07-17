@@ -24,6 +24,26 @@ inline float4x4 operator+(const float4x4& a, const float4x4& b)
     return result;
 }
 
+inline float4x4 operator+(const float4x4& a, float b)
+{
+    float4x4 result;
+    result[0] = a[0] + b;
+    result[1] = a[1] + b;
+    result[2] = a[2] + b;
+    result[3] = a[3] + b;
+    return result;
+}
+
+inline float4x4 operator+(float a, const float4x4& b)
+{
+    float4x4 result;
+    result[0] = a + b[0];
+    result[1] = a + b[1];
+    result[2] = a + b[2];
+    result[3] = a + b[3];
+    return result;
+}
+
 inline float4x4 operator-(const float4x4& a, const float4x4& b)
 {
     float4x4 result;
@@ -31,6 +51,26 @@ inline float4x4 operator-(const float4x4& a, const float4x4& b)
     result[1] = a[1] - b[1];
     result[2] = a[2] - b[2];
     result[3] = a[3] - b[3];
+    return result;
+}
+
+inline float4x4 operator-(const float4x4& a, float b)
+{
+    float4x4 result;
+    result[0] = a[0] - b;
+    result[1] = a[1] - b;
+    result[2] = a[2] - b;
+    result[3] = a[3] - b;
+    return result;
+}
+
+inline float4x4 operator-(float a, const float4x4& b)
+{
+    float4x4 result;
+    result[0] = a - b[0];
+    result[1] = a - b[1];
+    result[2] = a - b[2];
+    result[3] = a - b[3];
     return result;
 }
 
