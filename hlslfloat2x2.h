@@ -178,8 +178,6 @@ inline bool2x2 operator<=(const float2x2& a, const float2x2& b)
     bool2x2 result;
     result[0] = a[0] <= b[0];
     result[1] = a[1] <= b[1];
-    result[2] = a[2] <= b[2];
-    result[3] = a[3] <= b[3];
     return result;
 }
 
