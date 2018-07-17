@@ -268,7 +268,7 @@ inline float4x4 inverse(const float4x4& m)
     return result;
 }
 
-inline float4x4 ortho(float l, float r, float b, float t, float n, float f)
+inline float4x4 float4x4::ortho(float l, float r, float b, float t, float n, float f)
 {
     const float x = 1.0f / (r - l);
     const float y = 1.0f / (t - b);
@@ -282,7 +282,7 @@ inline float4x4 ortho(float l, float r, float b, float t, float n, float f)
     return result;
 }
 
-inline float4x4 frustum(float l, float r, float b, float t, float n, float f)
+inline float4x4 float4x4::frustum(float l, float r, float b, float t, float n, float f)
 {
     const float x = 1.0f / (r - l);
     const float y = 1.0f / (t - b);
@@ -296,7 +296,7 @@ inline float4x4 frustum(float l, float r, float b, float t, float n, float f)
     return result;
 }
 
-inline float4x4 perspective(float fov, float aspect, float znear, float zfar)
+inline float4x4 float4x4::perspective(float fov, float aspect, float znear, float zfar)
 {
     const float a = 1.0f / tan(fov * 0.5f);
     const float b = zfar / (znear - zfar);
@@ -309,7 +309,7 @@ inline float4x4 perspective(float fov, float aspect, float znear, float zfar)
     return result;
 }
 
-inline float4x4 lookat(const float3& eye, const float3& target, const float3& up)
+inline float4x4 float4x4::lookat(const float3& eye, const float3& target, const float3& up)
 {
     const float3 z = normalize(eye - target);
     const float3 x = normalize(cross(up, z));

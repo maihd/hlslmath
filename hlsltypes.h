@@ -325,6 +325,14 @@ union bool2x2
     {
         bool2 data[2];
     };
+    
+    inline bool2x2(bool m00, bool m01, bool m10, bool m11)
+        : data{ bool2(m00, m01), 
+                bool2(m10, m11) } {}
+
+    inline explicit bool2x2(bool s = false)
+        : bool2x2(s, s,
+                  s, s) {}
 
     inline bool2& operator[](int index)
     {
@@ -343,6 +351,18 @@ union bool3x3
     {
         bool3 data[3];
     };
+    
+    inline bool3x3(bool m00, bool m01, bool m02,
+                   bool m10, bool m11, bool m12,
+                   bool m20, bool m21, bool m22)
+        : data{ bool3(m00, m01, m02), 
+                bool3(m10, m11, m12),
+                bool3(m20, m21, m22) } {}
+
+    inline explicit bool3x3(bool s = false)
+        : bool3x3(s, s, s,
+                  s, s, s,
+                  s, s, s) {}
 
     inline bool3& operator[](int index)
     {
@@ -362,9 +382,20 @@ union bool4x4
         bool4 data[4];
     };
     
+    inline bool4x4(bool m00, bool m01, bool m02, bool m03,
+                   bool m10, bool m11, bool m12, bool m13,
+                   bool m20, bool m21, bool m22, bool m23,
+                   bool m30, bool m31, bool m32, bool m33)
+        : data{ bool4(m00, m01, m02, m03), 
+                bool4(m10, m11, m12, m13),
+                bool4(m20, m21, m22, m23),
+                bool4(m30, m31, m32, m33) } {}
+
     inline explicit bool4x4(bool s = false)
-    {
-    }
+        : bool4x4(s, s, s, s,
+                  s, s, s, s,
+                  s, s, s, s,
+                  s, s, s, s) {}
 
     inline bool4& operator[](int index)
     {
@@ -384,6 +415,15 @@ union float2x2
         float2 data[2];
     };
     
+    inline float2x2(float m00, float m01, 
+                    float m10, float m11)
+        : data{ float2(m00, m01), 
+                float2(m10, m11) } {}
+
+    inline explicit float2x2(float s = 0.0f)
+        : float2x2(s, s,
+                   s, s) {}
+    
     inline float2& operator[](int index)
     {
         return data[index];
@@ -402,6 +442,18 @@ union float3x3
         float3 data[3];
     };
     
+    inline float3x3(float m00, float m01, float m02,
+                    float m10, float m11, float m12,
+                    float m20, float m21, float m22)
+        : data{ float3(m00, m01, m02), 
+                float3(m10, m11, m12),
+                float3(m20, m21, m22) } {}
+
+    inline explicit float3x3(float s = 0.0f)
+        : float3x3(s, s, s,
+                   s, s, s,
+                   s, s, s) {}
+    
     inline float3& operator[](int index)
     {
         return data[index];
@@ -419,9 +471,21 @@ union float4x4
     {
         float4 data[4];
     };
+    
+    inline float4x4(float m00, float m01, float m02, float m03,
+                    float m10, float m11, float m12, float m13,
+                    float m20, float m21, float m22, float m23,
+                    float m30, float m31, float m32, float m33)
+        : data{ float4(m00, m01, m02, m03), 
+                float4(m10, m11, m12, m13),
+                float4(m20, m21, m22, m23),
+                float4(m30, m31, m32, m33) } {}
 
     inline explicit float4x4(float s = 0.0f)
-    {}
+        : float4x4(s, s, s, s,
+                   s, s, s, s,
+                   s, s, s, s,
+                   s, s, s, s) {}
     
     inline float4& operator[](int index)
     {
@@ -432,6 +496,12 @@ union float4x4
     {
         return data[index];
     }
+
+    static inline float4x4 lookat(const float3& eye, const float3& target, const float3& up);
+
+    static inline float4x4 ortho(float l, float r, float b, float t, float n, float f);
+    static inline float4x4 frustum(float l, float r, float b, float t, float n, float f);
+    static inline float4x4 perspective(float fov, float aspect, float znear, float zfar);
 };
 
 #endif /* __HLSL_TYPES_H__ */
