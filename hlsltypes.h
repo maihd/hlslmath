@@ -444,8 +444,8 @@ public: // Constructors
                    float2(m10, m11)) {}
 
     inline explicit float2x2(float s = 0.0f)
-        : float2x2(s, s,
-                   s, s) {}
+        : float2x2(s, 0,
+                   0, s) {}
 
 public: // Operators
     inline float2& operator[](int index)
@@ -489,9 +489,9 @@ public: // Constructors
                    float3(m20, m21, m22)) {}
 
     inline explicit float3x3(float s = 0.0f)
-        : float3x3(s, s, s,
-                   s, s, s,
-                   s, s, s) {}
+        : float3x3(s, 0, 0,
+                   0, s, 0,
+                   0, 0, s) {}
     
 public: // Operators
     inline float3& operator[](int index)
@@ -537,10 +537,10 @@ public: // Constructors
                    float4(m30, m31, m32, m33)) {}
 
     inline explicit float4x4(float s = 0.0f)
-        : float4x4(s, s, s, s,
-                   s, s, s, s,
-                   s, s, s, s,
-                   s, s, s, s) {}
+        : float4x4(s, 0, 0, 0,
+                   0, s, 0, 0,
+                   0, 0, s, 0,
+                   0, 0, 0, s) {}
     
 public: // Operators
     inline float4& operator[](int index)
@@ -564,6 +564,22 @@ public: // Operators
     }
 
 public: // Create functions
+    static inline float4x4 scale(float s);
+    static inline float4x4 scale(const float2& v);
+    static inline float4x4 scale(const float3& v);
+    static inline float4x4 scale(float x, float y, float z = 1.0f);
+
+    static inline float4x4 translate(const float2& v);
+    static inline float4x4 translate(const float3& v);
+    static inline float4x4 translate(float x, float y, float z = 0.0f);
+
+    static inline float4x4 rotate(const float3& axis, float angle);
+    static inline float4x4 rotate(float x, float y, float z, float angle);
+
+    static inline float4x4 rotatex(float angle);
+    static inline float4x4 rotatey(float angle);
+    static inline float4x4 rotatez(float angle);
+
     static inline float4x4 lookat(const float3& eye, const float3& target, const float3& up);
 
     static inline float4x4 ortho(float l, float r, float b, float t, float n, float f);

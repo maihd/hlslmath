@@ -237,22 +237,50 @@ inline bool4x4 operator>=(const float4x4& a, const float4x4& b)
 
 inline float4 mul(const float4x4& a, const float4& b)
 {
+    const float4 c0 = float4(a[0][0], a[1][0], a[2][0], a[3][0]);
+    const float4 c1 = float4(a[0][1], a[1][1], a[2][1], a[3][1]);
+    const float4 c2 = float4(a[0][2], a[1][2], a[2][2], a[3][2]);
+    const float4 c3 = float4(a[0][3], a[1][3], a[2][3], a[3][3]);
+
     return float4(
-        b.x * a[0][0] + b.y * a[0][1] + b.z * a[0][2] + b.w * a[0][3],
-        b.x * a[1][0] + b.y * a[1][1] + b.z * a[1][2] + b.w * a[1][3],
-        b.x * a[2][0] + b.y * a[2][1] + b.z * a[2][2] + b.w * a[2][3],
-        b.y * a[3][0] + b.y * a[3][1] + b.z * a[3][2] + b.w * a[3][3]
+        dot(c0, b),
+        dot(c1, b),
+        dot(c2, b),
+        dot(c3, b)
     );
 }
 
 inline float4 mul(const float4& a, const float4x4& b)
 {
+    const float4 c0 = float4(b[0][0], b[0][1], b[0][2], b[0][3]);
+    const float4 c1 = float4(b[1][0], b[1][1], b[1][2], b[1][3]);
+    const float4 c2 = float4(b[2][0], b[2][1], b[2][2], b[2][3]);
+    const float4 c3 = float4(b[3][0], b[3][1], b[3][2], b[3][3]);
+
     return float4(
-        a.x * b[0][0] + a.y * b[1][0] + a.z * b[2][0] + a.w * b[3][0],
-        a.x * b[0][1] + a.y * b[1][1] + a.z * b[2][1] + a.w * b[3][1],
-        a.x * b[0][2] + a.y * b[1][2] + a.z * b[2][2] + a.w * b[3][2],
-        a.y * b[0][3] + a.y * b[1][3] + a.z * b[2][3] + a.w * b[3][3]
+        dot(a, c0),
+        dot(a, c1),
+        dot(a, c2),
+        dot(a, c3)
     );
+}
+
+inline float3 mul(const float4x4& a, const float3& b)
+{
+    const float4 b0 = float4(b.x, b.y, b.z, 1.0f);
+    const float4 b1 = mul(a, b0);
+
+    const float iw = 1.0f / b1.w;
+    return float3(b1.x * iw, b1.y * iw, b1.z * iw);
+}
+
+inline float3 mul(const float3& a, const float4x4& b)
+{
+    const float4 a0 = float4(a.x, a.y, a.z, 1.0f);
+    const float4 a1 = mul(a0, b);
+
+    const float iw = 1.0f / a1.w;
+    return float3(a1.x * iw, a1.y * iw, a1.z * iw);
 }
 
 inline float4x4 mul(const float4x4& a, const float4x4& b)
@@ -402,6 +430,125 @@ inline float4x4 float4x4::lookat(const float3& eye, const float3& target, const 
     result[2] = float4(x.z, y.z, z.z, 0);
     result[3] = float4(-dot(x, eye), -dot(y, eye), -dot(z, eye), 1.0f);
     return result;
+}
+
+inline float4x4 float4x4::scale(float s)
+{
+    return float4x4::scale(s, s, s);
+}
+
+inline float4x4 float4x4::scale(const float2& v)
+{
+    return float4x4::scale(v.x, v.y);
+}
+
+inline float4x4 float4x4::scale(const float3& v)
+{
+    return float4x4::scale(v.x, v.y, v.z);
+}
+
+inline float4x4 float4x4::scale(float x, float y, float z)
+{
+    return float4x4(
+        x, 0, 0, 0,
+        0, y, 0, 0, 
+        0, 0, z, 0,
+        0, 0, 0, 1
+    );
+}
+
+inline float4x4 float4x4::translate(const float2& v)
+{
+    return float4x4::translate(v.x, v.y);
+}
+
+inline float4x4 float4x4::translate(const float3& v)
+{
+    return float4x4::translate(v.x, v.y, v.z);
+}
+
+inline float4x4 float4x4::translate(float x, float y, float z)
+{
+    return float4x4(
+        0, 0, 0, 0,
+        0, 0, 0, 0,
+        0, 0, 0, 0,
+        x, y, z, 1
+    );
+}
+
+inline float4x4 float4x4::rotate(const float3& axis, float angle)
+{
+    return float4x4::rotate(axis.x, axis.y, axis.z, angle);
+}
+
+inline float4x4 float4x4::rotate(float x, float y, float z, float angle)
+{
+    const float c = cosf(-angle);
+    const float s = sinf(-angle);
+    const float t = 1.0f - c;
+
+    float4x4 result;
+    /* Row 1 */
+    result[0] = float4(t * x * x + c,
+                       t * x * y - s * z,
+                       t * x * z + s * y,
+                       0.0f);
+
+    /* Row 2 */
+    result[1] = float4(t * x * y + s * z,
+                       t * y * y + c,
+                       t * y * z - s * x,
+                       0.0f);
+
+    /* Row 3 */
+    result[2] = float4(t * x * z - s * y,
+                       t * y * z + s * x,
+                       t * z * z + c,
+                       0.0f);
+
+    /* Row 4 */
+    result[3] = float4(0, 0, 0, 1.0f);
+    return result;
+}
+
+inline float4x4 float4x4::rotatex(float angle)
+{
+    const float s = sin(angle);
+    const float c = cos(angle);
+
+    return float4x4(
+        0, 0,  0, 0,
+        0, s,  c, 0,
+        0, c, -s, 0,
+        0, 0,  0, 1
+    );
+}
+
+inline float4x4 float4x4::rotatey(float angle)
+{
+    const float s = sin(angle);
+    const float c = cos(angle);
+
+    return float4x4(
+        s, 0,  c, 0,
+        0, 0,  0, 0,
+        c, 0, -s, 0,
+        0, 0,  0, 1
+    );
+}
+
+inline float4x4 float4x4::rotatez(float angle)
+{
+    const float s = sin(angle);
+    const float c = cos(angle);
+
+    return float4x4(
+        s,  c, 0, 0,
+        c, -s, 0, 0,
+        0,  0, 0, 0,
+        0,  0, 0, 1
+    );
 }
 
 #endif /* __HLSL_FLOAT3_H__ */
