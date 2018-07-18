@@ -33,7 +33,7 @@ inline float radians(float x)
 
 inline double degrees(double x)
 {
-    const double factor = 180.0f / PI<double>();
+    const double factor = 180.0 / PI<double>();
     return x * factor;
 }
 
