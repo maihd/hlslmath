@@ -466,6 +466,9 @@ public: // Operators
     {
         return (float*)this;
     }
+   
+public: // Extension functions
+    inline static float2x2 rotate(float angle);
 };
 
 union float3x3
