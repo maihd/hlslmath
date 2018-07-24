@@ -1,5 +1,4 @@
-#ifndef __HLSL_FLOAT3X3_H__
-#define __HLSL_FLOAT3X3_H__
+#pragma once
 
 #include "hlslfloat.h"
 #include "hlslfloat3.h"
@@ -211,5 +210,3 @@ inline bool3x3 operator>=(const float3x3& a, const float3x3& b)
     result[2] = a[2] >= b[2];
     return result;
 }
-
-#endif /* __HLSL_FLOAT3X3_H__ */

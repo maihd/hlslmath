@@ -1,5 +1,4 @@
-#ifndef __HLSL_FLOAT4X4_H__
-#define __HLSL_FLOAT4X4_H__
+#pragma once
 
 #include "hlslfloat.h"
 #include "hlslfloat4.h"
@@ -550,5 +549,3 @@ inline float4x4 float4x4::rotatez(float angle)
         0,  0, 0, 1
     );
 }
-
-#endif /* __HLSL_FLOAT3_H__ */

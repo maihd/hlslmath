@@ -1,5 +1,4 @@
-#ifndef __HLSL_FLOAT2_H__
-#define __HLSL_FLOAT2_H__
+#pragma once
 
 #include "hlslfloat.h"
 
@@ -341,5 +340,3 @@ inline float2 faceforward(const float2& n, const float2& i, const float2& nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
-
-#endif /* __HLSL_FLOAT2_H__ */

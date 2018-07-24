@@ -1,5 +1,4 @@
-#ifndef __HLSLMATH_H__
-#define __HLSLMATH_H__
+#pragma once
 
 #ifndef __cplusplus
 #error "HLSL math require C++"
@@ -12,5 +11,3 @@
 #include "hlslfloat2x2.h"
 #include "hlslfloat3x3.h"
 #include "hlslfloat4x4.h"
-
-#endif /* __HLSL_H__ */

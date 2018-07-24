@@ -1,5 +1,4 @@
-﻿#ifndef __HLSL_COMMON_H__
-#define __HLSL_COMMON_H__
+﻿#pragma once
 
 #include "hlsltypes.h"
 
@@ -42,5 +41,3 @@ inline double radians(double x)
     const double factor = PI<double>() / 180.0f;
     return x * factor;
 }
-
-#endif /* __HLSL_COMMON_H__ */

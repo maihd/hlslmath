@@ -1,5 +1,4 @@
-#ifndef __HLSL_TYPES_H__
-#define __HLSL_TYPES_H__
+#pragma once
 
 #ifndef __cplusplus
 #error "HLSL math require C++"
@@ -586,5 +585,3 @@ public: // Create functions
     static inline float4x4 frustum(float l, float r, float b, float t, float n, float f);
     static inline float4x4 perspective(float fov, float aspect, float znear, float zfar);
 };
-
-#endif /* __HLSL_TYPES_H__ */

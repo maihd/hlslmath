@@ -1,5 +1,4 @@
-#ifndef __HLSL_FLOAT2X2_H__
-#define __HLSL_FLOAT2X2_H__
+#pragma once
 
 #include "hlslfloat.h"
 #include "hlslfloat2.h"
@@ -188,5 +187,3 @@ inline bool2x2 operator>=(const float2x2& a, const float2x2& b)
     result[1] = a[1] >= b[1];
     return result;
 }
-
-#endif /* __HLSL_FLOAT2X2_H__ */

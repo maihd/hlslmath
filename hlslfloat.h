@@ -1,5 +1,4 @@
-#ifndef __HLSL_FLOAT_H__
-#define __HLSL_FLOAT_H__
+#pragma once
 
 #include "hlslcommon.h"
 
@@ -164,6 +163,3 @@ inline int smoothstep(int a, int b, float t)
     t = clamp((t - a) / (b - a), 0.0f, 1.0f);
     return (int)(t * t * (3 - 2 * t));
 }
-
-
-#endif /* __HLSL_FLOAT_H__ */
