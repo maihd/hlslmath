@@ -250,3 +250,33 @@ inline float3x3 mul(const float3x3& a, const float3x3& b)
         mul(a, b[2])
     );
 }
+
+inline float3x3 inverse(const float3x3& m)
+{
+    const float det = 
+          m[0][0] * m[1][1] * m[2][2] - m[0][0] * m[1][2] * m[2][1]
+        + m[0][1] * m[1][0] * m[2][2] - m[0][1] * m[1][2] * m[2][0]
+        + m[0][2] * m[1][0] * m[2][1] - m[0][2] * m[1][1] * m[2][0];
+    if (det == 0.0f)
+    {
+        return m;
+    }
+    else
+    {
+        const float idet = 1.0f / det;
+
+        return float3x3(
+            idet * (m[1][1] * m[2][2] - m[1][2] * m[2][1]),
+            idet * (m[0][2] * m[2][1] - m[0][1] * m[2][2]),
+            idet * (m[0][1] * m[1][2] - m[0][2] * m[1][1]),
+
+            idet * (m[1][2] * m[2][0] - m[1][0] * m[2][2]),
+            idet * (m[0][0] * m[2][2] - m[0][2] * m[2][0]),
+            idet * (m[0][2] * m[1][0] - m[0][0] * m[1][2]),
+
+            idet * (m[1][0] * m[2][1] - m[1][1] * m[2][0]),
+            idet * (m[0][1] * m[2][0] - m[0][0] * m[2][1]),
+            idet * (m[0][0] * m[1][1] - m[0][1] * m[1][0])
+        );
+    }
+}
