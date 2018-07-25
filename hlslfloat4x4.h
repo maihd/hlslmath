@@ -251,16 +251,11 @@ inline float4 mul(const float4x4& a, const float4& b)
 
 inline float4 mul(const float4& a, const float4x4& b)
 {
-    const float4 c0 = float4(b[0][0], b[0][1], b[0][2], b[0][3]);
-    const float4 c1 = float4(b[1][0], b[1][1], b[1][2], b[1][3]);
-    const float4 c2 = float4(b[2][0], b[2][1], b[2][2], b[2][3]);
-    const float4 c3 = float4(b[3][0], b[3][1], b[3][2], b[3][3]);
-
     return float4(
-        dot(a, c0),
-        dot(a, c1),
-        dot(a, c2),
-        dot(a, c3)
+        dot(a, b[0]),
+        dot(a, b[1]),
+        dot(a, b[2]),
+        dot(a, b[3])
     );
 }
 
