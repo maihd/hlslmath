@@ -1,6 +1,6 @@
 #pragma once
 
-#include "hlslfloat.h"
+#include "./hlslfloat.h"
 
 inline float2 operator-(const float2& v)
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "hlslcommon.h"
+#include "./hlslcommon.h"
 
 inline float cos(float x)
 {
