@@ -210,3 +210,43 @@ inline bool3x3 operator>=(const float3x3& a, const float3x3& b)
     result[2] = a[2] >= b[2];
     return result;
 }
+
+inline float3x3 transpose(const float3x3& m)
+{
+    return float3x3(
+        m[0][0], m[1][0], m[2][0],
+        m[0][1], m[1][1], m[2][1],
+        m[0][2], m[1][2], m[2][2]
+    );
+}
+
+inline float3 mul(const float3x3& a, const float3& b)
+{
+    const float3 a0 = float3(a[0][0], a[1][0], a[2][0]);
+    const float3 a1 = float3(a[0][1], a[1][1], a[2][1]);
+    const float3 a2 = float3(a[0][2], a[1][2], a[2][2]);
+
+    return float3(
+        dot(a0, b),
+        dot(a1, b),
+        dot(a2, b)
+    );
+}
+
+inline float3 mul(const float3& a, const float3x3& b)
+{
+    return float3(
+        dot(a, b[0]),
+        dot(a, b[1]),
+        dot(a, b[2])
+    );
+}
+
+inline float3x3 mul(const float3x3& a, const float3x3& b)
+{
+    return float3x3(
+        mul(a, b[0]),
+        mul(a, b[1]),
+        mul(a, b[2])
+    );
+}
