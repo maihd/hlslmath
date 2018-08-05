@@ -2,12 +2,12 @@
 
 #include "./hlslfloat.h"
 
-inline float2 operator-(const float2& v)
+inline float2 operator-(float2 v)
 {
     return float2(-v.x, -v.y);
 }
 
-inline const float2& operator+(const float2& v)
+inline const float2& operator+(float2 v)
 {
     return v;
 }
@@ -40,142 +40,142 @@ inline const float2& operator++(float2& v, int)
     return v;
 }
 
-inline float2 operator+(const float2& a, const float2& b)
+inline float2 operator+(float2 a, float2 b)
 {
     return float2(a.x + b.x, a.y + b.y);
 }
 
-inline float2 operator-(const float2& a, const float2& b)
+inline float2 operator-(float2 a, float2 b)
 {
     return float2(a.x - b.x, a.y - b.y);
 }
 
-inline float2 operator*(const float2& a, const float2& b)
+inline float2 operator*(float2 a, float2 b)
 {
     return float2(a.x * b.x, a.y * b.y);
 }
 
-inline float2 operator/(const float2& a, const float2& b)
+inline float2 operator/(float2 a, float2 b)
 {
     return float2(a.x / b.x, a.y / b.y);
 }
 
-inline float2 operator+(const float2& a, float b)
+inline float2 operator+(float2 a, float b)
 {
     return float2(a.x + b, a.y + b);
 }
 
-inline float2 operator-(const float2& a, float b)
+inline float2 operator-(float2 a, float b)
 {
     return float2(a.x - b, a.y - b);
 }
 
-inline float2 operator*(const float2& a, float b)
+inline float2 operator*(float2 a, float b)
 {
     return float2(a.x * b, a.y * b);
 }
 
-inline float2 operator/(const float2& a, float b)
+inline float2 operator/(float2 a, float b)
 {
     return float2(a.x / b, a.y / b);
 }
 
-inline float2 operator+(float a, const float2& b)
+inline float2 operator+(float a, float2 b)
 {
     return float2(a + b.x, a + b.y);
 }
 
-inline float2 operator-(float a, const float2& b)
+inline float2 operator-(float a, float2 b)
 {
     return float2(a - b.x, a - b.y);
 }
 
-inline float2 operator*(float a, const float2& b)
+inline float2 operator*(float a, float2 b)
 {
     return float2(a * b.x, a * b.y);
 }
 
-inline float2 operator/(float a, const float2& b)
+inline float2 operator/(float a, float2 b)
 {
     return float2(a / b.x, a / b.y);
 }
 
-inline bool2 operator==(const float2& a, const float2& b)
+inline bool2 operator==(float2 a, float2 b)
 {
     return bool2(a.x == b.x, a.y == b.y);
 }
 
-inline bool2 operator!=(const float2& a, const float2& b)
+inline bool2 operator!=(float2 a, float2 b)
 {
     return bool2(a.x != b.x, a.y != b.y);
 }
 
-inline bool2 operator<(const float2& a, const float2& b)
+inline bool2 operator<(float2 a, float2 b)
 {
     return bool2(a.x < b.x, a.y < b.y);
 }
 
-inline bool2 operator>(const float2& a, const float2& b)
+inline bool2 operator>(float2 a, float2 b)
 {
     return bool2(a.x > b.x, a.y > b.y);
 }
 
-inline bool2 operator<=(const float2& a, const float2& b)
+inline bool2 operator<=(float2 a, float2 b)
 {
     return bool2(a.x <= b.x, a.y <= b.y);
 }
 
-inline bool2 operator>=(const float2& a, const float2& b)
+inline bool2 operator>=(float2 a, float2 b)
 {
     return bool2(a.x >= b.x, a.y >= b.y);
 }
 
-inline float2 cos(const float2& v)
+inline float2 cos(float2 v)
 {
     return float2(cos(v.x), cos(v.y));
 }
 
-inline float2 sin(const float2& v)
+inline float2 sin(float2 v)
 {
     return float2(sin(v.x), sin(v.y));
 }
 
-inline float2 tan(const float2& v)
+inline float2 tan(float2 v)
 {
     return float2(tan(v.x), tan(v.y));
 }
 
-inline float2 acos(const float2& v)
+inline float2 acos(float2 v)
 {
     return float2(acos(v.x), acos(v.y));
 }
 
-inline float2 asin(const float2& v)
+inline float2 asin(float2 v)
 {
     return float2(asin(v.x), asin(v.y));
 }
 
-inline float2 atan(const float2& v)
+inline float2 atan(float2 v)
 {
     return float2(atan(v.x), atan(v.y));
 }
 
-inline float2 cosh(const float2& v)
+inline float2 cosh(float2 v)
 {
     return float2(cosh(v.x), cosh(v.y));
 }
 
-inline float2 sinh(const float2& v)
+inline float2 sinh(float2 v)
 {
     return float2(sinh(v.x), sinh(v.y));
 }
 
-inline float2 tanh(const float2& v)
+inline float2 tanh(float2 v)
 {
     return float2(tanh(v.x), tanh(v.y));
 }
 
-inline float2 exp(const float2& v)
+inline float2 exp(float2 v)
 {
     return float2(
         exp(v.x),
@@ -183,7 +183,7 @@ inline float2 exp(const float2& v)
     );
 }
 
-inline float2 exp2(const float2& v)
+inline float2 exp2(float2 v)
 {
     return float2(
         exp2(v.x),
@@ -191,7 +191,7 @@ inline float2 exp2(const float2& v)
     );
 }
 
-inline float2 log(const float2& v)
+inline float2 log(float2 v)
 {
     return float2(
         log(v.x),
@@ -199,7 +199,7 @@ inline float2 log(const float2& v)
     );
 }
 
-inline float2 log2(const float2& v)
+inline float2 log2(float2 v)
 {
     return float2(
         log2(v.x),
@@ -207,7 +207,7 @@ inline float2 log2(const float2& v)
     );
 }
 
-inline float2 log10(const float2& v)
+inline float2 log10(float2 v)
 {
     return float2(
         log10(v.x),
@@ -215,7 +215,7 @@ inline float2 log10(const float2& v)
     );
 }
 
-inline float2 pow(const float2& a, const float2& b)
+inline float2 pow(float2 a, float2 b)
 {
     return float2(
         pow(a.x, b.x),
@@ -223,7 +223,7 @@ inline float2 pow(const float2& a, const float2& b)
     );
 }
 
-inline float2 sqrt(const float2& v)
+inline float2 sqrt(float2 v)
 {
     return float2(
         sqrt(v.x),
@@ -231,7 +231,7 @@ inline float2 sqrt(const float2& v)
     );
 }
 
-inline float2 rsqrt(const float2& v)
+inline float2 rsqrt(float2 v)
 {
     return float2(
         rsqrt(v.x),
@@ -239,28 +239,28 @@ inline float2 rsqrt(const float2& v)
     );
 }
 
-inline float2 min(const float2& a, const float2& b)
+inline float2 min(float2 a, float2 b)
 {
     return float2(
         min(a.x, b.x),
         min(a.y, b.y));
 }
 
-inline float2 max(const float2& a, const float2& b)
+inline float2 max(float2 a, float2 b)
 {
     return float2(
         max(a.x, b.x), 
         max(a.y, b.y));
 }
 
-inline float2 clamp(const float2& v, const float2& min, const float2& max)
+inline float2 clamp(float2 v, float2 min, float2 max)
 {
     return float2(
         clamp(v.x, min.x, max.x), 
         clamp(v.y, min.y, max.y));
 }
 
-inline float2 step(const float2& a, const float2& b)
+inline float2 step(float2 a, float2 b)
 {
     return float2(
         step(a.x, b.x),
@@ -268,7 +268,7 @@ inline float2 step(const float2& a, const float2& b)
     );
 }
 
-inline float2 lerp(const float2& a, const float2& b, const float2& t)
+inline float2 lerp(float2 a, float2 b, float2 t)
 {
     return float2(
         lerp(a.x, b.x, t.x),
@@ -276,7 +276,7 @@ inline float2 lerp(const float2& a, const float2& b, const float2& t)
     );
 }
 
-inline float2 smoothstep(const float2& a, const float2& b, const float2& t)
+inline float2 smoothstep(float2 a, float2 b, float2 t)
 {
     return float2(
         smoothstep(a.x, b.x, t.x),
@@ -284,32 +284,32 @@ inline float2 smoothstep(const float2& a, const float2& b, const float2& t)
     );
 }
 
-inline float dot(const float2& a, const float2& b)
+inline float dot(float2 a, float2 b)
 {
     return a.x * b.x + a.y * b.y;
 }
 
-inline float lengthsquared(const float2& v)
+inline float lengthsquared(float2 v)
 {
     return dot(v, v);
 }
 
-inline float length(const float2& v)
+inline float length(float2 v)
 {
     return sqrtf(lengthsquared(v));
 }
 
-inline float distance(const float2& a, const float2& b)
+inline float distance(float2 a, float2 b)
 {
     return length(a - b);
 }
 
-inline float distancesquared(const float2& a, const float2& b)
+inline float distancesquared(float2 a, float2 b)
 {
     return lengthsquared(a - b);
 }
 
-inline float2 normalize(const float2& v)
+inline float2 normalize(float2 v)
 {
     const float lsqr = lengthsquared(v);
     if (lsqr > 0.0f)
@@ -323,12 +323,12 @@ inline float2 normalize(const float2& v)
     }
 }
 
-inline float2 reflect(const float2& v, const float2& n)
+inline float2 reflect(float2 v, float2 n)
 {
     return v - 2.0f * dot(v, n) * n;
 }
 
-inline float2 refract(const float2& v, const float2& n, float eta)
+inline float2 refract(float2 v, float2 n, float eta)
 {
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
     return k < 0.0f
@@ -336,7 +336,7 @@ inline float2 refract(const float2& v, const float2& n, float eta)
         : eta * v - (eta * dot(v, n) + sqrt(k)) * v;
 }
 
-inline float2 faceforward(const float2& n, const float2& i, const float2& nref)
+inline float2 faceforward(float2 n, float2 i, float2 nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
