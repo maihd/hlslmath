@@ -100,6 +100,46 @@ inline float2 operator/(float a, const float2& b)
     return float2(a / b.x, a / b.y);
 }
 
+inline float2& operator+=(float2& a, const float2& b)
+{
+    return (a = a + b);
+}
+
+inline float2& operator+=(float2& a, float b)
+{
+    return (a = a + b);
+}
+
+inline float2& operator-=(float2& a, const float2& b)
+{
+    return (a = a - b);
+}
+
+inline float2& operator-=(float2& a, float b)
+{
+    return (a = a - b);
+}
+
+inline float2& operator*=(float2& a, const float2& b)
+{
+    return (a = a * b);
+}
+
+inline float2& operator*=(float2& a, float b)
+{
+    return (a = a * b);
+}
+
+inline float2& operator/=(float2& a, const float2& b)
+{
+    return (a = a / b);
+}
+
+inline float2& operator/=(float2& a, float b)
+{
+    return (a = a + b);
+}
+
 inline bool2 operator==(const float2& a, const float2& b)
 {
     return bool2(a.x == b.x, a.y == b.y);

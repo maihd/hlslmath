@@ -108,6 +108,46 @@ inline float4 operator/(float a, const float4& b)
     return float4(a / b.x, a / b.y, a / b.z, a / b.w);
 }
 
+inline float4& operator+=(float4& a, const float4& b)
+{
+    return (a = a + b);
+}
+
+inline float4& operator+=(float4& a, float b)
+{
+    return (a = a + b);
+}
+
+inline float4& operator-=(float4& a, const float4& b)
+{
+    return (a = a - b);
+}
+
+inline float4& operator-=(float4& a, float b)
+{
+    return (a = a - b);
+}
+
+inline float4& operator*=(float4& a, const float4& b)
+{
+    return (a = a * b);
+}
+
+inline float4& operator*=(float4& a, float b)
+{
+    return (a = a * b);
+}
+
+inline float4& operator/=(float4& a, const float4& b)
+{
+    return (a = a / b);
+}
+
+inline float4& operator/=(float4& a, float b)
+{
+    return (a = a + b);
+}
+
 inline bool4 operator==(const float4& a, const float4& b)
 {
     return bool4(a.x == b.x, a.y == b.y, a.z == b.z, a.w == b.w);

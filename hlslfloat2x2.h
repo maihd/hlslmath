@@ -140,6 +140,46 @@ inline float2x2 operator/(float a, const float2x2& b)
     return result;
 }
 
+inline float2x2& operator+=(float2x2& a, const float2x2& b)
+{
+    return (a = a + b);
+}
+
+inline float2x2& operator+=(float2x2& a, float b)
+{
+    return (a = a + b);
+}
+
+inline float2x2& operator-=(float2x2& a, const float2x2& b)
+{
+    return (a = a - b);
+}
+
+inline float2x2& operator-=(float2x2& a, float b)
+{
+    return (a = a - b);
+}
+
+inline float2x2& operator*=(float2x2& a, const float2x2& b)
+{
+    return (a = a * b);
+}
+
+inline float2x2& operator*=(float2x2& a, float b)
+{
+    return (a = a * b);
+}
+
+inline float2x2& operator/=(float2x2& a, const float2x2& b)
+{
+    return (a = a / b);
+}
+
+inline float2x2& operator/=(float2x2& a, float b)
+{
+    return (a = a + b);
+}
+
 inline bool2x2 operator==(const float2x2& a, const float2x2& b)
 {
     bool2x2 result;

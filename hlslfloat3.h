@@ -104,6 +104,46 @@ inline float3 operator/(float a, const float3& b)
     return float3(a / b.x, a / b.y, a / b.z);
 }
 
+inline float3& operator+=(float3& a, const float3& b)
+{
+    return (a = a + b);
+}
+
+inline float3& operator+=(float3& a, float b)
+{
+    return (a = a + b);
+}
+
+inline float3& operator-=(float3& a, const float3& b)
+{
+    return (a = a - b);
+}
+
+inline float3& operator-=(float3& a, float b)
+{
+    return (a = a - b);
+}
+
+inline float3& operator*=(float3& a, const float3& b)
+{
+    return (a = a * b);
+}
+
+inline float3& operator*=(float3& a, float b)
+{
+    return (a = a * b);
+}
+
+inline float3& operator/=(float3& a, const float3& b)
+{
+    return (a = a / b);
+}
+
+inline float3& operator/=(float3& a, float b)
+{
+    return (a = a + b);
+}
+
 inline bool3 operator==(const float3& a, const float3& b)
 {
     return bool3(a.x == b.x, a.y == b.y, a.z == b.z);

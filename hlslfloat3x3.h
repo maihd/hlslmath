@@ -157,6 +157,46 @@ inline float3x3 operator/(float a, const float3x3& b)
     return result;
 }
 
+inline float3x3& operator+=(float3x3& a, const float3x3& b)
+{
+    return (a = a + b);
+}
+
+inline float3x3& operator+=(float3x3& a, float b)
+{
+    return (a = a + b);
+}
+
+inline float3x3& operator-=(float3x3& a, const float3x3& b)
+{
+    return (a = a - b);
+}
+
+inline float3x3& operator-=(float3x3& a, float b)
+{
+    return (a = a - b);
+}
+
+inline float3x3& operator*=(float3x3& a, const float3x3& b)
+{
+    return (a = a * b);
+}
+
+inline float3x3& operator*=(float3x3& a, float b)
+{
+    return (a = a * b);
+}
+
+inline float3x3& operator/=(float3x3& a, const float3x3& b)
+{
+    return (a = a / b);
+}
+
+inline float3x3& operator/=(float3x3& a, float b)
+{
+    return (a = a + b);
+}
+
 inline bool3x3 operator==(const float3x3& a, const float3x3& b)
 {
     bool3x3 result;

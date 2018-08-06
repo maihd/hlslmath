@@ -174,6 +174,46 @@ inline float4x4 operator/(float a, const float4x4& b)
     return result;
 }
 
+inline float4x4& operator+=(float4x4& a, const float4x4& b)
+{
+    return (a = a + b);
+}
+
+inline float4x4& operator+=(float4x4& a, float b)
+{
+    return (a = a + b);
+}
+
+inline float4x4& operator-=(float4x4& a, const float4x4& b)
+{
+    return (a = a - b);
+}
+
+inline float4x4& operator-=(float4x4& a, float b)
+{
+    return (a = a - b);
+}
+
+inline float4x4& operator*=(float4x4& a, const float4x4& b)
+{
+    return (a = a * b);
+}
+
+inline float4x4& operator*=(float4x4& a, float b)
+{
+    return (a = a * b);
+}
+
+inline float4x4& operator/=(float4x4& a, const float4x4& b)
+{
+    return (a = a / b);
+}
+
+inline float4x4& operator/=(float4x4& a, float b)
+{
+    return (a = a + b);
+}
+
 inline bool4x4 operator==(const float4x4& a, const float4x4& b)
 {
     bool4x4 result;
