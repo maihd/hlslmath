@@ -6,6 +6,10 @@
 
 typedef unsigned int uint;
 
+// 
+// @region: int types
+//
+
 union int2
 {
     struct
@@ -83,6 +87,10 @@ union int4
         return ((int*)this)[index];
     }
 };
+
+//
+// @region: uint types
+//
 
 union uint2
 {
@@ -162,6 +170,10 @@ union uint4
     }
 };
 
+//
+// @region: bool types
+//
+ 
 union bool2
 {
     struct
@@ -240,6 +252,135 @@ union bool4
     }
 };
 
+union bool2x2
+{
+public: // Fields
+    struct
+    {
+        bool2 data[2];
+    };
+
+public: // Constructors
+    inline bool2x2(const bool2& m0, const bool2& m1)
+        : data{ m0, m1 }
+    {
+    }
+
+    inline bool2x2(bool m00, bool m01, bool m10, bool m11)
+        : bool2x2(bool2(m00, m01),
+                  bool2(m10, m11))
+    {
+    }
+
+    inline explicit bool2x2(bool s = false)
+        : bool2x2(s, s,
+                  s, s)
+    {
+    }
+
+public: // Operators
+    inline bool2& operator[](int index)
+    {
+        return data[index];
+    }
+
+    inline const bool2& operator[](int index) const
+    {
+        return data[index];
+    }
+};
+
+union bool3x3
+{
+public: // Fields
+    struct
+    {
+        bool3 data[3];
+    };
+
+public: // Constructors
+    inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
+        : data{ m0, m1, m2 }
+    {
+    }
+
+    inline bool3x3(bool m00, bool m01, bool m02,
+                   bool m10, bool m11, bool m12,
+                   bool m20, bool m21, bool m22)
+        : bool3x3(bool3(m00, m01, m02),
+                  bool3(m10, m11, m12),
+                  bool3(m20, m21, m22))
+    {
+    }
+
+    inline explicit bool3x3(bool s = false)
+        : bool3x3(s, s, s,
+                  s, s, s,
+                  s, s, s)
+    {
+    }
+
+public: // Operators
+    inline bool3& operator[](int index)
+    {
+        return data[index];
+    }
+
+    inline const bool3& operator[](int index) const
+    {
+        return data[index];
+    }
+};
+
+union bool4x4
+{
+public: // Fields
+    struct
+    {
+        bool4 data[4];
+    };
+
+public: // Constructors
+    inline bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
+        : data{ m0, m1, m2, m3 }
+    {
+    }
+
+    inline bool4x4(bool m00, bool m01, bool m02, bool m03,
+                   bool m10, bool m11, bool m12, bool m13,
+                   bool m20, bool m21, bool m22, bool m23,
+                   bool m30, bool m31, bool m32, bool m33)
+        : bool4x4(bool4(m00, m01, m02, m03),
+                  bool4(m10, m11, m12, m13),
+                  bool4(m20, m21, m22, m23),
+                  bool4(m30, m31, m32, m33))
+    {
+    }
+
+    inline explicit bool4x4(bool s = false)
+        : bool4x4(s, s, s, s,
+                  s, s, s, s,
+                  s, s, s, s,
+                  s, s, s, s)
+    {
+    }
+
+public: // Constructors
+    inline bool4& operator[](int index)
+    {
+        return data[index];
+    }
+
+    inline const bool4& operator[](int index) const
+    {
+        return data[index];
+    }
+};
+
+//
+// @region: float types
+//
+
 union float2
 {
     struct
@@ -315,113 +456,6 @@ union float4
     inline float  operator[](int index) const
     {
         return ((float*)this)[index];
-    }
-};
-
-union bool2x2
-{
-public: // Fields
-    struct
-    {
-        bool2 data[2];
-    };
-    
-public: // Constructors
-    inline bool2x2(const bool2& m0, const bool2& m1)
-        : data{ m0, m1 } {}
-
-    inline bool2x2(bool m00, bool m01, bool m10, bool m11)
-        : bool2x2(bool2(m00, m01), 
-                  bool2(m10, m11)) {}
-
-    inline explicit bool2x2(bool s = false)
-        : bool2x2(s, s,
-                  s, s) {}
-
-public: // Operators
-    inline bool2& operator[](int index)
-    {
-        return data[index];
-    }
-
-    inline const bool2& operator[](int index) const
-    {
-        return data[index];
-    }
-};
-
-union bool3x3
-{
-public: // Fields
-    struct
-    {
-        bool3 data[3];
-    };
-    
-public: // Constructors
-    inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
-        : data{ m0, m1, m2 } {}
-    
-    inline bool3x3(bool m00, bool m01, bool m02,
-                   bool m10, bool m11, bool m12,
-                   bool m20, bool m21, bool m22)
-        : bool3x3(bool3(m00, m01, m02), 
-                  bool3(m10, m11, m12),
-                  bool3(m20, m21, m22)) {}
-
-    inline explicit bool3x3(bool s = false)
-        : bool3x3(s, s, s,
-                  s, s, s,
-                  s, s, s) {}
-
-public: // Operators
-    inline bool3& operator[](int index)
-    {
-        return data[index];
-    }
-
-    inline const bool3& operator[](int index) const
-    {
-        return data[index];
-    }
-};
-
-union bool4x4
-{
-public: // Fields
-    struct
-    {
-        bool4 data[4];
-    };
-    
-public: // Constructors
-    inline bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
-        : data{ m0, m1, m2, m3 } {}
-
-    inline bool4x4(bool m00, bool m01, bool m02, bool m03,
-                   bool m10, bool m11, bool m12, bool m13,
-                   bool m20, bool m21, bool m22, bool m23,
-                   bool m30, bool m31, bool m32, bool m33)
-        : bool4x4(bool4(m00, m01, m02, m03), 
-                  bool4(m10, m11, m12, m13),
-                  bool4(m20, m21, m22, m23),
-                  bool4(m30, m31, m32, m33)) {}
-
-    inline explicit bool4x4(bool s = false)
-        : bool4x4(s, s, s, s,
-                  s, s, s, s,
-                  s, s, s, s,
-                  s, s, s, s) {}
-
-public: // Constructors
-    inline bool4& operator[](int index)
-    {
-        return data[index];
-    }
-
-    inline const bool4& operator[](int index) const
-    {
-        return data[index];
     }
 };
 

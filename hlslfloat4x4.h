@@ -3,6 +3,10 @@
 #include "./hlslfloat.h"
 #include "./hlslfloat4.h"
 
+//
+// @region: Operators overloading
+//
+
 inline float4x4 operator-(const float4x4& m)
 {
     float4x4 result;
@@ -274,6 +278,10 @@ inline bool4x4 operator>=(const float4x4& a, const float4x4& b)
     return result;
 }
 
+//
+// @region: Common functions
+//
+
 inline float4 mul(const float4x4& a, const float4& b)
 {
     const float4 c0 = float4(a[0][0], a[1][0], a[2][0], a[3][0]);
@@ -410,6 +418,10 @@ inline float4x4 inverse(const float4x4& m)
 
     return result;
 }
+
+//
+// @region: Graphics functions
+//
 
 inline float4x4 float4x4::ortho(float l, float r, float b, float t, float n, float f)
 {

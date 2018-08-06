@@ -3,6 +3,10 @@
 #include "./hlslfloat.h"
 #include "./hlslfloat2.h"
 
+//
+// @region: Operators overloading
+//
+
 inline float2x2 operator-(const float2x2& m)
 {
     float2x2 result;
@@ -228,6 +232,10 @@ inline bool2x2 operator>=(const float2x2& a, const float2x2& b)
     return result;
 }
 
+//
+// @region: Common functions
+//
+
 inline float2x2 inverse(const float2x2& m)
 {
     const float det = m[0][0] * m[1][1] - m[0][1] * m[1][0];
@@ -277,6 +285,10 @@ inline float2x2 mul(const float2x2& a, const float2x2& b)
         mul(a, b[1])
     );
 }
+
+//
+// @region: Graphics functions
+//
 
 inline float2x2 float2x2::rotate(float angle)
 {

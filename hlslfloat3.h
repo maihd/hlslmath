@@ -2,6 +2,10 @@
 
 #include "./hlslfloat.h"
 
+//
+// @region: Operators overloading
+//
+
 inline float3 operator-(const float3& v)
 {
     return float3(-v.x, -v.y, -v.z);
@@ -174,6 +178,10 @@ inline bool3 operator>=(const float3& a, const float3& b)
     return bool3(a.x >= b.x, a.y >= b.y, a.z >= b.z);
 }
 
+//
+// @region: Common functions
+//
+
 inline float3 cos(const float3& v)
 {
     return float3(cos(v.x), cos(v.y), cos(v.z));
@@ -344,6 +352,10 @@ inline float3 smoothstep(const float3& a, const float3& b, const float3& t)
         smoothstep(a.z, b.z, t.z)  
     );
 }
+
+//
+// @region: Graphics functions
+//
 
 inline float3 cross(const float3& a, const float3& b)
 {

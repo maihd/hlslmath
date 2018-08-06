@@ -3,6 +3,10 @@
 #include "./hlslfloat.h"
 #include "./hlslfloat3.h"
 
+//
+// @region: Operators overloading
+//
+
 inline float3x3 operator-(const float3x3& m)
 {
     float3x3 result;
@@ -250,6 +254,10 @@ inline bool3x3 operator>=(const float3x3& a, const float3x3& b)
     result[2] = a[2] >= b[2];
     return result;
 }
+
+//
+// @region: Common functions
+//
 
 inline float3x3 transpose(const float3x3& m)
 {
