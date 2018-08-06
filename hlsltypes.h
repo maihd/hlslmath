@@ -436,7 +436,13 @@ union float4
 {
     struct
     {
-        float x, y, z, w;  
+        float x, y, z, w; 
+    };
+    
+    struct
+    {
+        float3 axis;
+        float  angle;
     };
 
     inline float4(float x, float y, float z, float w)

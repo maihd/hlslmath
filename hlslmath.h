@@ -4,6 +4,9 @@
 #error "HLSL math require C++"
 #endif
 
+#define HLSLMATH_LIBNAME "libhlslmath"
+#define HLSLMATH_VERSION "v0.0.1"
+
 #include "./hlslfloat.h"
 #include "./hlslfloat2.h"
 #include "./hlslfloat3.h"
