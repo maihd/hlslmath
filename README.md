@@ -3,6 +3,7 @@ Vector and matrix for based on hlsl language for C++ (only).
 
 ## Examples
 ```C++
+#include YOUR_C_MATH_LIB // <math.H>
 namespace your_namespace
 {
 #include PATH_TO_HLSLMATH_H
