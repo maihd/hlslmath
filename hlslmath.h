@@ -7,6 +7,8 @@
 #define HLSLMATH_LIBNAME "libhlslmath"
 #define HLSLMATH_VERSION "v0.0.1"
 
+#include "./hlslint.h"
+#include "./hlsluint.h"
 #include "./hlslfloat.h"
 #include "./hlslfloat2.h"
 #include "./hlslfloat3.h"
