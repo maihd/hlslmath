@@ -8,13 +8,13 @@
 template <typename T>
 inline T PI()
 {
-    return 3.14f;
+    return 3.14159265358979f;
 }
 
 template <>
 inline double PI()
 {
-    return 3.14;
+    return 3.14159265358979;
 }
 
 inline float degrees(float x)

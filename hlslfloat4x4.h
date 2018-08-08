@@ -516,9 +516,9 @@ inline float4x4 float4x4::translate(const float3& v)
 inline float4x4 float4x4::translate(float x, float y, float z)
 {
     return float4x4(
-        0, 0, 0, 0,
-        0, 0, 0, 0,
-        0, 0, 0, 0,
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
         x, y, z, 1
     );
 }
@@ -564,10 +564,10 @@ inline float4x4 float4x4::rotatex(float angle)
     const float c = cos(angle);
 
     return float4x4(
-        0, 0,  0, 0,
-        0, s,  c, 0,
-        0, c, -s, 0,
-        0, 0,  0, 1
+        1,  0, 0, 0,
+        0,  c, s, 0,
+        0, -s, c, 0,
+        0,  0, 0, 1
     );
 }
 
@@ -577,10 +577,10 @@ inline float4x4 float4x4::rotatey(float angle)
     const float c = cos(angle);
 
     return float4x4(
-        s, 0,  c, 0,
-        0, 0,  0, 0,
-        c, 0, -s, 0,
-        0, 0,  0, 1
+         c, 0, s, 0,
+         0, 1, 0, 0,
+        -s, 0, c, 0,
+         0, 0, 0, 1
     );
 }
 
@@ -590,9 +590,9 @@ inline float4x4 float4x4::rotatez(float angle)
     const float c = cos(angle);
 
     return float4x4(
-        s,  c, 0, 0,
-        c, -s, 0, 0,
-        0,  0, 0, 0,
-        0,  0, 0, 1
+         c, s, 0, 0,
+        -s, c, 0, 0,
+         0, 0, 1, 0,
+         0, 0, 0, 1
     );
 }
