@@ -1,30 +1,24 @@
 #pragma once
 
 #include "hlsltypes.h"
-#include "hlslfloat.h"
 
-inline uint min(uint a, uint b)
+/* Get the smaller value
+ */
+inline uint min(uint x, uint y)
 {
-    return a < b ? a : b;
+    return x < y ? x : y;
 }
 
-inline uint max(uint a, uint b)
+/* Get the larger value
+ */
+inline uint max(uint x, uint y)
 {
     return a > b ? a : b;
 }
 
-inline uint step(uint a, uint b)
+/* Clamps the 'x' to the [min, max]
+ */
+inline uint clamp(uint x, uint min, uint max)
 {
-    return a > b ? 1 : 0;
-}
-
-inline uint clamp(uint v, uint min, uint max)
-{
-    return v < min ? min : (v > max ? max : v);
-}
-
-inline uint smoothstep(uint a, uint b, float t)
-{
-    t = clamp((t - a) / (b - a), 0.0f, 1.0f);
-    return (uint)(t * t * (3 - 2 * t));
+    return x < min ? min : (x > max ? max : x);
 }

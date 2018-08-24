@@ -1,8 +1,5 @@
 #pragma once
 
-#include "hlsltypes.h"
-#include "hlslfloat.h"
-
 /* Compute the sign of 'x'
  */
 inline int sign(int x)
