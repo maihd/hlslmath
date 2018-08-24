@@ -2,6 +2,13 @@
 
 #include "./hlslcommon.h"
 
+/* Computes sign of 'x'
+ */
+inline int sign(float x)
+{
+    return x >> 31;
+}
+
 /* Computes absolute value
  */
 inline float abs(float x)

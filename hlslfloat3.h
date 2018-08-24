@@ -182,6 +182,15 @@ inline bool3 operator>=(const float3& a, const float3& b)
 // @region: Common functions
 //
 
+/* Computes sign of 'x'
+ */
+inline int3 sign(const float3& v)
+{
+    return int3(sign(v.x),
+                sign(v.y),
+                sign(v.z));
+}
+
 /* Computes absolute value
  */
 inline float3 abs(const float3& v)

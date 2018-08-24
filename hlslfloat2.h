@@ -178,6 +178,14 @@ inline bool2 operator>=(const float2& a, const float2& b)
 // @region: Common functions
 //
 
+/* Computes sign of 'x'
+ */
+inline int2 sign(const float2& v)
+{
+    return int2(sign(v.x),
+                sign(v.y));
+}
+
 /* Computes absolute value
  */
 inline float2 abs(const float2& v)

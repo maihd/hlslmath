@@ -186,6 +186,16 @@ inline bool4 operator>=(const float4& a, const float4& b)
 // @region: Common functions
 //
 
+/* Computes sign of 'x'
+ */
+inline int4 sign(const float4& v)
+{
+    return int4(sign(v.x),
+                sign(v.y),
+                sign(v.z),
+                sign(v.w));
+}
+
 /* Computes absolute value
  */
 inline float4 abs(const float4& v)
