@@ -387,7 +387,7 @@ inline float lengthsquared(const float4& v)
 
 inline float length(const float4& v)
 {
-    return sqrtf(lengthsquared(v));
+    return sqrt(lengthsquared(v));
 }
 
 inline float distance(const float4& a, const float4& b)

@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef __cplusplus
-#error "HLSL math require C++"
+#error "HLSL Math require C++"
 #endif
 
 #define HLSLMATH_LIBNAME "libhlslmath"

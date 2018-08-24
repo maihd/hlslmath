@@ -530,8 +530,8 @@ inline float4x4 float4x4::rotate(const float3& axis, float angle)
 
 inline float4x4 float4x4::rotate(float x, float y, float z, float angle)
 {
-    const float c = cosf(-angle);
-    const float s = sinf(-angle);
+    const float c = cos(-angle);
+    const float s = sin(-angle);
     const float t = 1.0f - c;
 
     float4x4 result;

@@ -494,6 +494,8 @@ inline float3 frsqrt(const float3& v)
 // @region: Graphics functions
 //
 
+/* Compute cross product of two vectors
+ */
 inline float3 cross(const float3& a, const float3& b)
 {
     return float3(
@@ -503,31 +505,43 @@ inline float3 cross(const float3& a, const float3& b)
     );
 }
 
+/* Compute dot product of two vectors
+ */
 inline float dot(const float3& a, const float3& b)
 {
     return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
+/* Compute squared length of vector
+ */
 inline float lengthsquared(const float3& v)
 {
     return dot(v, v);
 }
 
+/* Compute length of vector
+ */
 inline float length(const float3& v)
 {
-    return sqrtf(lengthsquared(v));
+    return sqrt(lengthsquared(v));
 }
 
+/* Compute distance from 'a' to b
+ */
 inline float distance(const float3& a, const float3& b)
 {
     return length(a - b);
 }
 
+/* Compute squared distance from 'a' to b
+ */
 inline float distancesquared(const float3& a, const float3& b)
 {
     return lengthsquared(a - b);
 }
 
+/* Compute normalized vector
+ */
 inline float3 normalize(const float3& v)
 {
     const float lsqr = lengthsquared(v);
@@ -542,11 +556,15 @@ inline float3 normalize(const float3& v)
     }
 }
 
+/* Compute reflection vector
+ */
 inline float3 reflect(const float3& v, const float3& n)
 {
     return v - 2.0f * dot(v, n) * n;
 }
 
+/* Compute refraction vector
+ */
 inline float3 refract(const float3& v, const float3& n, float eta)
 {
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
@@ -555,6 +573,8 @@ inline float3 refract(const float3& v, const float3& n, float eta)
         : eta * v - (eta * dot(v, n) + sqrt(k)) * n;
 }
 
+/* Compute faceforward vector
+ */
 inline float3 faceforward(const float3& n, const float3& i, const float3& nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;

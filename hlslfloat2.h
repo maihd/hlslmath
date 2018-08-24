@@ -472,7 +472,7 @@ inline float lengthsquared(const float2& v)
  */
 inline float length(const float2& v)
 {
-    return sqrtf(lengthsquared(v));
+    return sqrt(lengthsquared(v));
 }
 
 /* Compute distance from 'a' to b
