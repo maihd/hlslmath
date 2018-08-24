@@ -1,6 +1,15 @@
 # HLSL's Math library
 Vector and matrix for based on hlsl language for C++ (only).
 
+## Types
+1. int    [+]
+2. uint   [+]
+3. bool   [+]
+4. float  [+]
+5. double [-]
+6. fixed  [-]
+7. half   [-]
+
 ## Examples
 ```C++
 #include YOUR_C_MATH_LIB // <math.h>
@@ -13,7 +22,7 @@ namespace your_namespace
         float3 position;
         float3 scalation;
         float4 axisAngle;
-
+    
         ...Initialize your transform...
 
         float4x4 translateMatrix = float4x4::translate(position);

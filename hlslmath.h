@@ -5,7 +5,7 @@
 #endif
 
 #define HLSLMATH_LIBNAME "libhlslmath"
-#define HLSLMATH_VERSION "v0.0.1"
+#define HLSLMATH_VERSION "v1.0.0"
 
 #include "./hlslint.h"
 #include "./hlsluint.h"
