@@ -3,28 +3,30 @@
 #include "hlsltypes.h"
 #include "hlslfloat.h"
 
-inline int min(int a, int b)
+/* Compute the sign of 'x'
+ */
+inline int sign(int x)
 {
-    return a < b ? a : b;
+    return x >> 31;
 }
 
-inline int max(int a, int b)
+/* Get the smaller value
+ */
+inline int min(int x, int y)
+{
+    return x < y ? x : y;
+}
+
+/* Get the larger value
+ */
+inline int max(int x, int y)
 {
     return a > b ? a : b;
 }
 
-inline int step(int a, int b)
+/* Clamps the 'x' to the [min, max]
+ */
+inline int clamp(int x, int min, int max)
 {
-    return a > b ? 1 : 0;
-}
-
-inline int clamp(int v, int min, int max)
-{
-    return v < min ? min : (v > max ? max : v);
-}
-
-inline int smoothstep(int a, int b, float t)
-{
-    t = clamp((t - a) / (b - a), 0.0f, 1.0f);
-    return (int)(t * t * (3 - 2 * t));
+    return x < min ? min : (x > max ? max : x);
 }

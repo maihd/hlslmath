@@ -188,7 +188,7 @@ inline float clamp(float x, float min, float max)
  */
 inline float saturate(float x)
 {
-    return clamp(x, -1.0f, 1.0f);
+    return clamp(x, 0.0f, 1.0f);
 }
 
 /* Compares two values, returning 0 or 1 based on which value is greater.
@@ -202,7 +202,7 @@ inline float step(float y, float x)
  */
 inline float lerp(float x, float y, float s)
 {
-    return x * (1.0f - s) + y * s;
+    return x + (y - x) * s;
 }
 
 /* Compute a smooth Hermite interpolation
@@ -212,7 +212,7 @@ inline float lerp(float x, float y, float s)
  */
 inline float smoothstep(float min, float max, float x)
 {
-    return saturate((x - min) / (max - min));
+    return (clamp(x, min, max) - min) / (max - min);
 }
 
 /* Computes square root of 'x'.
