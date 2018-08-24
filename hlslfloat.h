@@ -6,7 +6,13 @@
  */
 inline int sign(float x)
 {
-    return x >> 31;
+    union
+    {
+        float f;
+        int   i;
+    } cvt;
+    cvt.f = x;
+    return sign(cvt.i);
 }
 
 /* Computes absolute value

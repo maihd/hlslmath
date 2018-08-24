@@ -13,7 +13,7 @@ inline uint min(uint x, uint y)
  */
 inline uint max(uint x, uint y)
 {
-    return a > b ? a : b;
+    return x > y ? x : y;
 }
 
 /* Clamps the 'x' to the [min, max]

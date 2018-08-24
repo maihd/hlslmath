@@ -18,7 +18,7 @@ inline int min(int x, int y)
  */
 inline int max(int x, int y)
 {
-    return a > b ? a : b;
+    return x > y ? x : y;
 }
 
 /* Clamps the 'x' to the [min, max]

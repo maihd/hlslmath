@@ -8,6 +8,7 @@
 #define HLSLMATH_VERSION "v1.0.0"
 
 #include "./hlslint.h"
+#include "./hlslint2.h"
 #include "./hlsluint.h"
 #include "./hlslfloat.h"
 #include "./hlslfloat2.h"

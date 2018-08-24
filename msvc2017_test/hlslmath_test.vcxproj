@@ -151,8 +151,11 @@
     <ClInclude Include="..\hlslfloat3x3.h" />
     <ClInclude Include="..\hlslfloat4.h" />
     <ClInclude Include="..\hlslfloat4x4.h" />
+    <ClInclude Include="..\hlslint.h" />
+    <ClInclude Include="..\hlslint2.h" />
     <ClInclude Include="..\hlslmath.h" />
     <ClInclude Include="..\hlsltypes.h" />
+    <ClInclude Include="..\hlsluint.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hlslmath_test.cpp" />

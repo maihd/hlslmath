@@ -45,6 +45,15 @@
     <ClInclude Include="..\hlslfloat3x3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\hlslint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\hlslint2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\hlsluint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hlslmath_test.cpp">
