@@ -125,7 +125,7 @@ inline float pow(float x, float y)
  */
 inline float frac(float x)
 {
-    return modf(x, 0);
+    return modff(x, 0);
 }
 
 /* Computes the floating-point remainder of the division operation x/y
