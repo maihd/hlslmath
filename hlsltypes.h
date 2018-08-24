@@ -1,5 +1,9 @@
 #pragma once
 
+#ifndef HLSL_ASSERT
+#define HLSL_ASSERT(exp, msg)
+#endif
+
 #ifndef __cplusplus
 #error "HLSL math require C++"
 #endif
@@ -26,11 +30,13 @@ union int2
 
     inline int& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((int*)this)[index];
     }
 
     inline int  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((int*)this)[index];
     }
 };
@@ -52,11 +58,13 @@ union int3
 
     inline int& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((int*)this)[index];
     }
 
     inline int  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((int*)this)[index];
     }
 };
@@ -79,11 +87,13 @@ union int4
 
     inline int& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((int*)this)[index];
     }
 
     inline int  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((int*)this)[index];
     }
 };
@@ -106,13 +116,15 @@ union uint2
     inline explicit uint2(uint s = 0)
         : uint2(s, s) {}
 
-    inline uint& operator[](uint index)
+    inline uint& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((uint*)this)[index];
     }
 
-    inline uint  operator[](uint index) const
+    inline uint  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((uint*)this)[index];
     }
 };
@@ -134,11 +146,13 @@ union uint3
 
     inline uint& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((uint*)this)[index];
     }
 
     inline uint  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((uint*)this)[index];
     }
 };
@@ -161,11 +175,13 @@ union uint4
 
     inline uint& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((uint*)this)[index];
     }
 
     inline int  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((uint*)this)[index];
     }
 };
@@ -190,11 +206,13 @@ union bool2
 
     inline bool& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((bool*)this)[index];
     }
 
     inline int  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((bool*)this)[index];
     }
 };
@@ -216,11 +234,13 @@ union bool3
 
     inline bool& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((bool*)this)[index];
     }
 
     inline bool  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((bool*)this)[index];
     }
 };
@@ -243,11 +263,13 @@ union bool4
 
     inline bool& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((bool*)this)[index];
     }
 
     inline bool  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((bool*)this)[index];
     }
 };
@@ -281,11 +303,13 @@ public: // Constructors
 public: // Operators
     inline bool2& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return data[index];
     }
 
     inline const bool2& operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return data[index];
     }
 };
@@ -323,11 +347,13 @@ public: // Constructors
 public: // Operators
     inline bool3& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return data[index];
     }
 
     inline const bool3& operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return data[index];
     }
 };
@@ -368,11 +394,13 @@ public: // Constructors
 public: // Constructors
     inline bool4& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return data[index];
     }
 
     inline const bool4& operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return data[index];
     }
 };
@@ -397,11 +425,13 @@ union float2
 
     inline float& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((float*)this)[index];
     }
 
     inline float  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((float*)this)[index];
     }
 };
@@ -423,11 +453,13 @@ union float3
 
     inline float& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((float*)this)[index];
     }
 
     inline float  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((float*)this)[index];
     }
 };
@@ -456,11 +488,13 @@ union float4
 
     inline float& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((float*)this)[index];
     }
 
     inline float  operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((float*)this)[index];
     }
 };
@@ -489,11 +523,13 @@ public: // Constructors
 public: // Operators
     inline float2& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return data[index];
     }
 
     inline const float2& operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return data[index];
     }
 
@@ -538,11 +574,13 @@ public: // Constructors
 public: // Operators
     inline float3& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return data[index];
     }
 
     inline const float3& operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return data[index];
     }
 
@@ -587,11 +625,13 @@ public: // Constructors
 public: // Operators
     inline float4& operator[](int index)
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return data[index];
     }
 
     inline const float4& operator[](int index) const
     {
+        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return data[index];
     }
 
@@ -606,25 +646,25 @@ public: // Operators
     }
 
 public: // Create functions
-    static inline float4x4 scale(float s);
-    static inline float4x4 scale(const float2& v);
-    static inline float4x4 scale(const float3& v);
-    static inline float4x4 scale(float x, float y, float z = 1.0f);
+    static float4x4 scale(float s);
+    static float4x4 scale(const float2& v);
+    static float4x4 scale(const float3& v);
+    static float4x4 scale(float x, float y, float z = 1.0f);
 
-    static inline float4x4 translate(const float2& v);
-    static inline float4x4 translate(const float3& v);
-    static inline float4x4 translate(float x, float y, float z = 0.0f);
+    static float4x4 translate(const float2& v);
+    static float4x4 translate(const float3& v);
+    static float4x4 translate(float x, float y, float z = 0.0f);
 
-    static inline float4x4 rotate(const float3& axis, float angle);
-    static inline float4x4 rotate(float x, float y, float z, float angle);
+    static float4x4 rotate(const float3& axis, float angle);
+    static float4x4 rotate(float x, float y, float z, float angle);
 
-    static inline float4x4 rotatex(float angle);
-    static inline float4x4 rotatey(float angle);
-    static inline float4x4 rotatez(float angle);
+    static float4x4 rotatex(float angle);
+    static float4x4 rotatey(float angle);
+    static float4x4 rotatez(float angle);
 
-    static inline float4x4 lookat(const float3& eye, const float3& target, const float3& up);
+    static float4x4 lookat(const float3& eye, const float3& target, const float3& up);
 
-    static inline float4x4 ortho(float l, float r, float b, float t, float n, float f);
-    static inline float4x4 frustum(float l, float r, float b, float t, float n, float f);
-    static inline float4x4 perspective(float fov, float aspect, float znear, float zfar);
+    static float4x4 ortho(float l, float r, float b, float t, float n, float f);
+    static float4x4 frustum(float l, float r, float b, float t, float n, float f);
+    static float4x4 perspective(float fov, float aspect, float znear, float zfar);
 };

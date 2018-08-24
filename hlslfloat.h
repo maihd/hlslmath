@@ -118,7 +118,7 @@ inline float log10(float x)
  */
 inline float pow(float x, float y)
 {
-    return powff(x, y);
+    return powf(x, y);
 }
 
 /* Get the fractal part of floating point
