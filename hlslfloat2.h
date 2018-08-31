@@ -30,18 +30,24 @@ inline float2& operator++(float2& v)
     return v;
 }
 
-inline const float2& operator--(float2& v, int)
+inline float2 operator--(float2& v, int)
 {
+    const float2 result = v;
+
     v.x--;
     v.y--;
-    return v;
+    
+    return result;
 }
 
-inline const float2& operator++(float2& v, int)
+inline float2 operator++(float2& v, int)
 {
+    const float2 result = v;
+
     v.x++;
     v.y++;
-    return v;
+    
+    return result;
 }
 
 inline float2 operator+(const float2& a, const float2& b)

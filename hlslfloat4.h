@@ -34,22 +34,28 @@ inline float4& operator++(float4& v)
     return v;
 }
 
-inline const float4& operator--(float4& v, int)
+inline float4 operator--(float4& v, int)
 {
+    const float4 result = v;
+
     v.x--;
     v.y--;
     v.z--;
     v.w--;
-    return v;
+
+    return result;
 }
 
-inline const float4& operator++(float4& v, int)
+inline float4 operator++(float4& v, int)
 {
+    const float4 result = v;
+
     v.x++;
     v.y++;
     v.z++;
     v.w++;
-    return v;
+    
+    return result;
 }
 
 inline float4 operator+(const float4& a, const float4& b)

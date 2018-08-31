@@ -27,20 +27,22 @@ inline int3& operator--(int3& v)
     return v;
 }
 
-inline const int3& operator++(int3& v, int)
+inline int3 operator++(int3& v, int)
 {
+    const int3 result = v;
     v.x++;
     v.y++;
     v.z++;
-    return v;
+    return result;
 }
 
-inline const int3& operator--(int3& v, int)
+inline int3 operator--(int3& v, int)
 {
+    const int3 result = v;
     v.x--;
     v.y--;
     v.z--;
-    return v;
+    return result;
 }
 
 inline int3 operator+(const int3& a, const int3& b)

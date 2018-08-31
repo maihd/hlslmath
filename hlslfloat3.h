@@ -32,20 +32,26 @@ inline float3& operator++(float3& v)
     return v;
 }
 
-inline const float3& operator--(float3& v, int)
+inline float3 operator--(float3& v, int)
 {
+    const float3 result = v;
+
     v.x--;
     v.y--;
     v.z--;
-    return v;
+
+    return result;
 }
 
 inline const float3& operator++(float3& v, int)
 {
+    const float3 result = v;
+
     v.x++;
     v.y++;
     v.z++;
-    return v;
+
+    return result;
 }
 
 inline float3 operator+(const float3& a, const float3& b)

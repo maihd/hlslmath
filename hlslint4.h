@@ -29,22 +29,24 @@ inline int4& operator--(int4& v)
     return v;
 }
 
-inline const int4& operator++(int4& v, int)
+inline int4 operator++(int4& v, int)
 {
+    const int4 result = v;
     v.x++;
     v.y++;
     v.z++;
     v.w++;
-    return v;
+    return result;
 }
 
-inline const int4& operator--(int4& v, int)
+inline int4 operator--(int4& v, int)
 {
+    const int4 result = v;
     v.x--;
     v.y--;
     v.z--;
     v.w--;
-    return v;
+    return result;
 }
 
 inline int4 operator+(const int4& a, const int4& b)

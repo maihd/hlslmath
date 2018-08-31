@@ -25,18 +25,20 @@ inline int2& operator--(int2& v)
     return v;
 }
 
-inline const int2& operator++(int2& v, int)
+inline int2 operator++(int2& v, int)
 {
+    const int2 result = v;
     v.x++;
     v.y++;
-    return v;
+    return result;
 }
 
-inline const int2& operator--(int2& v, int)
+inline int2 operator--(int2& v, int)
 {
+    const int2 result = v;
     v.x--;
     v.y--;
-    return v;
+    return result;
 }
 
 inline int2 operator+(const int2& a, const int2& b)
