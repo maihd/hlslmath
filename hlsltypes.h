@@ -16,11 +16,13 @@ typedef unsigned int uint;
 
 union int2
 {
+public: // @region: Fields
     struct
     {
         int x, y;
     };
 
+public: // @region: Constructors
     inline int2(int x, int y)
         : x(x)
         , y(y) {}
@@ -28,6 +30,7 @@ union int2
     inline explicit int2(int s = 0)
         : int2(s, s) {}
 
+public: // @region: Operators
     inline int& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
@@ -43,11 +46,13 @@ union int2
 
 union int3
 {
+public: // @region: Fields
     struct
     {
         int x, y, z;
     };
 
+public: // @region: Constructors
     inline int3(int x, int y, int z)
         : x(x)
         , y(y) 
@@ -56,6 +61,7 @@ union int3
     inline explicit int3(int s = 0)
         : int3(s, s, s) {}
 
+public: // @region: Fields
     inline int& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
@@ -71,11 +77,13 @@ union int3
 
 union int4
 {
+public: // @region: Fields
     struct
     {
         int x, y, z, w;
     };
 
+public: // @region: Constructors
     inline int4(int x, int y, int z, int w)
         : x(x)
         , y(y) 
@@ -85,6 +93,7 @@ union int4
     inline explicit int4(int s = 0)
         : int4(s, s, s, s) {}
 
+public: // @region: Operators
     inline int& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
@@ -104,11 +113,13 @@ union int4
 
 union uint2
 {
+public: // @region: Fields
     struct
     {
         uint x, y;
     };
 
+public: // @region: Constructors
     inline uint2(uint x, uint y)
         : x(x)
         , y(y) {}
@@ -116,6 +127,7 @@ union uint2
     inline explicit uint2(uint s = 0)
         : uint2(s, s) {}
 
+public: // @region: Operators
     inline uint& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
@@ -131,11 +143,13 @@ union uint2
 
 union uint3
 {
+public: // @region: Fields
     struct
     {
         uint x, y, z;
     };
 
+public: // @region: Constructors
     inline uint3(uint x, uint y, uint z)
         : x(x)
         , y(y) 
@@ -144,6 +158,7 @@ union uint3
     inline explicit uint3(uint s = 0)
         : uint3(s, s, s) {}
 
+public: // @region: Operators
     inline uint& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
@@ -159,11 +174,13 @@ union uint3
 
 union uint4
 {
+public: // @region: Fields
     struct
     {
         int x, y, z, w;
     };
 
+public: // @region: Constructors
     inline uint4(int x, int y, int z, int w)
         : x(x)
         , y(y) 
@@ -173,6 +190,7 @@ union uint4
     inline explicit uint4(int s = 0)
         : uint4(s, s, s, s) {}
 
+public: // @region: Operators
     inline uint& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
@@ -192,11 +210,13 @@ union uint4
  
 union bool2
 {
+public: // @region: Fields
     struct
     {
         bool x, y;
     };
 
+public: // @region: Constructors
     inline bool2(bool x, bool y)
         : x(x)
         , y(y) {}
@@ -204,6 +224,7 @@ union bool2
     inline explicit bool2(bool s = false)
         : bool2(s, s) {}
 
+public: // @region: Operators
     inline bool& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
@@ -219,11 +240,13 @@ union bool2
 
 union bool3
 {
+public: // @region: Fields
     struct
     {
         bool x, y, z;
     };
 
+public: // @region: Constructors
     inline bool3(bool x, bool y, bool z)
         : x(x)
         , y(y) 
@@ -232,6 +255,7 @@ union bool3
     inline explicit bool3(int s = false)
         : bool3(s, s, s) {}
 
+public: // @region: Operators
     inline bool& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
@@ -247,11 +271,13 @@ union bool3
 
 union bool4
 {
+public: // @region: Fields
     struct
     {
         bool x, y, z, w;
     };
 
+public: // @region: Constructors
     inline bool4(int x, int y, int z, int w)
         : x(x)
         , y(y) 
@@ -261,6 +287,7 @@ union bool4
     inline explicit bool4(int s = false)
         : bool4(s, s, s, s) {}
 
+public: // @region: Operators
     inline bool& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
@@ -276,13 +303,7 @@ union bool4
 
 union bool2x2
 {
-public: // Fields
-    struct
-    {
-        bool2 data[2];
-    };
-
-public: // Constructors
+public: // @region: Constructors
     inline bool2x2(const bool2& m0, const bool2& m1)
         : data{ m0, m1 }
     {
@@ -300,7 +321,7 @@ public: // Constructors
     {
     }
 
-public: // Operators
+public: // @region: Operators
     inline bool2& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
@@ -312,17 +333,17 @@ public: // Operators
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return data[index];
     }
+    
+public: // Eregion: Internal fields
+    struct
+    {
+        bool2 data[2];
+    };
 };
 
 union bool3x3
 {
-public: // Fields
-    struct
-    {
-        bool3 data[3];
-    };
-
-public: // Constructors
+public: // @region: Constructors
     inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
         : data{ m0, m1, m2 }
     {
@@ -344,7 +365,7 @@ public: // Constructors
     {
     }
 
-public: // Operators
+public: // @region: Operators
     inline bool3& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
@@ -356,17 +377,17 @@ public: // Operators
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return data[index];
     }
+    
+public: // @region: Internal fields
+    struct
+    {
+        bool3 data[3];
+    };
 };
 
 union bool4x4
 {
-public: // Fields
-    struct
-    {
-        bool4 data[4];
-    };
-
-public: // Constructors
+public: // @region: Constructors
     inline bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
         : data{ m0, m1, m2, m3 }
     {
@@ -403,6 +424,12 @@ public: // Constructors
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return data[index];
     }
+    
+public: // @region: Internal fields
+    struct
+    {
+        bool4 data[4];
+    };
 };
 
 //
@@ -411,11 +438,13 @@ public: // Constructors
 
 union float2
 {
+public: // @region: Fields
     struct
     {
         float x, y;
     };
 
+public: // @region: Constructors
     inline float2(float x, float y)
         : x(x)
         , y(y) {}
@@ -423,6 +452,7 @@ union float2
     inline explicit float2(float s = 0.0f)
         : float2(s, s) {}
 
+public: // @region: Operators
     inline float& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
@@ -438,11 +468,13 @@ union float2
 
 union float3
 {
+public: // @region: Fielda
     struct
     {
         float x, y, z;  
     };    
 
+public: // @region: Constructors
     inline float3(float x, float y, float z = 0.0f)
         : x(x)
         , y(y)
@@ -451,6 +483,7 @@ union float3
     inline explicit float3(float s = 0.0f)
         : float3(s, s, s) {}
 
+public: // @region: Operators
     inline float& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
@@ -466,6 +499,7 @@ union float3
 
 union float4
 {
+public: // @region: Fields
     struct
     {
         float x, y, z, w; 
@@ -477,6 +511,7 @@ union float4
         float  angle;
     };
 
+public: // @region: Constructors
     inline float4(float x, float y, float z, float w)
         : x(x)
         , y(y)
@@ -486,6 +521,7 @@ union float4
     inline explicit float4(float s = 0.0f)
         : float4(s, s, s, s) {}
 
+public: // @region: Operators
     inline float& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
@@ -501,13 +537,7 @@ union float4
 
 union float2x2
 {
-public: // Fields
-    struct
-    {
-        float2 data[2];
-    };
-
-public: // Constructors
+public: // @region: Constructors
     inline float2x2(const float2& m0, const float2& m1)
         : data{ m0, m1 } {}
 
@@ -520,7 +550,7 @@ public: // Constructors
         : float2x2(s, 0,
                    0, s) {}
 
-public: // Operators
+public: // @region: Operators
     inline float2& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
@@ -532,7 +562,7 @@ public: // Operators
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return data[index];
     }
-
+    
     inline explicit operator float*(void)
     {
         return (float*)this;
@@ -543,19 +573,19 @@ public: // Operators
         return (float*)this;
     }
    
-public: // Extension functions
+public: // @region: Graphics functions
     inline static float2x2 rotate(float angle);
+    
+public: // @region: Internal fields
+    struct
+    {
+        float2 data[2];
+    };
 };
 
 union float3x3
 {
-public: // Fields
-    struct
-    {
-        float3 data[3];
-    };
-    
-public: // Constructors
+public: // @region: Constructors
     inline float3x3(const float3& m0, const float3& m1, const float3& m2)
         : data{ m0, m1, m2 } {}
 
@@ -571,7 +601,7 @@ public: // Constructors
                    0, s, 0,
                    0, 0, s) {}
     
-public: // Operators
+public: // @region: Operators
     inline float3& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
@@ -593,17 +623,17 @@ public: // Operators
     {
         return (float*)this;
     }
+    
+public: // @region: Internal fields
+    struct
+    {
+        float3 data[3];
+    };
 };
 
 union float4x4
 {
-public: // Fields
-    struct
-    {
-        float4 data[4];
-    };
-
-public: // Constructors
+public: // @region: Constructors
     inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
         : data{ m0, m1, m2, m3 } {}
     
@@ -622,7 +652,7 @@ public: // Constructors
                    0, 0, s, 0,
                    0, 0, 0, s) {}
     
-public: // Operators
+public: // @region: Operators
     inline float4& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
@@ -645,7 +675,7 @@ public: // Operators
         return (float*)this;
     }
 
-public: // Create functions
+public: // @region: Graphics functions
     static float4x4 scale(float s);
     static float4x4 scale(const float2& v);
     static float4x4 scale(const float3& v);
@@ -667,4 +697,10 @@ public: // Create functions
     static float4x4 ortho(float l, float r, float b, float t, float n, float f);
     static float4x4 frustum(float l, float r, float b, float t, float n, float f);
     static float4x4 perspective(float fov, float aspect, float znear, float zfar);
+    
+public: // @region: Internal fields
+    struct
+    {
+        float4 data[4];
+    };
 };
