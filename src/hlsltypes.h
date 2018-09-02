@@ -1,7 +1,3 @@
-#ifndef HLSL_ASSERT
-#define HLSL_ASSERT(exp, msg)
-#endif
-
 typedef unsigned int uint;
 
 // 
@@ -698,3 +694,5 @@ public: // @region: Internal fields
         float4 data[4];
     };
 };
+
+

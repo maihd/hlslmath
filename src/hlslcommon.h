@@ -1,38 +1,31 @@
-﻿#undef min // When Windows.h is included, min is an macro
-#undef max // When Windows.h is included, max is an macro
-
-/* PI number (float)
- */
-static const float PI = 3.14159265358979f;
-
-/* Convert radians to degrees (float)
+﻿/* Convert radians to degrees
  */
 inline float degrees(float x)
 {
-    const float factor = 180.0f / PI;
+    const float factor = 180.0f / 3.14159265358979f;
     return x * factor;
 }
 
-/* Convert degrees to radians (float)
+/* Convert degrees to radians
  */
 inline float radians(float x)
 {
-    const float factor = PI / 180.0f;
+    const float factor = 3.14159265358979f / 180.0f;
     return x * factor;
 }
 
-/* Convert radians to degrees (double)
+/* Convert radians to degrees
  */
 inline double degrees(double x)
 {
-    const double factor = 180.0 / PI;
+    const double factor = 180.0 / 3.14159265358979;
     return x * factor;
 }
 
-/* Convert degrees to radians (double)
+/* Convert degrees to radians
  */
 inline double radians(double x)
 {
-    const double factor = PI / 180.0;
+    const double factor = 3.14159265358979f / 180.0;
     return x * factor;
 }
