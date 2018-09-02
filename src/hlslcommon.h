@@ -1,8 +1,4 @@
-﻿#pragma once
-
-#include "hlsltypes.h"
-
-#undef min // When Windows.h is included, min is an macro
+﻿#undef min // When Windows.h is included, min is an macro
 #undef max // When Windows.h is included, max is an macro
 
 /* PI number (float)

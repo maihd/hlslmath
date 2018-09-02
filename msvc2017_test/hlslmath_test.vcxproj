@@ -143,22 +143,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\hlslcommon.h" />
-    <ClInclude Include="..\hlslfloat.h" />
-    <ClInclude Include="..\hlslfloat2.h" />
-    <ClInclude Include="..\hlslfloat2x2.h" />
-    <ClInclude Include="..\hlslfloat3.h" />
-    <ClInclude Include="..\hlslfloat3x3.h" />
-    <ClInclude Include="..\hlslfloat4.h" />
-    <ClInclude Include="..\hlslfloat4x4.h" />
-    <ClInclude Include="..\hlslint.h" />
-    <ClInclude Include="..\hlslint2.h" />
-    <ClInclude Include="..\hlslmath.h" />
-    <ClInclude Include="..\hlsltypes.h" />
-    <ClInclude Include="..\hlsluint.h" />
+    <ClCompile Include="hlslmath_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hlslmath_test.cpp" />
+    <ClInclude Include="..\src\hlslcommon.h" />
+    <ClInclude Include="..\src\hlslfloat.h" />
+    <ClInclude Include="..\src\hlslfloat2.h" />
+    <ClInclude Include="..\src\hlslfloat2x2.h" />
+    <ClInclude Include="..\src\hlslfloat3.h" />
+    <ClInclude Include="..\src\hlslfloat3x3.h" />
+    <ClInclude Include="..\src\hlslfloat4.h" />
+    <ClInclude Include="..\src\hlslfloat4x4.h" />
+    <ClInclude Include="..\src\hlslint.h" />
+    <ClInclude Include="..\src\hlslint2.h" />
+    <ClInclude Include="..\src\hlslint3.h" />
+    <ClInclude Include="..\src\hlslint4.h" />
+    <ClInclude Include="..\src\hlsltypes.h" />
+    <ClInclude Include="..\src\hlsluint.h" />
+    <ClInclude Include="hlslmath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,29 +1,20 @@
-#pragma once
-
-/* Compute the sign of 'x'
- */
-inline int sign(int x)
-{
-    return x >> 31;
-}
-
 /* Get the smaller value
  */
-inline int min(int x, int y)
+inline uint min(uint x, uint y)
 {
     return x < y ? x : y;
 }
 
 /* Get the larger value
  */
-inline int max(int x, int y)
+inline uint max(uint x, uint y)
 {
     return x > y ? x : y;
 }
 
 /* Clamps the 'x' to the [min, max]
  */
-inline int clamp(int x, int min, int max)
+inline uint clamp(uint x, uint min, uint max)
 {
     return x < min ? min : (x > max ? max : x);
 }

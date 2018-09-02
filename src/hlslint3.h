@@ -1,7 +1,3 @@
-#pragma once
-
-#include "hlsltypes.h"
-
 //
 // @region: Operator overloadng
 //

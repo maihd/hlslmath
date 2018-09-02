@@ -1,11 +1,5 @@
-#pragma once
-
 #ifndef HLSL_ASSERT
 #define HLSL_ASSERT(exp, msg)
-#endif
-
-#ifndef __cplusplus
-#error "HLSL math require C++"
 #endif
 
 typedef unsigned int uint;

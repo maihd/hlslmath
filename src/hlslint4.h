@@ -1,14 +1,10 @@
-#pragma once
-
-#include "hlsltypes.h"
-
 //
 // @region: Operator overloadng
 //
 
 inline int4 operator-(const int4& v)
 {
-    return int3(-v.x, -v.y, -v.z, -v.w);
+    return int4(-v.x, -v.y, -v.z, -v.w);
 }
 
 inline int4& operator++(int4& v)

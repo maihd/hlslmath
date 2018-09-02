@@ -1,7 +1,3 @@
-#pragma once
-
-#include "./hlslcommon.h"
-
 /* Computes sign of 'x'
  */
 inline int sign(float x)

@@ -1,24 +1,27 @@
-#pragma once
-
-#include "hlsltypes.h"
+/* Compute the sign of 'x'
+ */
+inline int sign(int x)
+{
+    return x >> 31;
+}
 
 /* Get the smaller value
  */
-inline uint min(uint x, uint y)
+inline int min(int x, int y)
 {
     return x < y ? x : y;
 }
 
 /* Get the larger value
  */
-inline uint max(uint x, uint y)
+inline int max(int x, int y)
 {
     return x > y ? x : y;
 }
 
 /* Clamps the 'x' to the [min, max]
  */
-inline uint clamp(uint x, uint min, uint max)
+inline int clamp(int x, int min, int max)
 {
     return x < min ? min : (x > max ? max : x);
 }

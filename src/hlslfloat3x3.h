@@ -1,8 +1,3 @@
-#pragma once
-
-#include "./hlslfloat.h"
-#include "./hlslfloat3.h"
-
 //
 // @region: Operators overloading
 //
