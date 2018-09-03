@@ -8,7 +8,6 @@
 
 #undef min // When Windows.h is included, min is an macro
 #undef max // When Windows.h is included, max is an macro
-
 typedef unsigned int uint;
 
 // 
@@ -706,6 +705,7 @@ public: // @region: Internal fields
     };
 };
 
+
 /* Convert radians to degrees
  */
 inline float degrees(float x)
@@ -737,7 +737,6 @@ inline double radians(double x)
     const double factor = 3.14159265358979f / 180.0;
     return x * factor;
 }
-
 /* Compute the sign of 'x'
  */
 inline int sign(int x)
@@ -765,7 +764,6 @@ inline int clamp(int x, int min, int max)
 {
     return x < min ? min : (x > max ? max : x);
 }
-
 //
 // @region: Operator overloadng
 //
@@ -934,7 +932,6 @@ inline bool2 operator!=(const int2& a, const int2& b)
 {
     return bool2(a.x != b.x, a.y != b.y);
 }
-
 //
 // @region: Operator overloadng
 //
@@ -1107,7 +1104,6 @@ inline bool3 operator!=(const int3& a, const int3& b)
 {
     return bool3(a.x != b.x, a.y != b.y, a.z != b.z);
 }
-
 //
 // @region: Operator overloadng
 //
@@ -1284,7 +1280,6 @@ inline bool4 operator!=(const int4& a, const int4& b)
 {
     return bool4(a.x != b.x, a.y != b.y, a.z != b.z, a.w != b.w);
 }
-
 /* Get the smaller value
  */
 inline uint min(uint x, uint y)
@@ -1305,7 +1300,6 @@ inline uint clamp(uint x, uint min, uint max)
 {
     return x < min ? min : (x > max ? max : x);
 }
-
 /* Computes sign of 'x'
  */
 inline int sign(float x)
@@ -1568,7 +1562,6 @@ inline float fsqrt(float x)
 {
     return x == 0.0f ? 0.0f : 1.0f / frsqrt(x);
 }
-
 //
 // @region: Operator overloading
 //
@@ -2109,7 +2102,6 @@ inline float2 faceforward(const float2& n, const float2& i, const float2& nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
-
 //
 // @region: Operators overloading
 //
@@ -2702,7 +2694,6 @@ inline float3 faceforward(const float3& n, const float3& i, const float3& nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
-
 //
 // @region: Operators overloading
 //
@@ -3321,7 +3312,6 @@ inline float4 faceforward(const float4& n, const float4& i, const float4& nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
-
 //
 // @region: Operators overloading
 //
@@ -3619,7 +3609,6 @@ inline float2x2 float2x2::rotate(float angle)
         s, c
     );
 }
-
 //
 // @region: Operators overloading
 //
@@ -3945,7 +3934,6 @@ inline float3x3 inverse(const float3x3& m)
         );
     }
 }
-
 //
 // @region: Operators overloading
 //
@@ -4539,4 +4527,3 @@ inline float4x4 float4x4::rotatez(float angle)
          0, 0, 0, 1
     );
 }
-
