@@ -1,6 +1,18 @@
 # HLSL's Math library
 Vector and matrix for based on hlsl language for C++ (only).
 
+## Build
+```
+cd tools
+
+# Unix or OS X (require gcc)
+gcc -o build build.c
+./build --output=<output> --namespace=<namespace>
+
+# Windows (has prebuilt)
+build.exe --output=<output> --namespace=<namespace>
+```
+
 ## Types
 1. int    [+]
 2. uint   [+]
@@ -12,11 +24,9 @@ Vector and matrix for based on hlsl language for C++ (only).
 
 ## Examples
 ```C++
-#include YOUR_C_MATH_LIB // <math.h>
+#include PATH_TO_BUILT_VERSION_HLSLMATH_H
 namespace your_namespace
 {
-#include PATH_TO_HLSLMATH_H
-
     void render(void)
     {
         float3 position;
