@@ -1,7 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <time.h>
 #include <stdio.h>
 #include <wchar.h>
 #include <string.h>
+
+#if defined(__unix__)
+#include <unistd.h>
+#else
+#include <Windows.h>
+#endif
 
 /* Total sources/modules files exclude DEF file */
 const char* filenames[] = {
@@ -159,6 +167,8 @@ size_t utf8_normalize(char* buf, size_t size, size_t len)
 
 /* Concatenate all srcfile content to dstfile
  * cat srcfile > dstfile
+ * change utf16 -> utf8
+ * change utf32 -> utf8 (planned only)
  */
 static void file_concat(FILE* dstfile, const char* srcfilename)
 {
@@ -229,6 +239,32 @@ static void file_concat(FILE* dstfile, const char* srcfilename)
     }
 }
 
+int getexedir(char* buffer, int length)
+{
+    char exepath[1024];
+    
+#if defined(__unix__)
+    char slash = '/';
+    readlink("/proc/self/exe", exepath, sizeof(exepath));
+#else
+    char slash = '\\';
+    GetModuleFileNameA(NULL, exepath, sizeof(exepath));
+#endif
+
+    char* lastslash = strrchr(exepath, slash);
+    int cpylen = lastslash - exepath;
+    if (cpylen > length)
+    {
+        return -1;
+    }
+    else
+    {
+        strncpy(buffer, exepath, cpylen);
+        buffer[cpylen] = 0;
+        return cpylen;
+    }
+}
+
 int main(int argc, char* argv[])
 {
     const char* namespace = NULL;
@@ -270,6 +306,15 @@ int main(int argc, char* argv[])
             return -1;
         }
     }
+
+    /* Change the current working directory */
+    char exedir[1024];
+    getexedir(exedir, sizeof(exedir));
+#if (__unix__)
+    chdir(exedir);
+#else
+    SetCurrentDirectoryA(exedir);
+#endif
     
     FILE* targetFile = fopen(outputfile, "w+");
     if (!targetFile)

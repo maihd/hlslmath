@@ -1,6 +1,6 @@
-﻿// Generate with hlslmath/tools/build
+﻿// Generate with hlslmath/tools/tools\build
 // Filename: ../hlslmath.h
-// Datetime: Mon Sep  3 23:02:20 2018
+// Datetime: Sun Sep  9 22:51:52 2018
 
 #pragma once
 
