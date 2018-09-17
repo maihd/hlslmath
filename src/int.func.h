@@ -5,6 +5,14 @@ inline int sign(int x)
     return x >> 31;
 }
 
+/* Computes absolute value
+ */
+inline int abs(int x)
+{
+    const int bits = sizeof(int) * 8 - 1;
+    return (x + (x >> bits)) ^ (x >> bits);
+}
+
 /* Get the smaller value
  */
 inline int min(int x, int y)

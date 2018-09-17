@@ -45,7 +45,7 @@ const char* filenames[] = {
 
     "../src/int.func.h",
     "../src/int2.func.h",
-    "../src/int3.funxc.h",
+    "../src/int3.func.h",
     "../src/int4.func.h",
     "../src/uint.func.h",
     "../src/uint2.func.h",
