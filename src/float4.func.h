@@ -488,6 +488,16 @@ inline float4 lerp(const float4& a, const float4& b, const float4& t)
                   lerp(a.w, b.w, t.w));
 }
 
+/* Performs a linear interpolation.
+ */
+inline float4 lerp(const float4& a, const float4& b, float t)
+{
+    return float4(lerp(a.x, b.x, t),
+                  lerp(a.y, b.y, t), 
+                  lerp(a.z, b.z, t), 
+                  lerp(a.w, b.w, t));
+}
+
 /* Compute a smooth Hermite interpolation
  */
 inline float4 smoothstep(const float4& a, const float4& b, const float4& t)

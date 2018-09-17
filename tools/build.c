@@ -13,22 +13,58 @@
 
 /* Total sources/modules files exclude DEF file */
 const char* filenames[] = {
-    "../src/hlsltypes.h",
-    "../src/hlslcommon.h",
-      
-    "../src/hlslint.h",
-    "../src/hlslint2.h",
-    "../src/hlslint3.h",
-    "../src/hlslint4.h",
-    "../src/hlsluint.h",
-    "../src/hlslfloat.h",
-    "../src/hlslfloat2.h",
-    "../src/hlslfloat3.h",
-    "../src/hlslfloat4.h",
-        
-    "../src/hlslfloat2x2.h",
-    "../src/hlslfloat3x3.h",
-    "../src/hlslfloat4x4.h",
+    "../src/int2.type.h",
+    "../src/int3.type.h",
+    "../src/int4.type.h",
+    "../src/uint.type.h",
+    "../src/uint2.type.h",
+    "../src/uint3.type.h",
+    "../src/uint4.type.h",
+    "../src/bool2.type.h",
+    "../src/bool3.type.h",
+    "../src/bool4.type.h",
+    "../src/float2.type.h",
+    "../src/float3.type.h",
+    "../src/float4.type.h",
+    
+    "../src/int2x2.type.h",
+    "../src/int3x3.type.h",
+    "../src/int4x4.type.h",
+    "../src/uint2x2.type.h",
+    "../src/uint3x3.type.h",
+    "../src/uint4x4.type.h",
+    "../src/bool2x2.type.h",
+    "../src/bool3x3.type.h",
+    "../src/bool4x4.type.h",
+    "../src/float2x2.type.h",
+    "../src/float3x3.type.h",
+    "../src/float4x4.type.h",
+
+    "../src/bool.func.h",
+    "../src/conversion.h",
+
+    "../src/int.func.h",
+    "../src/int2.func.h",
+    "../src/int3.funxc.h",
+    "../src/int4.func.h",
+    "../src/uint.func.h",
+    "../src/uint2.func.h",
+    "../src/uint3.func.h",
+    "../src/uint4.func.h",
+    "../src/float.func.h",
+    "../src/float2.func.h",
+    "../src/float3.func.h",
+    "../src/float4.func.h",
+
+    "../src/int2x2.func.h",
+    "../src/int3x3.func.h",
+    "../src/int4x4.func.h",
+    "../src/uint2x2.func.h",
+    "../src/uint3x3.func.h",
+    "../src/uint4x4.func.h",
+    "../src/float2x2.func.h",
+    "../src/float3x3.func.h",
+    "../src/float4x4.func.h",
 };
 
 /* Byte order mark of UTF-8 */
@@ -307,15 +343,8 @@ int main(int argc, char* argv[])
         }
     }
 
-    /* Change the current working directory */
-    char exedir[1024];
-    getexedir(exedir, sizeof(exedir));
-#if (__unix__)
-    chdir(exedir);
-#else
-    SetCurrentDirectoryA(exedir);
-#endif
-    
+    /* Open or create output file
+     */
     FILE* targetFile = fopen(outputfile, "w+");
     if (!targetFile)
     {
@@ -326,6 +355,15 @@ int main(int argc, char* argv[])
     /* Mark targetFile as utf8 format */
     fwrite(utf8BOM, 1, sizeof(utf8BOM), targetFile);
 
+    /* Change the current working directory */
+    char exedir[1024];
+    getexedir(exedir, sizeof(exedir));
+#if (__unix__)
+    chdir(exedir);
+#else
+    SetCurrentDirectoryA(exedir);
+#endif
+    
     /* Header of file */
     do
     {
@@ -344,7 +382,7 @@ int main(int argc, char* argv[])
     /* Include hlsldef.h before other modules */
     do
     {
-        file_concat(targetFile, "../src/hlsldef.h");
+        file_concat(targetFile, "../src/define.h");
     } while (0);
 
     /* Begin of namespace */

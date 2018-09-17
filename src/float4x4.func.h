@@ -277,6 +277,370 @@ inline bool4x4 operator>=(const float4x4& a, const float4x4& b)
 // @region: Common functions
 //
 
+/* Computes sign of 'x'
+ */
+inline int4x4 sign(const float4x4& m)
+{
+    return int4x4(sign(m[0]),
+                  sign(m[1]),
+                  sign(m[2]),
+                  sign(m[3]));
+}
+
+/* Computes absolute value
+ */
+inline float4x4 abs(const float4x4& m)
+{
+    return float4x4(abs(m[0]),
+                    abs(m[1]),
+                    abs(m[2]),
+                    abs(m[3]));
+}
+
+/* Computes cosine
+ */
+inline float4x4 cos(const float4x4& m)
+{
+    return float4x4(cos(m[0]),
+                    cos(m[1]),
+                    cos(m[2]),
+                    cos(m[3]));
+}
+
+/* Computes sine
+ */
+inline float4x4 sin(const float4x4& m)
+{
+    return float4x4(sin(m[0]),
+                    sin(m[1]),
+                    sin(m[2]),
+                    sin(m[3]));
+}
+
+/* Computes tangent
+ */
+inline float4x4 tan(const float4x4& m)
+{
+    return float4x4(tan(m[0]),
+                    tan(m[1]),
+                    tan(m[2]),
+                    tan(m[3]));
+}
+
+/* Computes hyperbolic cosine
+ */
+inline float4x4 cosh(const float4x4& m)
+{
+    return float4x4(cosh(m[0]),
+                    cosh(m[1]),
+                    cosh(m[2]),
+                    cosh(m[3]));
+}
+
+/* Computes hyperbolic sine
+ */
+inline float4x4 sinh(const float4x4& m)
+{
+    return float4x4(sinh(m[0]),
+                    sinh(m[1]),
+                    sinh(m[2]),
+                    sinh(m[3]));
+}
+
+/* Computes hyperbolic tangent
+ */
+inline float4x4 tanh(const float4x4& m)
+{
+    return float4x4(tanh(m[0]),
+                    tanh(m[1]),
+                    tanh(m[2]),
+                    tanh(m[3]));
+}
+
+/* Computes inverse cosine
+ */
+inline float4x4 acos(const float4x4& m)
+{
+    return float4x4(acos(m[0]),
+                    acos(m[1]),
+                    acos(m[2]),
+                    acos(m[3]));
+}
+
+/* Computes inverse sine
+ */
+inline float4x4 asin(const float4x4& m)
+{
+    return float4x4(asin(m[0]),
+                    asin(m[1]),
+                    asin(m[2]),
+                    asin(m[3]));
+}
+
+/* Computes inverse tangent
+ */
+inline float4x4 atan(const float4x4& m)
+{
+    return float4x4(atan(m[0]),
+                    atan(m[1]),
+                    atan(m[2]),
+                    atan(m[3]));
+}
+
+/* Computes inverse tangent with 2 args
+ */
+inline float4x4 atan2(const float4x4& a, const float4x4& b)
+{
+    return float4x4(atan2(a[0], b[0]),
+                    atan2(a[1], b[1]),
+                    atan2(a[2], b[2]),
+                    atan2(a[3], b[3]));
+}
+
+/* Computes Euler number raised to the power 'x'
+ */
+inline float4x4 exp(const float4x4& m)
+{
+    return float4x4(exp(m[0]),
+                    exp(m[1]),
+                    exp(m[2]),
+                    exp(m[3]));
+}
+
+/* Computes 2 raised to the power 'x'
+ */
+inline float4x4 exp2(const float4x4& m)
+{
+    return float4x4(exp2(m[0]),
+                    exp2(m[1]),
+                    exp2(m[2]),
+                    exp2(m[3]));
+}
+
+/* Computes the base Euler number logarithm
+ */
+inline float4x4 log(const float4x4& m)
+{
+    return float4x4(log(m[0]),
+                    log(m[1]),
+                    log(m[2]),
+                    log(m[3]));
+}
+
+/* Computes the base 2 logarithm
+ */
+inline float4x4 log2(const float4x4& m)
+{
+    return float4x4(log2(m[0]),
+                    log2(m[1]),
+                    log2(m[2]),
+                    log2(m[3]));
+}
+
+/* Computes the base 10 logarithm
+ */
+inline float4x4 log10(const float4x4& m)
+{
+    return float4x4(log10(m[0]),
+                    log10(m[1]),
+                    log10(m[2]),
+                    log10(m[3]));
+}
+
+/* Computes the value of base raised to the power exponent
+ */
+inline float4x4 pow(const float4x4& a, const float4x4& b)
+{
+    return float4x4(pow(a[0], b[0]),
+                    pow(a[1], b[1]),
+                    pow(a[2], b[2]),
+                    pow(a[3], b[3]));
+}
+
+/* Get the fractal part of floating point
+ */
+inline float4x4 frac(const float4x4& m)
+{
+    return float4x4(frac(m[0]),
+                    frac(m[1]),
+                    frac(m[2]),
+                    frac(m[3]));
+}
+
+/* Computes the floating-point remainder of the division operation x/y
+ */
+inline float4x4 fmod(const float4x4& a, const float4x4& b)
+{
+    return float4x4(fmod(a[0], b[0]),
+                    fmod(a[1], b[1]),
+                    fmod(a[2], b[2]),
+                    fmod(a[3], b[3]));
+}
+
+/* Computes the smallest integer value not less than 'x'
+ */
+inline float4x4 ceil(const float4x4& m)
+{
+    return float4x4(ceil(m[0]),
+                    ceil(m[1]),
+                    ceil(m[2]),
+                    ceil(m[3]));
+}
+
+/* Computes the largest integer value not greater than 'x'
+ */
+inline float4x4 floor(const float4x4& m)
+{
+    return float4x4(floor(m[0]),
+                    floor(m[1]),
+                    floor(m[2]),
+                    floor(m[3]));
+}
+
+/* Computes the nearest integer value
+ */
+inline float4x4 round(const float4x4& m)
+{
+    return float4x4(round(m[0]),
+                    round(m[1]),
+                    round(m[2]),
+                    round(m[3]));
+}
+
+/* Computes the nearest integer not greater in magnitude than 'x'
+ */
+inline float4x4 trunc(const float4x4& m)
+{
+    return float4x4(trunc(m[0]),
+                    trunc(m[1]),
+                    trunc(m[2]),
+                    trunc(m[3]));
+}
+
+/* Get the smaller value
+ */
+inline float4x4 min(const float4x4& a, const float4x4& b)
+{
+    return float4x4(min(a[0], b[0]),
+                    min(a[1], b[1]),
+                    min(a[2], b[2]),
+                    min(a[3], b[3]));
+}
+
+/* Get the larger value
+ */
+inline float4x4 max(const float4x4& a, const float4x4& b)
+{
+    return float4x4(max(a[0], b[0]), 
+                    max(a[1], b[1]),
+                    max(a[2], b[2]),
+                    max(a[3], b[3]));
+}
+
+/* Clamps the 'x' value to the [min, max].
+ */
+inline float4x4 clamp(const float4x4& v, const float4x4& min, const float4x4& max)
+{
+    return float4x4(clamp(v[0], min[0], max[0]), 
+                    clamp(v[1], min[1], max[1]), 
+                    clamp(v[2], min[2], max[2]), 
+                    clamp(v[3], min[3], max[3]));
+}
+
+/* Clamps the specified value within the range of 0 to 1
+ */
+inline float4x4 saturate(const float4x4& m)
+{
+    return float4x4(saturate(m[0]),
+                    saturate(m[1]),
+                    saturate(m[2]),
+                    saturate(m[3]));
+}
+
+/* Compares two values, returning 0 or 1 based on which value is greater.
+ */
+inline float4x4 step(const float4x4& a, const float4x4& b)
+{
+    return float4x4(step(a[0], b[0]),
+                    step(a[1], b[1]),
+                    step(a[2], b[2]),
+                    step(a[3], b[3]));
+}
+
+/* Performs a linear interpolation.
+ */
+inline float4x4 lerp(const float4x4& a, const float4x4& b, const float4x4& t)
+{
+    return float4x4(lerp(a[0], b[0], t[0]),
+                    lerp(a[1], b[1], t[1]), 
+                    lerp(a[2], b[2], t[2]), 
+                    lerp(a[3], b[3], t[3]));
+}
+
+/* Performs a linear interpolation.
+ */
+inline float4x4 lerp(const float4x4& a, const float4x4& b, float t)
+{
+    return float4x4(lerp(a[0], b[0], t),
+                    lerp(a[1], b[1], t), 
+                    lerp(a[2], b[2], t), 
+                    lerp(a[3], b[3], t));
+}
+
+/* Compute a smooth Hermite interpolation
+ */
+inline float4x4 smoothstep(const float4x4& a, const float4x4& b, const float4x4& t)
+{
+    return float4x4(smoothstep(a[0], b[0], t[0]),
+                    smoothstep(a[1], b[1], t[1]),
+                    smoothstep(a[2], b[2], t[2]),
+                    smoothstep(a[3], b[3], t[3]));
+}
+
+/* Computes square root of 'x'.
+ */
+inline float4x4 sqrt(const float4x4& m)
+{
+    return float4x4(sqrt(m[0]),
+                    sqrt(m[1]),
+                    sqrt(m[2]),
+                    sqrt(m[3]));
+}
+
+/* Computes inverse square root of 'x'.
+ */
+inline float4x4 rsqrt(const float4x4& m)
+{
+    return float4x4(rsqrt(m[0]),
+                    rsqrt(m[1]),
+                    rsqrt(m[2]),
+                    rsqrt(m[3]));
+}
+
+/* Computes fast inverse square root of 'x'.
+ */
+inline float4x4 fsqrt(const float4x4& m)
+{
+    return float4x4(fsqrt(m[0]),
+                    fsqrt(m[1]),
+                    fsqrt(m[2]),
+                    fsqrt(m[3]));
+}
+
+/* Computes fast inverse square root of 'x'.
+ */
+inline float4x4 frsqrt(const float4x4& m)
+{
+    return float4x4(frsqrt(m[0]),
+                    frsqrt(m[1]),
+                    frsqrt(m[2]),
+                    frsqrt(m[3]));
+}
+
+//
+// @region: Matrix operations
+//
+
 inline float4 mul(const float4x4& a, const float4& b)
 {
     const float4 c0 = float4(a[0][0], a[1][0], a[2][0], a[3][0]);
@@ -327,36 +691,6 @@ inline float4x4 mul(const float4x4& a, const float4x4& b)
     result[1] = mul(a, b[1]);
     result[2] = mul(a, b[2]);
     result[3] = mul(a, b[3]);
-    return result;
-}
-
-inline float4x4 min(const float4x4& a, const float4x4& b)
-{
-    float4x4 result;
-    result[0] = min(a[0], b[0]);
-    result[1] = min(a[1], b[1]);
-    result[2] = min(a[2], b[2]);
-    result[3] = min(a[3], b[3]);
-    return result;
-}
-
-inline float4x4 max(const float4x4& a, const float4x4& b)
-{
-    float4x4 result;
-    result[0] = max(a[0], b[0]);
-    result[1] = max(a[1], b[1]);
-    result[2] = max(a[2], b[2]);
-    result[3] = max(a[3], b[3]);
-    return result;
-}
-
-inline float4x4 clamp(const float4x4& v, const float4x4& min, const float4x4& max)
-{
-    float4x4 result;
-    result[0] = clamp(v[0], min[0], max[0]);
-    result[1] = clamp(v[1], min[1], max[1]);
-    result[2] = clamp(v[2], min[2], max[2]);
-    result[3] = clamp(v[3], min[3], max[3]);
     return result;
 }
 
