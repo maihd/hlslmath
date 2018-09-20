@@ -2,6 +2,7 @@
 
 #include <time.h>
 #include <stdio.h>
+#include <ctype.h>
 #include <wchar.h>
 #include <string.h>
 
@@ -10,6 +11,9 @@
 #else
 #include <Windows.h>
 #endif
+
+#define HLSL_MATH_VERCODE 100  // x/xx
+#define HLSL_MATH_VERSION "v1.0"
 
 /* Total sources/modules files exclude DEF file */
 const char* filenames[] = {
@@ -72,6 +76,25 @@ const unsigned char utf8BOM[3] = { 0xEF, 0xBB, 0xBF };
 
 /* Byte order mark of UTF-16 little edian */
 const unsigned char utf16LEBOM[2] = { 0xFF, 0xFE };
+
+int issymbol(const char* buf)
+{
+    int c = *buf++;
+    if (!(c == '_' || isalpha(c)))
+    {
+        return 0;
+    }
+    
+    while ((c = *buf++) > 0)
+    {
+        if (!(c == '_' || isalnum(c)))
+        {
+            return 0;
+        }
+    }
+
+    return 1;
+}
 
 size_t utf16_normalize(wchar_t* buf, size_t size, size_t len)
 {
@@ -304,7 +327,8 @@ int getexedir(char* buffer, int length)
 int main(int argc, char* argv[])
 {
     const char* namespace = NULL;
-    const char* outputfile = "../hlslmath.h";
+    const char* assertname = NULL;
+    const char* outputfile = NULL;
     
     for (int i = 1; i < argc; i++)
     {
@@ -315,9 +339,16 @@ int main(int argc, char* argv[])
                 "HLSL Math build tools\n"
                 "Usage: %s [Options]\n\n"
                 "--help               Print this message.\n"
-                "--output=<file>      Output file path. Default: ../hlslmath.h\n"
+                "--version            Print version of the tools (same with hlslmath)\n"
+                "--output=<file>      Output file path. Default: <hlslmath>/../hlslmath.h\n"
+                "--assert=<name>      Assertion expression name. Default: NULL\n" 
                 "--namespace=<name>   Namespace of hlslmath. Default: NULL\n",
                 argv[0]);
+            return 0;
+        }
+        else if (strcmp(option, "--version") == 0)
+        {
+            printf("HLSL's Math %s\n", HLSL_MATH_VERSION); 
             return 0;
         }
         else if (strncmp(option, "--namespace=", 12) == 0)
@@ -325,16 +356,46 @@ int main(int argc, char* argv[])
             if (namespace == NULL)
             {
                 namespace = option + 12;
+                if (!issymbol(namespace))
+                {
+                    fprintf(stderr, "Namespace is not valid: '%s'\n", namespace);
+                    return -1;
+                }
             }
             else
             {
-                fprintf(stderr, "Too many namespace presented\n");
+                fprintf(stderr, "Too many namespace is presented\n");
                 return -1;
             }
         }
         else if (strncmp(option, "--output=", 9) == 0)
         {
-            outputfile = option + 9;
+            if (outputfile == NULL)
+            {
+                outputfile = option + 9;
+            }
+            else
+            {
+                fprintf(stderr, "Too many output is presented\n");
+                return -1;
+            }
+        }
+        else if (strncmp(option, "--assert=", 9) == 0)
+        {
+            if (assertname == NULL)
+            {
+                assertname = option + 9;
+                if (!issymbol(assertname))
+                {
+                    fprintf(stderr, "Assert is not valid: '%s'\n", assertname);
+                    return -1;
+                }
+            }
+            else
+            {
+                fprintf(stderr, "Too many assert is presented\n");
+                return -1;
+            }
         }
         else
         {
@@ -343,6 +404,15 @@ int main(int argc, char* argv[])
         }
     }
 
+    char exedir[1024];
+    getexedir(exedir, sizeof(exedir));
+    if (outputfile == NULL)
+    {
+        char defoutput[1024];
+        outputfile = defoutput;
+        sprintf(defoutput, "%s/../hlslmath.h", exedir);
+    }
+    
     /* Open or create output file
      */
     FILE* targetFile = fopen(outputfile, "w+");
@@ -352,17 +422,15 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    /* Mark targetFile as utf8 format */
-    fwrite(utf8BOM, 1, sizeof(utf8BOM), targetFile);
-
-    /* Change the current working directory */
-    char exedir[1024];
-    getexedir(exedir, sizeof(exedir));
+    /* Change the current working directory */    
 #if (__unix__)
     chdir(exedir);
 #else
     SetCurrentDirectoryA(exedir);
 #endif
+    
+    /* Mark targetFile as utf8 format */
+    fwrite(utf8BOM, 1, sizeof(utf8BOM), targetFile);
     
     /* Header of file */
     do
@@ -383,6 +451,37 @@ int main(int argc, char* argv[])
     do
     {
         file_concat(targetFile, "../src/define.h");
+
+        /* HLSL_DEFINE_INTRINSICS */
+        if (namespace)
+        {
+            const char content[] =
+                "#define HLSL_DEFINE_INTRINSICS 1\n\n";
+            fwrite(content, sizeof(content) - 1, 1, targetFile);
+        }
+        else
+        {
+            const char content[] =
+                "#if defined(_MSC_VER) && _MSC_VER >= 1900\n"
+                "#define HLSL_DEFINE_INTRINSICS 1\n"
+                "#else\n"
+                "#define HLSL_DEFINE_INTRINSICS 0\n"
+                "#endif\n\n";
+            fwrite(content, sizeof(content) - 1, 1, targetFile);
+        }
+
+        /* HLSL_ASSERT */
+        if (assertname)
+        {
+            fprintf(targetFile, "#define HLSL_ASSERT(exp, msg) %s(exp, msg)\n\n", assertname);
+        }
+        else
+        {
+            const char content[] = 
+                "#include <assert.h>\n"
+                "#define HLSL_ASSERT(exp, msg) assert(exp && msg)\n\n";
+            fwrite(content, sizeof(content) - 1, 1, targetFile);
+        }
     } while (0);
 
     /* Begin of namespace */

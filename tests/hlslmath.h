@@ -2,6 +2,12 @@
 
 #include "../src/define.h"
 
+#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#define HLSL_DEFINE_INTRINSICS 1
+#else
+#define HLSL_DEFINE_INTRINSICS 0
+#endif
+
 #include "../src/int2.type.h"
 #include "../src/int3.type.h"
 #include "../src/int4.type.h"

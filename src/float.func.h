@@ -11,7 +11,7 @@ inline int sign(float x)
     return sign(cvt.i);
 }
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if HLSL_DEFINE_INTRINSICS != 0
 /* Computes absolute value
  */
 inline float abs(float x)
@@ -226,7 +226,7 @@ inline float smoothstep(float min, float max, float x)
     return (clamp(x, min, max) - min) / (max - min);
 }
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if HLSL_DEFINE_INTRINSICS != 0
 /* Computes square root of 'x'.
  */
 inline float sqrt(float x)

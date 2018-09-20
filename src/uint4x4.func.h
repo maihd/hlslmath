@@ -53,7 +53,7 @@ inline uint4x4 operator+(const uint4x4& a, const uint4x4& b)
     return result;
 }
 
-inline uint4x4 operator+(const uint4x4& a, int b)
+inline uint4x4 operator+(const uint4x4& a, uint b)
 {
     uint4x4 result;
     result[0] = a[0] + b;
@@ -63,7 +63,7 @@ inline uint4x4 operator+(const uint4x4& a, int b)
     return result;
 }
 
-inline uint4x4 operator+(int a, const uint4x4& b)
+inline uint4x4 operator+(uint a, const uint4x4& b)
 {
     uint4x4 result;
     result[0] = a + b[0];
@@ -83,7 +83,7 @@ inline uint4x4 operator-(const uint4x4& a, const uint4x4& b)
     return result;
 }
 
-inline uint4x4 operator-(const uint4x4& a, int b)
+inline uint4x4 operator-(const uint4x4& a, uint b)
 {
     uint4x4 result;
     result[0] = a[0] - b;
@@ -93,7 +93,7 @@ inline uint4x4 operator-(const uint4x4& a, int b)
     return result;
 }
 
-inline uint4x4 operator-(int a, const uint4x4& b)
+inline uint4x4 operator-(uint a, const uint4x4& b)
 {
     uint4x4 result;
     result[0] = a - b[0];
@@ -113,7 +113,7 @@ inline uint4x4 operator*(const uint4x4& a, const uint4x4& b)
     return result;
 }
 
-inline uint4x4 operator*(const uint4x4& a, int b)
+inline uint4x4 operator*(const uint4x4& a, uint b)
 {
     uint4x4 result;
     result[0] = a[0] * b;
@@ -123,7 +123,7 @@ inline uint4x4 operator*(const uint4x4& a, int b)
     return result;
 }
 
-inline uint4x4 operator*(int a, const uint4x4& b)
+inline uint4x4 operator*(uint a, const uint4x4& b)
 {
     uint4x4 result;
     result[0] = a * b[0];
@@ -143,7 +143,7 @@ inline uint4x4 operator/(const uint4x4& a, const uint4x4& b)
     return result;
 }
 
-inline uint4x4 operator/(const uint4x4& a, int b)
+inline uint4x4 operator/(const uint4x4& a, uint b)
 {
     uint4x4 result;
     result[0] = a[0] / b;
@@ -168,7 +168,7 @@ inline uint4x4& operator+=(uint4x4& a, const uint4x4& b)
     return (a = a + b);
 }
 
-inline uint4x4& operator+=(uint4x4& a, int b)
+inline uint4x4& operator+=(uint4x4& a, uint b)
 {
     return (a = a + b);
 }
@@ -178,7 +178,7 @@ inline uint4x4& operator-=(uint4x4& a, const uint4x4& b)
     return (a = a - b);
 }
 
-inline uint4x4& operator-=(uint4x4& a, int b)
+inline uint4x4& operator-=(uint4x4& a, uint b)
 {
     return (a = a - b);
 }
@@ -198,7 +198,7 @@ inline uint4x4& operator/=(uint4x4& a, const uint4x4& b)
     return (a = a / b);
 }
 
-inline uint4x4& operator/=(uint4x4& a, int b)
+inline uint4x4& operator/=(uint4x4& a, uint b)
 {
     return (a = a + b);
 }

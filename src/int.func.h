@@ -5,6 +5,7 @@ inline int sign(int x)
     return x >> 31;
 }
 
+#if HLSL_DEFINE_INTRINSICS != 0
 /* Computes absolute value
  */
 inline int abs(int x)
@@ -12,6 +13,7 @@ inline int abs(int x)
     const int bits = sizeof(int) * 8 - 1;
     return (x + (x >> bits)) ^ (x >> bits);
 }
+#endif
 
 /* Get the smaller value
  */

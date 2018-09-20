@@ -7,7 +7,7 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
-    inline uint4(int x, int y, int z, int w)
+    inline uint4(uint x, uint y, uint z, uint w)
         : x(x)
         , y(y) 
         , z(z)

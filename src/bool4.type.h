@@ -7,7 +7,7 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
-    inline bool4(int x, int y, int z, int w)
+	inline bool4(bool x, bool y, bool z, bool w)
         : x(x)
         , y(y) 
         , z(z)

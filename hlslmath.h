@@ -1,18 +1,22 @@
 ﻿// Generate with hlslmath/tools/tools/build
-// Filename: ../hlslmath.h
-// Datetime: Mon Sep 17 23:48:43 2018
+// Filename: Thu Sep 20 17:13:43 2018
+// Datetime: Thu Sep 20 17:13:43 2018
 
 #pragma once
 
 #include <math.h>
-#include <assert.h>
-
-#ifndef HLSL_ASSERT
-#define HLSL_ASSERT(exp, msg) assert(exp && msg)
-#endif
 
 #undef min // When Windows.h is included, min is an macro
 #undef max // When Windows.h is included, max is an macro
+
+#if defined(_MSC_VER) && _MSC_VER >= 1900
+#define HLSL_DEFINE_INTRINSICS 1
+#else
+#define HLSL_DEFINE_INTRINSICS 0
+#endif
+
+#include <assert.h>
+#define HLSL_ASSERT(exp, msg) assert(exp && msg)
 
 union int2
 {
@@ -179,7 +183,7 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
-    inline uint4(int x, int y, int z, int w)
+    inline uint4(uint x, uint y, uint z, uint w)
         : x(x)
         , y(y) 
         , z(z)
@@ -246,7 +250,7 @@ public: // @region: Constructors
         , y(y) 
         , z(z) {}
 
-    inline explicit bool3(int s = false)
+    inline explicit bool3(bool s = false)
         : bool3(s, s, s) {}
 
 public: // @region: Operators
@@ -272,13 +276,13 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
-    inline bool4(int x, int y, int z, int w)
+	inline bool4(bool x, bool y, bool z, bool w)
         : x(x)
         , y(y) 
         , z(z)
         , w(w) {}
 
-    inline explicit bool4(int s = false)
+    inline explicit bool4(bool s = false)
         : bool4(s, s, s, s) {}
 
 public: // @region: Operators
@@ -363,12 +367,6 @@ public: // @region: Fields
     {
         float x, y, z, w; 
     };
-    
-    struct
-    {
-        float3 axis;
-        float  angle;
-    };
 
 public: // @region: Constructors
     inline float4(float x, float y, float z, float w)
@@ -398,8 +396,9 @@ union int2x2
 {
 public: // @region: Constructors
     inline int2x2(const int2& m0, const int2& m1)
-        : data{ m0, m1 }
     {
+		data[0] = m0;
+		data[1] = m1;
     }
 
     inline int2x2(int m00, int m01, int m10, int m11)
@@ -438,8 +437,10 @@ union int3x3
 {
 public: // @region: Constructors
     inline int3x3(const int3& m0, const int3& m1, const int3& m2)
-        : data{ m0, m1, m2 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
     }
 
     inline int3x3(int m00, int m01, int m02,
@@ -482,8 +483,11 @@ union int4x4
 {
 public: // @region: Constructors
     inline int4x4(const int4& m0, const int4& m1, const int4& m2, const int4& m3)
-        : data{ m0, m1, m2, m3 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+		data[3] = m3;
     }
 
     inline int4x4(int m00, int m01, int m02, int m03,
@@ -529,8 +533,9 @@ union uint2x2
 {
 public: // @region: Constructors
     inline uint2x2(const uint2& m0, const uint2& m1)
-        : data{ m0, m1 }
     {
+		data[0] = m0;
+		data[1] = m1;
     }
 
     inline uint2x2(uint m00, uint m01, uint m10, uint m11)
@@ -569,8 +574,10 @@ union uint3x3
 {
 public: // @region: Constructors
     inline uint3x3(const uint3& m0, const uint3& m1, const uint3& m2)
-        : data{ m0, m1, m2 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
     }
 
     inline uint3x3(uint m00, uint m01, uint m02,
@@ -613,8 +620,11 @@ union uint4x4
 {
 public: // @region: Constructors
     inline uint4x4(const uint4& m0, const uint4& m1, const uint4& m2, const uint4& m3)
-        : data{ m0, m1, m2, m3 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+		data[3] = m3;
     }
 
     inline uint4x4(uint m00, uint m01, uint m02, uint m03,
@@ -660,8 +670,9 @@ union bool2x2
 {
 public: // @region: Constructors
     inline bool2x2(const bool2& m0, const bool2& m1)
-        : data{ m0, m1 }
     {
+		data[0] = m0;
+		data[1] = m1;
     }
 
     inline bool2x2(bool m00, bool m01, bool m10, bool m11)
@@ -700,8 +711,10 @@ union bool3x3
 {
 public: // @region: Constructors
     inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
-        : data{ m0, m1, m2 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
     }
 
     inline bool3x3(bool m00, bool m01, bool m02,
@@ -744,8 +757,11 @@ union bool4x4
 {
 public: // @region: Constructors
     inline bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
-        : data{ m0, m1, m2, m3 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+		data[3] = m3;
     }
 
     inline bool4x4(bool m00, bool m01, bool m02, bool m03,
@@ -790,8 +806,11 @@ public: // @region: Internal fields
 union float2x2
 {
 public: // @region: Constructors
-    inline float2x2(const float2& m0, const float2& m1)
-        : data{ m0, m1 } {}
+	inline float2x2(const float2& m0, const float2& m1)
+	{
+		data[0] = m0;
+		data[1] = m1;
+	}
 
     inline float2x2(float m00, float m01, 
                     float m10, float m11)
@@ -838,8 +857,12 @@ public: // @region: Internal fields
 union float3x3
 {
 public: // @region: Constructors
-    inline float3x3(const float3& m0, const float3& m1, const float3& m2)
-        : data{ m0, m1, m2 } {}
+	inline float3x3(const float3& m0, const float3& m1, const float3& m2)
+	{
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+	}
 
     inline float3x3(float m00, float m01, float m02,
                     float m10, float m11, float m12,
@@ -886,8 +909,13 @@ public: // @region: Internal fields
 union float4x4
 {
 public: // @region: Constructors
-    inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
-        : data{ m0, m1, m2, m3 } {}
+	inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
+	{
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+		data[3] = m3;
+	}
     
     inline float4x4(float m00, float m01, float m02, float m03,
                     float m10, float m11, float m12, float m13,
@@ -1043,254 +1071,254 @@ inline bool any(const bool4x4& v)
 
 inline bool all(int v)
 {
-    return v;
+    return v != 0;
 }
 
 inline bool any(int v)
 {
-    return v;
+    return v != 0;
 }
 
 inline bool all(const int2& v)
 {
-    return v.x && v.y;
+    return v.x != 0 && v.y != 0;
 }
 
 inline bool any(const int2& v)
 {
-    return v.x || v.y;
+    return v.x != 0 || v.y != 0;
 }
 
 inline bool all(const int3& v)
 {
-    return v.x && v.y && v.z;
+    return v.x != 0 && v.y != 0 && v.z != 0;
 }
 
 inline bool any(const int3& v)
 {
-    return v.x || v.y || v.z ;
+    return v.x != 0 || v.y != 0 || v.z != 0;
 }
 
 inline bool all(const int4& v)
 {
-    return v.x && v.y && v.z && v.w;
+    return v.x != 0 && v.y != 0 && v.z != 0 && v.w != 0;
 }
 
 inline bool any(const int4& v)
 {
-    return v.x || v.y || v.z || v.w;
+    return v.x != 0 || v.y != 0 || v.z != 0 || v.w != 0;
 }
 
 inline bool all(const int2x2& v)
 {
-    return v[0][0] && v[0][1] && v[1][0] && v[1][1];
+	return v[0][0] != 0 && v[0][1] != 0 && v[1][0] != 0 && v[1][1] != 0;
 }
 
 inline bool any(const int2x2& v)
 {
-    return v[0][0] || v[0][1] || v[1][0] || v[1][1];
+	return v[0][0] != 0 || v[0][1] != 0 || v[1][0] != 0 || v[1][1] != 0;
 }
 
 inline bool all(const int3x3& v)
 {
     return
-        v[0][0] && v[0][1] && v[0][2] &&
-        v[1][0] && v[1][1] && v[1][2] &&
-        v[2][0] && v[2][1] && v[2][2];
+        v[0][0] != 0 && v[0][1] != 0 && v[0][2] != 0 &&
+        v[1][0] != 0 && v[1][1] != 0 && v[1][2] != 0 &&
+        v[2][0] != 0 && v[2][1] != 0 && v[2][2] != 0;
 }
 
 inline bool any(const int3x3& v)
 {
     return
-        v[0][0] || v[0][1] || v[0][2] ||
-        v[1][0] || v[1][1] || v[1][2] ||
-        v[2][0] || v[2][1] || v[2][2];
+		v[0][0] != 0 || v[0][1] != 0 || v[0][2] != 0 ||
+		v[1][0] != 0 || v[1][1] != 0 || v[1][2] != 0 ||
+		v[2][0] != 0 || v[2][1] != 0 || v[2][2] != 0;
 }
 
 inline bool all(const int4x4& v)
 {
     return
-        v[0][0] && v[0][1] && v[0][2] && v[0][3] &&
-        v[1][0] && v[1][1] && v[1][2] && v[1][3] &&
-        v[2][0] && v[2][1] && v[2][2] && v[2][3] &&
-        v[3][0] && v[3][1] && v[3][2] && v[3][3];
+		v[0][0] != 0 && v[0][1] != 0 && v[0][2] != 0 && v[0][3] != 0 &&
+		v[1][0] != 0 && v[1][1] != 0 && v[1][2] != 0 && v[1][3] != 0 &&
+		v[2][0] != 0 && v[2][1] != 0 && v[2][2] != 0 && v[2][3] != 0 &&
+        v[3][0] != 0 && v[3][1] != 0 && v[3][2] != 0 && v[3][3] != 0;
 }
 
 inline bool any(const int4x4& v)
 {
     return 
-        v[0][0] || v[0][1] || v[0][2] || v[0][3] ||
-        v[1][0] || v[1][1] || v[1][2] || v[1][3] ||
-        v[2][0] || v[2][1] || v[2][2] || v[2][3] ||
-        v[3][0] || v[3][1] || v[3][2] || v[3][3];
+        v[0][0] != 0 || v[0][1] != 0 || v[0][2] != 0 || v[0][3] != 0 ||
+        v[1][0] != 0 || v[1][1] != 0 || v[1][2] != 0 || v[1][3] != 0 ||
+        v[2][0] != 0 || v[2][1] != 0 || v[2][2] != 0 || v[2][3] != 0 ||
+        v[3][0] != 0 || v[3][1] != 0 || v[3][2] != 0 || v[3][3] != 0;
 }
 
 inline bool all(uint v)
 {
-    return v;
+	return v != 0;
 }
 
 inline bool any(uint v)
 {
-    return v;
+	return v != 0;
 }
 
 inline bool all(const uint2& v)
 {
-    return v.x && v.y;
+	return v.x != 0 && v.y != 0;
 }
 
 inline bool any(const uint2& v)
 {
-    return v.x || v.y;
+	return v.x != 0 || v.y != 0;
 }
 
 inline bool all(const uint3& v)
 {
-    return v.x && v.y && v.z;
+	return v.x != 0 && v.y != 0 && v.z != 0;
 }
 
 inline bool any(const uint3& v)
 {
-    return v.x || v.y || v.z ;
+	return v.x != 0 || v.y != 0 || v.z != 0;
 }
 
 inline bool all(const uint4& v)
 {
-    return v.x && v.y && v.z && v.w;
+	return v.x != 0 && v.y != 0 && v.z != 0 && v.w != 0;
 }
 
 inline bool any(const uint4& v)
 {
-    return v.x || v.y || v.z || v.w;
+	return v.x != 0 || v.y != 0 || v.z != 0 || v.w != 0;
 }
 
 inline bool all(const uint2x2& v)
 {
-    return v[0][0] && v[0][1] && v[1][0] && v[1][1];
+	return v[0][0] != 0 && v[0][1] != 0 && v[1][0] != 0 && v[1][1] != 0;
 }
 
 inline bool any(const uint2x2& v)
 {
-    return v[0][0] || v[0][1] || v[1][0] || v[1][1];
+	return v[0][0] != 0 || v[0][1] != 0 || v[1][0] != 0 || v[1][1] != 0;
 }
 
 inline bool all(const uint3x3& v)
 {
     return
-        v[0][0] && v[0][1] && v[0][2] &&
-        v[1][0] && v[1][1] && v[1][2] &&
-        v[2][0] && v[2][1] && v[2][2];
+        v[0][0] != 0 && v[0][1] != 0 && v[0][2] != 0 &&
+        v[1][0] != 0 && v[1][1] != 0 && v[1][2] != 0 &&
+        v[2][0] != 0 && v[2][1] != 0 && v[2][2] != 0;
 }
 
 inline bool any(const uint3x3& v)
 {
     return
-        v[0][0] || v[0][1] || v[0][2] ||
-        v[1][0] || v[1][1] || v[1][2] ||
-        v[2][0] || v[2][1] || v[2][2];
+        v[0][0] != 0 || v[0][1] != 0 || v[0][2] != 0 ||
+        v[1][0] != 0 || v[1][1] != 0 || v[1][2] != 0 ||
+        v[2][0] != 0 || v[2][1] != 0 || v[2][2] != 0;
 }
 
 inline bool all(const uint4x4& v)
 {
     return
-        v[0][0] && v[0][1] && v[0][2] && v[0][3] &&
-        v[1][0] && v[1][1] && v[1][2] && v[1][3] &&
-        v[2][0] && v[2][1] && v[2][2] && v[2][3] &&
-        v[3][0] && v[3][1] && v[3][2] && v[3][3];
+        v[0][0] != 0 && v[0][1] != 0 && v[0][2] != 0 && v[0][3] != 0 &&
+        v[1][0] != 0 && v[1][1] != 0 && v[1][2] != 0 && v[1][3] != 0 &&
+        v[2][0] != 0 && v[2][1] != 0 && v[2][2] != 0 && v[2][3] != 0 &&
+        v[3][0] != 0 && v[3][1] != 0 && v[3][2] != 0 && v[3][3] != 0;
 }
 
 inline bool any(const uint4x4& v)
 {
     return 
-        v[0][0] || v[0][1] || v[0][2] || v[0][3] ||
-        v[1][0] || v[1][1] || v[1][2] || v[1][3] ||
-        v[2][0] || v[2][1] || v[2][2] || v[2][3] ||
-        v[3][0] || v[3][1] || v[3][2] || v[3][3];
+        v[0][0] != 0 || v[0][1] != 0 || v[0][2] != 0 || v[0][3] != 0 ||
+        v[1][0] != 0 || v[1][1] != 0 || v[1][2] != 0 || v[1][3] != 0 ||
+        v[2][0] != 0 || v[2][1] != 0 || v[2][2] != 0 || v[2][3] != 0 ||
+        v[3][0] != 0 || v[3][1] != 0 || v[3][2] != 0 || v[3][3] != 0;
 }
 
 inline bool all(float v)
 {
-    return v;
+	return v != 0.0f;
 }
 
 inline bool any(float v)
 {
-    return v;
+	return v != 0.0f;
 }
 
 inline bool all(const float2& v)
 {
-    return v.x && v.y;
+	return v.x != 0.0f && v.y != 0.0f;
 }
 
 inline bool any(const float2& v)
 {
-    return v.x || v.y;
+	return v.x != 0.0f || v.y != 0.0f;
 }
 
 inline bool all(const float3& v)
 {
-    return v.x && v.y && v.z;
+	return v.x != 0.0f && v.y != 0.0f && v.z != 0.0f;
 }
 
 inline bool any(const float3& v)
 {
-    return v.x || v.y || v.z;
+	return v.x != 0.0f || v.y != 0.0f || v.z != 0.0f;
 }
 
 inline bool all(const float4& v)
 {
-    return v.x && v.y && v.z && v.w;
+	return v.x != 0.0f && v.y != 0.0f && v.z != 0.0f && v.w != 0.0f;
 }
 
 inline bool any(const float4& v)
 {
-    return v.x || v.y || v.z || v.w;
+	return v.x != 0.0f || v.y != 0.0f || v.z != 0.0f || v.w != 0.0f;
 }
 
 inline bool all(const float2x2& v)
 {
-    return v[0][0] && v[0][1] && v[1][0] && v[1][1];
+	return v[0][0] != 0.0f && v[0][1] != 0.0f && v[1][0] != 0.0f && v[1][1] != 0.0f;
 }
 
 inline bool any(const float2x2& v)
 {
-    return v[0][0] || v[0][1] || v[1][0] || v[1][1];
+	return v[0][0] != 0.0f || v[0][1] != 0.0f || v[1][0] != 0.0f || v[1][1] != 0.0f;
 }
 
 inline bool all(const float3x3& v)
 {
     return
-        v[0][0] && v[0][1] && v[0][2] &&
-        v[1][0] && v[1][1] && v[1][2] &&
-        v[2][0] && v[2][1] && v[2][2];
+        v[0][0] != 0.0f && v[0][1] != 0.0f && v[0][2] != 0.0f &&
+        v[1][0] != 0.0f && v[1][1] != 0.0f && v[1][2] != 0.0f &&
+        v[2][0] != 0.0f && v[2][1] != 0.0f && v[2][2] != 0.0f;
 }
 
 inline bool any(const float3x3& v)
 {
     return
-        v[0][0] || v[0][1] || v[0][2] ||
-        v[1][0] || v[1][1] || v[1][2] ||
-        v[2][0] || v[2][1] || v[2][2];
+        v[0][0] != 0.0f || v[0][1] != 0.0f || v[0][2] != 0.0f ||
+        v[1][0] != 0.0f || v[1][1] != 0.0f || v[1][2] != 0.0f ||
+        v[2][0] != 0.0f || v[2][1] != 0.0f || v[2][2] != 0.0f;
 }
 
 inline bool all(const float4x4& v)
 {
     return
-        v[0][0] && v[0][1] && v[0][2] && v[0][3] &&
-        v[1][0] && v[1][1] && v[1][2] && v[1][3] &&
-        v[2][0] && v[2][1] && v[2][2] && v[2][3] &&
-        v[3][0] && v[3][1] && v[3][2] && v[3][3];
+        v[0][0] != 0.0f && v[0][1] != 0.0f && v[0][2] != 0.0f && v[0][3] != 0.0f &&
+        v[1][0] != 0.0f && v[1][1] != 0.0f && v[1][2] != 0.0f && v[1][3] != 0.0f &&
+        v[2][0] != 0.0f && v[2][1] != 0.0f && v[2][2] != 0.0f && v[2][3] != 0.0f &&
+        v[3][0] != 0.0f && v[3][1] != 0.0f && v[3][2] != 0.0f && v[3][3] != 0.0f;
 }
 
 inline bool any(const float4x4& v)
 {
     return 
-        v[0][0] || v[0][1] || v[0][2] || v[0][3] ||
-        v[1][0] || v[1][1] || v[1][2] || v[1][3] ||
-        v[2][0] || v[2][1] || v[2][2] || v[2][3] ||
-        v[3][0] || v[3][1] || v[3][2] || v[3][3];
+        v[0][0] != 0.0f || v[0][1] != 0.0f || v[0][2] != 0.0f || v[0][3] != 0.0f ||
+        v[1][0] != 0.0f || v[1][1] != 0.0f || v[1][2] != 0.0f || v[1][3] != 0.0f ||
+        v[2][0] != 0.0f || v[2][1] != 0.0f || v[2][2] != 0.0f || v[2][3] != 0.0f ||
+        v[3][0] != 0.0f || v[3][1] != 0.0f || v[3][2] != 0.0f || v[3][3] != 0.0f;
 }
 
 /* Convert radians to degrees
@@ -1684,6 +1712,16 @@ inline int sign(int x)
     return x >> 31;
 }
 
+#if HLSL_DEFINE_INTRINSICS != 0
+/* Computes absolute value
+ */
+inline int abs(int x)
+{
+    const int bits = sizeof(int) * 8 - 1;
+    return (x + (x >> bits)) ^ (x >> bits);
+}
+#endif
+
 /* Get the smaller value
  */
 inline int min(int x, int y)
@@ -1916,6 +1954,228 @@ inline int2 clamp(const int2& m, const int2& min, const int2& max)
 {
     return int2(clamp(m[0], min[0], max[0]), 
                 clamp(m[1], min[1], max[1]));
+}
+
+//
+// @region: Operator overloadng
+//
+
+inline int3 operator-(const int3& v)
+{
+    return int3(-v.x, -v.y, -v.z);
+}
+
+inline int3& operator++(int3& v)
+{
+    ++v.x;
+    ++v.y;
+    ++v.z;
+    return v;
+}
+
+inline int3& operator--(int3& v)
+{
+    --v.x;
+    --v.y;
+    --v.z;
+    return v;
+}
+
+inline int3 operator++(int3& v, int)
+{
+    const int3 result = v;
+    v.x++;
+    v.y++;
+    v.z++;
+    return result;
+}
+
+inline int3 operator--(int3& v, int)
+{
+    const int3 result = v;
+    v.x--;
+    v.y--;
+    v.z--;
+    return result;
+}
+
+inline int3 operator+(const int3& a, const int3& b)
+{
+    return int3(a.x + b.x, a.y + b.y, a.z + b.z);
+}
+
+inline int3 operator-(const int3& a, const int3& b)
+{
+    return int3(a.x - b.x, a.y - b.y, a.z - b.z);
+}
+
+inline int3 operator*(const int3& a, const int3& b)
+{
+    return int3(a.x * b.x, a.y * b.y, a.z * b.z);
+}
+
+inline int3 operator/(const int3& a, const int3& b)
+{
+    return int3(a.x / b.x, a.y / b.y, a.z / b.z);
+}
+
+inline int3 operator+(const int3& a, int b)
+{
+    return int3(a.x + b, a.y + b, a.z + b);
+}
+
+inline int3 operator-(const int3& a, int b)
+{
+    return int3(a.x - b, a.y - b, a.z - b);
+}
+
+inline int3 operator*(const int3& a, int b)
+{
+    return int3(a.x * b, a.y * b, a.z * b);
+}
+
+inline int3 operator/(const int3& a, int b)
+{
+    return int3(a.x / b, a.y / b, a.z / b);
+}
+
+inline int3 operator+(int a, const int3& b)
+{
+    return int3(a + b.x, a + b.y, a + b.z);
+}
+
+inline int3 operator-(int a, const int3& b)
+{
+    return int3(a - b.x, a - b.y, a - b.z);
+}
+
+inline int3 operator*(int a, const int3& b)
+{
+    return int3(a * b.x, a * b.y, a * b.z);
+}
+
+inline int3 operator/(int a, const int3& b)
+{
+    return int3(a / b.x, a / b.y, a / b.z);
+}
+
+inline int3& operator+=(int3& a, int b)
+{
+    return (a = a + b);
+}
+
+inline int3& operator-=(int3& a, int b)
+{
+    return (a = a - b);
+}
+
+inline int3& operator*=(int3& a, int b)
+{
+    return (a = a * b);
+}
+
+inline int3& operator/=(int3& a, int b)
+{
+    return (a = a / b);
+}
+
+inline int3& operator+=(int3& a, const int3& b)
+{
+    return (a = a + b);
+}
+
+inline int3& operator-=(int3& a, const int3& b)
+{
+    return (a = a - b);
+}
+
+inline int3& operator*=(int3& a, const int3& b)
+{
+    return (a = a * b);
+}
+
+inline int3& operator/=(int3& a, const int3& b)
+{
+    return (a = a / b);
+}
+
+inline bool3 operator<(const int3& a, const int3& b)
+{
+    return bool3(a.x < b.x, a.y < b.y, a.z < b.z);
+}
+
+inline bool3 operator>(const int3& a, const int3& b)
+{
+    return bool3(a.x > b.x, a.y > b.y, a.z > b.z);
+}
+
+inline bool3 operator<=(const int3& a, const int3& b)
+{
+    return bool3(a.x <= b.x, a.y <= b.y, a.z <= b.z);
+}
+
+inline bool3 operator>=(const int3& a, const int3& b)
+{
+    return bool3(a.x >= b.x, a.y >= b.y, a.z >= b.z);
+}
+
+inline bool3 operator==(const int3& a, const int3& b)
+{
+    return bool3(a.x == b.x, a.y == b.y, a.z == b.z);
+}
+
+inline bool3 operator!=(const int3& a, const int3& b)
+{
+    return bool3(a.x != b.x, a.y != b.y, a.z != b.z);
+}
+
+//
+// @region: Common functions
+//
+
+/* Computes sign of 'x'
+ */
+inline int3 sign(const int3& m)
+{
+    return int3(sign(m[0]),
+                sign(m[1]),
+                sign(m[2]));
+}
+
+/* Computes absolute value
+ */
+inline int3 abs(const int3& m)
+{
+    return int3(abs(m[0]),
+                abs(m[1]),
+                abs(m[2]));
+}
+
+/* Get the smaller value
+ */
+inline int3 min(const int3& a, const int3& b)
+{
+    return int3(min(a[0], b[0]),
+                min(a[1], b[1]),
+                min(a[2], b[2]));
+}
+
+/* Get the larger value
+ */
+inline int3 max(const int3& a, const int3& b)
+{
+    return int3(max(a[0], b[0]), 
+                max(a[1], b[1]),
+                max(a[2], b[2]));
+}
+
+/* Clamps the 'x' value to the [min, max].
+ */
+inline int3 clamp(const int3& v, const int3& min, const int3& max)
+{
+    return int3(clamp(v[0], min[0], max[0]), 
+                clamp(v[1], min[1], max[1]), 
+                clamp(v[2], min[2], max[2]));
 }
 
 //
@@ -2781,6 +3041,7 @@ inline int sign(float x)
     return sign(cvt.i);
 }
 
+#if HLSL_DEFINE_INTRINSICS != 0
 /* Computes absolute value
  */
 inline float abs(float x)
@@ -2900,13 +3161,6 @@ inline float pow(float x, float y)
     return powf(x, y);
 }
 
-/* Get the fractal part of floating point
- */
-inline float frac(float x)
-{
-    return modff(x, 0);
-}
-
 /* Computes the floating-point remainder of the division operation x/y
  */
 inline float fmod(float x, float y)
@@ -2940,6 +3194,14 @@ inline float round(float x)
 inline float trunc(float x)
 {
     return truncf(x);
+}
+#endif
+
+/* Get the fractal part of floating point
+*/
+inline float frac(float x)
+{
+	return modff(x, 0);
 }
 
 /* Get the smaller value
@@ -2994,12 +3256,14 @@ inline float smoothstep(float min, float max, float x)
     return (clamp(x, min, max) - min) / (max - min);
 }
 
+#if HLSL_DEFINE_INTRINSICS != 0
 /* Computes square root of 'x'.
  */
 inline float sqrt(float x)
 {
     return sqrtf(x);
 }
+#endif
 
 /* Computes inverse square root of 'x'.
  */
@@ -3621,7 +3885,7 @@ inline float3 operator--(float3& v, int)
     return result;
 }
 
-inline const float3& operator++(float3& v, int)
+inline float3 operator++(float3& v, int)
 {
     const float3 result = v;
 
@@ -6244,7 +6508,7 @@ inline uint4x4 operator+(const uint4x4& a, const uint4x4& b)
     return result;
 }
 
-inline uint4x4 operator+(const uint4x4& a, int b)
+inline uint4x4 operator+(const uint4x4& a, uint b)
 {
     uint4x4 result;
     result[0] = a[0] + b;
@@ -6254,7 +6518,7 @@ inline uint4x4 operator+(const uint4x4& a, int b)
     return result;
 }
 
-inline uint4x4 operator+(int a, const uint4x4& b)
+inline uint4x4 operator+(uint a, const uint4x4& b)
 {
     uint4x4 result;
     result[0] = a + b[0];
@@ -6274,7 +6538,7 @@ inline uint4x4 operator-(const uint4x4& a, const uint4x4& b)
     return result;
 }
 
-inline uint4x4 operator-(const uint4x4& a, int b)
+inline uint4x4 operator-(const uint4x4& a, uint b)
 {
     uint4x4 result;
     result[0] = a[0] - b;
@@ -6284,7 +6548,7 @@ inline uint4x4 operator-(const uint4x4& a, int b)
     return result;
 }
 
-inline uint4x4 operator-(int a, const uint4x4& b)
+inline uint4x4 operator-(uint a, const uint4x4& b)
 {
     uint4x4 result;
     result[0] = a - b[0];
@@ -6304,7 +6568,7 @@ inline uint4x4 operator*(const uint4x4& a, const uint4x4& b)
     return result;
 }
 
-inline uint4x4 operator*(const uint4x4& a, int b)
+inline uint4x4 operator*(const uint4x4& a, uint b)
 {
     uint4x4 result;
     result[0] = a[0] * b;
@@ -6314,7 +6578,7 @@ inline uint4x4 operator*(const uint4x4& a, int b)
     return result;
 }
 
-inline uint4x4 operator*(int a, const uint4x4& b)
+inline uint4x4 operator*(uint a, const uint4x4& b)
 {
     uint4x4 result;
     result[0] = a * b[0];
@@ -6334,7 +6598,7 @@ inline uint4x4 operator/(const uint4x4& a, const uint4x4& b)
     return result;
 }
 
-inline uint4x4 operator/(const uint4x4& a, int b)
+inline uint4x4 operator/(const uint4x4& a, uint b)
 {
     uint4x4 result;
     result[0] = a[0] / b;
@@ -6359,7 +6623,7 @@ inline uint4x4& operator+=(uint4x4& a, const uint4x4& b)
     return (a = a + b);
 }
 
-inline uint4x4& operator+=(uint4x4& a, int b)
+inline uint4x4& operator+=(uint4x4& a, uint b)
 {
     return (a = a + b);
 }
@@ -6369,7 +6633,7 @@ inline uint4x4& operator-=(uint4x4& a, const uint4x4& b)
     return (a = a - b);
 }
 
-inline uint4x4& operator-=(uint4x4& a, int b)
+inline uint4x4& operator-=(uint4x4& a, uint b)
 {
     return (a = a - b);
 }
@@ -6389,7 +6653,7 @@ inline uint4x4& operator/=(uint4x4& a, const uint4x4& b)
     return (a = a / b);
 }
 
-inline uint4x4& operator/=(uint4x4& a, int b)
+inline uint4x4& operator/=(uint4x4& a, uint b)
 {
     return (a = a + b);
 }
@@ -8661,4 +8925,7 @@ inline float4x4 float4x4::rotatez(float angle)
     );
 }
 
-// File '../hlslmath.h' end here.
+// File '#include <assert.h>
+#define HLSL_ASSERT(exp, msg) assert(exp && msg)
+
+' end here.
