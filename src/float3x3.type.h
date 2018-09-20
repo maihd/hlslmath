@@ -1,8 +1,12 @@
 union float3x3
 {
 public: // @region: Constructors
-    inline float3x3(const float3& m0, const float3& m1, const float3& m2)
-        : data{ m0, m1, m2 } {}
+	inline float3x3(const float3& m0, const float3& m1, const float3& m2)
+	{
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+	}
 
     inline float3x3(float m00, float m01, float m02,
                     float m10, float m11, float m12,

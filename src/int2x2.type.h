@@ -2,8 +2,9 @@ union int2x2
 {
 public: // @region: Constructors
     inline int2x2(const int2& m0, const int2& m1)
-        : data{ m0, m1 }
     {
+		data[0] = m0;
+		data[1] = m1;
     }
 
     inline int2x2(int m00, int m01, int m10, int m11)

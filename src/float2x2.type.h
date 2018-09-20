@@ -1,8 +1,11 @@
 union float2x2
 {
 public: // @region: Constructors
-    inline float2x2(const float2& m0, const float2& m1)
-        : data{ m0, m1 } {}
+	inline float2x2(const float2& m0, const float2& m1)
+	{
+		data[0] = m0;
+		data[1] = m1;
+	}
 
     inline float2x2(float m00, float m01, 
                     float m10, float m11)

@@ -2,8 +2,11 @@ union bool4x4
 {
 public: // @region: Constructors
     inline bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
-        : data{ m0, m1, m2, m3 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+		data[3] = m3;
     }
 
     inline bool4x4(bool m00, bool m01, bool m02, bool m03,

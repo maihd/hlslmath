@@ -1,8 +1,13 @@
 union float4x4
 {
 public: // @region: Constructors
-    inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
-        : data{ m0, m1, m2, m3 } {}
+	inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
+	{
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+		data[3] = m3;
+	}
     
     inline float4x4(float m00, float m01, float m02, float m03,
                     float m10, float m11, float m12, float m13,

@@ -12,7 +12,7 @@ public: // @region: Constructors
         , y(y) 
         , z(z) {}
 
-    inline explicit bool3(int s = false)
+    inline explicit bool3(bool s = false)
         : bool3(s, s, s) {}
 
 public: // @region: Operators

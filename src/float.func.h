@@ -11,6 +11,7 @@ inline int sign(float x)
     return sign(cvt.i);
 }
 
+#if defined(_MSC_VER) && (_MSC_VER >= 1900)
 /* Computes absolute value
  */
 inline float abs(float x)
@@ -130,13 +131,6 @@ inline float pow(float x, float y)
     return powf(x, y);
 }
 
-/* Get the fractal part of floating point
- */
-inline float frac(float x)
-{
-    return modff(x, 0);
-}
-
 /* Computes the floating-point remainder of the division operation x/y
  */
 inline float fmod(float x, float y)
@@ -170,6 +164,14 @@ inline float round(float x)
 inline float trunc(float x)
 {
     return truncf(x);
+}
+#endif
+
+/* Get the fractal part of floating point
+*/
+inline float frac(float x)
+{
+	return modff(x, 0);
 }
 
 /* Get the smaller value
@@ -224,12 +226,14 @@ inline float smoothstep(float min, float max, float x)
     return (clamp(x, min, max) - min) / (max - min);
 }
 
+#if defined(_MSC_VER) && (_MSC_VER >= 1900)
 /* Computes square root of 'x'.
  */
 inline float sqrt(float x)
 {
     return sqrtf(x);
 }
+#endif
 
 /* Computes inverse square root of 'x'.
  */

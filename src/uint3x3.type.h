@@ -2,8 +2,10 @@ union uint3x3
 {
 public: // @region: Constructors
     inline uint3x3(const uint3& m0, const uint3& m1, const uint3& m2)
-        : data{ m0, m1, m2 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
     }
 
     inline uint3x3(uint m00, uint m01, uint m02,

@@ -2,8 +2,11 @@ union int4x4
 {
 public: // @region: Constructors
     inline int4x4(const int4& m0, const int4& m1, const int4& m2, const int4& m3)
-        : data{ m0, m1, m2, m3 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
+		data[3] = m3;
     }
 
     inline int4x4(int m00, int m01, int m02, int m03,

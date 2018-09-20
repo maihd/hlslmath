@@ -2,8 +2,9 @@ union bool2x2
 {
 public: // @region: Constructors
     inline bool2x2(const bool2& m0, const bool2& m1)
-        : data{ m0, m1 }
     {
+		data[0] = m0;
+		data[1] = m1;
     }
 
     inline bool2x2(bool m00, bool m01, bool m10, bool m11)

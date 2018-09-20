@@ -2,8 +2,10 @@ union bool3x3
 {
 public: // @region: Constructors
     inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
-        : data{ m0, m1, m2 }
     {
+		data[0] = m0;
+		data[1] = m1;
+		data[2] = m2;
     }
 
     inline bool3x3(bool m00, bool m01, bool m02,

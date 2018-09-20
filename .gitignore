@@ -2,10 +2,8 @@
 .vscode
 .DS_Store
 
-/msvc2017_test/.vs
-/msvc2017_test/Debug
-/msvc2017_test/Release
+/hlslmath*.h
 
-/msvc2017_test/x64/.vs
-/msvc2017_test/x64/Debug
-/msvc2017_test/x64/Release
+/tests/**/.vs
+/tests/**/Debug
+/tests/**/Release

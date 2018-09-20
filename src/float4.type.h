@@ -5,12 +5,6 @@ public: // @region: Fields
     {
         float x, y, z, w; 
     };
-    
-    struct
-    {
-        float3 axis;
-        float  angle;
-    };
 
 public: // @region: Constructors
     inline float4(float x, float y, float z, float w)

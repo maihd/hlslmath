@@ -39,7 +39,7 @@ inline float3 operator--(float3& v, int)
     return result;
 }
 
-inline const float3& operator++(float3& v, int)
+inline float3 operator++(float3& v, int)
 {
     const float3 result = v;
 
