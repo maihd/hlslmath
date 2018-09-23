@@ -12,8 +12,10 @@ public: // @region: Constructors
         , y(y)
         , z(z) {}
 
-    inline explicit float3(float s = 0.0f)
-        : float3(s, s, s) {}
+    inline explicit float3(float s = 0.0f)    
+        : x(s)
+        , y(s)
+        , z(s) {}
 
 public: // @region: Operators
     inline float& operator[](int index)

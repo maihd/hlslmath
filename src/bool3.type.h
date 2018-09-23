@@ -13,7 +13,9 @@ public: // @region: Constructors
         , z(z) {}
 
     inline explicit bool3(bool s = false)
-        : bool3(s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s) {}
 
 public: // @region: Operators
     inline bool& operator[](int index)

@@ -12,7 +12,8 @@ public: // @region: Constructors
         , y(y) {}
 
     inline explicit uint2(uint s = 0)
-        : uint2(s, s) {}
+        : x(s)
+        , y(s) {}
 
 public: // @region: Operators
     inline uint& operator[](int index)

@@ -12,7 +12,8 @@ public: // @region: Constructors
         , y(y) {}
 
     inline explicit bool2(bool s = false)
-        : bool2(s, s) {}
+        : x(s)
+        , y(s) {}
 
 public: // @region: Operators
     inline bool& operator[](int index)

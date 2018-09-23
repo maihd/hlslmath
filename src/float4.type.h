@@ -14,7 +14,10 @@ public: // @region: Constructors
         , w(w) {}
 
     inline explicit float4(float s = 0.0f)
-        : float4(s, s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s)
+        , w(s) {}
 
 public: // @region: Operators
     inline float& operator[](int index)

@@ -7,3 +7,6 @@
 /tests/**/.vs
 /tests/**/Debug
 /tests/**/Release
+/tests/**/x64
+/tests/**/ARM
+/tests/**/ARM64

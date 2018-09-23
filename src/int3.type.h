@@ -13,7 +13,9 @@ public: // @region: Constructors
         , z(z) {}
 
     inline explicit int3(int s = 0)
-        : int3(s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s) {}
 
 public: // @region: Fields
     inline int& operator[](int index)

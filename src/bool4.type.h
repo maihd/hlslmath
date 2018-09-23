@@ -14,7 +14,10 @@ public: // @region: Constructors
         , w(w) {}
 
     inline explicit bool4(bool s = false)
-        : bool4(s, s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s)
+        , w(s) {}
 
 public: // @region: Operators
     inline bool& operator[](int index)

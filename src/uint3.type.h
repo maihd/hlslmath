@@ -13,7 +13,9 @@ public: // @region: Constructors
         , z(z) {}
 
     inline explicit uint3(uint s = 0)
-        : uint3(s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s) {}
 
 public: // @region: Operators
     inline uint& operator[](int index)

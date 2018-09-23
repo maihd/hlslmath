@@ -14,7 +14,10 @@ public: // @region: Constructors
         , w(w) {}
 
     inline explicit int4(int s = 0)
-        : int4(s, s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s)
+        , w(s) {}
 
 public: // @region: Operators
     inline int& operator[](int index)
