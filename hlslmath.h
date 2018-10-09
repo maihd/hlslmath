@@ -1,6 +1,6 @@
-﻿// Generate with hlslmath/tools/tools/build
-// Filename: Thu Sep 20 17:13:43 2018
-// Datetime: Thu Sep 20 17:13:43 2018
+﻿// Generate with hlslmath/tools/build
+// Filename: E:\craft\Include\hlslmath\tools/../hlslmath.h
+// Datetime: Tue Oct  9 17:12:23 2018
 
 #pragma once
 
@@ -8,6 +8,29 @@
 
 #undef min // When Windows.h is included, min is an macro
 #undef max // When Windows.h is included, max is an macro
+
+#if defined(__ARM_NEON)
+#if defined(__aarch64__) && defined(__ANDROID__)        
+#define HLSLMATH_ENABLE_NEON 0
+#else
+#include <arm_neon.h>     
+#define HLSLMATH_ENABLE_NEON 1
+#endif         
+#else
+#define HLSLMATH_ENABLE_NEON 0
+#endif
+
+#if __ANDROID__ // Android support for log2 and log2f
+inline float log2f(float x)
+{
+    return (logf(x) / 0.693147180559945f);
+}
+
+inline double log2(double x)
+{
+    return (log(x) / 0.693147180559945);
+}
+#endif
 
 #if defined(_MSC_VER) && _MSC_VER >= 1900
 #define HLSL_DEFINE_INTRINSICS 1
@@ -32,7 +55,8 @@ public: // @region: Constructors
         , y(y) {}
 
     inline explicit int2(int s = 0)
-        : int2(s, s) {}
+        : x(s)
+        , y(s) {}
 
 public: // @region: Operators
     inline int& operator[](int index)
@@ -63,7 +87,9 @@ public: // @region: Constructors
         , z(z) {}
 
     inline explicit int3(int s = 0)
-        : int3(s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s) {}
 
 public: // @region: Fields
     inline int& operator[](int index)
@@ -95,7 +121,10 @@ public: // @region: Constructors
         , w(w) {}
 
     inline explicit int4(int s = 0)
-        : int4(s, s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s)
+        , w(s) {}
 
 public: // @region: Operators
     inline int& operator[](int index)
@@ -127,7 +156,8 @@ public: // @region: Constructors
         , y(y) {}
 
     inline explicit uint2(uint s = 0)
-        : uint2(s, s) {}
+        : x(s)
+        , y(s) {}
 
 public: // @region: Operators
     inline uint& operator[](int index)
@@ -158,7 +188,9 @@ public: // @region: Constructors
         , z(z) {}
 
     inline explicit uint3(uint s = 0)
-        : uint3(s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s) {}
 
 public: // @region: Operators
     inline uint& operator[](int index)
@@ -190,7 +222,10 @@ public: // @region: Constructors
         , w(w) {}
 
     inline explicit uint4(int s = 0)
-        : uint4(s, s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s)
+        , w(s) {}
 
 public: // @region: Operators
     inline uint& operator[](int index)
@@ -220,7 +255,8 @@ public: // @region: Constructors
         , y(y) {}
 
     inline explicit bool2(bool s = false)
-        : bool2(s, s) {}
+        : x(s)
+        , y(s) {}
 
 public: // @region: Operators
     inline bool& operator[](int index)
@@ -251,7 +287,9 @@ public: // @region: Constructors
         , z(z) {}
 
     inline explicit bool3(bool s = false)
-        : bool3(s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s) {}
 
 public: // @region: Operators
     inline bool& operator[](int index)
@@ -283,7 +321,10 @@ public: // @region: Constructors
         , w(w) {}
 
     inline explicit bool4(bool s = false)
-        : bool4(s, s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s)
+        , w(s) {}
 
 public: // @region: Operators
     inline bool& operator[](int index)
@@ -313,7 +354,8 @@ public: // @region: Constructors
         , y(y) {}
 
     inline explicit float2(float s = 0.0f)
-        : float2(s, s) {}
+        : x(s)
+        , y(s) {}
 
 public: // @region: Operators
     inline float& operator[](int index)
@@ -327,6 +369,20 @@ public: // @region: Operators
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((float*)this)[index];
     }
+
+#if HLSLMATH_ENABLE_NEON       
+public:
+    inline explicit float2(float32x2_t neon_simd)
+        : neon_simd(neon_simd) {}
+
+    inline operator float32x2_t(void) const
+    {
+        return neon_simd;
+    }
+
+private:
+    float32x2_t neon_simd;
+#endif
 };
 
 union float3
@@ -343,8 +399,10 @@ public: // @region: Constructors
         , y(y)
         , z(z) {}
 
-    inline explicit float3(float s = 0.0f)
-        : float3(s, s, s) {}
+    inline explicit float3(float s = 0.0f)    
+        : x(s)
+        , y(s)
+        , z(s) {}
 
 public: // @region: Operators
     inline float& operator[](int index)
@@ -376,7 +434,10 @@ public: // @region: Constructors
         , w(w) {}
 
     inline explicit float4(float s = 0.0f)
-        : float4(s, s, s, s) {}
+        : x(s)
+        , y(s)
+        , z(s)
+        , w(s) {}
 
 public: // @region: Operators
     inline float& operator[](int index)
@@ -397,39 +458,39 @@ union int2x2
 public: // @region: Constructors
     inline int2x2(const int2& m0, const int2& m1)
     {
-		data[0] = m0;
-		data[1] = m1;
-    }
+        (*this)[0] = m0;
+        (*this)[1] = m1;
+    }   
 
     inline int2x2(int m00, int m01, int m10, int m11)
-        : int2x2(int2(m00, m01),
-                 int2(m10, m11))
     {
+        (*this)[0] = int2(m00, m01);
+        (*this)[1] = int2(m10, m11);
     }
 
     inline explicit int2x2(int s = 0)
-        : int2x2(s, s,
-                 s, s)
     {
+        (*this)[0] = int2(s, s);
+        (*this)[1] = int2(s, s);
     }
 
 public: // @region: Operators
     inline int2& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
-        return data[index];
+        return ((int2*)data)[index];
     }
 
     inline const int2& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
-        return data[index];
+        return ((int2*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        int2 data[2];
+        int data[2][2];
     };
 };
 
@@ -438,44 +499,44 @@ union int3x3
 public: // @region: Constructors
     inline int3x3(const int3& m0, const int3& m1, const int3& m2)
     {
-		data[0] = m0;
-		data[1] = m1;
-		data[2] = m2;
+		(*this)[0] = m0;
+		(*this)[1] = m1;
+		(*this)[2] = m2;
     }
 
     inline int3x3(int m00, int m01, int m02,
                   int m10, int m11, int m12,
                   int m20, int m21, int m22)
-        : int3x3(int3(m00, m01, m02),
-                 int3(m10, m11, m12),
-                 int3(m20, m21, m22))
     {
+        (*this)[0] = int3(m00, m01, m02);
+        (*this)[1] = int3(m10, m11, m12);
+        (*this)[2] = int3(m20, m21, m22);
     }
 
     inline explicit int3x3(int s = 0)
-        : int3x3(s, s, s,
-                 s, s, s,
-                 s, s, s)
     {
+        (*this)[0] = int3(s, s, s);
+        (*this)[1] = int3(s, s, s);
+        (*this)[2] = int3(s, s, s);
     }
 
 public: // @region: Operators
     inline int3& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
-        return data[index];
+        return ((int3*)data)[index];
     }
 
     inline const int3& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
-        return data[index];
+        return ((int3*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        int3 data[3];
+        int data[3][3];
     };
 };
 
@@ -484,48 +545,48 @@ union int4x4
 public: // @region: Constructors
     inline int4x4(const int4& m0, const int4& m1, const int4& m2, const int4& m3)
     {
-		data[0] = m0;
-		data[1] = m1;
-		data[2] = m2;
-		data[3] = m3;
+		(*this)[0] = m0;
+		(*this)[1] = m1;
+		(*this)[2] = m2;
+		(*this)[3] = m3;
     }
 
     inline int4x4(int m00, int m01, int m02, int m03,
                   int m10, int m11, int m12, int m13,
                   int m20, int m21, int m22, int m23,
                   int m30, int m31, int m32, int m33)
-        : int4x4(int4(m00, m01, m02, m03),
-                 int4(m10, m11, m12, m13),
-                 int4(m20, m21, m22, m23),
-                 int4(m30, m31, m32, m33))
     {
+        (*this)[0] = int4(m00, m01, m02, m03);
+        (*this)[1] = int4(m10, m11, m12, m13);
+        (*this)[2] = int4(m20, m21, m22, m23);
+        (*this)[3] = int4(m30, m31, m32, m33);
     }
 
     inline explicit int4x4(int s = 0)
-        : int4x4(s, s, s, s,
-                 s, s, s, s,
-                 s, s, s, s,
-                 s, s, s, s)
     {
+        (*this)[0] = int4(s, s, s, s);
+        (*this)[1] = int4(s, s, s, s);
+        (*this)[2] = int4(s, s, s, s);
+        (*this)[3] = int4(s, s, s, s);
     }
 
 public: // Constructors
     inline int4& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
-        return data[index];
+        return ((int4*)data)[index];
     }
 
     inline const int4& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
-        return data[index];
+        return ((int4*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        int4 data[4];
+        int data[4][4];
     };
 };
 
@@ -534,39 +595,39 @@ union uint2x2
 public: // @region: Constructors
     inline uint2x2(const uint2& m0, const uint2& m1)
     {
-		data[0] = m0;
-		data[1] = m1;
+        (*this)[0] = m0;
+        (*this)[1] = m1;
     }
 
     inline uint2x2(uint m00, uint m01, uint m10, uint m11)
-        : uint2x2(uint2(m00, m01),
-                  uint2(m10, m11))
     {
+        (*this)[0] = uint2(m00, m01);
+        (*this)[1] = uint2(m10, m11);
     }
 
-    inline explicit uint2x2(int s = 0)
-        : uint2x2(s, s,
-                  s, s)
+    inline explicit uint2x2(uint s = 0)
     {
+        (*this)[0] = uint2(s, s);
+        (*this)[1] = uint2(s, s);
     }
 
 public: // @region: Operators
     inline uint2& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
-        return data[index];
+        return ((uint2*)data)[index];
     }
 
     inline const uint2& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
-        return data[index];
+        return ((uint2*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        uint2 data[2];
+        uint data[2][2];
     };
 };
 
@@ -575,44 +636,44 @@ union uint3x3
 public: // @region: Constructors
     inline uint3x3(const uint3& m0, const uint3& m1, const uint3& m2)
     {
-		data[0] = m0;
-		data[1] = m1;
-		data[2] = m2;
+        (*this)[0] = m0;
+        (*this)[1] = m1;
+        (*this)[2] = m2;
     }
 
     inline uint3x3(uint m00, uint m01, uint m02,
                   uint m10, uint m11, uint m12,
                   uint m20, uint m21, uint m22)
-        : uint3x3(uint3(m00, m01, m02),
-                  uint3(m10, m11, m12),
-                  uint3(m20, m21, m22))
     {
+        (*this)[0] = uint3(m00, m01, m02);
+        (*this)[1] = uint3(m10, m11, m12);
+        (*this)[2] = uint3(m20, m21, m22);
     }
 
-    inline explicit uint3x3(int s = 0)
-        : uint3x3(s, s, s,
-                  s, s, s,
-                  s, s, s)
+    inline explicit uint3x3(uint s = 0)
     {
+        (*this)[0] = uint3(s, s, s);
+        (*this)[1] = uint3(s, s, s);
+        (*this)[2] = uint3(s, s, s);
     }
 
 public: // @region: Operators
     inline uint3& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
-        return data[index];
+        return ((uint3*)data)[index];
     }
 
     inline const uint3& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
-        return data[index];
+        return ((uint3*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        uint3 data[3];
+        uint data[3][3];
     };
 };
 
@@ -621,48 +682,48 @@ union uint4x4
 public: // @region: Constructors
     inline uint4x4(const uint4& m0, const uint4& m1, const uint4& m2, const uint4& m3)
     {
-		data[0] = m0;
-		data[1] = m1;
-		data[2] = m2;
-		data[3] = m3;
+        (*this)[0] = m0;
+        (*this)[1] = m1;
+        (*this)[2] = m2;
+        (*this)[3] = m3;
     }
 
     inline uint4x4(uint m00, uint m01, uint m02, uint m03,
                    uint m10, uint m11, uint m12, uint m13,
                    uint m20, uint m21, uint m22, uint m23,
                    uint m30, uint m31, uint m32, uint m33)
-        : uint4x4(uint4(m00, m01, m02, m03),
-                  uint4(m10, m11, m12, m13),
-                  uint4(m20, m21, m22, m23),
-                  uint4(m30, m31, m32, m33))
     {
+        (*this)[0] = uint4(m00, m01, m02, m03);
+        (*this)[1] = uint4(m10, m11, m12, m13);
+        (*this)[2] = uint4(m20, m21, m22, m23);
+        (*this)[3] = uint4(m30, m31, m32, m33);
     }
 
     inline explicit uint4x4(uint s = 0)
-        : uint4x4(s, s, s, s,
-                  s, s, s, s,
-                  s, s, s, s,
-                  s, s, s, s)
     {
+        (*this)[0] = uint4(s, s, s, s);
+        (*this)[1] = uint4(s, s, s, s);
+        (*this)[2] = uint4(s, s, s, s);
+        (*this)[3] = uint4(s, s, s, s);
     }
 
 public: // Constructors
     inline uint4& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
-        return data[index];
+        return ((uint4*)data)[index];
     }
 
     inline const uint4& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
-        return data[index];
+        return ((uint4*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        uint4 data[4];
+        uint data[4][4];
     };
 };
 
@@ -671,39 +732,39 @@ union bool2x2
 public: // @region: Constructors
     inline bool2x2(const bool2& m0, const bool2& m1)
     {
-		data[0] = m0;
-		data[1] = m1;
+		(*this)[0] = m0;
+		(*this)[1] = m1;
     }
 
     inline bool2x2(bool m00, bool m01, bool m10, bool m11)
-        : bool2x2(bool2(m00, m01),
-                  bool2(m10, m11))
     {
+        (*this)[0] = bool2(m00, m01);
+        (*this)[1] = bool2(m10, m11);
     }
 
     inline explicit bool2x2(bool s = false)
-        : bool2x2(s, s,
-                  s, s)
     {
+        (*this)[0] = bool2(s, s);
+        (*this)[1] = bool2(s, s);
     }
 
 public: // @region: Operators
     inline bool2& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
-        return data[index];
+        return ((bool2*)data)[index];
     }
 
     inline const bool2& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
-        return data[index];
+        return ((bool2*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        bool2 data[2];
+        bool data[2][2];
     };
 };
 
@@ -712,44 +773,44 @@ union bool3x3
 public: // @region: Constructors
     inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
     {
-		data[0] = m0;
-		data[1] = m1;
-		data[2] = m2;
+        (*this)[0] = m0;
+        (*this)[1] = m1;
+        (*this)[2] = m2;
     }
 
     inline bool3x3(bool m00, bool m01, bool m02,
                    bool m10, bool m11, bool m12,
                    bool m20, bool m21, bool m22)
-        : bool3x3(bool3(m00, m01, m02),
-                  bool3(m10, m11, m12),
-                  bool3(m20, m21, m22))
     {
+        (*this)[0] = bool3(m00, m01, m02);
+        (*this)[1] = bool3(m10, m11, m12);
+        (*this)[2] = bool3(m20, m21, m22);
     }
 
     inline explicit bool3x3(bool s = false)
-        : bool3x3(s, s, s,
-                  s, s, s,
-                  s, s, s)
     {
+        (*this)[0] = bool3(s, s, s);
+        (*this)[1] = bool3(s, s, s);
+        (*this)[2] = bool3(s, s, s);
     }
 
 public: // @region: Operators
     inline bool3& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
-        return data[index];
+        return ((bool3*)data)[index];
     }
 
     inline const bool3& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
-        return data[index];
+        return ((bool3*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        bool3 data[3];
+        bool data[3][3];
     };
 };
 
@@ -758,48 +819,48 @@ union bool4x4
 public: // @region: Constructors
     inline bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
     {
-		data[0] = m0;
-		data[1] = m1;
-		data[2] = m2;
-		data[3] = m3;
+        (*this)[0] = m0;
+        (*this)[1] = m1;
+        (*this)[2] = m2;
+        (*this)[3] = m3;
     }
 
     inline bool4x4(bool m00, bool m01, bool m02, bool m03,
                    bool m10, bool m11, bool m12, bool m13,
                    bool m20, bool m21, bool m22, bool m23,
                    bool m30, bool m31, bool m32, bool m33)
-        : bool4x4(bool4(m00, m01, m02, m03),
-                  bool4(m10, m11, m12, m13),
-                  bool4(m20, m21, m22, m23),
-                  bool4(m30, m31, m32, m33))
     {
+        (*this)[0] = bool4(m00, m01, m02, m03);
+        (*this)[1] = bool4(m10, m11, m12, m13);
+        (*this)[2] = bool4(m20, m21, m22, m23);
+        (*this)[3] = bool4(m30, m31, m32, m33);
     }
 
     inline explicit bool4x4(bool s = false)
-        : bool4x4(s, s, s, s,
-                  s, s, s, s,
-                  s, s, s, s,
-                  s, s, s, s)
     {
+        (*this)[0] = bool4(s, s, s, s);
+        (*this)[1] = bool4(s, s, s, s);
+        (*this)[2] = bool4(s, s, s, s);
+        (*this)[3] = bool4(s, s, s, s);
     }
 
 public: // Constructors
     inline bool4& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
-        return data[index];
+        return ((bool4*)data)[index];
     }
 
     inline const bool4& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
-        return data[index];
+        return ((bool4*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        bool4 data[4];
+        bool data[4][4];
     };
 };
 
@@ -808,49 +869,43 @@ union float2x2
 public: // @region: Constructors
 	inline float2x2(const float2& m0, const float2& m1)
 	{
-		data[0] = m0;
-		data[1] = m1;
+		(*this)[0] = m0;
+		(*this)[1] = m1;
 	}
 
     inline float2x2(float m00, float m01, 
                     float m10, float m11)
-        : float2x2(float2(m00, m01), 
-                   float2(m10, m11)) {}
+    {
+        (*this)[0] = float2(m00, m01);
+        (*this)[1] = float2(m10, m11);
+    }
 
-    inline explicit float2x2(float s = 0.0f)
-        : float2x2(s, 0,
-                   0, s) {}
+    inline explicit float2x2(float s = 0.0f)    
+    {
+        (*this)[0] = float2(s, s);
+        (*this)[1] = float2(s, s);
+    }
 
 public: // @region: Operators
     inline float2& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
-        return data[index];
+        return ((float2*)data)[index];
     }
 
     inline const float2& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
-        return data[index];
-    }
-    
-    inline explicit operator float*(void)
-    {
-        return (float*)this;
-    }
-
-    inline explicit operator const float*(void) const
-    {
-        return (float*)this;
+        return ((float2*)data)[index];
     }
    
 public: // @region: Graphics functions
     inline static float2x2 rotate(float angle);
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        float2 data[2];
+        float data[2][2];
     };
 };
 
@@ -859,50 +914,44 @@ union float3x3
 public: // @region: Constructors
 	inline float3x3(const float3& m0, const float3& m1, const float3& m2)
 	{
-		data[0] = m0;
-		data[1] = m1;
-		data[2] = m2;
+		(*this)[0] = m0;
+		(*this)[1] = m1;
+		(*this)[2] = m2;
 	}
 
     inline float3x3(float m00, float m01, float m02,
                     float m10, float m11, float m12,
                     float m20, float m21, float m22)
-        : float3x3(float3(m00, m01, m02), 
-                   float3(m10, m11, m12),
-                   float3(m20, m21, m22)) {}
+    {
+        (*this)[0] = float3(m00, m01, m02);
+        (*this)[1] = float3(m10, m11, m12);
+        (*this)[2] = float3(m20, m21, m22);
+    }
 
     inline explicit float3x3(float s = 0.0f)
-        : float3x3(s, 0, 0,
-                   0, s, 0,
-                   0, 0, s) {}
+    {
+        (*this)[0] = float3(s, s, s);
+        (*this)[1] = float3(s, s, s);
+        (*this)[2] = float3(s, s, s);
+    }
     
 public: // @region: Operators
     inline float3& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
-        return data[index];
+        return ((float3*)data)[index];
     }
 
     inline const float3& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
-        return data[index];
-    }
-
-    inline explicit operator float*(void)
-    {
-        return (float*)this;
-    }
-
-    inline explicit operator const float*(void) const
-    {
-        return (float*)this;
+        return ((float3*)data)[index];
     }
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        float3 data[3];
+        float data[3][3];
     };
 };
 
@@ -911,48 +960,42 @@ union float4x4
 public: // @region: Constructors
 	inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
 	{
-		data[0] = m0;
-		data[1] = m1;
-		data[2] = m2;
-		data[3] = m3;
+		(*this)[0] = m0;
+		(*this)[1] = m1;
+		(*this)[2] = m2;
+		(*this)[3] = m3;
 	}
     
     inline float4x4(float m00, float m01, float m02, float m03,
                     float m10, float m11, float m12, float m13,
                     float m20, float m21, float m22, float m23,
                     float m30, float m31, float m32, float m33)
-        : float4x4(float4(m00, m01, m02, m03),
-                   float4(m10, m11, m12, m13),
-                   float4(m20, m21, m22, m23),
-                   float4(m30, m31, m32, m33)) {}
+    {
+        (*this)[0] = float4(m00, m01, m02, m03);
+        (*this)[1] = float4(m10, m11, m12, m13);
+        (*this)[2] = float4(m20, m21, m22, m23);
+        (*this)[3] = float4(m30, m31, m32, m33);
+    }
 
     inline explicit float4x4(float s = 0.0f)
-        : float4x4(s, 0, 0, 0,
-                   0, s, 0, 0,
-                   0, 0, s, 0,
-                   0, 0, 0, s) {}
+    {
+        (*this)[0] = float4(s, s, s, s);
+        (*this)[1] = float4(s, s, s, s);
+        (*this)[2] = float4(s, s, s, s);
+        (*this)[3] = float4(s, s, s, s);
+    }
     
 public: // @region: Operators
     inline float4& operator[](int index)
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
-        return data[index];
+        return ((float4*)data)[index];
     }
 
     inline const float4& operator[](int index) const
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
-        return data[index];
-    }
-
-    inline explicit operator float*(void)
-    {
-        return (float*)this;
-    }
-
-    inline explicit operator const float*(void) const
-    {
-        return (float*)this;
+        return ((float4*)data)[index];
     }
 
 public: // @region: Graphics functions
@@ -978,10 +1021,10 @@ public: // @region: Graphics functions
     static float4x4 frustum(float l, float r, float b, float t, float n, float f);
     static float4x4 perspective(float fov, float aspect, float znear, float zfar);
     
-public: // @region: Internal fields
+private: // @region: Internal fields
     struct
     {
-        float4 data[4];
+        float data[4][4];
     };
 };
 
@@ -3345,62 +3388,87 @@ inline float2 operator++(float2& v, int)
 
 inline float2 operator+(const float2& a, const float2& b)
 {
+#if HLSLMATH_ENABLE_NEON   
+    return float2(vadd_f32(a, b));
+#else
     return float2(a.x + b.x, a.y + b.y);
+#endif
 }
 
 inline float2 operator-(const float2& a, const float2& b)
 {
+#if HLSLMATH_ENABLE_NEON   
+    return float2(vsub_f32(a, b));
+#else
     return float2(a.x - b.x, a.y - b.y);
+#endif
 }
 
 inline float2 operator*(const float2& a, const float2& b)
 {
+#if HLSLMATH_ENABLE_NEON   
+    return float2(vmul_f32(a, b));
+#else
     return float2(a.x * b.x, a.y * b.y);
+#endif
 }
 
 inline float2 operator/(const float2& a, const float2& b)
 {
+#if HLSLMATH_ENABLE_NEON && 0 // experimental
+    float2 res;
+    __asm volatile(
+    "vcvt.f32.u32  q0, q0     \n\t"
+    "vrecpe.f32    q0, q0     \n\t"
+    "vmul.f32      q0, q0, q1 \n\t"
+    "vcvt.u32.f32  q0, q0     \n\t"
+        : 
+        : "r"(dst), "r"()
+        :
+        );
+#else
     return float2(a.x / b.x, a.y / b.y);
+#endif
 }
 
 inline float2 operator+(const float2& a, float b)
 {
-    return float2(a.x + b, a.y + b);
+    return a + float2(b);
 }
 
 inline float2 operator-(const float2& a, float b)
 {
-    return float2(a.x - b, a.y - b);
+    return a - float2(b);
 }
 
 inline float2 operator*(const float2& a, float b)
 {
-    return float2(a.x * b, a.y * b);
+    return a * float2(b);
 }
 
 inline float2 operator/(const float2& a, float b)
 {
-    return float2(a.x / b, a.y / b);
+    return a / float2(b);
 }
 
 inline float2 operator+(float a, const float2& b)
 {
-    return float2(a + b.x, a + b.y);
+    return float2(a) + b;
 }
 
 inline float2 operator-(float a, const float2& b)
 {
-    return float2(a - b.x, a - b.y);
+    return float2(a) - b;
 }
 
 inline float2 operator*(float a, const float2& b)
 {
-    return float2(a * b.x, a * b.y);
+    return float2(a) * b;
 }
 
 inline float2 operator/(float a, const float2& b)
 {
-    return float2(a / b.x, a / b.y);
+    return float2(a) / b;
 }
 
 inline float2& operator+=(float2& a, const float2& b)
@@ -8925,7 +8993,4 @@ inline float4x4 float4x4::rotatez(float angle)
     );
 }
 
-// File '#include <assert.h>
-#define HLSL_ASSERT(exp, msg) assert(exp && msg)
-
-' end here.
+// File 'E:\craft\Include\hlslmath\tools/../hlslmath.h' end here.

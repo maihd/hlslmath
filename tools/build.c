@@ -6,9 +6,11 @@
 #include <wchar.h>
 #include <string.h>
 
-#if defined(__unix__)
+#if defined(__unix__) && !defined(__CYGWIN__) && !defined(__MINGW__)
+#define __UNIX__ 1
 #include <unistd.h>
 #else
+#define __WINDOWS__
 #include <Windows.h>
 #endif
 
@@ -302,7 +304,7 @@ int getexedir(char* buffer, int length)
 {
     char exepath[1024];
     
-#if defined(__unix__)
+#if __UNIX__
     char slash = '/';
     readlink("/proc/self/exe", exepath, sizeof(exepath));
 #else
@@ -408,7 +410,7 @@ int main(int argc, char* argv[])
     getexedir(exedir, sizeof(exedir));
     if (outputfile == NULL)
     {
-        char defoutput[1024];
+        static char defoutput[1024];
         outputfile = defoutput;
         sprintf(defoutput, "%s/../hlslmath.h", exedir);
     }
@@ -423,7 +425,7 @@ int main(int argc, char* argv[])
     }
 
     /* Change the current working directory */    
-#if (__unix__)
+#if __UNIX__
     chdir(exedir);
 #else
     SetCurrentDirectoryA(exedir);
@@ -447,7 +449,7 @@ int main(int argc, char* argv[])
         fprintf(targetFile, "// Datetime: %s\n\n", timestr);
     } while (0);
 
-    /* Include hlsldef.h before other modules */
+    /* Include define.h before other modules */
     do
     {
         file_concat(targetFile, "../src/define.h");
