@@ -1,5 +1,8 @@
 union float3x3
 {
+public: // @region: Constants
+    static const float3x3 zero, identity;
+
 public: // @region: Constructors
 	inline float3x3(const float3& m0, const float3& m1, const float3& m2)
 	{
@@ -54,3 +57,6 @@ private: // @region: Internal fields
         float data[3][3];
     };
 };
+
+const float3x3 float3x3::zero     = float3x3(0, 0, 0, 0, 0, 0, 0, 0, 0);
+const float3x3 float3x3::identity = float3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);

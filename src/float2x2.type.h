@@ -1,5 +1,8 @@
 union float2x2
 {
+public: // @region: Constants
+    static const float2x2 zero, identity;
+
 public: // @region: Constructors
 	inline float2x2(const float2& m0, const float2& m1)
 	{
@@ -46,3 +49,6 @@ private: // @region: Internal fields
         float data[2][2];
     };
 };
+
+const float2x2 float2x2::zero     = float2x2(0, 0, 0, 0);
+const float2x2 float2x2::identity = float2x2(1, 0, 0, 1);
