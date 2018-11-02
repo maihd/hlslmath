@@ -587,3 +587,18 @@ inline float2x2 float2x2::rotate(float angle)
         s, c
     );
 }
+
+inline float2x2 float2x2::scale(float x)
+{
+    return float2x2::scale(x, x);
+}
+
+inline float2x2 float2x2::scale(const float2& v)
+{
+    return float2x2::scale(v.x, v.y);
+}
+
+inline float2x2 float2x2::scale(float x, float y)
+{
+    return float2x2(x, 0, 0, y);
+}

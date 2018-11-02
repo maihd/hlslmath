@@ -651,3 +651,60 @@ inline float3x3 inverse(const float3x3& m)
         );
     }
 }
+
+//
+// @region: Graphics functions
+//
+
+inline float3x3 float3x3::translate(const float2& v)
+{
+    return float3x3::translate(v.x, v.y);
+}
+
+inline float3x3 float3x3::translate(float x, float y)
+{
+    return float3x3(
+        1, 0, 0,
+        0, 1, 0,
+        x, y, 1
+    );
+}
+
+inline float3x3 float3x3::rotate(float angle)
+{
+    const float c = cos(angle);
+    const float s = sin(angle);
+    return float3x3(
+        c, -s, 0,
+        s,  c, 0,
+        0,  0, 1
+    );
+}
+
+inline float3x3 float3x3::scale(const float2& v)
+{
+    return float3x3::scale(v.x, v.y);
+}
+
+inline float3x3 float3x3::scale(float x, float y)
+{
+    return float3x3(
+        x, 0, 0,
+        0, y, 0,
+        0, 0, 1
+    );
+}
+
+inline float3x3 float3x3::ortho(float l, float r, float b, float t)
+{
+    const float w = (r - l);
+    const float h = (t - b);
+    const float x = 1.0f / w;
+    const float y = 1.0f / h;
+
+    return float3x3(
+            2.0f * x,            0, 0,
+                   0,     2.0f * y, 0,
+        -x * (l + r), -y * (b + t), 1
+    );
+}

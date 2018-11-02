@@ -17,13 +17,16 @@
 #endif
 
 #if __ANDROID__ // Android support for log2 and log2f
-inline float log2f(float x)
+extern "C"
 {
-    return (logf(x) / 0.693147180559945f);
-}
+    inline float log2f(float x)
+    {
+        return (logf(x) / 0.693147180559945f);
+    }
 
-inline double log2(double x)
-{
-    return (log(x) / 0.693147180559945);
+    inline double log2(double x)
+    {
+        return (log(x) / 0.693147180559945);
+    }
 }
 #endif
