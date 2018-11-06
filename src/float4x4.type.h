@@ -1,8 +1,5 @@
 union float4x4
 {
-public: // @region: Constants
-    static const float4x4 zero, identity;
-
 public: // @region: Constructors
 	inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
 	{
@@ -44,6 +41,12 @@ public: // @region: Operators
         return ((float4*)data)[index];
     }
 
+public: // @region: Constants
+    inline static float4x4 identity()
+    {
+        return float4x4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
+
 public: // @region: Graphics functions
     static float4x4 scale(float s);
     static float4x4 scale(const float2& v);
@@ -73,6 +76,3 @@ private: // @region: Internal fields
         float data[4][4];
     };
 };
-
-const float4x4 float4x4::zero     = float4x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-const float4x4 float4x4::identity = float4x4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);

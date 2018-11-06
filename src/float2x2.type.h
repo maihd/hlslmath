@@ -1,8 +1,5 @@
 union float2x2
 {
-public: // @region: Constants
-    static const float2x2 zero, identity;
-
 public: // @region: Constructors
 	inline float2x2(const float2& m0, const float2& m1)
 	{
@@ -36,6 +33,12 @@ public: // @region: Operators
         return ((float2*)data)[index];
     }
    
+public: // @region: Create functions
+    inline static float2x2 identity()
+    {
+        return float2x2(1, 0, 0, 1);
+    }
+
 public: // @region: Graphics functions
     inline static float2x2 rotate(float angle);
 
@@ -49,6 +52,3 @@ private: // @region: Internal fields
         float data[2][2];
     };
 };
-
-const float2x2 float2x2::zero     = float2x2(0, 0, 0, 0);
-const float2x2 float2x2::identity = float2x2(1, 0, 0, 1);

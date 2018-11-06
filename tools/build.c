@@ -452,7 +452,9 @@ int main(int argc, char* argv[])
     /* Include define.h before other modules */
     do
     {
-        file_concat(targetFile, "../src/define.h");
+        char deffile_path[512];
+        sprintf(deffile_path, "%s/../src/define.h", exedir);
+        file_concat(targetFile, deffile_path);
 
         /* HLSL_DEFINE_INTRINSICS */
         if (namespace)
@@ -495,7 +497,9 @@ int main(int argc, char* argv[])
     /* Concatenate all files to targetFile */
     for (int i = 0; i < sizeof(filenames) / sizeof(filenames[0]); i++)
     {
-        file_concat(targetFile, filenames[i]);
+        char srcfile_path[512];
+        sprintf(srcfile_path, "%s/%s", exedir, filenames[i]);
+        file_concat(targetFile, srcfile_path);
     }
 
     /* End of namespace */

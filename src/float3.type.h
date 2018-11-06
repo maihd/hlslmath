@@ -17,6 +17,17 @@ public: // @region: Constructors
         , y(s)
         , z(s) {}
 
+public: // @region: float2 -> float3
+    inline float3(const float2& v)
+        : x(v.x)
+        , y(v.y)
+        , z(0) {}
+
+    inline operator float2(void) const
+    {
+        return float2(x, y);
+    }
+
 public: // @region: Operators
     inline float& operator[](int index)
     {
