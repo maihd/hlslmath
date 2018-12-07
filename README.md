@@ -1,4 +1,4 @@
-# HLSL's Math library
+# HLSL's Math library [![Build Status]][travis]
 Vector and matrix for based on hlsl language for C++ (only).
 
 ## Build
