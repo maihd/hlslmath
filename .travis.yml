@@ -1,6 +1,6 @@
 language: c++
 os: linux
-script: cd tests/gmake && make && ./hlslmath.test
+script: cd unit_tests/gmake && make && make clean
 
 # blocklist
 branches:
