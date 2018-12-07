@@ -10,3 +10,5 @@
 /tests/**/x64
 /tests/**/ARM
 /tests/**/ARM64
+
+/unit_tests/*.exe
