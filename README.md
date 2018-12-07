@@ -1,5 +1,8 @@
 # HLSL's Math library &emsp; [![Build Status]][travis]
-Vector and matrix for based on hlsl language for C++ (only).
+
+[Build Status]: https://travis-ci.org/maihd/hlslmath.svg?branch=master
+
+**Vector and matrix for based on hlsl language for C++ (only).**
 
 ## Build
 ```
