@@ -1,4 +1,4 @@
-# HLSL's Math library [Build Status]
+# HLSL's Math library ![Build Status]
 
 [Build Status]: https://travis-ci.org/maihd/hlslmath.svg?branch=master
 
