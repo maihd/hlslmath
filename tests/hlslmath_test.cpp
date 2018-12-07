@@ -34,7 +34,7 @@ void test(const T& expect, const U& result, const char* fmt, ...)
     fputs("\n", stdout);
 }
 
-void float2_test(float2* out = nullptr)
+void float2_test(float2* out = NULL)
 {
     float2 a = float2(1, 2);
     float2 b = float2(3, 4);
