@@ -1,0 +1,13 @@
+language: c++
+os: linux
+script: cd tests/gmake && make && ./hlslmath.test
+
+# blocklist
+branches:
+  except:
+  
+# safelist
+branches:
+  only:
+    - master
+    - stable
