@@ -15,7 +15,7 @@ public: // @region: Constructors
         , z(z)
         , w(w) {}
 
-    inline explicit bool4(bool s)
+    inline bool4(bool s)
         : x(s)
         , y(s)
         , z(s)

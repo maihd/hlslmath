@@ -22,7 +22,7 @@ public: // @region: Constructors
         (*this)[3] = bool4(m30, m31, m32, m33);
     }
 
-    inline explicit bool4x4(bool s)
+    inline bool4x4(bool s)
     {
         (*this)[0] = bool4(s, s, s, s);
         (*this)[1] = bool4(s, s, s, s);

@@ -13,7 +13,7 @@ public: // @region: Constructors
         : x(x)
         , y(y) {}
 
-    inline explicit int2(int s)
+    inline int2(int s)
         : x(s)
         , y(s) {}
 

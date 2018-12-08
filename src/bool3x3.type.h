@@ -19,7 +19,7 @@ public: // @region: Constructors
         (*this)[2] = bool3(m20, m21, m22);
     }
 
-    inline explicit bool3x3(bool s)
+    inline bool3x3(bool s)
     {
         (*this)[0] = bool3(s, s, s);
         (*this)[1] = bool3(s, s, s);

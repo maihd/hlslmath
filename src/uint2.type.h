@@ -13,7 +13,7 @@ public: // @region: Constructors
         : x(x)
         , y(y) {}
 
-    inline explicit uint2(uint s)
+    inline uint2(uint s)
         : x(s)
         , y(s) {}
 

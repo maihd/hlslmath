@@ -15,7 +15,7 @@ public: // @region: Constructors
         (*this)[1] = int2(m10, m11);
     }
 
-    inline explicit int2x2(int s)
+    inline int2x2(int s)
     {
         (*this)[0] = int2(s, s);
         (*this)[1] = int2(s, s);

@@ -22,7 +22,7 @@ public: // @region: Constructors
         (*this)[3] = float4(m30, m31, m32, m33);
     }
 
-    inline explicit float4x4(float s)
+    inline float4x4(float s)
     {
         (*this)[0] = float4(s, s, s, s);
         (*this)[1] = float4(s, s, s, s);

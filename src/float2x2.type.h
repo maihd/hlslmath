@@ -16,7 +16,7 @@ public: // @region: Constructors
         (*this)[1] = float2(m10, m11);
     }
 
-    inline explicit float2x2(float s)    
+    inline float2x2(float s)    
     {
         (*this)[0] = float2(s, s);
         (*this)[1] = float2(s, s);

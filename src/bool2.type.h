@@ -13,7 +13,7 @@ public: // @region: Constructors
         : x(x)
         , y(y) {}
 
-    inline explicit bool2(bool s)
+    inline bool2(bool s)
         : x(s)
         , y(s) {}
 

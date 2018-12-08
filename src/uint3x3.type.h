@@ -19,7 +19,7 @@ public: // @region: Constructors
         (*this)[2] = uint3(m20, m21, m22);
     }
 
-    inline explicit uint3x3(uint s)
+    inline uint3x3(uint s)
     {
         (*this)[0] = uint3(s, s, s);
         (*this)[1] = uint3(s, s, s);

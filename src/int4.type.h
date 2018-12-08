@@ -15,7 +15,7 @@ public: // @region: Constructors
         , z(z)
         , w(w) {}
 
-    inline explicit int4(int s)
+    inline int4(int s)
         : x(s)
         , y(s)
         , z(s)

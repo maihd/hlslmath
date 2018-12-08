@@ -13,7 +13,7 @@ public: // @region: Constructors
         : x(x)
         , y(y) {}
 
-    inline explicit float2(float s)
+    inline float2(float s)
         : x(s)
         , y(s) {}
 
@@ -32,7 +32,7 @@ public: // @region: Operators
 
 #if HLSLMATH_ENABLE_NEON       
 public:
-    inline explicit float2(float32x2_t neon_simd)
+    inline float2(float32x2_t neon_simd)
         : neon_simd(neon_simd) {}
 
     inline operator float32x2_t(void) const

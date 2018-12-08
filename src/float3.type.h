@@ -14,7 +14,7 @@ public: // @region: Constructors
         , y(y)
         , z(z) {}
 
-    inline explicit float3(float s)    
+    inline float3(float s)    
         : x(s)
         , y(s)
         , z(s) {}

@@ -15,7 +15,7 @@ public: // @region: Constructors
         (*this)[1] = bool2(m10, m11);
     }
 
-    inline explicit bool2x2(bool s)
+    inline bool2x2(bool s)
     {
         (*this)[0] = bool2(s, s);
         (*this)[1] = bool2(s, s);
