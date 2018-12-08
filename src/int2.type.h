@@ -7,11 +7,13 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline int2() {}
+
     inline int2(int x, int y)
         : x(x)
         , y(y) {}
 
-    inline explicit int2(int s = 0)
+    inline explicit int2(int s)
         : x(s)
         , y(s) {}
 

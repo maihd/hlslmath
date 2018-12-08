@@ -7,12 +7,14 @@ public: // @region: Fielda
     };    
 
 public: // @region: Constructors
+    inline float3() {}
+
     inline float3(float x, float y, float z = 0.0f)
         : x(x)
         , y(y)
         , z(z) {}
 
-    inline explicit float3(float s = 0.0f)    
+    inline explicit float3(float s)    
         : x(s)
         , y(s)
         , z(s) {}

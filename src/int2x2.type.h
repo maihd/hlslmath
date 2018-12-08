@@ -1,6 +1,8 @@
 union int2x2
 {
 public: // @region: Constructors
+    inline int2x2() {}
+
     inline int2x2(const int2& m0, const int2& m1)
     {
         (*this)[0] = m0;
@@ -13,7 +15,7 @@ public: // @region: Constructors
         (*this)[1] = int2(m10, m11);
     }
 
-    inline explicit int2x2(int s = 0)
+    inline explicit int2x2(int s)
     {
         (*this)[0] = int2(s, s);
         (*this)[1] = int2(s, s);

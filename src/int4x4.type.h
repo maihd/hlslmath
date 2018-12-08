@@ -1,6 +1,8 @@
 union int4x4
 {
 public: // @region: Constructors
+    inline int4x4() {}
+
     inline int4x4(const int4& m0, const int4& m1, const int4& m2, const int4& m3)
     {
 		(*this)[0] = m0;
@@ -20,7 +22,7 @@ public: // @region: Constructors
         (*this)[3] = int4(m30, m31, m32, m33);
     }
 
-    inline explicit int4x4(int s = 0)
+    inline explicit int4x4(int s)
     {
         (*this)[0] = int4(s, s, s, s);
         (*this)[1] = int4(s, s, s, s);

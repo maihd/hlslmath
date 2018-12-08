@@ -1,6 +1,8 @@
 union int3x3
 {
 public: // @region: Constructors
+    inline int3x3() {}
+
     inline int3x3(const int3& m0, const int3& m1, const int3& m2)
     {
 		(*this)[0] = m0;
@@ -17,7 +19,7 @@ public: // @region: Constructors
         (*this)[2] = int3(m20, m21, m22);
     }
 
-    inline explicit int3x3(int s = 0)
+    inline explicit int3x3(int s)
     {
         (*this)[0] = int3(s, s, s);
         (*this)[1] = int3(s, s, s);

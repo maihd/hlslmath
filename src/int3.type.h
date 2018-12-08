@@ -7,12 +7,14 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline int3() {}
+
     inline int3(int x, int y, int z)
         : x(x)
         , y(y) 
         , z(z) {}
 
-    inline explicit int3(int s = 0)
+    inline explicit int3(int s)
         : x(s)
         , y(s)
         , z(s) {}

@@ -1,6 +1,8 @@
 union float4x4
 {
 public: // @region: Constructors
+    inline float4x4() {}
+
 	inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
 	{
 		(*this)[0] = m0;
@@ -20,7 +22,7 @@ public: // @region: Constructors
         (*this)[3] = float4(m30, m31, m32, m33);
     }
 
-    inline explicit float4x4(float s = 0.0f)
+    inline explicit float4x4(float s)
     {
         (*this)[0] = float4(s, s, s, s);
         (*this)[1] = float4(s, s, s, s);

@@ -1,6 +1,8 @@
 union bool4x4
 {
 public: // @region: Constructors
+    inline bool4x4() {}
+
     inline bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
     {
         (*this)[0] = m0;
@@ -20,7 +22,7 @@ public: // @region: Constructors
         (*this)[3] = bool4(m30, m31, m32, m33);
     }
 
-    inline explicit bool4x4(bool s = false)
+    inline explicit bool4x4(bool s)
     {
         (*this)[0] = bool4(s, s, s, s);
         (*this)[1] = bool4(s, s, s, s);

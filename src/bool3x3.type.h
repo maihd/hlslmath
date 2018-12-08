@@ -1,6 +1,8 @@
 union bool3x3
 {
 public: // @region: Constructors
+    inline bool3x3() {}
+
     inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
     {
         (*this)[0] = m0;
@@ -17,7 +19,7 @@ public: // @region: Constructors
         (*this)[2] = bool3(m20, m21, m22);
     }
 
-    inline explicit bool3x3(bool s = false)
+    inline explicit bool3x3(bool s)
     {
         (*this)[0] = bool3(s, s, s);
         (*this)[1] = bool3(s, s, s);

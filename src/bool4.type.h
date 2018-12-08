@@ -7,13 +7,15 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline bool4() {}
+
 	inline bool4(bool x, bool y, bool z, bool w)
         : x(x)
         , y(y) 
         , z(z)
         , w(w) {}
 
-    inline explicit bool4(bool s = false)
+    inline explicit bool4(bool s)
         : x(s)
         , y(s)
         , z(s)

@@ -1,6 +1,8 @@
 union bool2x2
 {
 public: // @region: Constructors
+    inline bool2x2() {}
+
     inline bool2x2(const bool2& m0, const bool2& m1)
     {
 		(*this)[0] = m0;
@@ -13,7 +15,7 @@ public: // @region: Constructors
         (*this)[1] = bool2(m10, m11);
     }
 
-    inline explicit bool2x2(bool s = false)
+    inline explicit bool2x2(bool s)
     {
         (*this)[0] = bool2(s, s);
         (*this)[1] = bool2(s, s);

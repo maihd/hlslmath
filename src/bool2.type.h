@@ -7,11 +7,13 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline bool2() {}
+
     inline bool2(bool x, bool y)
         : x(x)
         , y(y) {}
 
-    inline explicit bool2(bool s = false)
+    inline explicit bool2(bool s)
         : x(s)
         , y(s) {}
 

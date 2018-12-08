@@ -7,11 +7,13 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline uint2() {}
+
     inline uint2(uint x, uint y)
         : x(x)
         , y(y) {}
 
-    inline explicit uint2(uint s = 0)
+    inline explicit uint2(uint s)
         : x(s)
         , y(s) {}
 

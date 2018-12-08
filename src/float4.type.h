@@ -7,13 +7,15 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline float4() {}
+
     inline float4(float x, float y, float z, float w)
         : x(x)
         , y(y)
         , z(z)
         , w(w) {}
 
-    inline explicit float4(float s = 0.0f)
+    inline explicit float4(float s)
         : x(s)
         , y(s)
         , z(s)

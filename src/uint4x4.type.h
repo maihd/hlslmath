@@ -1,6 +1,8 @@
 union uint4x4
 {
 public: // @region: Constructors
+    inline uint4x4() {}
+
     inline uint4x4(const uint4& m0, const uint4& m1, const uint4& m2, const uint4& m3)
     {
         (*this)[0] = m0;
@@ -20,7 +22,7 @@ public: // @region: Constructors
         (*this)[3] = uint4(m30, m31, m32, m33);
     }
 
-    inline explicit uint4x4(uint s = 0)
+    inline explicit uint4x4(uint s)
     {
         (*this)[0] = uint4(s, s, s, s);
         (*this)[1] = uint4(s, s, s, s);
