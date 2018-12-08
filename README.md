@@ -9,14 +9,15 @@
 cd tools
 
 # Unix or OS X (require gcc)
-gcc -o build build.c
+make
 ./build --output=<output> --namespace=<namespace>
 
 # Windows (has prebuilt)
+# `make` if you build new executor
 build.exe --output=<output> --namespace=<namespace>
 ```
 
-## Types
+## Scalar types
 1. int    [+]
 2. uint   [+]
 3. bool   [+]
@@ -27,7 +28,7 @@ build.exe --output=<output> --namespace=<namespace>
 8. short  [-]
 9. long   [-]
 
-## Abstract types
+## Combine types
 1. Vector 2, 3, 4
 2. Matrix 2x2, 3x3, 4x4
 
