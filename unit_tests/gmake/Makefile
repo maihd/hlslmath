@@ -1,4 +1,4 @@
-CC=g++
+CC=gcc
 CFLAGS=-Wall
 LFLAGS=-lm
 
