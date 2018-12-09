@@ -1,5 +1,12 @@
 language: c++
-os: linux
+
+os: 
+  - osx
+  - linux
+  - windows
+
+before_install: if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install make; fi
+
 script: cd unit_tests/gmake && make && make clean
 
 # blocklist
