@@ -1,8 +1,6 @@
-# HLSL's Math library ![Build Status]
+# HLSL's Math library ![https://travis-ci.org/maihd/hlslmath.svg?branch=master]
 
-[Build Status]: https://travis-ci.org/maihd/hlslmath.svg?branch=master
-
-**Vector and matrix for based on hlsl language for C++ (only).**
+**Vectors and matrices for based on HLSL language for C++.**
 
 ## Build
 ```
@@ -18,17 +16,17 @@ build.exe --output=<output> --namespace=<namespace>
 ```
 
 ## Scalar types
-1. int    [+]
-2. uint   [+]
-3. bool   [+]
-4. float  [+]
-5. double [-]
-6. fixed  [-]
-7. half   [-]
-8. short  [-]
-9. long   [-]
+[x] int    
+[x] uint   
+[x] bool   
+[x] float  
+[ ] double 
+[ ] fixed  
+[ ] half   
+[ ] short  
+[ ] long   
 
-## Combine types
+## Template types
 1. Vector 2, 3, 4
 2. Matrix 2x2, 3x3, 4x4
 
