@@ -1,4 +1,4 @@
-if [[ "$BUILD_TARGET" == "ANDROID" ]]
+if [ "$BUILD_TARGET" == "ANDROID" ]
 then  
     cd unit_tests/ndk-buid && ndk-build
 else  
