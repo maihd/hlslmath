@@ -1,4 +1,4 @@
-if [[ "$TRAVIS_LANGUAGE" == "android" ]]
+if [[ "$BUILD_TARGET" == "ANDROID" ]]
 then  
     cd unit_tests/ndk-buid && ndk-build
 else  
