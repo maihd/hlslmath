@@ -1,6 +1,6 @@
-﻿// Generate with hlslmath/tools/build
+﻿// Generate with hlslmath/tools/tools\build
 // Filename: F:\hlslmath\tools/../hlslmath.h
-// Datetime: 12/10/18 09:31:21
+// Datetime: 12/10/18 09:43:01
 
 #pragma once
 
@@ -35,7 +35,11 @@ extern "C"
 }
 #endif
 
+#if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__
+#define HLSL_DEFINE_INTRINSICS 1
+#else
 #define HLSL_DEFINE_INTRINSICS 0
+#endif
 
 #include <assert.h>
 #define HLSL_ASSERT(exp, msg) assert(exp && msg)

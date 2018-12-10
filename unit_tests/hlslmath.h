@@ -2,7 +2,11 @@
 
 #include "../src/define.h"
 
+#if (defined(_MSC_VER) && (_MSC_VER >= 1900)) || __unix__
+#define HLSL_DEFINE_INTRINSICS 1
+#else
 #define HLSL_DEFINE_INTRINSICS 0
+#endif
 
 #include <assert.h>
 #define HLSL_ASSERT(exp, msg) assert(exp && msg)

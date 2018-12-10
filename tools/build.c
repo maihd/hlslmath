@@ -466,14 +466,11 @@ int main(int argc, char* argv[])
         else
         {
             const char content[] =
-                "#define HLSL_DEFINE_INTRINSICS 0\n\n";
-            #if 0
-                "#if defined(_MSC_VER) && _MSC_VER >= 1900\n"
+                "#if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__\n"
                 "#define HLSL_DEFINE_INTRINSICS 1\n"
                 "#else\n"
                 "#define HLSL_DEFINE_INTRINSICS 0\n"
                 "#endif\n\n";
-            #endif
             fwrite(content, sizeof(content) - 1, 1, targetFile);
         }
 
