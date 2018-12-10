@@ -1,8 +1,13 @@
-language: c
+before_install: 
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install make; fi
 
-before_install: if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install make; fi
-
-script: cd unit_tests/gmake && make && make clean
+script: 
+  - if [[ "$TRAVIS_LANGUAGE" == "android" ]]
+  - then
+  -   cd unit_tests/ndk-buid && ndk-build 
+  - else
+  -   cd unit_tests/gmake && make && make clean
+  - fi
 
 # blocklist
 branches:
@@ -17,5 +22,20 @@ branches:
 matrix:
   include:
     - os: osx
+      language: c
+
     - os: linux
+      language: c
+
     - os: windows
+      language: c
+
+    - os: linux
+      jdk: oraclejdk7
+      language: android
+      android:
+        components:
+          - android-26
+          - build-tools-26.0.2
+          - sys-img-arm64-android-26
+          - sys-img-armeabi-v7a-android-26
