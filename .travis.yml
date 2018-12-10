@@ -1,7 +1,8 @@
 before_install: 
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install make; fi
 
-script: sh .travis/script.sh
+script: 
+  - .travis/script.sh
 
 # blocklist
 branches:

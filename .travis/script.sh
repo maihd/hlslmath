@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if [ "$BUILD_TARGET" == "android" ]; then  
     cd unit_tests/ndk-buid && ndk-build
 else  
