@@ -31,6 +31,10 @@ matrix:
     - os: linux
       language: android
       env: BUILD_TARGET=android
+      
+      install:
+        - echo y | sdkmanager "ndk-bundle"
+
       android:
         components:
           - android-26
