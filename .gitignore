@@ -12,3 +12,4 @@
 /tests/**/ARM64
 
 /unit_tests/*.exe
+/unit_tests/ndkbuild/obj
