@@ -1,6 +1,9 @@
 # HLSL's Math library ![Build Status](https://travis-ci.org/maihd/hlslmath.svg?branch=master)
 
 **Vectors and matrices for based on HLSL language for C++.**
+    
+## License
+This library is in the public domain.
 
 ## Build
 ```
@@ -35,13 +38,14 @@ build.exe --output=<output> --namespace=<namespace>
 ...
 float3 position;
 float3 scalation;
-float4 axisAngle;
+float3 axis;
+float  angle;
 
 // Initialize your transform
 
 float4x4 translateMatrix = float4x4::translate(position);
 float4x4 scalationMatrix = float4x4::scale(scalation);
-float4x4 axisAngleMatrix = float4x4::rotate(axisAngle.axis, axisAngle.angle);
+float4x4 axisAngleMatrix = float4x4::rotate(axis, angle);
 
 float4x4 modelMatrix = mul(mul(translateMatrix, scalationMatrix), axisAngleMatrix);
 float4x4 projectionMatrix = float4x4::perspective(radian(45.0f), WIDTH / HEIGHT, 0.0f, 100.0f);
@@ -50,4 +54,6 @@ float4x4 projectionMatrix = float4x4::perspective(radian(45.0f), WIDTH / HEIGHT,
 // Apply matrix to your render pipeline
 ...
 ```
-    
+
+## Documentation
+Work in progress.
