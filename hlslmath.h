@@ -1,6 +1,6 @@
 ﻿// Generate with hlslmath/tools/build
-// Filename: E:\craft\Include\hlslmath\tools/../hlslmath.h
-// Datetime: Tue Oct  9 17:12:23 2018
+// Filename: F:\hlslmath\tools/../hlslmath.h
+// Datetime: 12/10/18 09:31:21
 
 #pragma once
 
@@ -21,22 +21,21 @@
 #endif
 
 #if __ANDROID__ // Android support for log2 and log2f
-inline float log2f(float x)
+extern "C"
 {
-    return (logf(x) / 0.693147180559945f);
-}
+    inline float log2f(float x)
+    {
+        return (logf(x) / 0.693147180559945f);
+    }
 
-inline double log2(double x)
-{
-    return (log(x) / 0.693147180559945);
+    inline double log2(double x)
+    {
+        return (log(x) / 0.693147180559945);
+    }
 }
 #endif
 
-#if defined(_MSC_VER) && _MSC_VER >= 1900
-#define HLSL_DEFINE_INTRINSICS 1
-#else
 #define HLSL_DEFINE_INTRINSICS 0
-#endif
 
 #include <assert.h>
 #define HLSL_ASSERT(exp, msg) assert(exp && msg)
@@ -50,11 +49,13 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline int2() {}
+
     inline int2(int x, int y)
         : x(x)
         , y(y) {}
 
-    inline explicit int2(int s = 0)
+    inline int2(int s)
         : x(s)
         , y(s) {}
 
@@ -81,12 +82,14 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline int3() {}
+
     inline int3(int x, int y, int z)
         : x(x)
         , y(y) 
         , z(z) {}
 
-    inline explicit int3(int s = 0)
+    inline int3(int s)
         : x(s)
         , y(s)
         , z(s) {}
@@ -114,13 +117,15 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline int4() {}
+
     inline int4(int x, int y, int z, int w)
         : x(x)
         , y(y) 
         , z(z)
         , w(w) {}
 
-    inline explicit int4(int s = 0)
+    inline int4(int s)
         : x(s)
         , y(s)
         , z(s)
@@ -151,11 +156,13 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline uint2() {}
+
     inline uint2(uint x, uint y)
         : x(x)
         , y(y) {}
 
-    inline explicit uint2(uint s = 0)
+    inline uint2(uint s)
         : x(s)
         , y(s) {}
 
@@ -182,12 +189,14 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline uint3() {}
+
     inline uint3(uint x, uint y, uint z)
         : x(x)
         , y(y) 
         , z(z) {}
 
-    inline explicit uint3(uint s = 0)
+    inline uint3(uint s)
         : x(s)
         , y(s)
         , z(s) {}
@@ -215,13 +224,15 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline uint4() {}
+
     inline uint4(uint x, uint y, uint z, uint w)
         : x(x)
         , y(y) 
         , z(z)
         , w(w) {}
 
-    inline explicit uint4(int s = 0)
+    inline uint4(int s)
         : x(s)
         , y(s)
         , z(s)
@@ -250,11 +261,13 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline bool2() {}
+
     inline bool2(bool x, bool y)
         : x(x)
         , y(y) {}
 
-    inline explicit bool2(bool s = false)
+    inline bool2(bool s)
         : x(s)
         , y(s) {}
 
@@ -281,12 +294,14 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline bool3() {}
+
     inline bool3(bool x, bool y, bool z)
         : x(x)
         , y(y) 
         , z(z) {}
 
-    inline explicit bool3(bool s = false)
+    inline bool3(bool s)
         : x(s)
         , y(s)
         , z(s) {}
@@ -314,13 +329,15 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline bool4() {}
+
 	inline bool4(bool x, bool y, bool z, bool w)
         : x(x)
         , y(y) 
         , z(z)
         , w(w) {}
 
-    inline explicit bool4(bool s = false)
+    inline bool4(bool s)
         : x(s)
         , y(s)
         , z(s)
@@ -349,11 +366,13 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline float2() {}
+
     inline float2(float x, float y)
         : x(x)
         , y(y) {}
 
-    inline explicit float2(float s = 0.0f)
+    inline float2(float s)
         : x(s)
         , y(s) {}
 
@@ -372,7 +391,7 @@ public: // @region: Operators
 
 #if HLSLMATH_ENABLE_NEON       
 public:
-    inline explicit float2(float32x2_t neon_simd)
+    inline float2(float32x2_t neon_simd)
         : neon_simd(neon_simd) {}
 
     inline operator float32x2_t(void) const
@@ -394,15 +413,28 @@ public: // @region: Fielda
     };    
 
 public: // @region: Constructors
+    inline float3() {}
+
     inline float3(float x, float y, float z = 0.0f)
         : x(x)
         , y(y)
         , z(z) {}
 
-    inline explicit float3(float s = 0.0f)    
+    inline float3(float s)    
         : x(s)
         , y(s)
         , z(s) {}
+
+public: // @region: float2 -> float3
+    inline float3(const float2& v)
+        : x(v.x)
+        , y(v.y)
+        , z(0) {}
+
+    inline operator float2(void) const
+    {
+        return float2(x, y);
+    }
 
 public: // @region: Operators
     inline float& operator[](int index)
@@ -427,13 +459,15 @@ public: // @region: Fields
     };
 
 public: // @region: Constructors
+    inline float4() {}
+
     inline float4(float x, float y, float z, float w)
         : x(x)
         , y(y)
         , z(z)
         , w(w) {}
 
-    inline explicit float4(float s = 0.0f)
+    inline float4(float s)
         : x(s)
         , y(s)
         , z(s)
@@ -456,6 +490,8 @@ public: // @region: Operators
 union int2x2
 {
 public: // @region: Constructors
+    inline int2x2() {}
+
     inline int2x2(const int2& m0, const int2& m1)
     {
         (*this)[0] = m0;
@@ -468,7 +504,7 @@ public: // @region: Constructors
         (*this)[1] = int2(m10, m11);
     }
 
-    inline explicit int2x2(int s = 0)
+    inline int2x2(int s)
     {
         (*this)[0] = int2(s, s);
         (*this)[1] = int2(s, s);
@@ -497,6 +533,8 @@ private: // @region: Internal fields
 union int3x3
 {
 public: // @region: Constructors
+    inline int3x3() {}
+
     inline int3x3(const int3& m0, const int3& m1, const int3& m2)
     {
 		(*this)[0] = m0;
@@ -513,7 +551,7 @@ public: // @region: Constructors
         (*this)[2] = int3(m20, m21, m22);
     }
 
-    inline explicit int3x3(int s = 0)
+    inline int3x3(int s)
     {
         (*this)[0] = int3(s, s, s);
         (*this)[1] = int3(s, s, s);
@@ -543,6 +581,8 @@ private: // @region: Internal fields
 union int4x4
 {
 public: // @region: Constructors
+    inline int4x4() {}
+
     inline int4x4(const int4& m0, const int4& m1, const int4& m2, const int4& m3)
     {
 		(*this)[0] = m0;
@@ -562,7 +602,7 @@ public: // @region: Constructors
         (*this)[3] = int4(m30, m31, m32, m33);
     }
 
-    inline explicit int4x4(int s = 0)
+    inline int4x4(int s)
     {
         (*this)[0] = int4(s, s, s, s);
         (*this)[1] = int4(s, s, s, s);
@@ -593,6 +633,8 @@ private: // @region: Internal fields
 union uint2x2
 {
 public: // @region: Constructors
+    inline uint2x2() {}
+
     inline uint2x2(const uint2& m0, const uint2& m1)
     {
         (*this)[0] = m0;
@@ -605,7 +647,7 @@ public: // @region: Constructors
         (*this)[1] = uint2(m10, m11);
     }
 
-    inline explicit uint2x2(uint s = 0)
+    inline uint2x2(uint s)
     {
         (*this)[0] = uint2(s, s);
         (*this)[1] = uint2(s, s);
@@ -634,6 +676,8 @@ private: // @region: Internal fields
 union uint3x3
 {
 public: // @region: Constructors
+    inline uint3x3() {}
+
     inline uint3x3(const uint3& m0, const uint3& m1, const uint3& m2)
     {
         (*this)[0] = m0;
@@ -650,7 +694,7 @@ public: // @region: Constructors
         (*this)[2] = uint3(m20, m21, m22);
     }
 
-    inline explicit uint3x3(uint s = 0)
+    inline uint3x3(uint s)
     {
         (*this)[0] = uint3(s, s, s);
         (*this)[1] = uint3(s, s, s);
@@ -680,6 +724,8 @@ private: // @region: Internal fields
 union uint4x4
 {
 public: // @region: Constructors
+    inline uint4x4() {}
+
     inline uint4x4(const uint4& m0, const uint4& m1, const uint4& m2, const uint4& m3)
     {
         (*this)[0] = m0;
@@ -699,7 +745,7 @@ public: // @region: Constructors
         (*this)[3] = uint4(m30, m31, m32, m33);
     }
 
-    inline explicit uint4x4(uint s = 0)
+    inline uint4x4(uint s)
     {
         (*this)[0] = uint4(s, s, s, s);
         (*this)[1] = uint4(s, s, s, s);
@@ -730,6 +776,8 @@ private: // @region: Internal fields
 union bool2x2
 {
 public: // @region: Constructors
+    inline bool2x2() {}
+
     inline bool2x2(const bool2& m0, const bool2& m1)
     {
 		(*this)[0] = m0;
@@ -742,7 +790,7 @@ public: // @region: Constructors
         (*this)[1] = bool2(m10, m11);
     }
 
-    inline explicit bool2x2(bool s = false)
+    inline bool2x2(bool s)
     {
         (*this)[0] = bool2(s, s);
         (*this)[1] = bool2(s, s);
@@ -771,6 +819,8 @@ private: // @region: Internal fields
 union bool3x3
 {
 public: // @region: Constructors
+    inline bool3x3() {}
+
     inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
     {
         (*this)[0] = m0;
@@ -787,7 +837,7 @@ public: // @region: Constructors
         (*this)[2] = bool3(m20, m21, m22);
     }
 
-    inline explicit bool3x3(bool s = false)
+    inline bool3x3(bool s)
     {
         (*this)[0] = bool3(s, s, s);
         (*this)[1] = bool3(s, s, s);
@@ -817,6 +867,8 @@ private: // @region: Internal fields
 union bool4x4
 {
 public: // @region: Constructors
+    inline bool4x4() {}
+
     inline bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
     {
         (*this)[0] = m0;
@@ -836,7 +888,7 @@ public: // @region: Constructors
         (*this)[3] = bool4(m30, m31, m32, m33);
     }
 
-    inline explicit bool4x4(bool s = false)
+    inline bool4x4(bool s)
     {
         (*this)[0] = bool4(s, s, s, s);
         (*this)[1] = bool4(s, s, s, s);
@@ -867,6 +919,8 @@ private: // @region: Internal fields
 union float2x2
 {
 public: // @region: Constructors
+    inline float2x2() {}
+
 	inline float2x2(const float2& m0, const float2& m1)
 	{
 		(*this)[0] = m0;
@@ -880,7 +934,7 @@ public: // @region: Constructors
         (*this)[1] = float2(m10, m11);
     }
 
-    inline explicit float2x2(float s = 0.0f)    
+    inline float2x2(float s)    
     {
         (*this)[0] = float2(s, s);
         (*this)[1] = float2(s, s);
@@ -899,8 +953,18 @@ public: // @region: Operators
         return ((float2*)data)[index];
     }
    
+public: // @region: Create functions
+    inline static float2x2 identity()
+    {
+        return float2x2(1, 0, 0, 1);
+    }
+
 public: // @region: Graphics functions
     inline static float2x2 rotate(float angle);
+
+    inline static float2x2 scale(float x);
+    inline static float2x2 scale(const float2& v);
+    inline static float2x2 scale(float x, float y);
     
 private: // @region: Internal fields
     struct
@@ -908,10 +972,11 @@ private: // @region: Internal fields
         float data[2][2];
     };
 };
-
 union float3x3
 {
 public: // @region: Constructors
+    inline float3x3() {}
+
 	inline float3x3(const float3& m0, const float3& m1, const float3& m2)
 	{
 		(*this)[0] = m0;
@@ -928,7 +993,7 @@ public: // @region: Constructors
         (*this)[2] = float3(m20, m21, m22);
     }
 
-    inline explicit float3x3(float s = 0.0f)
+    inline float3x3(float s)
     {
         (*this)[0] = float3(s, s, s);
         (*this)[1] = float3(s, s, s);
@@ -947,6 +1012,23 @@ public: // @region: Operators
         HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((float3*)data)[index];
     }
+
+public: // @region: Create functions
+    inline static float3x3 identity()
+    {
+        return float3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+    }
+
+public: // @region: Graphics functions
+    inline static float3x3 translate(const float2& v);
+    inline static float3x3 translate(float x, float y);
+
+    inline static float3x3 rotate(float angle);
+
+    inline static float3x3 scale(const float2& v);
+    inline static float3x3 scale(float x, float y);
+
+    inline static float3x3 ortho(float l, float r, float b, float t);
     
 private: // @region: Internal fields
     struct
@@ -958,6 +1040,8 @@ private: // @region: Internal fields
 union float4x4
 {
 public: // @region: Constructors
+    inline float4x4() {}
+
 	inline float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
 	{
 		(*this)[0] = m0;
@@ -977,7 +1061,7 @@ public: // @region: Constructors
         (*this)[3] = float4(m30, m31, m32, m33);
     }
 
-    inline explicit float4x4(float s = 0.0f)
+    inline float4x4(float s)
     {
         (*this)[0] = float4(s, s, s, s);
         (*this)[1] = float4(s, s, s, s);
@@ -996,6 +1080,12 @@ public: // @region: Operators
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((float4*)data)[index];
+    }
+
+public: // @region: Constants
+    inline static float4x4 identity()
+    {
+        return float4x4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     }
 
 public: // @region: Graphics functions
@@ -1027,7 +1117,6 @@ private: // @region: Internal fields
         float data[4][4];
     };
 };
-
 inline bool all(bool v)
 {
     return v;
@@ -7411,6 +7500,20 @@ inline float2x2 float2x2::rotate(float angle)
     );
 }
 
+inline float2x2 float2x2::scale(float x)
+{
+    return float2x2::scale(x, x);
+}
+
+inline float2x2 float2x2::scale(const float2& v)
+{
+    return float2x2::scale(v.x, v.y);
+}
+
+inline float2x2 float2x2::scale(float x, float y)
+{
+    return float2x2(x, 0, 0, y);
+}
 //
 // @region: Operators overloading
 //
@@ -8065,6 +8168,62 @@ inline float3x3 inverse(const float3x3& m)
     }
 }
 
+//
+// @region: Graphics functions
+//
+
+inline float3x3 float3x3::translate(const float2& v)
+{
+    return float3x3::translate(v.x, v.y);
+}
+
+inline float3x3 float3x3::translate(float x, float y)
+{
+    return float3x3(
+        1, 0, 0,
+        0, 1, 0,
+        x, y, 1
+    );
+}
+
+inline float3x3 float3x3::rotate(float angle)
+{
+    const float c = cos(angle);
+    const float s = sin(angle);
+    return float3x3(
+        c, -s, 0,
+        s,  c, 0,
+        0,  0, 1
+    );
+}
+
+inline float3x3 float3x3::scale(const float2& v)
+{
+    return float3x3::scale(v.x, v.y);
+}
+
+inline float3x3 float3x3::scale(float x, float y)
+{
+    return float3x3(
+        x, 0, 0,
+        0, y, 0,
+        0, 0, 1
+    );
+}
+
+inline float3x3 float3x3::ortho(float l, float r, float b, float t)
+{
+    const float w = (r - l);
+    const float h = (t - b);
+    const float x = 1.0f / w;
+    const float y = 1.0f / h;
+
+    return float3x3(
+            2.0f * x,            0, 0,
+                   0,     2.0f * y, 0,
+        -x * (l + r), -y * (b + t), 1
+    );
+}
 //
 // @region: Operators overloading
 //
@@ -8993,4 +9152,4 @@ inline float4x4 float4x4::rotatez(float angle)
     );
 }
 
-// File 'E:\craft\Include\hlslmath\tools/../hlslmath.h' end here.
+// File 'F:\hlslmath\tools/../hlslmath.h' end here.
