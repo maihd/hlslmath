@@ -24,8 +24,25 @@ matrix:
     - os: windows
       language: c
 
+    - os: osx
+      language: android
+      android:
+        components:
+          - android-26
+          - build-tools-26.0.2
+          - sys-img-arm64-android-26
+          - sys-img-armeabi-v7a-android-26
+
     - os: linux
-      jdk: oraclejdk7
+      language: android
+      android:
+        components:
+          - android-26
+          - build-tools-26.0.2
+          - sys-img-arm64-android-26
+          - sys-img-armeabi-v7a-android-26
+
+    - os: windows
       language: android
       android:
         components:
