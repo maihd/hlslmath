@@ -16,17 +16,20 @@ branches:
 matrix:
   include:
     - os: osx
+      env: BUILD_TARGET=osx
       language: c
 
     - os: linux
+      env: BUILD_TARGET=linux
       language: c
 
     - os: windows
+      env: BUILD_TARGET=windows
       language: c
 
     - os: linux
       language: android
-      env: BUILD_TARGET=ANDROID
+      env: BUILD_TARGET=android
       android:
         components:
           - android-26
