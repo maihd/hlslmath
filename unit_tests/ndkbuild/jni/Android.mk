@@ -2,8 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := hlslmath_android
-LOCAL_MODULE_FILENAME := hlslmath
+LOCAL_MODULE := hlslmath.out
 
 LOCAL_SRC_FILES := ../hlslmath_android.cc
 
