@@ -29,12 +29,11 @@ matrix:
     - os: linux
       language: android
       env: BUILD_TARGET=android
-      script: cd unit_tests/gmake && make && make clean
       
       install:
         - yes | sdkmanager "tools" &>/dev/null
         - yes | sdkmanager "platform-tools" &>/dev/null
-        
+
         - yes | sdkmanager "ndk-bundle" &>/dev/null
 
         # Download emulator
@@ -59,6 +58,8 @@ matrix:
         - adb shell "ls /storage"
         - adb shell "ls /storage/self"
         - adb shell "ls /storage/primary"
+      
+      script: cd unit_tests/ndkbuild && $ANDROID_HOME/ndk-bundle/ndk-build
 
       android:
         components:
