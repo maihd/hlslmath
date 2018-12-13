@@ -56,8 +56,8 @@ matrix:
         - adb shell input keyevent 82 &
 
         - adb shell "ls /storage"
-        - adb shell "ls /storage/self"
-        - adb shell "ls /storage/primary"
+        - adb shell "ls /storage/sdcard"
+        - adb shell "ls /storage/sdcard/primary"
       
       script: cd unit_tests/ndkbuild && $ANDROID_HOME/ndk-bundle/ndk-build
 
