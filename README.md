@@ -26,12 +26,17 @@ build.exe --output=<output> --namespace=<namespace>
 * [ ] double 
 * [ ] fixed  
 * [ ] half   
-* [ ] short  
-* [ ] long   
+* [ ] short
+* [ ] ushort  
+* [ ] long 
+* [ ] ulong  
 
 ## Template types
-1. Vector 2, 3, 4
-2. Matrix 2x2, 3x3, 4x4
+* [x] Vector 2, 3, 4
+* [x] Matrix 2x2, 3x3, 4x4
+* [ ] Matrix 2x3, 2x4
+* [ ] Matrix 3x2, 3x4
+* [ ] Matrix 4x2, 4x3
 
 ## Examples
 ```C++
