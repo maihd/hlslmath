@@ -5,11 +5,15 @@ public: // @region: Fields
     {
         float x, y, z, w; 
     };
-    
-    float3 xyz;
 
 public: // @region: Constructors
     inline float4() {}
+
+    inline float4(const float3& xyz, float w = 0.0f)
+        : x(xyz.x)
+        , y(xyz.y)
+        , z(xyz.z)
+        , w(w) {}
 
     inline float4(float x, float y, float z, float w)
         : x(x)

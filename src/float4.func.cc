@@ -631,10 +631,12 @@ inline float4 faceforward(const float4& n, const float4& i, const float4& nref)
  */
 inline float4 qmul(const float4& a, const float4& b)
 {
-    float4 r;
-    r.xyz = a.xyz * b.w + b.xyz * a.w + cross(a.xyz, b.xyz);
-    r.w   = a.w * b.w - dot(a.xyz, b.xyz);
-    return r;
+    const float3 a3 = float3(a.x, a.y, a.z);
+    const float3 b3 = float3(b.x, b.y, b.z);
+
+    float3 xyz = a3 * b.w + b3 * a.w + cross(a3, b3);
+    float  w   = a.w * b.w - dot(a3, b3);
+    return float4(xyz, w);
 }
 
 inline float4 qeuler(float x, float y, float z)
