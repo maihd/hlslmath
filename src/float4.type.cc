@@ -5,6 +5,8 @@ public: // @region: Fields
     {
         float x, y, z, w; 
     };
+    
+    float3 xyz;
 
 public: // @region: Constructors
     inline float4() {}

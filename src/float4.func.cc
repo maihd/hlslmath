@@ -626,3 +626,52 @@ inline float4 faceforward(const float4& n, const float4& i, const float4& nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
+
+/* Quaternion multiplication
+ */
+inline float4 qmul(const float4& a, const float4& b)
+{
+    float4 r;
+    r.xyz = a.xyz * b.w + b.xyz * a.w + cross(a.xyz, b.xyz);
+    r.w   = a.w * b.w - dot(a.xyz, b.xyz);
+    return r;
+}
+
+inline float4 qeuler(float x, float y, float z)
+{
+    float r;
+    float p;
+
+    r = z * 0.5f;
+    p = x * 0.5f;
+    y = y * 0.5f; // Now y min yaw
+
+    const float c1 = cos(y);
+    const float c2 = cos(p);
+    const float c3 = cos(r);
+    const float s1 = sin(y);
+    const float s2 = sin(p);
+    const float s3 = sin(r);
+
+    return float4(
+        s1 * s2 * c3 + c1 * c2 * s3,
+	    s1 * c2 * c3 + c1 * s2 * s3,
+	    c1 * s2 * c3 - s1 * c2 * s3,
+	    c1 * c2 * c3 - s1 * s2 * s3
+    );
+}
+
+inline float4 qeuler(const float3& v)
+{
+    return qeuler(v.x, v.y, v.z);
+}
+
+inline float4 qinverse(const float4& q)
+{
+    return float4(q.x, q.y, q.z, -q.w);
+}
+
+inline float4 qconj(const float4& q)
+{
+    return float4(-q.x, -q.y, -q.z, q.w);
+}

@@ -37,6 +37,7 @@ build.exe --output=<output> --namespace=<namespace>
 * [ ] Matrix 2x3, 2x4
 * [ ] Matrix 3x2, 3x4
 * [ ] Matrix 4x2, 4x3
+* [x] Quaternion: present as float4, qmul, qinverse, qconj, qeuler
 
 ## Examples
 ```C++
