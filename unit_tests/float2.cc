@@ -11,5 +11,7 @@ int main(int argc, char* argv[])
 
     test(all(a + b == float2(0, 0)), "a + b should equal to zero");
 
+    test(length(a) == 0, "length of a is not true");
+
     return 0;
 }
