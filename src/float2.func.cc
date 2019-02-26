@@ -506,7 +506,7 @@ inline float dot(const float2& a, const float2& b)
 
 /* Compute squared length of vector
  */
-inline float lengthsquared(const float2& v)
+inline float lensqr(const float2& v)
 {
     return dot(v, v);
 }
@@ -515,7 +515,7 @@ inline float lengthsquared(const float2& v)
  */
 inline float length(const float2& v)
 {
-    return sqrt(lengthsquared(v));
+    return sqrt(lensqr(v));
 }
 
 /* Compute distance from 'a' to b
@@ -527,16 +527,16 @@ inline float distance(const float2& a, const float2& b)
 
 /* Compute squared distance from 'a' to b
  */
-inline float distancesquared(const float2& a, const float2& b)
+inline float distsqr(const float2& a, const float2& b)
 {
-    return lengthsquared(a - b);
+    return lensqr(a - b);
 }
 
 /* Compute normalized vector
  */
 inline float2 normalize(const float2& v)
 {
-    const float lsqr = lengthsquared(v);
+    const float lsqr = lensqr(v);
     if (lsqr > 0.0f)
     {
         const float f = rsqrt(lsqr);
