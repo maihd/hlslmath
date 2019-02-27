@@ -1,6 +1,6 @@
-﻿// Generate with hlslmath/tools/build
-// Filename: F:\hlslmath\tools/../hlslmath.h
-// Datetime: 12/10/18 11:20:41
+﻿// Generate with hlslmath/tools/tools\build
+// Filename: D:\hlslmath\tools/../hlslmath.h
+// Datetime: 02/26/19 16:16:00
 
 #pragma once
 
@@ -464,6 +464,12 @@ public: // @region: Fields
 
 public: // @region: Constructors
     inline float4() {}
+
+    inline float4(const float3& xyz, float w = 0.0f)
+        : x(xyz.x)
+        , y(xyz.y)
+        , z(xyz.z)
+        , w(w) {}
 
     inline float4(float x, float y, float z, float w)
         : x(x)
@@ -3939,7 +3945,7 @@ inline float dot(const float2& a, const float2& b)
 
 /* Compute squared length of vector
  */
-inline float lengthsquared(const float2& v)
+inline float lensqr(const float2& v)
 {
     return dot(v, v);
 }
@@ -3948,7 +3954,7 @@ inline float lengthsquared(const float2& v)
  */
 inline float length(const float2& v)
 {
-    return sqrt(lengthsquared(v));
+    return sqrt(lensqr(v));
 }
 
 /* Compute distance from 'a' to b
@@ -3960,16 +3966,16 @@ inline float distance(const float2& a, const float2& b)
 
 /* Compute squared distance from 'a' to b
  */
-inline float distancesquared(const float2& a, const float2& b)
+inline float distsqr(const float2& a, const float2& b)
 {
-    return lengthsquared(a - b);
+    return lensqr(a - b);
 }
 
 /* Compute normalized vector
  */
 inline float2 normalize(const float2& v)
 {
-    const float lsqr = lengthsquared(v);
+    const float lsqr = lensqr(v);
     if (lsqr > 0.0f)
     {
         const float f = rsqrt(lsqr);
@@ -4541,7 +4547,7 @@ inline float dot(const float3& a, const float3& b)
 
 /* Compute squared length of vector
  */
-inline float lengthsquared(const float3& v)
+inline float lensqr(const float3& v)
 {
     return dot(v, v);
 }
@@ -4550,7 +4556,7 @@ inline float lengthsquared(const float3& v)
  */
 inline float length(const float3& v)
 {
-    return sqrt(lengthsquared(v));
+    return sqrt(lensqr(v));
 }
 
 /* Compute distance from 'a' to b
@@ -4562,16 +4568,16 @@ inline float distance(const float3& a, const float3& b)
 
 /* Compute squared distance from 'a' to b
  */
-inline float distancesquared(const float3& a, const float3& b)
+inline float distsqr(const float3& a, const float3& b)
 {
-    return lengthsquared(a - b);
+    return lensqr(a - b);
 }
 
 /* Compute normalized vector
  */
 inline float3 normalize(const float3& v)
 {
-    const float lsqr = lengthsquared(v);
+    const float lsqr = lensqr(v);
     if (lsqr > 0.0f)
     {
         const float f = rsqrt(lsqr);
@@ -5170,7 +5176,7 @@ inline float dot(const float4& a, const float4& b)
 
 /* Compute squared length of vector
  */
-inline float lengthsquared(const float4& v)
+inline float lensqr(const float4& v)
 {
     return dot(v, v);
 }
@@ -5179,7 +5185,7 @@ inline float lengthsquared(const float4& v)
  */
 inline float length(const float4& v)
 {
-    return sqrt(lengthsquared(v));
+    return sqrt(lensqr(v));
 }
 
 /* Compute distance from 'a' to b
@@ -5191,16 +5197,16 @@ inline float distance(const float4& a, const float4& b)
 
 /* Compute squared distance from 'a' to b
  */
-inline float distancesquared(const float4& a, const float4& b)
+inline float distsqr(const float4& a, const float4& b)
 {
-    return lengthsquared(a - b);
+    return lensqr(a - b);
 }
 
 /* Compute normalized vector
  */
 inline float4 normalize(const float4& v)
 {
-    const float lsqr = lengthsquared(v);
+    const float lsqr = lensqr(v);
     if (lsqr > 0.0f)
     {
         const float f = rsqrt(lsqr);
@@ -5236,6 +5242,56 @@ inline float4 faceforward(const float4& n, const float4& i, const float4& nref)
     return dot(i, nref) < 0.0f ? n : -n;
 }
 
+/* Quaternion multiplication
+ */
+inline float4 qmul(const float4& a, const float4& b)
+{
+    const float3 a3 = float3(a.x, a.y, a.z);
+    const float3 b3 = float3(b.x, b.y, b.z);
+
+    float3 xyz = a3 * b.w + b3 * a.w + cross(a3, b3);
+    float  w   = a.w * b.w - dot(a3, b3);
+    return float4(xyz, w);
+}
+
+inline float4 qeuler(float x, float y, float z)
+{
+    float r;
+    float p;
+
+    r = z * 0.5f;
+    p = x * 0.5f;
+    y = y * 0.5f; // Now y min yaw
+
+    const float c1 = cos(y);
+    const float c2 = cos(p);
+    const float c3 = cos(r);
+    const float s1 = sin(y);
+    const float s2 = sin(p);
+    const float s3 = sin(r);
+
+    return float4(
+        s1 * s2 * c3 + c1 * c2 * s3,
+	    s1 * c2 * c3 + c1 * s2 * s3,
+	    c1 * s2 * c3 - s1 * c2 * s3,
+	    c1 * c2 * c3 - s1 * s2 * s3
+    );
+}
+
+inline float4 qeuler(const float3& v)
+{
+    return qeuler(v.x, v.y, v.z);
+}
+
+inline float4 qinverse(const float4& q)
+{
+    return float4(q.x, q.y, q.z, -q.w);
+}
+
+inline float4 qconj(const float4& q)
+{
+    return float4(-q.x, -q.y, -q.z, q.w);
+}
 //
 // @region: Operator overloadng
 //
@@ -9156,4 +9212,4 @@ inline float4x4 float4x4::rotatez(float angle)
     );
 }
 
-// File 'F:\hlslmath\tools/../hlslmath.h' end here.
+// File 'D:\hlslmath\tools/../hlslmath.h' end here.

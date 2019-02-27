@@ -887,7 +887,7 @@ inline float4x4 float4x4::rotate(float x, float y, float z, float angle)
     return result;
 }
 
-inline float4x4 float4x4::rotatex(float angle)
+inline float4x4 float4x4::rotate_x(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -900,7 +900,7 @@ inline float4x4 float4x4::rotatex(float angle)
     );
 }
 
-inline float4x4 float4x4::rotatey(float angle)
+inline float4x4 float4x4::rotate_y(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -913,7 +913,7 @@ inline float4x4 float4x4::rotatey(float angle)
     );
 }
 
-inline float4x4 float4x4::rotatez(float angle)
+inline float4x4 float4x4::rotate_z(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);

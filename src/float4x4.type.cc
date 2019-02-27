@@ -62,9 +62,9 @@ public: // @region: Graphics functions
     static float4x4 rotate(const float3& axis, float angle);
     static float4x4 rotate(float x, float y, float z, float angle);
 
-    static float4x4 rotatex(float angle);
-    static float4x4 rotatey(float angle);
-    static float4x4 rotatez(float angle);
+    static float4x4 rotate_x(float angle);
+    static float4x4 rotate_y(float angle);
+    static float4x4 rotate_z(float angle);
 
     static float4x4 lookat(const float3& eye, const float3& target, const float3& up);
 

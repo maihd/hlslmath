@@ -453,7 +453,7 @@ int main(int argc, char* argv[])
     do
     {
         char deffile_path[512];
-        sprintf(deffile_path, "%s/../src/define.cc", exedir);
+        sprintf(deffile_path, "%s/../src/module_begin.cc", exedir);
         file_concat(targetFile, deffile_path);
 
         /* HLSL_DEFINE_INTRINSICS */
@@ -507,6 +507,10 @@ int main(int argc, char* argv[])
     {
         fprintf(targetFile, "\n}\n");
     }
+
+    char deffile_path[512];
+    sprintf(deffile_path, "%s/../src/module_begin.cc", exedir);
+    file_concat(targetFile, deffile_path);
 
     /* End of file */
     fprintf(targetFile, "// File '%s' end here.\n", outputfile); 
