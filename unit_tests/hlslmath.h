@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../src/define.cc"
+#include "../src/module_begin.cc"
 
 #if (defined(_MSC_VER) && (_MSC_VER >= 1900)) || __unix__
 #define HLSL_DEFINE_INTRINSICS 1
@@ -63,3 +63,5 @@
 #include "../src/float2x2.func.cc"
 #include "../src/float3x3.func.cc"
 #include "../src/float4x4.func.cc"
+
+#include "../src/module_begin.cc"
