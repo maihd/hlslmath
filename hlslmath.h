@@ -1,7 +1,7 @@
 ﻿// You can put your copyright here!%c
 // Generate with hlslmath/tools/tools\build
 // Filename: D:\hlslmath\tools/../hlslmath.h
-// Datetime: 03/16/19 17:09:05
+// Datetime: 03/16/19 17:42:56
 
 #if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__
 #define HLSL_DEFINE_INTRINSICS 1
@@ -462,6 +462,37 @@ public: // @region: Operators
     {
         HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((float*)this)[index];
+    }
+
+public:
+    /* Quaternion from axisangle
+     */
+    inline static float4 quat(const float3& axis, float angle);
+
+    /* Convert quaternion to axisangle
+     * @note: xyz is axis, w is angle
+     */
+    inline static float4 toaxis(const float4& quat);
+
+    /* Convert quaternion to axisangle
+     * @note: xyz is axis, w is angle
+     */
+    inline static void toaxis(const float4& quat, float3* axis, float* angle)
+    {
+        float4 axisangle = float4::toaxis(quat);
+        if (axis)  *axis = float3(axisangle.x, axisangle.y, axisangle.z);
+        if (angle) *angle = axisangle.w;
+    }
+
+    /* Quaternion from euler
+     */
+    inline static float4 euler(float x, float y, float z);
+
+    /* Quaternion from euler
+     */
+    inline static float4 euler(const float3& v)
+    {
+        return euler(v.x, v.y, v.z);
     }
 };
 
@@ -1076,12 +1107,16 @@ public: // @region: Graphics functions
     static float4x4 translation(const float3& v);
     static float4x4 translation(float x, float y, float z = 0.0f);
 
+    static float4x4 rotation(const float4& quaternion);
     static float4x4 rotation(const float3& axis, float angle);
     static float4x4 rotation(float x, float y, float z, float angle);
 
     static float4x4 rotation_x(float angle);
     static float4x4 rotation_y(float angle);
     static float4x4 rotation_z(float angle);
+
+    static void     decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation);
+    static void     decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation);
 
     static float4x4 lookat(const float3& eye, const float3& target, const float3& up);
 
@@ -5222,14 +5257,58 @@ inline float4 qmul(const float4& a, const float4& b)
     return float4(xyz, w);
 }
 
-inline float4 qeuler(float x, float y, float z)
+inline float4 qinverse(const float4& q)
+{
+    return float4(q.x, q.y, q.z, -q.w);
+}
+
+inline float4 qconj(const float4& q)
+{
+    return float4(-q.x, -q.y, -q.z, q.w);
+}
+
+inline float4 float4::quat(const float3& axis, float angle)
+{
+    if (lensqr(axis) == 0.0f)
+    {
+        return float4(0, 0, 0, 1);
+    }
+
+    float4 r = float4(normalize(axis) * sin(angle * 0.5f), cosf(angle * 0.5f));
+    return r;
+}
+
+inline float4 float4::toaxis(const float4& quat)
+{
+    float4 c = quat;
+    if (c.w != 0.0f)
+    {
+        c = normalize(quat);
+    }
+
+    float3 axis;
+    const float den = sqrtf(1.0f - c.w * c.w);
+    if (den > 0.0001f)
+    {
+        axis = float3(c.x, c.y, c.z) / den;
+    }
+    else
+    {
+        axis = float3(1, 0, 0);
+    }
+
+    float angle = 2.0f * cosf(c.w);
+    return float4(axis, angle);
+}
+
+inline float4 float4::euler(float x, float y, float z)
 {
     float r;
     float p;
 
     r = z * 0.5f;
     p = x * 0.5f;
-    y = y * 0.5f; // Now y min yaw
+    y = y * 0.5f; // Now y mean yaw
 
     const float c1 = cos(y);
     const float c2 = cos(p);
@@ -5240,25 +5319,10 @@ inline float4 qeuler(float x, float y, float z)
 
     return float4(
         s1 * s2 * c3 + c1 * c2 * s3,
-	    s1 * c2 * c3 + c1 * s2 * s3,
-	    c1 * s2 * c3 - s1 * c2 * s3,
-	    c1 * c2 * c3 - s1 * s2 * s3
+        s1 * c2 * c3 + c1 * s2 * s3,
+        c1 * s2 * c3 - s1 * c2 * s3,
+        c1 * c2 * c3 - s1 * s2 * s3
     );
-}
-
-inline float4 qeuler(const float3& v)
-{
-    return qeuler(v.x, v.y, v.z);
-}
-
-inline float4 qinverse(const float4& q)
-{
-    return float4(q.x, q.y, q.z, -q.w);
-}
-
-inline float4 qconj(const float4& q)
-{
-    return float4(-q.x, -q.y, -q.z, q.w);
 }
 //
 // @region: Operator overloadng
@@ -9180,4 +9244,127 @@ inline float4x4 float4x4::rotation_z(float angle)
     );
 }
 
+inline float4x4 float4x4::rotation(const float4& quaternion)
+{
+    float4 axisangle = float4::toaxis(quaternion);
+    return float4x4::rotation(axisangle.x, axisangle.y, axisangle.z, axisangle.w);
+}
+
+inline void float4x4::decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
+{
+    if (translation)
+    {
+        *translation = float3(m[3][0], m[3][1], m[3][2]);
+    }
+
+    if (!scalation && !quaternion)
+    {
+        return;
+    }
+
+    float3 xaxis(m[0][0], m[0][1], m[0][2]);
+    float3 yaxis(m[1][0], m[1][1], m[1][2]);
+    float3 zaxis(m[2][0], m[2][1], m[2][2]);
+
+    float scale_x = length(xaxis);
+    float scale_y = length(yaxis);
+    float scale_z = length(zaxis);
+
+    const float n11 = m[0][0], n12 = m[1][0], n13 = m[2][0], n14 = m[3][0];
+    const float n21 = m[0][1], n22 = m[1][1], n23 = m[2][1], n24 = m[3][1];
+    const float n31 = m[0][2], n32 = m[1][2], n33 = m[2][2], n34 = m[3][2];
+    const float n41 = m[0][3], n42 = m[1][3], n43 = m[2][3], n44 = m[3][3];
+
+    const float t11 = n23 * n34 * n42 - n24 * n33 * n42 + n24 * n32 * n43 - n22 * n34 * n43 - n23 * n32 * n44 + n22 * n33 * n44;
+    const float t12 = n14 * n33 * n42 - n13 * n34 * n42 - n14 * n32 * n43 + n12 * n34 * n43 + n13 * n32 * n44 - n12 * n33 * n44;
+    const float t13 = n13 * n24 * n42 - n14 * n23 * n42 + n14 * n22 * n43 - n12 * n24 * n43 - n13 * n22 * n44 + n12 * n23 * n44;
+    const float t14 = n14 * n23 * n32 - n13 * n24 * n32 - n14 * n22 * n33 + n12 * n24 * n33 + n13 * n22 * n34 - n12 * n23 * n34;
+
+    const float det = n11 * t11 + n21 * t12 + n31 * t13 + n41 * t14;
+    if (det < 0) scale_z = -scale_z;
+
+    if (scalation)
+    {
+        *scalation = float3(scale_x, scale_y, scale_z);
+    }
+
+    if (!quaternion)
+    {
+        return;
+    }
+
+    float rn;
+
+    // Factor the scale out of the matrix axes.
+    rn = 1.0f / scale_x;
+    xaxis.x *= rn;
+    xaxis.y *= rn;
+    xaxis.z *= rn;
+
+    rn = 1.0f / scale_y;
+    yaxis.x *= rn;
+    yaxis.y *= rn;
+    yaxis.z *= rn;
+
+    rn = 1.0f / scale_z;
+    zaxis.x *= rn;
+    zaxis.y *= rn;
+    zaxis.z *= rn;
+
+    // Now calculate the rotation from the resulting matrix (axes).
+    float trace = xaxis.x + yaxis.y + zaxis.z + 1.0f;
+
+    if (trace > 0.0001f)
+    {
+        float s = 0.5f / sqrt(trace);
+        quaternion->w = 0.25f / s;
+        quaternion->x = (yaxis.z - zaxis.y) * s;
+        quaternion->y = (zaxis.x - xaxis.z) * s;
+        quaternion->z = (xaxis.y - yaxis.x) * s;
+    }
+    else
+    {
+        // Note: since xaxis, yaxis, and zaxis are normalized, 
+        // we will never divide by zero in the code below.
+        if (xaxis.x > yaxis.y && xaxis.x > zaxis.z)
+        {
+            float s = 0.5f / sqrt(1.0f + xaxis.x - yaxis.y - zaxis.z);
+            quaternion->w = (yaxis.z - zaxis.y) * s;
+            quaternion->x = 0.25f / s;
+            quaternion->y = (yaxis.x + xaxis.y) * s;
+            quaternion->z = (zaxis.x + xaxis.z) * s;
+        }
+        else if (yaxis.y > zaxis.z)
+        {
+            float s = 0.5f / sqrt(1.0f + yaxis.y - xaxis.x - zaxis.z);
+            quaternion->w = (zaxis.x - xaxis.z) * s;
+            quaternion->x = (yaxis.x + xaxis.y) * s;
+            quaternion->y = 0.25f / s;
+            quaternion->z = (zaxis.y + yaxis.z) * s;
+        }
+        else
+        {
+            float s = 0.5f / sqrt(1.0f + zaxis.z - xaxis.x - yaxis.y);
+            quaternion->w = (xaxis.y - yaxis.x) * s;
+            quaternion->x = (zaxis.x + xaxis.z) * s;
+            quaternion->y = (zaxis.y + yaxis.z) * s;
+            quaternion->z = 0.25f / s;
+        }
+    }
+}
+
+inline void float4x4::decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
+{
+    if (axis || angle)
+    {
+        float4 quat;
+        decompose(m, scalation, &quat, translation);
+
+        float4::toaxis(quat, axis, angle);
+    }
+    else
+    {
+        decompose(m, scalation, (float4*)0, translation);
+    }
+}
 // File 'D:\hlslmath\tools/../hlslmath.h' end here.
