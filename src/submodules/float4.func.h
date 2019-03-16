@@ -639,14 +639,58 @@ inline float4 qmul(const float4& a, const float4& b)
     return float4(xyz, w);
 }
 
-inline float4 qeuler(float x, float y, float z)
+inline float4 qinverse(const float4& q)
+{
+    return float4(q.x, q.y, q.z, -q.w);
+}
+
+inline float4 qconj(const float4& q)
+{
+    return float4(-q.x, -q.y, -q.z, q.w);
+}
+
+inline float4 float4::quat(const float3& axis, float angle)
+{
+    if (lensqr(axis) == 0.0f)
+    {
+        return float4(0, 0, 0, 1);
+    }
+
+    float4 r = float4(normalize(axis) * sin(angle * 0.5f), cosf(angle * 0.5f));
+    return r;
+}
+
+inline float4 float4::toaxis(const float4& quat)
+{
+    float4 c = quat;
+    if (c.w != 0.0f)
+    {
+        c = normalize(quat);
+    }
+
+    float3 axis;
+    const float den = sqrtf(1.0f - c.w * c.w);
+    if (den > 0.0001f)
+    {
+        axis = float3(c.x, c.y, c.z) / den;
+    }
+    else
+    {
+        axis = float3(1, 0, 0);
+    }
+
+    float angle = 2.0f * cosf(c.w);
+    return float4(axis, angle);
+}
+
+inline float4 float4::euler(float x, float y, float z)
 {
     float r;
     float p;
 
     r = z * 0.5f;
     p = x * 0.5f;
-    y = y * 0.5f; // Now y min yaw
+    y = y * 0.5f; // Now y mean yaw
 
     const float c1 = cos(y);
     const float c2 = cos(p);
@@ -657,23 +701,8 @@ inline float4 qeuler(float x, float y, float z)
 
     return float4(
         s1 * s2 * c3 + c1 * c2 * s3,
-	    s1 * c2 * c3 + c1 * s2 * s3,
-	    c1 * s2 * c3 - s1 * c2 * s3,
-	    c1 * c2 * c3 - s1 * s2 * s3
+        s1 * c2 * c3 + c1 * s2 * s3,
+        c1 * s2 * c3 - s1 * c2 * s3,
+        c1 * c2 * c3 - s1 * s2 * s3
     );
-}
-
-inline float4 qeuler(const float3& v)
-{
-    return qeuler(v.x, v.y, v.z);
-}
-
-inline float4 qinverse(const float4& q)
-{
-    return float4(q.x, q.y, q.z, -q.w);
-}
-
-inline float4 qconj(const float4& q)
-{
-    return float4(-q.x, -q.y, -q.z, q.w);
 }
