@@ -577,7 +577,7 @@ inline float2x2 mul(const float2x2& a, const float2x2& b)
 // @region: Graphics functions
 //
 
-inline float2x2 float2x2::rotate(float angle)
+inline float2x2 float2x2::rotation(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -588,17 +588,17 @@ inline float2x2 float2x2::rotate(float angle)
     );
 }
 
-inline float2x2 float2x2::scale(float x)
+inline float2x2 float2x2::scalation(float x)
 {
-    return float2x2::scale(x, x);
+    return float2x2::scalation(x, x);
 }
 
-inline float2x2 float2x2::scale(const float2& v)
+inline float2x2 float2x2::scalation(const float2& v)
 {
-    return float2x2::scale(v.x, v.y);
+    return float2x2::scalation(v.x, v.y);
 }
 
-inline float2x2 float2x2::scale(float x, float y)
+inline float2x2 float2x2::scalation(float x, float y)
 {
     return float2x2(x, 0, 0, y);
 }

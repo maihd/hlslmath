@@ -50,21 +50,21 @@ public: // @region: Constants
     }
 
 public: // @region: Graphics functions
-    static float4x4 scale(float s);
-    static float4x4 scale(const float2& v);
-    static float4x4 scale(const float3& v);
-    static float4x4 scale(float x, float y, float z = 1.0f);
+    static float4x4 scalation(float s);
+    static float4x4 scalation(const float2& v);
+    static float4x4 scalation(const float3& v);
+    static float4x4 scalation(float x, float y, float z = 1.0f);
 
-    static float4x4 translate(const float2& v);
-    static float4x4 translate(const float3& v);
-    static float4x4 translate(float x, float y, float z = 0.0f);
+    static float4x4 translation(const float2& v);
+    static float4x4 translation(const float3& v);
+    static float4x4 translation(float x, float y, float z = 0.0f);
 
-    static float4x4 rotate(const float3& axis, float angle);
-    static float4x4 rotate(float x, float y, float z, float angle);
+    static float4x4 rotation(const float3& axis, float angle);
+    static float4x4 rotation(float x, float y, float z, float angle);
 
-    static float4x4 rotate_x(float angle);
-    static float4x4 rotate_y(float angle);
-    static float4x4 rotate_z(float angle);
+    static float4x4 rotation_x(float angle);
+    static float4x4 rotation_y(float angle);
+    static float4x4 rotation_z(float angle);
 
     static float4x4 lookat(const float3& eye, const float3& target, const float3& up);
 

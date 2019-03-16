@@ -46,13 +46,13 @@ public: // @region: Create functions
     }
 
 public: // @region: Graphics functions
-    inline static float3x3 translate(const float2& v);
-    inline static float3x3 translate(float x, float y);
+    inline static float3x3 translation(const float2& v);
+    inline static float3x3 translation(float x, float y);
 
-    inline static float3x3 rotate(float angle);
+    inline static float3x3 rotation(float angle);
 
-    inline static float3x3 scale(const float2& v);
-    inline static float3x3 scale(float x, float y);
+    inline static float3x3 scalation(const float2& v);
+    inline static float3x3 scalation(float x, float y);
 
     inline static float3x3 ortho(float l, float r, float b, float t);
     

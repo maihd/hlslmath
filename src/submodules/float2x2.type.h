@@ -42,11 +42,11 @@ public: // @region: Create functions
     }
 
 public: // @region: Graphics functions
-    inline static float2x2 rotate(float angle);
+    inline static float2x2 rotation(float angle);
 
-    inline static float2x2 scale(float x);
-    inline static float2x2 scale(const float2& v);
-    inline static float2x2 scale(float x, float y);
+    inline static float2x2 scalation(float x);
+    inline static float2x2 scalation(const float2& v);
+    inline static float2x2 scalation(float x, float y);
     
 private: // @region: Internal fields
     struct

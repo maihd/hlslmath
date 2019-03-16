@@ -656,12 +656,12 @@ inline float3x3 inverse(const float3x3& m)
 // @region: Graphics functions
 //
 
-inline float3x3 float3x3::translate(const float2& v)
+inline float3x3 float3x3::translation(const float2& v)
 {
-    return float3x3::translate(v.x, v.y);
+    return float3x3::translation(v.x, v.y);
 }
 
-inline float3x3 float3x3::translate(float x, float y)
+inline float3x3 float3x3::translation(float x, float y)
 {
     return float3x3(
         1, 0, 0,
@@ -670,7 +670,7 @@ inline float3x3 float3x3::translate(float x, float y)
     );
 }
 
-inline float3x3 float3x3::rotate(float angle)
+inline float3x3 float3x3::rotation(float angle)
 {
     const float c = cos(angle);
     const float s = sin(angle);
@@ -681,12 +681,12 @@ inline float3x3 float3x3::rotate(float angle)
     );
 }
 
-inline float3x3 float3x3::scale(const float2& v)
+inline float3x3 float3x3::scalation(const float2& v)
 {
-    return float3x3::scale(v.x, v.y);
+    return float3x3::scalation(v.x, v.y);
 }
 
-inline float3x3 float3x3::scale(float x, float y)
+inline float3x3 float3x3::scalation(float x, float y)
 {
     return float3x3(
         x, 0, 0,

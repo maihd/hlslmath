@@ -1,7 +1,7 @@
 ﻿// You can put your copyright here!%c
-// Generate with hlslmath/tools/build
+// Generate with hlslmath/tools/tools\build
 // Filename: D:\hlslmath\tools/../hlslmath.h
-// Datetime: 03/16/19 17:06:24
+// Datetime: 03/16/19 17:09:05
 
 #if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__
 #define HLSL_DEFINE_INTRINSICS 1
@@ -938,11 +938,11 @@ public: // @region: Create functions
     }
 
 public: // @region: Graphics functions
-    inline static float2x2 rotate(float angle);
+    inline static float2x2 rotation(float angle);
 
-    inline static float2x2 scale(float x);
-    inline static float2x2 scale(const float2& v);
-    inline static float2x2 scale(float x, float y);
+    inline static float2x2 scalation(float x);
+    inline static float2x2 scalation(const float2& v);
+    inline static float2x2 scalation(float x, float y);
     
 private: // @region: Internal fields
     struct
@@ -998,13 +998,13 @@ public: // @region: Create functions
     }
 
 public: // @region: Graphics functions
-    inline static float3x3 translate(const float2& v);
-    inline static float3x3 translate(float x, float y);
+    inline static float3x3 translation(const float2& v);
+    inline static float3x3 translation(float x, float y);
 
-    inline static float3x3 rotate(float angle);
+    inline static float3x3 rotation(float angle);
 
-    inline static float3x3 scale(const float2& v);
-    inline static float3x3 scale(float x, float y);
+    inline static float3x3 scalation(const float2& v);
+    inline static float3x3 scalation(float x, float y);
 
     inline static float3x3 ortho(float l, float r, float b, float t);
     
@@ -1067,21 +1067,21 @@ public: // @region: Constants
     }
 
 public: // @region: Graphics functions
-    static float4x4 scale(float s);
-    static float4x4 scale(const float2& v);
-    static float4x4 scale(const float3& v);
-    static float4x4 scale(float x, float y, float z = 1.0f);
+    static float4x4 scalation(float s);
+    static float4x4 scalation(const float2& v);
+    static float4x4 scalation(const float3& v);
+    static float4x4 scalation(float x, float y, float z = 1.0f);
 
-    static float4x4 translate(const float2& v);
-    static float4x4 translate(const float3& v);
-    static float4x4 translate(float x, float y, float z = 0.0f);
+    static float4x4 translation(const float2& v);
+    static float4x4 translation(const float3& v);
+    static float4x4 translation(float x, float y, float z = 0.0f);
 
-    static float4x4 rotate(const float3& axis, float angle);
-    static float4x4 rotate(float x, float y, float z, float angle);
+    static float4x4 rotation(const float3& axis, float angle);
+    static float4x4 rotation(float x, float y, float z, float angle);
 
-    static float4x4 rotate_x(float angle);
-    static float4x4 rotate_y(float angle);
-    static float4x4 rotate_z(float angle);
+    static float4x4 rotation_x(float angle);
+    static float4x4 rotation_y(float angle);
+    static float4x4 rotation_z(float angle);
 
     static float4x4 lookat(const float3& eye, const float3& target, const float3& up);
 
@@ -7517,7 +7517,7 @@ inline float2x2 mul(const float2x2& a, const float2x2& b)
 // @region: Graphics functions
 //
 
-inline float2x2 float2x2::rotate(float angle)
+inline float2x2 float2x2::rotation(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -7528,17 +7528,17 @@ inline float2x2 float2x2::rotate(float angle)
     );
 }
 
-inline float2x2 float2x2::scale(float x)
+inline float2x2 float2x2::scalation(float x)
 {
-    return float2x2::scale(x, x);
+    return float2x2::scalation(x, x);
 }
 
-inline float2x2 float2x2::scale(const float2& v)
+inline float2x2 float2x2::scalation(const float2& v)
 {
-    return float2x2::scale(v.x, v.y);
+    return float2x2::scalation(v.x, v.y);
 }
 
-inline float2x2 float2x2::scale(float x, float y)
+inline float2x2 float2x2::scalation(float x, float y)
 {
     return float2x2(x, 0, 0, y);
 }
@@ -8200,12 +8200,12 @@ inline float3x3 inverse(const float3x3& m)
 // @region: Graphics functions
 //
 
-inline float3x3 float3x3::translate(const float2& v)
+inline float3x3 float3x3::translation(const float2& v)
 {
-    return float3x3::translate(v.x, v.y);
+    return float3x3::translation(v.x, v.y);
 }
 
-inline float3x3 float3x3::translate(float x, float y)
+inline float3x3 float3x3::translation(float x, float y)
 {
     return float3x3(
         1, 0, 0,
@@ -8214,7 +8214,7 @@ inline float3x3 float3x3::translate(float x, float y)
     );
 }
 
-inline float3x3 float3x3::rotate(float angle)
+inline float3x3 float3x3::rotation(float angle)
 {
     const float c = cos(angle);
     const float s = sin(angle);
@@ -8225,12 +8225,12 @@ inline float3x3 float3x3::rotate(float angle)
     );
 }
 
-inline float3x3 float3x3::scale(const float2& v)
+inline float3x3 float3x3::scalation(const float2& v)
 {
-    return float3x3::scale(v.x, v.y);
+    return float3x3::scalation(v.x, v.y);
 }
 
-inline float3x3 float3x3::scale(float x, float y)
+inline float3x3 float3x3::scalation(float x, float y)
 {
     return float3x3(
         x, 0, 0,
@@ -9061,22 +9061,22 @@ inline float4x4 float4x4::lookat(const float3& eye, const float3& target, const 
     return result;
 }
 
-inline float4x4 float4x4::scale(float s)
+inline float4x4 float4x4::scalation(float s)
 {
-    return float4x4::scale(s, s, s);
+    return float4x4::scalation(s, s, s);
 }
 
-inline float4x4 float4x4::scale(const float2& v)
+inline float4x4 float4x4::scalation(const float2& v)
 {
-    return float4x4::scale(v.x, v.y);
+    return float4x4::scalation(v.x, v.y);
 }
 
-inline float4x4 float4x4::scale(const float3& v)
+inline float4x4 float4x4::scalation(const float3& v)
 {
-    return float4x4::scale(v.x, v.y, v.z);
+    return float4x4::scalation(v.x, v.y, v.z);
 }
 
-inline float4x4 float4x4::scale(float x, float y, float z)
+inline float4x4 float4x4::scalation(float x, float y, float z)
 {
     return float4x4(
         x, 0, 0, 0,
@@ -9086,17 +9086,17 @@ inline float4x4 float4x4::scale(float x, float y, float z)
     );
 }
 
-inline float4x4 float4x4::translate(const float2& v)
+inline float4x4 float4x4::translation(const float2& v)
 {
-    return float4x4::translate(v.x, v.y);
+    return float4x4::translation(v.x, v.y);
 }
 
-inline float4x4 float4x4::translate(const float3& v)
+inline float4x4 float4x4::translation(const float3& v)
 {
-    return float4x4::translate(v.x, v.y, v.z);
+    return float4x4::translation(v.x, v.y, v.z);
 }
 
-inline float4x4 float4x4::translate(float x, float y, float z)
+inline float4x4 float4x4::translation(float x, float y, float z)
 {
     return float4x4(
         1, 0, 0, 0,
@@ -9106,12 +9106,12 @@ inline float4x4 float4x4::translate(float x, float y, float z)
     );
 }
 
-inline float4x4 float4x4::rotate(const float3& axis, float angle)
+inline float4x4 float4x4::rotation(const float3& axis, float angle)
 {
-    return float4x4::rotate(axis.x, axis.y, axis.z, angle);
+    return float4x4::rotation(axis.x, axis.y, axis.z, angle);
 }
 
-inline float4x4 float4x4::rotate(float x, float y, float z, float angle)
+inline float4x4 float4x4::rotation(float x, float y, float z, float angle)
 {
     const float c = cos(-angle);
     const float s = sin(-angle);
@@ -9141,7 +9141,7 @@ inline float4x4 float4x4::rotate(float x, float y, float z, float angle)
     return result;
 }
 
-inline float4x4 float4x4::rotate_x(float angle)
+inline float4x4 float4x4::rotation_x(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -9154,7 +9154,7 @@ inline float4x4 float4x4::rotate_x(float angle)
     );
 }
 
-inline float4x4 float4x4::rotate_y(float angle)
+inline float4x4 float4x4::rotation_y(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -9167,7 +9167,7 @@ inline float4x4 float4x4::rotate_y(float angle)
     );
 }
 
-inline float4x4 float4x4::rotate_z(float angle)
+inline float4x4 float4x4::rotation_z(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);

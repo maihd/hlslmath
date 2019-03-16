@@ -807,22 +807,22 @@ inline float4x4 float4x4::lookat(const float3& eye, const float3& target, const 
     return result;
 }
 
-inline float4x4 float4x4::scale(float s)
+inline float4x4 float4x4::scalation(float s)
 {
-    return float4x4::scale(s, s, s);
+    return float4x4::scalation(s, s, s);
 }
 
-inline float4x4 float4x4::scale(const float2& v)
+inline float4x4 float4x4::scalation(const float2& v)
 {
-    return float4x4::scale(v.x, v.y);
+    return float4x4::scalation(v.x, v.y);
 }
 
-inline float4x4 float4x4::scale(const float3& v)
+inline float4x4 float4x4::scalation(const float3& v)
 {
-    return float4x4::scale(v.x, v.y, v.z);
+    return float4x4::scalation(v.x, v.y, v.z);
 }
 
-inline float4x4 float4x4::scale(float x, float y, float z)
+inline float4x4 float4x4::scalation(float x, float y, float z)
 {
     return float4x4(
         x, 0, 0, 0,
@@ -832,17 +832,17 @@ inline float4x4 float4x4::scale(float x, float y, float z)
     );
 }
 
-inline float4x4 float4x4::translate(const float2& v)
+inline float4x4 float4x4::translation(const float2& v)
 {
-    return float4x4::translate(v.x, v.y);
+    return float4x4::translation(v.x, v.y);
 }
 
-inline float4x4 float4x4::translate(const float3& v)
+inline float4x4 float4x4::translation(const float3& v)
 {
-    return float4x4::translate(v.x, v.y, v.z);
+    return float4x4::translation(v.x, v.y, v.z);
 }
 
-inline float4x4 float4x4::translate(float x, float y, float z)
+inline float4x4 float4x4::translation(float x, float y, float z)
 {
     return float4x4(
         1, 0, 0, 0,
@@ -852,12 +852,12 @@ inline float4x4 float4x4::translate(float x, float y, float z)
     );
 }
 
-inline float4x4 float4x4::rotate(const float3& axis, float angle)
+inline float4x4 float4x4::rotation(const float3& axis, float angle)
 {
-    return float4x4::rotate(axis.x, axis.y, axis.z, angle);
+    return float4x4::rotation(axis.x, axis.y, axis.z, angle);
 }
 
-inline float4x4 float4x4::rotate(float x, float y, float z, float angle)
+inline float4x4 float4x4::rotation(float x, float y, float z, float angle)
 {
     const float c = cos(-angle);
     const float s = sin(-angle);
@@ -887,7 +887,7 @@ inline float4x4 float4x4::rotate(float x, float y, float z, float angle)
     return result;
 }
 
-inline float4x4 float4x4::rotate_x(float angle)
+inline float4x4 float4x4::rotation_x(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -900,7 +900,7 @@ inline float4x4 float4x4::rotate_x(float angle)
     );
 }
 
-inline float4x4 float4x4::rotate_y(float angle)
+inline float4x4 float4x4::rotation_y(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -913,7 +913,7 @@ inline float4x4 float4x4::rotate_y(float angle)
     );
 }
 
-inline float4x4 float4x4::rotate_z(float angle)
+inline float4x4 float4x4::rotation_z(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
