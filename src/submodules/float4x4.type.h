@@ -67,8 +67,8 @@ public: // @region: Graphics functions
     static float4x4 rotation_y(float angle);
     static float4x4 rotation_z(float angle);
 
-    static bool     decompose(float3* scalation, float4* quaternion, float3* translation);
-    static bool     decompose(float3* scalation, float3* axis, float* angle, float3* translation);
+    static void     decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation);
+    static void     decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation);
 
     static float4x4 lookat(const float3& eye, const float3& target, const float3& up);
 

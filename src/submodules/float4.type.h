@@ -50,6 +50,16 @@ public:
      */
     inline static float4 toaxis(const float4& quat);
 
+    /* Convert quaternion to axisangle
+     * @note: xyz is axis, w is angle
+     */
+    inline static void toaxis(const float4& quat, float3* axis, float* angle)
+    {
+        float4 axisangle = float4::toaxis(quat);
+        if (axis)  *axis = float3(axisangle.x, axisangle.y, axisangle.z);
+        if (angle) *angle = axisangle.w;
+    }
+
     /* Quaternion from euler
      */
     inline static float4 euler(float x, float y, float z);
