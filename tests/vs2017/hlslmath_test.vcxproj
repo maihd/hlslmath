@@ -23,7 +23,7 @@
     <ProjectGuid>{D9CE2EE3-B10F-44A2-B420-BE2D2F71DB41}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>hlslmathtest</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -143,59 +143,60 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\bool.func.h" />
-    <ClInclude Include="..\..\src\bool2.type.h" />
-    <ClInclude Include="..\..\src\bool2x2.type.h" />
-    <ClInclude Include="..\..\src\bool3.type.h" />
-    <ClInclude Include="..\..\src\bool3x3.type.h" />
-    <ClInclude Include="..\..\src\bool4.type.h" />
-    <ClInclude Include="..\..\src\bool4x4.type.h" />
-    <ClInclude Include="..\..\src\conversion.h" />
-    <ClInclude Include="..\..\src\define.h" />
-    <ClInclude Include="..\..\src\float.func.h" />
-    <ClInclude Include="..\..\src\float2.func.h" />
-    <ClInclude Include="..\..\src\float2.type.h" />
-    <ClInclude Include="..\..\src\float2x2.func.h" />
-    <ClInclude Include="..\..\src\float2x2.type.h" />
-    <ClInclude Include="..\..\src\float3.func.h" />
-    <ClInclude Include="..\..\src\float3.type.h" />
-    <ClInclude Include="..\..\src\float3x3.func.h" />
-    <ClInclude Include="..\..\src\float3x3.type.h" />
-    <ClInclude Include="..\..\src\float4.func.h" />
-    <ClInclude Include="..\..\src\float4.type.h" />
-    <ClInclude Include="..\..\src\float4x4.func.h" />
-    <ClInclude Include="..\..\src\float4x4.type.h" />
-    <ClInclude Include="..\..\src\int.func.h" />
-    <ClInclude Include="..\..\src\int2.func.h" />
-    <ClInclude Include="..\..\src\int2.type.h" />
-    <ClInclude Include="..\..\src\int2x2.func.h" />
-    <ClInclude Include="..\..\src\int2x2.type.h" />
-    <ClInclude Include="..\..\src\int3.func.h" />
-    <ClInclude Include="..\..\src\int3.type.h" />
-    <ClInclude Include="..\..\src\int3x3.func.h" />
-    <ClInclude Include="..\..\src\int3x3.type.h" />
-    <ClInclude Include="..\..\src\int4.func.h" />
-    <ClInclude Include="..\..\src\int4.type.h" />
-    <ClInclude Include="..\..\src\int4x4.func.h" />
-    <ClInclude Include="..\..\src\int4x4.type.h" />
-    <ClInclude Include="..\..\src\uint.func.h" />
-    <ClInclude Include="..\..\src\uint.type.h" />
-    <ClInclude Include="..\..\src\uint2.func.h" />
-    <ClInclude Include="..\..\src\uint2.type.h" />
-    <ClInclude Include="..\..\src\uint2x2.func.h" />
-    <ClInclude Include="..\..\src\uint2x2.type.h" />
-    <ClInclude Include="..\..\src\uint3.func.h" />
-    <ClInclude Include="..\..\src\uint3.type.h" />
-    <ClInclude Include="..\..\src\uint3x3.func.h" />
-    <ClInclude Include="..\..\src\uint3x3.type.h" />
-    <ClInclude Include="..\..\src\uint4.func.h" />
-    <ClInclude Include="..\..\src\uint4.type.h" />
-    <ClInclude Include="..\..\src\uint4x4.func.h" />
-    <ClInclude Include="..\..\src\uint4x4.type.h" />
-    <ClInclude Include="..\hlslmath.h" />
+    <ClCompile Include="..\hlslmath_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\hlslmath_test.cpp" />
+    <ClInclude Include="..\..\src\module_begin.h" />
+    <ClInclude Include="..\..\src\module_end.h" />
+    <ClInclude Include="..\..\src\submodules\bool.func.h" />
+    <ClInclude Include="..\..\src\submodules\bool2.type.h" />
+    <ClInclude Include="..\..\src\submodules\bool2x2.type.h" />
+    <ClInclude Include="..\..\src\submodules\bool3.type.h" />
+    <ClInclude Include="..\..\src\submodules\bool3x3.type.h" />
+    <ClInclude Include="..\..\src\submodules\bool4.type.h" />
+    <ClInclude Include="..\..\src\submodules\bool4x4.type.h" />
+    <ClInclude Include="..\..\src\submodules\conversion.h" />
+    <ClInclude Include="..\..\src\submodules\float.func.h" />
+    <ClInclude Include="..\..\src\submodules\float2.func.h" />
+    <ClInclude Include="..\..\src\submodules\float2.type.h" />
+    <ClInclude Include="..\..\src\submodules\float2x2.func.h" />
+    <ClInclude Include="..\..\src\submodules\float2x2.type.h" />
+    <ClInclude Include="..\..\src\submodules\float3.func.h" />
+    <ClInclude Include="..\..\src\submodules\float3.type.h" />
+    <ClInclude Include="..\..\src\submodules\float3x3.func.h" />
+    <ClInclude Include="..\..\src\submodules\float3x3.type.h" />
+    <ClInclude Include="..\..\src\submodules\float4.func.h" />
+    <ClInclude Include="..\..\src\submodules\float4.type.h" />
+    <ClInclude Include="..\..\src\submodules\float4x4.func.h" />
+    <ClInclude Include="..\..\src\submodules\float4x4.type.h" />
+    <ClInclude Include="..\..\src\submodules\int.func.h" />
+    <ClInclude Include="..\..\src\submodules\int2.func.h" />
+    <ClInclude Include="..\..\src\submodules\int2.type.h" />
+    <ClInclude Include="..\..\src\submodules\int2x2.func.h" />
+    <ClInclude Include="..\..\src\submodules\int2x2.type.h" />
+    <ClInclude Include="..\..\src\submodules\int3.func.h" />
+    <ClInclude Include="..\..\src\submodules\int3.type.h" />
+    <ClInclude Include="..\..\src\submodules\int3x3.func.h" />
+    <ClInclude Include="..\..\src\submodules\int3x3.type.h" />
+    <ClInclude Include="..\..\src\submodules\int4.func.h" />
+    <ClInclude Include="..\..\src\submodules\int4.type.h" />
+    <ClInclude Include="..\..\src\submodules\int4x4.func.h" />
+    <ClInclude Include="..\..\src\submodules\int4x4.type.h" />
+    <ClInclude Include="..\..\src\submodules\uint.func.h" />
+    <ClInclude Include="..\..\src\submodules\uint.type.h" />
+    <ClInclude Include="..\..\src\submodules\uint2.func.h" />
+    <ClInclude Include="..\..\src\submodules\uint2.type.h" />
+    <ClInclude Include="..\..\src\submodules\uint2x2.func.h" />
+    <ClInclude Include="..\..\src\submodules\uint2x2.type.h" />
+    <ClInclude Include="..\..\src\submodules\uint3.func.h" />
+    <ClInclude Include="..\..\src\submodules\uint3.type.h" />
+    <ClInclude Include="..\..\src\submodules\uint3x3.func.h" />
+    <ClInclude Include="..\..\src\submodules\uint3x3.type.h" />
+    <ClInclude Include="..\..\src\submodules\uint4.func.h" />
+    <ClInclude Include="..\..\src\submodules\uint4.type.h" />
+    <ClInclude Include="..\..\src\submodules\uint4x4.func.h" />
+    <ClInclude Include="..\..\src\submodules\uint4x4.type.h" />
+    <ClInclude Include="..\..\unit_tests\hlslmath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

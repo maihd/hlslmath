@@ -1,39 +1,7 @@
-﻿// Generate with hlslmath/tools/tools\build
+﻿// You can put your copyright here!%c
+// Generate with hlslmath/tools/build
 // Filename: D:\hlslmath\tools/../hlslmath.h
-// Datetime: 02/26/19 16:16:00
-
-#pragma once
-
-#include <math.h>
-
-#undef min // When Windows.h is included, min is an macro
-#undef max // When Windows.h is included, max is an macro
-
-#if defined(__ARM_NEON)
-#if defined(__aarch64__) && defined(__ANDROID__)        
-#define HLSLMATH_ENABLE_NEON 0
-#else
-#include <arm_neon.h>     
-#define HLSLMATH_ENABLE_NEON 1
-#endif         
-#else
-#define HLSLMATH_ENABLE_NEON 0
-#endif
-
-#if __ANDROID__ // Android support for log2 and log2f
-extern "C"
-{
-    inline float log2f(float x)
-    {
-        return (logf(x) / 0.693147180559945f);
-    }
-
-    inline double log2(double x)
-    {
-        return (log(x) / 0.693147180559945);
-    }
-}
-#endif
+// Datetime: 03/16/19 17:06:24
 
 #if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__
 #define HLSL_DEFINE_INTRINSICS 1
@@ -1111,9 +1079,9 @@ public: // @region: Graphics functions
     static float4x4 rotate(const float3& axis, float angle);
     static float4x4 rotate(float x, float y, float z, float angle);
 
-    static float4x4 rotatex(float angle);
-    static float4x4 rotatey(float angle);
-    static float4x4 rotatez(float angle);
+    static float4x4 rotate_x(float angle);
+    static float4x4 rotate_y(float angle);
+    static float4x4 rotate_z(float angle);
 
     static float4x4 lookat(const float3& eye, const float3& target, const float3& up);
 
@@ -9173,7 +9141,7 @@ inline float4x4 float4x4::rotate(float x, float y, float z, float angle)
     return result;
 }
 
-inline float4x4 float4x4::rotatex(float angle)
+inline float4x4 float4x4::rotate_x(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -9186,7 +9154,7 @@ inline float4x4 float4x4::rotatex(float angle)
     );
 }
 
-inline float4x4 float4x4::rotatey(float angle)
+inline float4x4 float4x4::rotate_y(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -9199,7 +9167,7 @@ inline float4x4 float4x4::rotatey(float angle)
     );
 }
 
-inline float4x4 float4x4::rotatez(float angle)
+inline float4x4 float4x4::rotate_z(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);

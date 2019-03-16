@@ -7,9 +7,7 @@ ifeq ($(OS),Windows_NT)
 	DST=build.exe
 endif
 
-all: build
-
-build:
+build: $(SRC)
 	$(CC) -o $(DST) $(SRC)
 
 clang: CC=clang

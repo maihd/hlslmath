@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include <emmintrin.h>
 
-#include "./hlslmath.h"
+#include "../unit_tests/hlslmath.h"
 
 #define test_operator(expect, operation)     test(expect, operation, "Testing operator: '" #operation "'")
 #define test_function(expect, function, ...) test(expect, function(##__VA_AGRS__), "Testing function: " #function)
