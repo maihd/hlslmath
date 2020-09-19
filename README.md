@@ -3,7 +3,7 @@
 **Vectors and matrices for based on HLSL language for C++.**
     
 ## License
-This library is in the public domain.
+This library is unlicensed.
 
 ## Build
 ```
