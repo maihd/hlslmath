@@ -13,5 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: make
+    - name: Move to unit tests folder
+      run: cd unit_tests/gmake
+    - name: Start unit tests
       run: make
