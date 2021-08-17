@@ -528,7 +528,7 @@ int main(int argc, char* argv[])
         else
         {
             const char content[] =
-                "#if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__\n"
+                "#if (defined(_MSC_VER) && _MSC_VER >= 1900) || (__unix__ && !defined(__ANDROID__))\n"
                 "#define HLSLMATH_DEFINE_INTRINSICS 1\n"
                 "#else\n"
                 "#define HLSLMATH_DEFINE_INTRINSICS 0\n"
@@ -570,6 +570,7 @@ int main(int argc, char* argv[])
         char srcfile_path[512];
         sprintf(srcfile_path, "%s/%s", exedir, filenames[i]);
         file_concat(targetFile, srcfile_path);
+        fprintf(targetFile, "\n");
     }
 
     /* End of namespace */

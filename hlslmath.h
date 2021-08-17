@@ -1,7 +1,7 @@
 ﻿// You can put your copyright here!
 // Generate with hlslmath/tools/build
 // Filename: D:\Projects\hlslmath\tools/../hlslmath.h
-// Datetime: Wed Aug 18 01:05:57 2021
+// Datetime: Wed Aug 18 03:19:45 2021
 
 #pragma once
 
@@ -73,7 +73,7 @@
 #endif
 
 // Android polyfill for log2 and log2f
-#if __ANDROID__ 
+#if defined(__ANDROID__) 
 extern "C"
 {
     HLSLMATH_INLINE float log2f(float x)
@@ -123,7 +123,7 @@ union float4x4;
 // Custom build settings
 //
 
-#if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__
+#if (defined(_MSC_VER) && _MSC_VER >= 1900) || (__unix__ && !defined(__ANDROID__))
 #define HLSLMATH_DEFINE_INTRINSICS 1
 #else
 #define HLSLMATH_DEFINE_INTRINSICS 0
@@ -150,6 +150,7 @@ union int2
     int&                operator[](int index);
     int                 operator[](int index) const;
 };
+
 union int3
 {
     struct
@@ -164,6 +165,7 @@ union int3
     int&                operator[](int index);
     int                 operator[](int index) const;
 };
+
 union int4
 {
     struct
@@ -178,6 +180,7 @@ union int4
     int&                operator[](int index);
     int                 operator[](int index) const;
 };
+
 union uint2
 {
     struct
@@ -192,6 +195,7 @@ union uint2
     uint&               operator[](int index);
     uint                operator[](int index) const;
 };
+
 union uint3
 {
     struct
@@ -206,6 +210,7 @@ union uint3
     uint&               operator[](int index);
     uint                operator[](int index) const;
 };
+
 union uint4
 {
     struct
@@ -220,6 +225,7 @@ union uint4
     uint&               operator[](int index);
     uint                operator[](int index) const;
 };
+
 union bool2
 {
     struct
@@ -234,6 +240,7 @@ union bool2
     bool&               operator[](int index);
     bool                operator[](int index) const;
 };
+
 union bool3
 {
     struct
@@ -248,6 +255,7 @@ union bool3
     bool&               operator[](int index);
     bool                operator[](int index) const;
 };
+
 union bool4
 {
     struct
@@ -262,6 +270,7 @@ union bool4
     bool&               operator[](int index);
     bool                operator[](int index) const;
 };
+
 union float2
 {
     struct
@@ -282,6 +291,7 @@ union float2
     float&              operator[](int index);
     float               operator[](int index) const;
 };
+
 union float3
 {
     struct
@@ -302,6 +312,7 @@ union float3
     float&              operator[](int index);
     float               operator[](int index) const;
 };
+
 union float4
 {
     struct
@@ -326,6 +337,7 @@ union float4
     static float4       euler(const float3& v);
     static float4       euler(float x, float y, float z);
 };
+
 union int2x2
 {
     int                 data[2][2];
@@ -338,6 +350,7 @@ union int2x2
     int2&               operator[](int index);
     const int2&         operator[](int index) const;
 };
+
 union int3x3
 {
     int                 data[3][3];
@@ -354,6 +367,7 @@ union int3x3
     int3&               operator[](int index);
     const int3&         operator[](int index) const;
 };
+
 union int4x4
 {
     int                 data[4][4];
@@ -371,6 +385,7 @@ union int4x4
     int4&               operator[](int index);
     const int4&         operator[](int index) const;
 };
+
 union uint2x2
 {
     uint                data[2][2];
@@ -383,6 +398,7 @@ union uint2x2
     uint2&              operator[](int index);
     const uint2&        operator[](int index) const;
 };
+
 union uint3x3
 {
     uint                data[3][3];
@@ -399,6 +415,7 @@ union uint3x3
     uint3&              operator[](int index);
     const uint3&        operator[](int index) const;
 };
+
 union uint4x4
 {
     uint                data[4][4];
@@ -421,6 +438,7 @@ union uint4x4
     uint4&              operator[](int index);
     const uint4&        operator[](int index) const;
 };
+
 union bool2x2
 {
     bool                data[2][2];
@@ -433,6 +451,7 @@ union bool2x2
     bool2&              operator[](int index);
     const bool2&        operator[](int index) const;
 };
+
 union bool3x3
 {
     bool                data[3][3];
@@ -449,6 +468,7 @@ union bool3x3
     bool3&              operator[](int index);
     const bool3&        operator[](int index) const;
 };
+
 union bool4x4
 {
     bool                data[4][4];
@@ -472,6 +492,7 @@ union bool4x4
     const bool4&        operator[](int index) const;
 };
 
+
 union float2x2
 {
     float               data[2][2];
@@ -492,6 +513,7 @@ union float2x2
     static float2x2     scalation(const float2& v);
     static float2x2     scalation(float x, float y);
 };
+
 union float3x3
 {
     float               data[3][3];
@@ -520,6 +542,7 @@ union float3x3
 
     static float3x3     ortho(float l, float r, float b, float t);
 };
+
 
 union float4x4
 {
@@ -571,6 +594,7 @@ union float4x4
     static float4x4     frustum(float l, float r, float b, float t, float n, float f);
     static float4x4     perspective(float fov, float aspect, float znear, float zfar);
 };
+
 HLSLMATH_CONSTEXPR int2::int2()
     : x(0)
     , y(0)
@@ -600,6 +624,7 @@ HLSLMATH_INLINE int int2::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
     return ((int*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR int3::int3()
     : x(0)
     , y(0)
@@ -632,6 +657,7 @@ HLSLMATH_INLINE int int3::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
     return ((int*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR int4::int4()
     : x(0)
     , y(0)
@@ -667,6 +693,7 @@ HLSLMATH_INLINE int int4::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((int*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR uint2::uint2()
     : x(0)
     , y(0)
@@ -696,6 +723,7 @@ HLSLMATH_INLINE uint uint2::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
     return ((uint*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR uint3::uint3()
     : x(0)
     , y(0) 
@@ -728,6 +756,7 @@ HLSLMATH_INLINE uint uint3::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
     return ((uint*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR uint4::uint4()
     : x(0)
     , y(0) 
@@ -763,6 +792,7 @@ HLSLMATH_INLINE uint uint4::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((uint*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR bool2::bool2()
     : x(false)
     , y(false)
@@ -792,6 +822,7 @@ HLSLMATH_INLINE bool bool2::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
     return ((bool*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR bool3::bool3()
     : x(false)
     , y(false)
@@ -824,6 +855,7 @@ HLSLMATH_INLINE bool bool3::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
     return ((bool*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR bool4::bool4()
     : x(false)
     , y(false)
@@ -859,6 +891,7 @@ HLSLMATH_INLINE bool bool4::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((bool*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR float2::float2()
     : x(0)
     , y(0)
@@ -910,6 +943,7 @@ HLSLMATH_INLINE float float2::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
     return ((float*)this)[index];
 }
+
 HLSLMATH_CONSTEXPR float3::float3()
     : x(0)
     , y(0)
@@ -960,6 +994,7 @@ HLSLMATH_INLINE float float3::operator[](int index) const
 {
     return (&x)[index];
 }
+
 HLSLMATH_CONSTEXPR float4::float4()
     : x(0)
     , y(0)
@@ -1021,6 +1056,7 @@ HLSLMATH_INLINE float4 float4::euler(const float3& v)
 {
     return euler(v.x, v.y, v.z);
 }
+
 HLSLMATH_CONSTEXPR int2x2::int2x2()
     : data()
 {
@@ -1055,6 +1091,7 @@ HLSLMATH_INLINE const int2& int2x2::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
     return ((int2*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR int3x3::int3x3()
     : data()
 {
@@ -1096,6 +1133,7 @@ HLSLMATH_INLINE const int3& int3x3::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
     return ((int3*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR int4x4::int4x4()
     : data()
 {
@@ -1141,6 +1179,7 @@ HLSLMATH_INLINE const int4& int4x4::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((int4*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR uint2x2::uint2x2()
     : data()
 {
@@ -1175,6 +1214,7 @@ HLSLMATH_INLINE const uint2& uint2x2::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
     return ((uint2*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR uint3x3::uint3x3()
     : data()
 {
@@ -1216,6 +1256,7 @@ HLSLMATH_INLINE const uint3& uint3x3::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
     return ((uint3*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR uint4x4::uint4x4()
     : data()
 {
@@ -1266,6 +1307,7 @@ HLSLMATH_INLINE const uint4& uint4x4::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((uint4*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR bool2x2::bool2x2()
     : data()
 {
@@ -1300,6 +1342,7 @@ HLSLMATH_INLINE const bool2& bool2x2::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
     return ((bool2*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR bool3x3::bool3x3()
     : data()
 {
@@ -1340,6 +1383,7 @@ HLSLMATH_INLINE const bool3& bool3x3::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
     return ((bool3*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR bool4x4::bool4x4()
     : data()
 {
@@ -1390,6 +1434,7 @@ HLSLMATH_INLINE const bool4& bool4x4::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((bool4*)data)[index];
 }
+
 HLSLMATH_CONSTEXPR float2x2::float2x2()
     : data()
 {
@@ -1432,6 +1477,7 @@ HLSLMATH_INLINE float2x2 float2x2::identity()
 {
     return float2x2(1, 0, 0, 1);
 }
+
 HLSLMATH_CONSTEXPR float3x3::float3x3()
     : data()
 {
@@ -1478,6 +1524,7 @@ HLSLMATH_INLINE float3x3 float3x3::identity()
 {
     return float3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 }
+
 HLSLMATH_CONSTEXPR float4x4::float4x4()
     : data()
 {
@@ -1538,6 +1585,7 @@ HLSLMATH_INLINE float4x4 float4x4::identity()
         0, 0, 0, 1
     );
 }
+
 HLSLMATH_INLINE int2 operator-(const int2& v)
 {
     return int2(-v.x, -v.y);
@@ -1702,6 +1750,7 @@ HLSLMATH_INLINE bool2 operator!=(const int2& a, const int2& b)
 {
     return bool2(a.x != b.x, a.y != b.y);
 }
+
 HLSLMATH_INLINE int3 operator-(const int3& v)
 {
     return int3(-v.x, -v.y, -v.z);
@@ -1870,6 +1919,7 @@ HLSLMATH_INLINE bool3 operator!=(const int3& a, const int3& b)
 {
     return bool3(a.x != b.x, a.y != b.y, a.z != b.z);
 }
+
 HLSLMATH_INLINE int4 operator-(const int4& v)
 {
     return int4(-v.x, -v.y, -v.z, -v.w);
@@ -2042,6 +2092,7 @@ HLSLMATH_INLINE bool4 operator!=(const int4& a, const int4& b)
 {
     return bool4(a.x != b.x, a.y != b.y, a.z != b.z, a.w != b.w);
 }
+
 HLSLMATH_INLINE uint2& operator++(uint2& v)
 {
     ++v.x;
@@ -2201,6 +2252,7 @@ HLSLMATH_INLINE bool2 operator!=(const uint2& a, const uint2& b)
 {
     return bool2(a.x != b.x, a.y != b.y);
 }
+
 HLSLMATH_INLINE uint3& operator++(uint3& v)
 {
     ++v.x;
@@ -2364,6 +2416,7 @@ HLSLMATH_INLINE bool3 operator!=(const uint3& a, const uint3& b)
 {
     return bool3(a.x != b.x, a.y != b.y, a.z != b.z);
 }
+
 HLSLMATH_INLINE uint4& operator++(uint4& v)
 {
     ++v.x;
@@ -2531,6 +2584,7 @@ HLSLMATH_INLINE bool4 operator!=(const uint4& a, const uint4& b)
 {
     return bool4(a.x != b.x, a.y != b.y, a.z != b.z, a.w != b.w);
 }
+
 HLSLMATH_INLINE float2 operator-(const float2& v)
 {
     return float2(-v.x, -v.y);
@@ -2729,6 +2783,7 @@ HLSLMATH_INLINE bool2 operator>=(const float2& a, const float2& b)
 {
     return bool2(a.x >= b.x, a.y >= b.y);
 }
+
 HLSLMATH_INLINE float3 operator-(const float3& v)
 {
     return float3(-v.x, -v.y, -v.z);
@@ -2906,6 +2961,7 @@ HLSLMATH_INLINE bool3 operator>=(const float3& a, const float3& b)
 {
     return bool3(a.x >= b.x, a.y >= b.y, a.z >= b.z);
 }
+
 HLSLMATH_INLINE float4 operator-(const float4& v)
 {
     return float4(-v.x, -v.y, -v.z, -v.w);
@@ -3087,6 +3143,7 @@ HLSLMATH_INLINE bool4 operator>=(const float4& a, const float4& b)
 {
     return bool4(a.x >= b.x, a.y >= b.y, a.z >= b.z, a.w >= b.w);
 }
+
 HLSLMATH_INLINE int2x2 operator-(const int2x2& m)
 {
     return int2x2(
@@ -3287,6 +3344,7 @@ HLSLMATH_INLINE bool2x2 operator!=(const int2x2& a, const int2x2& b)
         a[0][0] != b[0][0], a[0][1] != b[0][1],
         a[1][0] != b[1][0], a[1][1] != b[1][1]);
 }
+
 HLSLMATH_INLINE int3x3 operator-(const int3x3& m)
 {
     int3x3 result;
@@ -3534,6 +3592,7 @@ HLSLMATH_INLINE bool3x3 operator>=(const int3x3& a, const int3x3& b)
     result[2] = a[2] >= b[2];
     return result;
 }
+
 HLSLMATH_INLINE int4x4 operator-(const int4x4& m)
 {
     int4x4 result;
@@ -3804,6 +3863,7 @@ HLSLMATH_INLINE bool4x4 operator>=(const int4x4& a, const int4x4& b)
     result[3] = a[3] >= b[3];
     return result;
 }
+
 HLSLMATH_INLINE uint2x2& operator++(uint2x2& m)
 {
     ++m[0][0]; ++m[0][1];
@@ -3997,6 +4057,7 @@ HLSLMATH_INLINE bool2x2 operator!=(const uint2x2& a, const uint2x2& b)
         a[0][0] != b[0][0], a[0][1] != b[0][1],
         a[1][0] != b[1][0], a[1][1] != b[1][1]);
 }
+
 HLSLMATH_INLINE const uint3x3& operator+(const uint3x3& m)
 {
     return m;
@@ -4235,6 +4296,7 @@ HLSLMATH_INLINE bool3x3 operator>=(const uint3x3& a, const uint3x3& b)
     result[2] = a[2] >= b[2];
     return result;
 }
+
 HLSLMATH_INLINE const uint4x4& operator+(const uint4x4& m)
 {
     return m;
@@ -4495,6 +4557,7 @@ HLSLMATH_INLINE bool4x4 operator>=(const uint4x4& a, const uint4x4& b)
     result[3] = a[3] >= b[3];
     return result;
 }
+
 HLSLMATH_INLINE float2x2 operator-(const float2x2& m)
 {
     float2x2 result;
@@ -4719,6 +4782,7 @@ HLSLMATH_INLINE bool2x2 operator>=(const float2x2& a, const float2x2& b)
     result[1] = a[1] >= b[1];
     return result;
 }
+
 HLSLMATH_INLINE float3x3 operator-(const float3x3& m)
 {
     float3x3 result;
@@ -4966,6 +5030,7 @@ HLSLMATH_INLINE bool3x3 operator>=(const float3x3& a, const float3x3& b)
     result[2] = a[2] >= b[2];
     return result;
 }
+
 HLSLMATH_INLINE float4x4 operator-(const float4x4& m)
 {
     float4x4 result;
@@ -5236,6 +5301,7 @@ HLSLMATH_INLINE bool4x4 operator>=(const float4x4& a, const float4x4& b)
     result[3] = a[3] >= b[3];
     return result;
 }
+
 HLSLMATH_INLINE bool all(bool v)
 {
     return v;
@@ -5571,6 +5637,7 @@ HLSLMATH_INLINE bool any(const float4x4& v)
         v[2][0] != 0.0f || v[2][1] != 0.0f || v[2][2] != 0.0f || v[2][3] != 0.0f ||
         v[3][0] != 0.0f || v[3][1] != 0.0f || v[3][2] != 0.0f || v[3][3] != 0.0f;
 }
+
 
 /* Convert radians to degrees
  */
@@ -5956,6 +6023,7 @@ HLSLMATH_INLINE float4x4 asfloat(const float4x4& m)
     return m;
 }
 
+
 /* Compute the sign of 'x'
  */
 HLSLMATH_INLINE int sign(int x)
@@ -5993,6 +6061,7 @@ HLSLMATH_INLINE int clamp(int x, int min, int max)
 {
     return x < min ? min : (x > max ? max : x);
 }
+
 
 /* Computes sign of 'x'
  */
@@ -6033,6 +6102,7 @@ HLSLMATH_INLINE int2 clamp(const int2& m, const int2& min, const int2& max)
     return int2(clamp(m[0], min[0], max[0]), 
                 clamp(m[1], min[1], max[1]));
 }
+
 
 /* Computes sign of 'x'
  */
@@ -6078,6 +6148,7 @@ HLSLMATH_INLINE int3 clamp(const int3& v, const int3& min, const int3& max)
                 clamp(v[1], min[1], max[1]), 
                 clamp(v[2], min[2], max[2]));
 }
+
 
 /* Computes sign of 'x'
  */
@@ -6129,6 +6200,7 @@ HLSLMATH_INLINE int4 clamp(const int4& v, const int4& min, const int4& max)
                 clamp(v[3], min[3], max[3]));
 }
 
+
 /* Get the smaller value
  */
 HLSLMATH_INLINE uint min(uint x, uint y)
@@ -6149,6 +6221,7 @@ HLSLMATH_INLINE uint clamp(uint x, uint min, uint max)
 {
     return x < min ? min : (x > max ? max : x);
 }
+
 
 /* Get the smaller value
  */
@@ -6173,6 +6246,7 @@ HLSLMATH_INLINE uint2 clamp(const uint2& m, const uint2& min, const uint2& max)
     return uint2(clamp(m[0], min[0], max[0]), 
                  clamp(m[1], min[1], max[1]));
 }
+
 
 /* Get the smaller value
  */
@@ -6200,6 +6274,7 @@ HLSLMATH_INLINE uint3 clamp(const uint3& v, const uint3& min, const uint3& max)
                  clamp(v[1], min[1], max[1]), 
                  clamp(v[2], min[2], max[2]));
 }
+
 
 
 /* Get the smaller value
@@ -6231,6 +6306,7 @@ HLSLMATH_INLINE uint4 clamp(const uint4& v, const uint4& min, const uint4& max)
                  clamp(v[2], min[2], max[2]), 
                  clamp(v[3], min[3], max[3]));
 }
+
 
 /* Computes sign of 'x'
  */
@@ -6498,6 +6574,7 @@ HLSLMATH_INLINE float fsqrt(float x)
 {
     return x == 0.0f ? 0.0f : 1.0f / frsqrt(x);
 }
+
 
 /* Computes sign of 'x'
  */
@@ -6865,6 +6942,7 @@ HLSLMATH_INLINE float2 faceforward(const float2& n, const float2& i, const float
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
+
 
 /* Computes sign of 'x'
  */
@@ -7281,6 +7359,7 @@ HLSLMATH_INLINE float3 faceforward(const float3& n, const float3& i, const float
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
+
 
 /* Computes sign of 'x'
  */
@@ -7800,6 +7879,7 @@ HLSLMATH_INLINE float4 float4::euler(float x, float y, float z)
         c1 * c2 * c3 - s1 * s2 * s3
     );
 }
+
 /* Computes sign of 'x'
  */
 HLSLMATH_INLINE int2x2 sign(const int2x2& m)
@@ -7839,6 +7919,7 @@ HLSLMATH_INLINE int2x2 clamp(const int2x2& m, const int2x2& min, const int2x2& m
     return int2x2(clamp(m[0], min[0], max[0]), 
                   clamp(m[1], min[1], max[1]));
 }
+
 
 /* Computes sign of 'x'
  */
@@ -7884,6 +7965,7 @@ HLSLMATH_INLINE int3x3 clamp(const int3x3& v, const int3x3& min, const int3x3& m
                   clamp(v[1], min[1], max[1]), 
                   clamp(v[2], min[2], max[2]));
 }
+
 
 /* Computes sign of 'x'
  */
@@ -7935,6 +8017,7 @@ HLSLMATH_INLINE int4x4 clamp(const int4x4& v, const int4x4& min, const int4x4& m
                   clamp(v[3], min[3], max[3]));
 }
 
+
 /* Get the smaller value
  */
 HLSLMATH_INLINE uint2x2 min(const uint2x2& a, const uint2x2& b)
@@ -7958,6 +8041,7 @@ HLSLMATH_INLINE uint2x2 clamp(const uint2x2& m, const uint2x2& min, const uint2x
     return uint2x2(clamp(m[0], min[0], max[0]), 
                    clamp(m[1], min[1], max[1]));
 }
+
 
 /* Get the smaller value
  */
@@ -7985,6 +8069,7 @@ HLSLMATH_INLINE uint3x3 clamp(const uint3x3& v, const uint3x3& min, const uint3x
                    clamp(v[1], min[1], max[1]), 
                    clamp(v[2], min[2], max[2]));
 }
+
 
 /* Get the smaller value
  */
@@ -8015,6 +8100,7 @@ HLSLMATH_INLINE uint4x4 clamp(const uint4x4& v, const uint4x4& min, const uint4x
                    clamp(v[2], min[2], max[2]), 
                    clamp(v[3], min[3], max[3]));
 }
+
 
 
 /* Computes sign of 'x'
@@ -8388,6 +8474,7 @@ HLSLMATH_INLINE float2x2 float2x2::scalation(float x, float y)
 {
     return float2x2(x, 0, 0, y);
 }
+
 /* Computes sign of 'x'
  */
 HLSLMATH_INLINE int3x3 sign(const float3x3& m)
@@ -8842,6 +8929,7 @@ HLSLMATH_INLINE float3x3 float3x3::ortho(float l, float r, float b, float t)
         -x * (l + r), -y * (b + t), 1
     );
 }
+
 /* Computes sign of 'x'
  */
 HLSLMATH_INLINE int4x4 sign(const float4x4& m)
@@ -9614,4 +9702,5 @@ HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, f
         decompose(m, scalation, (float4*)0, translation);
     }
 }
+
 // File 'D:\Projects\hlslmath\tools/../hlslmath.h' end here.

@@ -2,7 +2,7 @@
 
 #include "../src/module_begin.h"
 
-#if (defined(_MSC_VER) && (_MSC_VER >= 1900)) || __unix__
+#if (defined(_MSC_VER) && (_MSC_VER >= 1900)) || (__unix__ && !defined(__ANDROID__))
 #define HLSLMATH_DEFINE_INTRINSICS 1
 #else
 #define HLSLMATH_DEFINE_INTRINSICS 0

@@ -68,7 +68,7 @@
 #endif
 
 // Android polyfill for log2 and log2f
-#if __ANDROID__ 
+#if defined(__ANDROID__) 
 extern "C"
 {
     HLSLMATH_INLINE float log2f(float x)
