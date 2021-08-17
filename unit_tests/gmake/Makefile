@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall
-LFLAGS=
+LFLAGS=-lm
 HLSLMATH="./hlslmath.h"
 
 SRC=$(wildcard ../*.cc)
