@@ -33,13 +33,13 @@ public: // @region: Constructors
 public: // Constructors
     HLSLMATH_INLINE bool4& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((bool4*)data)[index];
     }
 
     HLSLMATH_INLINE const bool4& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((bool4*)data)[index];
     }
     

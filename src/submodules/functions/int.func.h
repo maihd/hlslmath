@@ -5,7 +5,7 @@ HLSLMATH_INLINE int sign(int x)
     return x >> 31;
 }
 
-#if HLSL_DEFINE_INTRINSICS != 0
+#if HLSLMATH_DEFINE_INTRINSICS != 0
 /* Computes absolute value
  */
 HLSLMATH_INLINE int abs(int x)

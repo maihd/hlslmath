@@ -24,13 +24,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE int2& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((int2*)data)[index];
     }
 
     HLSLMATH_INLINE const int2& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((int2*)data)[index];
     }
     

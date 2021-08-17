@@ -124,13 +124,13 @@ union float4x4;
 //
 
 #if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__
-#define HLSL_DEFINE_INTRINSICS 1
+#define HLSLMATH_DEFINE_INTRINSICS 1
 #else
-#define HLSL_DEFINE_INTRINSICS 0
+#define HLSLMATH_DEFINE_INTRINSICS 0
 #endif
 
 #include <assert.h>
-#define HLSL_ASSERT(exp, msg) assert((exp) && msg)
+#define HLSLMATH_ASSERT(exp, msg) assert((exp) && msg)
 
 //
 // Define types
@@ -158,13 +158,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE int& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((int*)this)[index];
     }
 
     HLSLMATH_INLINE int  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((int*)this)[index];
     }
 };
@@ -193,13 +193,13 @@ public: // @region: Constructors
 public: // @region: Fields
     HLSLMATH_INLINE int& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((int*)this)[index];
     }
 
     HLSLMATH_INLINE int  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((int*)this)[index];
     }
 };
@@ -230,13 +230,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE int& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((int*)this)[index];
     }
 
     HLSLMATH_INLINE int  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((int*)this)[index];
     }
 };
@@ -263,13 +263,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE uint& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((uint*)this)[index];
     }
 
     HLSLMATH_INLINE uint  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((uint*)this)[index];
     }
 };
@@ -298,13 +298,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE uint& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((uint*)this)[index];
     }
 
     HLSLMATH_INLINE uint  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((uint*)this)[index];
     }
 };
@@ -335,13 +335,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE uint& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((uint*)this)[index];
     }
 
     HLSLMATH_INLINE uint  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((uint*)this)[index];
     }
 };
@@ -368,13 +368,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE bool& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((bool*)this)[index];
     }
 
     HLSLMATH_INLINE int  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((bool*)this)[index];
     }
 };
@@ -403,13 +403,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE bool& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((bool*)this)[index];
     }
 
     HLSLMATH_INLINE bool  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((bool*)this)[index];
     }
 };
@@ -440,13 +440,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE bool& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((bool*)this)[index];
     }
 
     HLSLMATH_INLINE bool  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((bool*)this)[index];
     }
 };
@@ -473,13 +473,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE float& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((float*)this)[index];
     }
 
     HLSLMATH_INLINE float  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((float*)this)[index];
     }
 
@@ -592,13 +592,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE float& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((float*)this)[index];
     }
 
     HLSLMATH_INLINE float  operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((float*)this)[index];
     }
 
@@ -660,13 +660,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE int2& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((int2*)data)[index];
     }
 
     HLSLMATH_INLINE const int2& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((int2*)data)[index];
     }
     
@@ -708,13 +708,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE int3& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((int3*)data)[index];
     }
 
     HLSLMATH_INLINE const int3& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((int3*)data)[index];
     }
     
@@ -760,13 +760,13 @@ public: // @region: Constructors
 public: // Constructors
     HLSLMATH_INLINE int4& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((int4*)data)[index];
     }
 
     HLSLMATH_INLINE const int4& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((int4*)data)[index];
     }
     
@@ -803,13 +803,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE uint2& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((uint2*)data)[index];
     }
 
     HLSLMATH_INLINE const uint2& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((uint2*)data)[index];
     }
     
@@ -851,13 +851,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE uint3& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((uint3*)data)[index];
     }
 
     HLSLMATH_INLINE const uint3& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((uint3*)data)[index];
     }
     
@@ -903,13 +903,13 @@ public: // @region: Constructors
 public: // Constructors
     HLSLMATH_INLINE uint4& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((uint4*)data)[index];
     }
 
     HLSLMATH_INLINE const uint4& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((uint4*)data)[index];
     }
     
@@ -946,13 +946,13 @@ public: // @region: Constructors
 public: // @region: Operators
     inline bool2& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((bool2*)data)[index];
     }
 
     inline const bool2& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((bool2*)data)[index];
     }
     
@@ -994,13 +994,13 @@ public: // @region: Constructors
 public: // @region: Operators
     inline bool3& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((bool3*)data)[index];
     }
 
     inline const bool3& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((bool3*)data)[index];
     }
     
@@ -1046,13 +1046,13 @@ public: // @region: Constructors
 public: // Constructors
     HLSLMATH_INLINE bool4& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((bool4*)data)[index];
     }
 
     HLSLMATH_INLINE const bool4& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((bool4*)data)[index];
     }
     
@@ -1090,13 +1090,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE float2& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((float2*)data)[index];
     }
 
     HLSLMATH_INLINE const float2& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 2, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
         return ((float2*)data)[index];
     }
    
@@ -1150,13 +1150,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE float3& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((float3*)data)[index];
     }
 
     HLSLMATH_INLINE const float3& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 3, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
         return ((float3*)data)[index];
     }
 
@@ -1219,13 +1219,13 @@ public: // @region: Constructors
 public: // @region: Operators
     HLSLMATH_INLINE float4& operator[](int index)
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((float4*)data)[index];
     }
 
     HLSLMATH_INLINE const float4& operator[](int index) const
     {
-        HLSL_ASSERT(index > -1 && index < 4, "Index out of range");
+        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
         return ((float4*)data)[index];
     }
 
@@ -5693,7 +5693,7 @@ HLSLMATH_INLINE int sign(int x)
     return x >> 31;
 }
 
-#if HLSL_DEFINE_INTRINSICS != 0
+#if HLSLMATH_DEFINE_INTRINSICS != 0
 /* Computes absolute value
  */
 HLSLMATH_INLINE int abs(int x)
@@ -5975,7 +5975,7 @@ HLSLMATH_INLINE int sign(float x)
     return sign(cvt.i);
 }
 
-#if HLSL_DEFINE_INTRINSICS != 0
+#if HLSLMATH_DEFINE_INTRINSICS != 0
 /* Computes absolute value
  */
 HLSLMATH_INLINE float abs(float x)
@@ -6190,7 +6190,7 @@ HLSLMATH_INLINE float smoothstep(float min, float max, float x)
     return (clamp(x, min, max) - min) / (max - min);
 }
 
-#if HLSL_DEFINE_INTRINSICS != 0
+#if HLSLMATH_DEFINE_INTRINSICS != 0
 /* Computes square root of 'x'.
  */
 HLSLMATH_INLINE float sqrt(float x)

@@ -3,13 +3,13 @@
 #include "../src/module_begin.h"
 
 #if (defined(_MSC_VER) && (_MSC_VER >= 1900)) || __unix__
-#define HLSL_DEFINE_INTRINSICS 1
+#define HLSLMATH_DEFINE_INTRINSICS 1
 #else
-#define HLSL_DEFINE_INTRINSICS 0
+#define HLSLMATH_DEFINE_INTRINSICS 0
 #endif
 
 #include <assert.h>
-#define HLSL_ASSERT(exp, msg) assert((exp) && msg)
+#define HLSLMATH_ASSERT(exp, msg) assert((exp) && msg)
 
 #include "../src/submodules/types/int2.type.h"
 #include "../src/submodules/types/int3.type.h"

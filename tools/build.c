@@ -492,34 +492,34 @@ int main(int argc, char* argv[])
             "\n"
         );
 
-        /* HLSL_DEFINE_INTRINSICS */
+        /* HLSLMATH_DEFINE_INTRINSICS */
         if (namespace)
         {
             const char content[] =
-                "#define HLSL_DEFINE_INTRINSICS 1\n\n";
+                "#define HLSLMATH_DEFINE_INTRINSICS 1\n\n";
             fwrite(content, sizeof(content) - 1, 1, targetFile);
         }
         else
         {
             const char content[] =
                 "#if (defined(_MSC_VER) && _MSC_VER >= 1900) || __unix__\n"
-                "#define HLSL_DEFINE_INTRINSICS 1\n"
+                "#define HLSLMATH_DEFINE_INTRINSICS 1\n"
                 "#else\n"
-                "#define HLSL_DEFINE_INTRINSICS 0\n"
+                "#define HLSLMATH_DEFINE_INTRINSICS 0\n"
                 "#endif\n\n";
             fwrite(content, sizeof(content) - 1, 1, targetFile);
         }
 
-        /* HLSL_ASSERT */
+        /* HLSLMATH_ASSERT */
         if (assertname)
         {
-            fprintf(targetFile, "#define HLSL_ASSERT(exp, msg) %s((exp), msg)\n\n", assertname);
+            fprintf(targetFile, "#define HLSLMATH_ASSERT(exp, msg) %s((exp), msg)\n\n", assertname);
         }
         else
         {
             const char content[] = 
                 "#include <assert.h>\n"
-                "#define HLSL_ASSERT(exp, msg) assert((exp) && msg)\n";
+                "#define HLSLMATH_ASSERT(exp, msg) assert((exp) && msg)\n";
             fwrite(content, sizeof(content) - 1, 1, targetFile);
         }
     } while (0);
