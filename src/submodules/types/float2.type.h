@@ -1,46 +1,20 @@
 union float2
 {
-public: // @region: Fields
     struct
     {
-        float x, y;
+        float           x, y;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR float2() {}
+    HLSLMATH_CONSTEXPR  float2();
+                        float2(float s);
+                        float2(float x, float y);
 
-    HLSLMATH_INLINE float2(float x, float y)
-        : x(x)
-        , y(y) {}
+                        float2(const float3& v);
+    explicit            float2(const float4& v);
 
-    HLSLMATH_INLINE float2(float s)
-        : x(s)
-        , y(s) {}
+                        operator float3() const;
+    explicit            operator float4() const;
 
-public: // @region: Operators
-    HLSLMATH_INLINE float& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((float*)this)[index];
-    }
-
-    HLSLMATH_INLINE float  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((float*)this)[index];
-    }
-
-#if HLSLMATH_ENABLE_NEON       
-public:
-    HLSLMATH_INLINE float2(float32x2_t neon_simd)
-        : neon_simd(neon_simd) {}
-
-    HLSLMATH_INLINE operator float32x2_t(void) const
-    {
-        return neon_simd;
-    }
-
-private:
-    float32x2_t neon_simd;
-#endif
+    float&              operator[](int index);
+    float               operator[](int index) const;
 };

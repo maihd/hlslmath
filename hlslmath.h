@@ -1,7 +1,7 @@
 ﻿// You can put your copyright here!
 // Generate with hlslmath/tools/build
 // Filename: D:\Projects\hlslmath\tools/../hlslmath.h
-// Datetime: Tue Aug 17 20:04:42 2021
+// Datetime: Wed Aug 18 01:05:57 2021
 
 #pragma once
 
@@ -138,371 +138,155 @@ union float4x4;
 
 union int2
 {
-public: // @region: Fields
     struct
     {
-        int x, y;
+        int             x, y;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR int2() {}
+    HLSLMATH_CONSTEXPR  int2();
+                        int2(int s);
+                        int2(int x, int y);
 
-    HLSLMATH_INLINE int2(int x, int y)
-        : x(x)
-        , y(y) {}
-
-    HLSLMATH_INLINE int2(int s)
-        : x(s)
-        , y(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE int& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((int*)this)[index];
-    }
-
-    HLSLMATH_INLINE int  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((int*)this)[index];
-    }
+    int&                operator[](int index);
+    int                 operator[](int index) const;
 };
-
 union int3
 {
-public: // @region: Fields
     struct
     {
-        int x, y, z;
+        int             x, y, z;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR int3() {}
+    HLSLMATH_CONSTEXPR  int3();
+                        int3(int s);
+                        int3(int x, int y, int z);
 
-    HLSLMATH_INLINE int3(int x, int y, int z)
-        : x(x)
-        , y(y) 
-        , z(z) {}
-
-    HLSLMATH_INLINE int3(int s)
-        : x(s)
-        , y(s)
-        , z(s) {}
-
-public: // @region: Fields
-    HLSLMATH_INLINE int& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((int*)this)[index];
-    }
-
-    HLSLMATH_INLINE int  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((int*)this)[index];
-    }
+    int&                operator[](int index);
+    int                 operator[](int index) const;
 };
-
 union int4
 {
-public: // @region: Fields
     struct
     {
         int x, y, z, w;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR int4() {}
+    HLSLMATH_CONSTEXPR  int4();
+                        int4(int s);
+                        int4(int x, int y, int z, int w);
 
-    HLSLMATH_INLINE int4(int x, int y, int z, int w)
-        : x(x)
-        , y(y) 
-        , z(z)
-        , w(w) {}
-
-    HLSLMATH_INLINE int4(int s)
-        : x(s)
-        , y(s)
-        , z(s)
-        , w(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE int& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((int*)this)[index];
-    }
-
-    HLSLMATH_INLINE int  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((int*)this)[index];
-    }
+    int&                operator[](int index);
+    int                 operator[](int index) const;
 };
-
 union uint2
 {
-public: // @region: Fields
     struct
     {
-        uint x, y;
+        uint            x, y;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR uint2() {}
+    HLSLMATH_CONSTEXPR  uint2();
+                        uint2(uint s);
+                        uint2(uint x, uint y);
 
-    HLSLMATH_INLINE uint2(uint x, uint y)
-        : x(x)
-        , y(y) {}
-
-    HLSLMATH_INLINE uint2(uint s)
-        : x(s)
-        , y(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE uint& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((uint*)this)[index];
-    }
-
-    HLSLMATH_INLINE uint  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((uint*)this)[index];
-    }
+    uint&               operator[](int index);
+    uint                operator[](int index) const;
 };
-
 union uint3
 {
-public: // @region: Fields
     struct
     {
-        uint x, y, z;
+        uint            x, y, z;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR uint3() {}
+    HLSLMATH_CONSTEXPR  uint3();
+                        uint3(uint s);
+                        uint3(uint x, uint y, uint z);
 
-    HLSLMATH_INLINE uint3(uint x, uint y, uint z)
-        : x(x)
-        , y(y) 
-        , z(z) {}
-
-    HLSLMATH_INLINE uint3(uint s)
-        : x(s)
-        , y(s)
-        , z(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE uint& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((uint*)this)[index];
-    }
-
-    HLSLMATH_INLINE uint  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((uint*)this)[index];
-    }
+    uint&               operator[](int index);
+    uint                operator[](int index) const;
 };
-
 union uint4
 {
-public: // @region: Fields
     struct
     {
-        uint x, y, z, w;
+        uint            x, y, z, w;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR uint4() {}
+    HLSLMATH_CONSTEXPR  uint4();
+                        uint4(int s);
+                        uint4(uint x, uint y, uint z, uint w);
 
-    HLSLMATH_INLINE uint4(uint x, uint y, uint z, uint w)
-        : x(x)
-        , y(y) 
-        , z(z)
-        , w(w) {}
-
-    HLSLMATH_INLINE uint4(int s)
-        : x(s)
-        , y(s)
-        , z(s)
-        , w(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE uint& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((uint*)this)[index];
-    }
-
-    HLSLMATH_INLINE uint  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((uint*)this)[index];
-    }
+    uint&               operator[](int index);
+    uint                operator[](int index) const;
 };
-
 union bool2
 {
-public: // @region: Fields
     struct
     {
-        bool x, y;
+        bool            x, y;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR bool2() {}
+    HLSLMATH_CONSTEXPR  bool2();
+                        bool2(bool s);
+                        bool2(bool x, bool y);
 
-    HLSLMATH_INLINE bool2(bool x, bool y)
-        : x(x)
-        , y(y) {}
-
-    HLSLMATH_INLINE bool2(bool s)
-        : x(s)
-        , y(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE bool& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((bool*)this)[index];
-    }
-
-    HLSLMATH_INLINE int  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((bool*)this)[index];
-    }
+    bool&               operator[](int index);
+    bool                operator[](int index) const;
 };
-
 union bool3
 {
-public: // @region: Fields
     struct
     {
-        bool x, y, z;
+        bool            x, y, z;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR bool3() {}
+    HLSLMATH_CONSTEXPR  bool3();
+                        bool3(bool s);
+                        bool3(bool x, bool y, bool z);
 
-    HLSLMATH_INLINE bool3(bool x, bool y, bool z)
-        : x(x)
-        , y(y) 
-        , z(z) {}
-
-    HLSLMATH_INLINE bool3(bool s)
-        : x(s)
-        , y(s)
-        , z(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE bool& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((bool*)this)[index];
-    }
-
-    HLSLMATH_INLINE bool  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((bool*)this)[index];
-    }
+    bool&               operator[](int index);
+    bool                operator[](int index) const;
 };
-
 union bool4
 {
-public: // @region: Fields
     struct
     {
         bool x, y, z, w;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR bool4() {}
+    HLSLMATH_CONSTEXPR  bool4();
+                        bool4(bool s);
+                        bool4(bool x, bool y, bool z, bool w);
 
-	HLSLMATH_INLINE bool4(bool x, bool y, bool z, bool w)
-        : x(x)
-        , y(y) 
-        , z(z)
-        , w(w) {}
-
-    HLSLMATH_INLINE bool4(bool s)
-        : x(s)
-        , y(s)
-        , z(s)
-        , w(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE bool& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((bool*)this)[index];
-    }
-
-    HLSLMATH_INLINE bool  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((bool*)this)[index];
-    }
+    bool&               operator[](int index);
+    bool                operator[](int index) const;
 };
-
 union float2
 {
-public: // @region: Fields
     struct
     {
-        float x, y;
+        float           x, y;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR float2() {}
+    HLSLMATH_CONSTEXPR  float2();
+                        float2(float s);
+                        float2(float x, float y);
 
-    HLSLMATH_INLINE float2(float x, float y)
-        : x(x)
-        , y(y) {}
+                        float2(const float3& v);
+    explicit            float2(const float4& v);
 
-    HLSLMATH_INLINE float2(float s)
-        : x(s)
-        , y(s) {}
+                        operator float3() const;
+    explicit            operator float4() const;
 
-public: // @region: Operators
-    HLSLMATH_INLINE float& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((float*)this)[index];
-    }
-
-    HLSLMATH_INLINE float  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((float*)this)[index];
-    }
-
-#if HLSLMATH_ENABLE_NEON       
-public:
-    HLSLMATH_INLINE float2(float32x2_t neon_simd)
-        : neon_simd(neon_simd) {}
-
-    HLSLMATH_INLINE operator float32x2_t(void) const
-    {
-        return neon_simd;
-    }
-
-private:
-    float32x2_t neon_simd;
-#endif
+    float&              operator[](int index);
+    float               operator[](int index) const;
 };
-
 union float3
 {
     struct
     {
-        float x, y, z;  
+        float           x, y, z;  
     };
 
     HLSLMATH_CONSTEXPR  float3();
@@ -510,15 +294,622 @@ union float3
                         float3(float x, float y, float z = 0.0f);
 
                         float3(const float2& v);
-    //                    float3(const float4& v);
+    explicit            float3(const float4& v);
 
                         operator float2(void) const;
-    //                    operator float4(void) const;
+    explicit            operator float4(void) const;
 
     float&              operator[](int index);
     float               operator[](int index) const;
 };
+union float4
+{
+    struct
+    {
+        float x, y, z, w; 
+    };
 
+    HLSLMATH_CONSTEXPR  float4();
+                        float4(float s);
+                        float4(const float3& xyz, float w = 0.0f);
+                        float4(float x, float y, float z, float w);
+
+
+    float&              operator[](int index);
+    float               operator[](int index) const;
+
+    static float4       quat(const float3& axis, float angle);
+
+    static float4       toaxis(const float4& quat);
+    static void         toaxis(const float4& quat, float3* axis, float* angle);
+
+    static float4       euler(const float3& v);
+    static float4       euler(float x, float y, float z);
+};
+union int2x2
+{
+    int                 data[2][2];
+
+    HLSLMATH_CONSTEXPR  int2x2();
+                        int2x2(int s);
+                        int2x2(const int2& m0, const int2& m1);
+                        int2x2(int m00, int m01, int m10, int m11);
+
+    int2&               operator[](int index);
+    const int2&         operator[](int index) const;
+};
+union int3x3
+{
+    int                 data[3][3];
+
+    HLSLMATH_CONSTEXPR  int3x3();
+                        int3x3(int s);
+                        int3x3(const int3& m0, const int3& m1, const int3& m2);
+                        int3x3(
+                            int m00, int m01, int m02,
+                            int m10, int m11, int m12,
+                            int m20, int m21, int m22
+                        );
+
+    int3&               operator[](int index);
+    const int3&         operator[](int index) const;
+};
+union int4x4
+{
+    int                 data[4][4];
+
+    HLSLMATH_CONSTEXPR  int4x4();
+                        int4x4(int s);
+                        int4x4(const int4& m0, const int4& m1, const int4& m2, const int4& m3);
+                        int4x4(
+                            int m00, int m01, int m02, int m03,
+                            int m10, int m11, int m12, int m13,
+                            int m20, int m21, int m22, int m23,
+                            int m30, int m31, int m32, int m33
+                        );
+                        
+    int4&               operator[](int index);
+    const int4&         operator[](int index) const;
+};
+union uint2x2
+{
+    uint                data[2][2];
+    
+    HLSLMATH_CONSTEXPR  uint2x2();
+                        uint2x2(uint s);
+                        uint2x2(const uint2& m0, const uint2& m1);
+                        uint2x2(uint m00, uint m01, uint m10, uint m11);
+
+    uint2&              operator[](int index);
+    const uint2&        operator[](int index) const;
+};
+union uint3x3
+{
+    uint                data[3][3];
+
+    HLSLMATH_CONSTEXPR  uint3x3();
+                        uint3x3(uint s);
+                        uint3x3(const uint3& m0, const uint3& m1, const uint3& m2);
+                        uint3x3(
+                            uint m00, uint m01, uint m02,
+                            uint m10, uint m11, uint m12,
+                            uint m20, uint m21, uint m22
+                        );
+
+    uint3&              operator[](int index);
+    const uint3&        operator[](int index) const;
+};
+union uint4x4
+{
+    uint                data[4][4];
+
+    HLSLMATH_CONSTEXPR  uint4x4();
+                        uint4x4(uint s);
+                        uint4x4(
+                            const uint4& m0, 
+                            const uint4& m1, 
+                            const uint4& m2, 
+                            const uint4& m3
+                        );
+                        uint4x4(
+                            uint m00, uint m01, uint m02, uint m03,
+                            uint m10, uint m11, uint m12, uint m13,
+                            uint m20, uint m21, uint m22, uint m23,
+                            uint m30, uint m31, uint m32, uint m33
+                        );
+
+    uint4&              operator[](int index);
+    const uint4&        operator[](int index) const;
+};
+union bool2x2
+{
+    bool                data[2][2];
+    
+    HLSLMATH_CONSTEXPR  bool2x2();
+                        bool2x2(bool s);
+                        bool2x2(const bool2& m0, const bool2& m1);
+                        bool2x2(bool m00, bool m01, bool m10, bool m11);
+
+    bool2&              operator[](int index);
+    const bool2&        operator[](int index) const;
+};
+union bool3x3
+{
+    bool                data[3][3];
+
+    HLSLMATH_CONSTEXPR  bool3x3();
+                        bool3x3(bool s);
+                        bool3x3(const bool3& m0, const bool3& m1, const bool3& m2);
+                        bool3x3(
+                            bool m00, bool m01, bool m02,
+                            bool m10, bool m11, bool m12,
+                            bool m20, bool m21, bool m22
+                        );
+
+    bool3&              operator[](int index);
+    const bool3&        operator[](int index) const;
+};
+union bool4x4
+{
+    bool                data[4][4];
+
+    HLSLMATH_CONSTEXPR  bool4x4();
+                        bool4x4(bool s);
+                        bool4x4(
+                            const bool4& m0, 
+                            const bool4& m1, 
+                            const bool4& m2, 
+                            const bool4& m3
+                        );
+                        bool4x4(
+                            bool m00, bool m01, bool m02, bool m03,
+                            bool m10, bool m11, bool m12, bool m13,
+                            bool m20, bool m21, bool m22, bool m23,
+                            bool m30, bool m31, bool m32, bool m33
+                        );
+
+    bool4&              operator[](int index);
+    const bool4&        operator[](int index) const;
+};
+
+union float2x2
+{
+    float               data[2][2];
+
+    HLSLMATH_CONSTEXPR  float2x2();
+                        float2x2(float s);
+                        float2x2(const float2& m0, const float2& m1);
+                        float2x2(float m00, float m01, float m10, float m11);
+
+    float2&             operator[](int index);
+    const float2&       operator[](int index) const;
+   
+    static float2x2     identity();
+
+    static float2x2     rotation(float angle);
+
+    static float2x2     scalation(float x);
+    static float2x2     scalation(const float2& v);
+    static float2x2     scalation(float x, float y);
+};
+union float3x3
+{
+    float               data[3][3];
+
+    HLSLMATH_CONSTEXPR  float3x3();
+                        float3x3(float s);
+                        float3x3(const float3& m0, const float3& m1, const float3& m2);
+                        float3x3(
+                            float m00, float m01, float m02,
+                            float m10, float m11, float m12,
+                            float m20, float m21, float m22
+                        );
+    
+    float3&             operator[](int index);
+    const float3&       operator[](int index) const;
+
+    static float3x3     identity();
+
+    static float3x3     translation(const float2& v);
+    static float3x3     translation(float x, float y);
+
+    static float3x3     rotation(float angle);
+
+    static float3x3     scalation(const float2& v);
+    static float3x3     scalation(float x, float y);
+
+    static float3x3     ortho(float l, float r, float b, float t);
+};
+
+union float4x4
+{
+    float               data[4][4];
+
+    HLSLMATH_CONSTEXPR  float4x4();
+                        float4x4(float s);
+	                    float4x4(
+                            const float4& m0, 
+                            const float4& m1, 
+                            const float4& m2, 
+                            const float4& m3
+                        );
+                        float4x4(
+                            float m00, float m01, float m02, float m03,
+                            float m10, float m11, float m12, float m13,
+                            float m20, float m21, float m22, float m23,
+                            float m30, float m31, float m32, float m33
+                        );
+    
+    float4&             operator[](int index);
+    const float4&       operator[](int index) const;
+
+    static float4x4     identity();
+
+    static float4x4     scalation(float s);
+    static float4x4     scalation(const float2& v);
+    static float4x4     scalation(const float3& v);
+    static float4x4     scalation(float x, float y, float z = 1.0f);
+
+    static float4x4     translation(const float2& v);
+    static float4x4     translation(const float3& v);
+    static float4x4     translation(float x, float y, float z = 0.0f);
+
+    static float4x4     rotation(const float4& quaternion);
+    static float4x4     rotation(const float3& axis, float angle);
+    static float4x4     rotation(float x, float y, float z, float angle);
+
+    static float4x4     rotation_x(float angle);
+    static float4x4     rotation_y(float angle);
+    static float4x4     rotation_z(float angle);
+
+    static void         decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation);
+    static void         decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation);
+
+    static float4x4     lookat(const float3& eye, const float3& target, const float3& up);
+
+    static float4x4     ortho(float l, float r, float b, float t, float n, float f);
+    static float4x4     frustum(float l, float r, float b, float t, float n, float f);
+    static float4x4     perspective(float fov, float aspect, float znear, float zfar);
+};
+HLSLMATH_CONSTEXPR int2::int2()
+    : x(0)
+    , y(0)
+{
+}
+
+HLSLMATH_INLINE int2::int2(int s)
+    : x(s)
+    , y(s)
+{
+}
+
+HLSLMATH_INLINE int2::int2(int x, int y)
+    : x(x)
+    , y(y)
+{
+}
+
+HLSLMATH_INLINE int& int2::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((int*)this)[index];
+}
+
+HLSLMATH_INLINE int int2::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((int*)this)[index];
+}
+HLSLMATH_CONSTEXPR int3::int3()
+    : x(0)
+    , y(0)
+    , z(0)
+{
+}
+
+HLSLMATH_INLINE int3::int3(int x, int y, int z)
+    : x(x)
+    , y(y) 
+    , z(z)
+{
+}
+
+HLSLMATH_INLINE int3::int3(int s)
+    : x(s)
+    , y(s)
+    , z(s)
+{
+}
+
+HLSLMATH_INLINE int& int3::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((int*)this)[index];
+}
+
+HLSLMATH_INLINE int int3::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((int*)this)[index];
+}
+HLSLMATH_CONSTEXPR int4::int4()
+    : x(0)
+    , y(0)
+    , z(0)
+    , w(0)
+{
+}
+
+HLSLMATH_INLINE int4::int4(int x, int y, int z, int w)
+    : x(x)
+    , y(y) 
+    , z(z)
+    , w(w)
+{
+}
+
+HLSLMATH_INLINE int4::int4(int s)
+    : x(s)
+    , y(s)
+    , z(s)
+    , w(s)
+{
+}
+
+HLSLMATH_INLINE int& int4::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((int*)this)[index];
+}
+
+HLSLMATH_INLINE int int4::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((int*)this)[index];
+}
+HLSLMATH_CONSTEXPR uint2::uint2()
+    : x(0)
+    , y(0)
+{
+}
+
+HLSLMATH_INLINE uint2::uint2(uint s)
+    : x(s)
+    , y(s)
+{
+}
+
+HLSLMATH_INLINE uint2::uint2(uint x, uint y)
+    : x(x)
+    , y(y)
+{
+}
+
+HLSLMATH_INLINE uint& uint2::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((uint*)this)[index];
+}
+
+HLSLMATH_INLINE uint uint2::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((uint*)this)[index];
+}
+HLSLMATH_CONSTEXPR uint3::uint3()
+    : x(0)
+    , y(0) 
+    , z(0)
+{
+}
+
+HLSLMATH_INLINE uint3::uint3(uint s)
+    : x(s)
+    , y(s)
+    , z(s)
+{
+}
+
+HLSLMATH_INLINE uint3::uint3(uint x, uint y, uint z)
+    : x(x)
+    , y(y) 
+    , z(z)
+{
+}
+
+HLSLMATH_INLINE uint& uint3::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((uint*)this)[index];
+}
+
+HLSLMATH_INLINE uint uint3::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((uint*)this)[index];
+}
+HLSLMATH_CONSTEXPR uint4::uint4()
+    : x(0)
+    , y(0) 
+    , z(0)
+    , w(0)
+{
+}
+
+HLSLMATH_INLINE uint4::uint4(uint x, uint y, uint z, uint w)
+    : x(x)
+    , y(y) 
+    , z(z)
+    , w(w)
+{
+}
+
+HLSLMATH_INLINE uint4::uint4(int s)
+    : x(s)
+    , y(s)
+    , z(s)
+    , w(s)
+{
+}
+
+HLSLMATH_INLINE uint& uint4::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((uint*)this)[index];
+}
+
+HLSLMATH_INLINE uint uint4::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((uint*)this)[index];
+}
+HLSLMATH_CONSTEXPR bool2::bool2()
+    : x(false)
+    , y(false)
+{
+}
+
+HLSLMATH_INLINE bool2::bool2(bool s)
+    : x(s)
+    , y(s)
+{
+}
+
+HLSLMATH_INLINE bool2::bool2(bool x, bool y)
+    : x(x)
+    , y(y)
+{
+}
+
+HLSLMATH_INLINE bool& bool2::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((bool*)this)[index];
+}
+
+HLSLMATH_INLINE bool bool2::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((bool*)this)[index];
+}
+HLSLMATH_CONSTEXPR bool3::bool3()
+    : x(false)
+    , y(false)
+    , z(false)
+{
+}
+
+HLSLMATH_INLINE bool3::bool3(bool s)
+    : x(s)
+    , y(s)
+    , z(s)
+{
+}
+
+HLSLMATH_INLINE bool3::bool3(bool x, bool y, bool z)
+    : x(x)
+    , y(y) 
+    , z(z)
+{
+}
+
+HLSLMATH_INLINE bool& bool3::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((bool*)this)[index];
+}
+
+HLSLMATH_INLINE bool bool3::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((bool*)this)[index];
+}
+HLSLMATH_CONSTEXPR bool4::bool4()
+    : x(false)
+    , y(false)
+    , z(false)
+    , w(false)
+{
+}
+
+HLSLMATH_INLINE bool4::bool4(bool s)
+    : x(s)
+    , y(s)
+    , z(s)
+    , w(s)
+{
+}
+
+HLSLMATH_INLINE bool4::bool4(bool x, bool y, bool z, bool w)
+    : x(x)
+    , y(y) 
+    , z(z)
+    , w(w)
+{
+}
+
+HLSLMATH_INLINE bool& bool4::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((bool*)this)[index];
+}
+
+HLSLMATH_INLINE bool bool4::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((bool*)this)[index];
+}
+HLSLMATH_CONSTEXPR float2::float2()
+    : x(0)
+    , y(0)
+{
+}
+
+HLSLMATH_INLINE float2::float2(float s)
+    : x(s)
+    , y(s)
+{
+}
+
+HLSLMATH_INLINE float2::float2(float x, float y)
+    : x(x)
+    , y(y)
+{
+}
+
+HLSLMATH_INLINE float2::float2(const float3& v)
+    : x(v.x)
+    , y(v.y)
+{
+}
+
+HLSLMATH_INLINE float2::float2(const float4& v)
+    : x(v.x)
+    , y(v.y)
+{
+}
+
+HLSLMATH_INLINE float2::operator float3() const
+{
+    return float3(x, y, 0.0f);
+}
+
+HLSLMATH_INLINE float2::operator float4() const
+{
+    return float4(x, y, 0.0f, 0.0f);
+}
+
+HLSLMATH_INLINE float& float2::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((float*)this)[index];
+}
+
+HLSLMATH_INLINE float float2::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((float*)this)[index];
+}
 HLSLMATH_CONSTEXPR float3::float3()
     : x(0)
     , y(0)
@@ -545,9 +936,19 @@ HLSLMATH_INLINE float3::float3(const float2& v)
 {
 }
 
+HLSLMATH_INLINE float3::float3(const float4& v)
+    : float3(v.x, v.y, v.z)
+{
+}
+
 HLSLMATH_INLINE float3::operator float2(void) const
 {
     return float2(x, y);
+}
+
+HLSLMATH_INLINE float3::operator float4(void) const
+{
+    return float4(x, y, z, 0.0f);
 }
 
 HLSLMATH_INLINE float& float3::operator[](int index)
@@ -559,715 +960,584 @@ HLSLMATH_INLINE float float3::operator[](int index) const
 {
     return (&x)[index];
 }
-
-union float4
+HLSLMATH_CONSTEXPR float4::float4()
+    : x(0)
+    , y(0)
+    , z(0)
+    , w(0)
 {
-public: // @region: Fields
-    struct
-    {
-        float x, y, z, w; 
-    };
+}
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR float4() {}
-
-    HLSLMATH_INLINE float4(const float3& xyz, float w = 0.0f)
-        : x(xyz.x)
-        , y(xyz.y)
-        , z(xyz.z)
-        , w(w) {}
-
-    HLSLMATH_INLINE float4(float x, float y, float z, float w)
-        : x(x)
-        , y(y)
-        , z(z)
-        , w(w) {}
-
-    HLSLMATH_INLINE float4(float s)
-        : x(s)
-        , y(s)
-        , z(s)
-        , w(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE float& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((float*)this)[index];
-    }
-
-    HLSLMATH_INLINE float  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((float*)this)[index];
-    }
-
-public:
-    /* Quaternion from axisangle
-     */
-    HLSLMATH_INLINE static float4 quat(const float3& axis, float angle);
-
-    /* Convert quaternion to axisangle
-     * @note: xyz is axis, w is angle
-     */
-    HLSLMATH_INLINE static float4 toaxis(const float4& quat);
-
-    /* Convert quaternion to axisangle
-     * @note: xyz is axis, w is angle
-     */
-    HLSLMATH_INLINE static void toaxis(const float4& quat, float3* axis, float* angle)
-    {
-        float4 axisangle = float4::toaxis(quat);
-        if (axis)  *axis = float3(axisangle.x, axisangle.y, axisangle.z);
-        if (angle) *angle = axisangle.w;
-    }
-
-    /* Quaternion from euler
-     */
-    HLSLMATH_INLINE static float4 euler(float x, float y, float z);
-
-    /* Quaternion from euler
-     */
-    HLSLMATH_INLINE static float4 euler(const float3& v)
-    {
-        return euler(v.x, v.y, v.z);
-    }
-};
-
-union int2x2
+HLSLMATH_INLINE float4::float4(const float3& xyz, float w)
+    : x(xyz.x)
+    , y(xyz.y)
+    , z(xyz.z)
+    , w(w)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR int2x2() {}
+}
 
-    HLSLMATH_INLINE int2x2(const int2& m0, const int2& m1)
-    {
-        (*this)[0] = m0;
-        (*this)[1] = m1;
-    }   
-
-    HLSLMATH_INLINE int2x2(int m00, int m01, int m10, int m11)
-    {
-        (*this)[0] = int2(m00, m01);
-        (*this)[1] = int2(m10, m11);
-    }
-
-    HLSLMATH_INLINE int2x2(int s)
-    {
-        (*this)[0] = int2(s, s);
-        (*this)[1] = int2(s, s);
-    }
-
-public: // @region: Operators
-    HLSLMATH_INLINE int2& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((int2*)data)[index];
-    }
-
-    HLSLMATH_INLINE const int2& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((int2*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        int data[2][2];
-    };
-};
-
-union int3x3
+HLSLMATH_INLINE float4::float4(float x, float y, float z, float w)
+    : x(x)
+    , y(y)
+    , z(z)
+    , w(w)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR int3x3() {}
+}
 
-    HLSLMATH_INLINE int3x3(const int3& m0, const int3& m1, const int3& m2)
-    {
-		(*this)[0] = m0;
-		(*this)[1] = m1;
-		(*this)[2] = m2;
-    }
-
-    HLSLMATH_INLINE int3x3(int m00, int m01, int m02,
-                  int m10, int m11, int m12,
-                  int m20, int m21, int m22)
-    {
-        (*this)[0] = int3(m00, m01, m02);
-        (*this)[1] = int3(m10, m11, m12);
-        (*this)[2] = int3(m20, m21, m22);
-    }
-
-    HLSLMATH_INLINE int3x3(int s)
-    {
-        (*this)[0] = int3(s, s, s);
-        (*this)[1] = int3(s, s, s);
-        (*this)[2] = int3(s, s, s);
-    }
-
-public: // @region: Operators
-    HLSLMATH_INLINE int3& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((int3*)data)[index];
-    }
-
-    HLSLMATH_INLINE const int3& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((int3*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        int data[3][3];
-    };
-};
-
-union int4x4
+HLSLMATH_INLINE float4::float4(float s)
+    : x(s)
+    , y(s)
+    , z(s)
+    , w(s)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR int4x4() {}
+}
 
-    HLSLMATH_INLINE int4x4(const int4& m0, const int4& m1, const int4& m2, const int4& m3)
-    {
-		(*this)[0] = m0;
-		(*this)[1] = m1;
-		(*this)[2] = m2;
-		(*this)[3] = m3;
-    }
-
-    HLSLMATH_INLINE int4x4(int m00, int m01, int m02, int m03,
-                  int m10, int m11, int m12, int m13,
-                  int m20, int m21, int m22, int m23,
-                  int m30, int m31, int m32, int m33)
-    {
-        (*this)[0] = int4(m00, m01, m02, m03);
-        (*this)[1] = int4(m10, m11, m12, m13);
-        (*this)[2] = int4(m20, m21, m22, m23);
-        (*this)[3] = int4(m30, m31, m32, m33);
-    }
-
-    HLSLMATH_INLINE int4x4(int s)
-    {
-        (*this)[0] = int4(s, s, s, s);
-        (*this)[1] = int4(s, s, s, s);
-        (*this)[2] = int4(s, s, s, s);
-        (*this)[3] = int4(s, s, s, s);
-    }
-
-public: // Constructors
-    HLSLMATH_INLINE int4& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((int4*)data)[index];
-    }
-
-    HLSLMATH_INLINE const int4& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((int4*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        int data[4][4];
-    };
-};
-
-union uint2x2
+ // @region: Operators
+HLSLMATH_INLINE float& float4::operator[](int index)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR uint2x2() {}
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((float*)this)[index];
+}
 
-    HLSLMATH_INLINE uint2x2(const uint2& m0, const uint2& m1)
-    {
-        (*this)[0] = m0;
-        (*this)[1] = m1;
-    }
-
-    HLSLMATH_INLINE uint2x2(uint m00, uint m01, uint m10, uint m11)
-    {
-        (*this)[0] = uint2(m00, m01);
-        (*this)[1] = uint2(m10, m11);
-    }
-
-    HLSLMATH_INLINE uint2x2(uint s)
-    {
-        (*this)[0] = uint2(s, s);
-        (*this)[1] = uint2(s, s);
-    }
-
-public: // @region: Operators
-    HLSLMATH_INLINE uint2& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((uint2*)data)[index];
-    }
-
-    HLSLMATH_INLINE const uint2& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((uint2*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        uint data[2][2];
-    };
-};
-
-union uint3x3
+HLSLMATH_INLINE float float4::operator[](int index) const
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR uint3x3() {}
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((float*)this)[index];
+}
 
-    HLSLMATH_INLINE uint3x3(const uint3& m0, const uint3& m1, const uint3& m2)
-    {
-        (*this)[0] = m0;
-        (*this)[1] = m1;
-        (*this)[2] = m2;
-    }
-
-    HLSLMATH_INLINE uint3x3(uint m00, uint m01, uint m02,
-                  uint m10, uint m11, uint m12,
-                  uint m20, uint m21, uint m22)
-    {
-        (*this)[0] = uint3(m00, m01, m02);
-        (*this)[1] = uint3(m10, m11, m12);
-        (*this)[2] = uint3(m20, m21, m22);
-    }
-
-    HLSLMATH_INLINE uint3x3(uint s)
-    {
-        (*this)[0] = uint3(s, s, s);
-        (*this)[1] = uint3(s, s, s);
-        (*this)[2] = uint3(s, s, s);
-    }
-
-public: // @region: Operators
-    HLSLMATH_INLINE uint3& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((uint3*)data)[index];
-    }
-
-    HLSLMATH_INLINE const uint3& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((uint3*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        uint data[3][3];
-    };
-};
-
-union uint4x4
+/* Convert quaternion to axisangle
+    * @note: xyz is axis, w is angle
+    */
+HLSLMATH_INLINE void float4::toaxis(const float4& quat, float3* axis, float* angle)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR uint4x4() {}
+    float4 axisangle = float4::toaxis(quat);
+    if (axis)  *axis = float3(axisangle.x, axisangle.y, axisangle.z);
+    if (angle) *angle = axisangle.w;
+}
 
-    HLSLMATH_INLINE uint4x4(const uint4& m0, const uint4& m1, const uint4& m2, const uint4& m3)
-    {
-        (*this)[0] = m0;
-        (*this)[1] = m1;
-        (*this)[2] = m2;
-        (*this)[3] = m3;
-    }
-
-    HLSLMATH_INLINE uint4x4(uint m00, uint m01, uint m02, uint m03,
-                   uint m10, uint m11, uint m12, uint m13,
-                   uint m20, uint m21, uint m22, uint m23,
-                   uint m30, uint m31, uint m32, uint m33)
-    {
-        (*this)[0] = uint4(m00, m01, m02, m03);
-        (*this)[1] = uint4(m10, m11, m12, m13);
-        (*this)[2] = uint4(m20, m21, m22, m23);
-        (*this)[3] = uint4(m30, m31, m32, m33);
-    }
-
-    HLSLMATH_INLINE uint4x4(uint s)
-    {
-        (*this)[0] = uint4(s, s, s, s);
-        (*this)[1] = uint4(s, s, s, s);
-        (*this)[2] = uint4(s, s, s, s);
-        (*this)[3] = uint4(s, s, s, s);
-    }
-
-public: // Constructors
-    HLSLMATH_INLINE uint4& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((uint4*)data)[index];
-    }
-
-    HLSLMATH_INLINE const uint4& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((uint4*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        uint data[4][4];
-    };
-};
-
-union bool2x2
+/* Quaternion from euler
+    */
+HLSLMATH_INLINE float4 float4::euler(const float3& v)
 {
-public: // @region: Constructors
-    inline bool2x2() {}
-
-    inline bool2x2(const bool2& m0, const bool2& m1)
-    {
-		(*this)[0] = m0;
-		(*this)[1] = m1;
-    }
-
-    inline bool2x2(bool m00, bool m01, bool m10, bool m11)
-    {
-        (*this)[0] = bool2(m00, m01);
-        (*this)[1] = bool2(m10, m11);
-    }
-
-    inline bool2x2(bool s)
-    {
-        (*this)[0] = bool2(s, s);
-        (*this)[1] = bool2(s, s);
-    }
-
-public: // @region: Operators
-    inline bool2& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((bool2*)data)[index];
-    }
-
-    inline const bool2& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((bool2*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        bool data[2][2];
-    };
-};
-
-union bool3x3
+    return euler(v.x, v.y, v.z);
+}
+HLSLMATH_CONSTEXPR int2x2::int2x2()
+    : data()
 {
-public: // @region: Constructors
-    inline bool3x3() {}
+}
 
-    inline bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
-    {
-        (*this)[0] = m0;
-        (*this)[1] = m1;
-        (*this)[2] = m2;
-    }
-
-    inline bool3x3(bool m00, bool m01, bool m02,
-                   bool m10, bool m11, bool m12,
-                   bool m20, bool m21, bool m22)
-    {
-        (*this)[0] = bool3(m00, m01, m02);
-        (*this)[1] = bool3(m10, m11, m12);
-        (*this)[2] = bool3(m20, m21, m22);
-    }
-
-    inline bool3x3(bool s)
-    {
-        (*this)[0] = bool3(s, s, s);
-        (*this)[1] = bool3(s, s, s);
-        (*this)[2] = bool3(s, s, s);
-    }
-
-public: // @region: Operators
-    inline bool3& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((bool3*)data)[index];
-    }
-
-    inline const bool3& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((bool3*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        bool data[3][3];
-    };
-};
-
-union bool4x4
+HLSLMATH_INLINE int2x2::int2x2(const int2& m0, const int2& m1)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR bool4x4() {}
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+}   
 
-    HLSLMATH_INLINE bool4x4(const bool4& m0, const bool4& m1, const bool4& m2, const bool4& m3)
-    {
-        (*this)[0] = m0;
-        (*this)[1] = m1;
-        (*this)[2] = m2;
-        (*this)[3] = m3;
-    }
-
-    HLSLMATH_INLINE bool4x4(bool m00, bool m01, bool m02, bool m03,
-                   bool m10, bool m11, bool m12, bool m13,
-                   bool m20, bool m21, bool m22, bool m23,
-                   bool m30, bool m31, bool m32, bool m33)
-    {
-        (*this)[0] = bool4(m00, m01, m02, m03);
-        (*this)[1] = bool4(m10, m11, m12, m13);
-        (*this)[2] = bool4(m20, m21, m22, m23);
-        (*this)[3] = bool4(m30, m31, m32, m33);
-    }
-
-    HLSLMATH_INLINE bool4x4(bool s)
-    {
-        (*this)[0] = bool4(s, s, s, s);
-        (*this)[1] = bool4(s, s, s, s);
-        (*this)[2] = bool4(s, s, s, s);
-        (*this)[3] = bool4(s, s, s, s);
-    }
-
-public: // Constructors
-    HLSLMATH_INLINE bool4& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((bool4*)data)[index];
-    }
-
-    HLSLMATH_INLINE const bool4& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((bool4*)data)[index];
-    }
-    
-private: // @region: Internal fields
-    struct
-    {
-        bool data[4][4];
-    };
-};
-
-union float2x2
+HLSLMATH_INLINE int2x2::int2x2(int m00, int m01, int m10, int m11)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR float2x2() {}
+    (*this)[0] = int2(m00, m01);
+    (*this)[1] = int2(m10, m11);
+}
 
-	HLSLMATH_INLINE float2x2(const float2& m0, const float2& m1)
-	{
-		(*this)[0] = m0;
-		(*this)[1] = m1;
-	}
-
-    HLSLMATH_INLINE float2x2(float m00, float m01, 
-                    float m10, float m11)
-    {
-        (*this)[0] = float2(m00, m01);
-        (*this)[1] = float2(m10, m11);
-    }
-
-    HLSLMATH_INLINE float2x2(float s)    
-    {
-        (*this)[0] = float2(s, s);
-        (*this)[1] = float2(s, s);
-    }
-
-public: // @region: Operators
-    HLSLMATH_INLINE float2& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((float2*)data)[index];
-    }
-
-    HLSLMATH_INLINE const float2& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((float2*)data)[index];
-    }
-   
-public: // @region: Create functions
-    HLSLMATH_INLINE static float2x2 identity()
-    {
-        return float2x2(1, 0, 0, 1);
-    }
-
-public: // @region: Graphics functions
-    static float2x2 rotation(float angle);
-
-    static float2x2 scalation(float x);
-    static float2x2 scalation(const float2& v);
-    static float2x2 scalation(float x, float y);
-    
-private: // @region: Internal fields
-    struct
-    {
-        float data[2][2];
-    };
-};
-union float3x3
+HLSLMATH_INLINE int2x2::int2x2(int s)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR float3x3() {}
+    (*this)[0] = int2(s, s);
+    (*this)[1] = int2(s, s);
+}
 
-	HLSLMATH_INLINE float3x3(const float3& m0, const float3& m1, const float3& m2)
-	{
-		(*this)[0] = m0;
-		(*this)[1] = m1;
-		(*this)[2] = m2;
-	}
-
-    HLSLMATH_INLINE float3x3(float m00, float m01, float m02,
-                    float m10, float m11, float m12,
-                    float m20, float m21, float m22)
-    {
-        (*this)[0] = float3(m00, m01, m02);
-        (*this)[1] = float3(m10, m11, m12);
-        (*this)[2] = float3(m20, m21, m22);
-    }
-
-    HLSLMATH_INLINE float3x3(float s)
-    {
-        (*this)[0] = float3(s, s, s);
-        (*this)[1] = float3(s, s, s);
-        (*this)[2] = float3(s, s, s);
-    }
-    
-public: // @region: Operators
-    HLSLMATH_INLINE float3& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((float3*)data)[index];
-    }
-
-    HLSLMATH_INLINE const float3& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
-        return ((float3*)data)[index];
-    }
-
-public: // @region: Create functions
-    HLSLMATH_INLINE static float3x3 identity()
-    {
-        return float3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
-    }
-
-public: // @region: Graphics functions
-    static float3x3 translation(const float2& v);
-    static float3x3 translation(float x, float y);
-
-    static float3x3 rotation(float angle);
-
-    static float3x3 scalation(const float2& v);
-    static float3x3 scalation(float x, float y);
-
-    static float3x3 ortho(float l, float r, float b, float t);
-    
-private: // @region: Internal fields
-    struct
-    {
-        float data[3][3];
-    };
-};
-
-union float4x4
+HLSLMATH_INLINE int2& int2x2::operator[](int index)
 {
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR float4x4() {}
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((int2*)data)[index];
+}
 
-	HLSLMATH_INLINE float4x4(const float4& m0, const float4& m1, const float4& m2, const float4& m3)
-	{
-		(*this)[0] = m0;
-		(*this)[1] = m1;
-		(*this)[2] = m2;
-		(*this)[3] = m3;
-	}
-    
-    HLSLMATH_INLINE float4x4(float m00, float m01, float m02, float m03,
-                    float m10, float m11, float m12, float m13,
-                    float m20, float m21, float m22, float m23,
-                    float m30, float m31, float m32, float m33)
-    {
-        (*this)[0] = float4(m00, m01, m02, m03);
-        (*this)[1] = float4(m10, m11, m12, m13);
-        (*this)[2] = float4(m20, m21, m22, m23);
-        (*this)[3] = float4(m30, m31, m32, m33);
-    }
+HLSLMATH_INLINE const int2& int2x2::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((int2*)data)[index];
+}
+HLSLMATH_CONSTEXPR int3x3::int3x3()
+    : data()
+{
+}
 
-    HLSLMATH_INLINE float4x4(float s)
-    {
-        (*this)[0] = float4(s, s, s, s);
-        (*this)[1] = float4(s, s, s, s);
-        (*this)[2] = float4(s, s, s, s);
-        (*this)[3] = float4(s, s, s, s);
-    }
-    
-public: // @region: Operators
-    HLSLMATH_INLINE float4& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((float4*)data)[index];
-    }
+HLSLMATH_INLINE int3x3::int3x3(const int3& m0, const int3& m1, const int3& m2)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+    (*this)[2] = m2;
+}
 
-    HLSLMATH_INLINE const float4& operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
-        return ((float4*)data)[index];
-    }
+HLSLMATH_INLINE int3x3::int3x3(
+    int m00, int m01, int m02,
+    int m10, int m11, int m12,
+    int m20, int m21, int m22
+)
+{
+    (*this)[0] = int3(m00, m01, m02);
+    (*this)[1] = int3(m10, m11, m12);
+    (*this)[2] = int3(m20, m21, m22);
+}
 
-public: // @region: Constants
-    HLSLMATH_INLINE static float4x4 identity()
-    {
-        return float4x4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
+HLSLMATH_INLINE int3x3::int3x3(int s)
+{
+    (*this)[0] = int3(s, s, s);
+    (*this)[1] = int3(s, s, s);
+    (*this)[2] = int3(s, s, s);
+}
 
-public: // @region: Graphics functions
-    static float4x4 scalation(float s);
-    static float4x4 scalation(const float2& v);
-    static float4x4 scalation(const float3& v);
-    static float4x4 scalation(float x, float y, float z = 1.0f);
+HLSLMATH_INLINE int3& int3x3::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((int3*)data)[index];
+}
 
-    static float4x4 translation(const float2& v);
-    static float4x4 translation(const float3& v);
-    static float4x4 translation(float x, float y, float z = 0.0f);
+HLSLMATH_INLINE const int3& int3x3::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((int3*)data)[index];
+}
+HLSLMATH_CONSTEXPR int4x4::int4x4()
+    : data()
+{
+}
 
-    static float4x4 rotation(const float4& quaternion);
-    static float4x4 rotation(const float3& axis, float angle);
-    static float4x4 rotation(float x, float y, float z, float angle);
+HLSLMATH_INLINE int4x4::int4x4(const int4& m0, const int4& m1, const int4& m2, const int4& m3)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+    (*this)[2] = m2;
+    (*this)[3] = m3;
+}
 
-    static float4x4 rotation_x(float angle);
-    static float4x4 rotation_y(float angle);
-    static float4x4 rotation_z(float angle);
+HLSLMATH_INLINE int4x4::int4x4(
+    int m00, int m01, int m02, int m03,
+    int m10, int m11, int m12, int m13,
+    int m20, int m21, int m22, int m23,
+    int m30, int m31, int m32, int m33
+)
+{
+    (*this)[0] = int4(m00, m01, m02, m03);
+    (*this)[1] = int4(m10, m11, m12, m13);
+    (*this)[2] = int4(m20, m21, m22, m23);
+    (*this)[3] = int4(m30, m31, m32, m33);
+}
 
-    static void     decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation);
-    static void     decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation);
+HLSLMATH_INLINE int4x4::int4x4(int s)
+{
+    (*this)[0] = int4(s, s, s, s);
+    (*this)[1] = int4(s, s, s, s);
+    (*this)[2] = int4(s, s, s, s);
+    (*this)[3] = int4(s, s, s, s);
+}
 
-    static float4x4 lookat(const float3& eye, const float3& target, const float3& up);
+HLSLMATH_INLINE int4& int4x4::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((int4*)data)[index];
+}
 
-    static float4x4 ortho(float l, float r, float b, float t, float n, float f);
-    static float4x4 frustum(float l, float r, float b, float t, float n, float f);
-    static float4x4 perspective(float fov, float aspect, float znear, float zfar);
-    
-private: // @region: Internal fields
-    struct
-    {
-        float data[4][4];
-    };
-};
+HLSLMATH_INLINE const int4& int4x4::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((int4*)data)[index];
+}
+HLSLMATH_CONSTEXPR uint2x2::uint2x2()
+    : data()
+{
+}
+
+HLSLMATH_INLINE uint2x2::uint2x2(const uint2& m0, const uint2& m1)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+}
+
+HLSLMATH_INLINE uint2x2::uint2x2(uint m00, uint m01, uint m10, uint m11)
+{
+    (*this)[0] = uint2(m00, m01);
+    (*this)[1] = uint2(m10, m11);
+}
+
+HLSLMATH_INLINE uint2x2::uint2x2(uint s)
+{
+    (*this)[0] = uint2(s, s);
+    (*this)[1] = uint2(s, s);
+}
+
+HLSLMATH_INLINE uint2& uint2x2::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((uint2*)data)[index];
+}
+
+HLSLMATH_INLINE const uint2& uint2x2::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((uint2*)data)[index];
+}
+HLSLMATH_CONSTEXPR uint3x3::uint3x3()
+    : data()
+{
+}
+
+HLSLMATH_INLINE uint3x3::uint3x3(const uint3& m0, const uint3& m1, const uint3& m2)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+    (*this)[2] = m2;
+}
+
+HLSLMATH_INLINE uint3x3::uint3x3(
+    uint m00, uint m01, uint m02,
+    uint m10, uint m11, uint m12,
+    uint m20, uint m21, uint m22
+)
+{
+    (*this)[0] = uint3(m00, m01, m02);
+    (*this)[1] = uint3(m10, m11, m12);
+    (*this)[2] = uint3(m20, m21, m22);
+}
+
+HLSLMATH_INLINE uint3x3::uint3x3(uint s)
+{
+    (*this)[0] = uint3(s, s, s);
+    (*this)[1] = uint3(s, s, s);
+    (*this)[2] = uint3(s, s, s);
+}
+
+HLSLMATH_INLINE uint3& uint3x3::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((uint3*)data)[index];
+}
+
+HLSLMATH_INLINE const uint3& uint3x3::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((uint3*)data)[index];
+}
+HLSLMATH_CONSTEXPR uint4x4::uint4x4()
+    : data()
+{
+}
+
+HLSLMATH_INLINE uint4x4::uint4x4(uint s)
+{
+    (*this)[0] = uint4(s);
+    (*this)[1] = uint4(s);
+    (*this)[2] = uint4(s);
+    (*this)[3] = uint4(s);
+}
+
+HLSLMATH_INLINE uint4x4::uint4x4(
+    const uint4& m0,
+    const uint4& m1,
+    const uint4& m2,
+    const uint4& m3
+)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+    (*this)[2] = m2;
+    (*this)[3] = m3;
+}
+
+HLSLMATH_INLINE uint4x4::uint4x4(
+    uint m00, uint m01, uint m02, uint m03,
+    uint m10, uint m11, uint m12, uint m13,
+    uint m20, uint m21, uint m22, uint m23,
+    uint m30, uint m31, uint m32, uint m33
+)
+{
+    (*this)[0] = uint4(m00, m01, m02, m03);
+    (*this)[1] = uint4(m10, m11, m12, m13);
+    (*this)[2] = uint4(m20, m21, m22, m23);
+    (*this)[3] = uint4(m30, m31, m32, m33);
+}
+
+HLSLMATH_INLINE uint4& uint4x4::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((uint4*)data)[index];
+}
+
+HLSLMATH_INLINE const uint4& uint4x4::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((uint4*)data)[index];
+}
+HLSLMATH_CONSTEXPR bool2x2::bool2x2()
+    : data()
+{
+}
+
+HLSLMATH_INLINE bool2x2::bool2x2(bool s)
+{
+    (*this)[0] = bool2(s, s);
+    (*this)[1] = bool2(s, s);
+}
+
+HLSLMATH_INLINE bool2x2::bool2x2(const bool2& m0, const bool2& m1)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+}
+
+HLSLMATH_INLINE bool2x2::bool2x2(bool m00, bool m01, bool m10, bool m11)
+{
+    (*this)[0] = bool2(m00, m01);
+    (*this)[1] = bool2(m10, m11);
+}
+
+HLSLMATH_INLINE bool2& bool2x2::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((bool2*)data)[index];
+}
+
+HLSLMATH_INLINE const bool2& bool2x2::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((bool2*)data)[index];
+}
+HLSLMATH_CONSTEXPR bool3x3::bool3x3()
+    : data()
+{
+}
+
+HLSLMATH_INLINE bool3x3::bool3x3(bool s)
+{
+    (*this)[0] = bool3(s, s, s);
+    (*this)[1] = bool3(s, s, s);
+    (*this)[2] = bool3(s, s, s);
+}
+
+HLSLMATH_INLINE bool3x3::bool3x3(const bool3& m0, const bool3& m1, const bool3& m2)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+    (*this)[2] = m2;
+}
+
+HLSLMATH_INLINE bool3x3::bool3x3(
+    bool m00, bool m01, bool m02,
+    bool m10, bool m11, bool m12,
+    bool m20, bool m21, bool m22)
+{
+    (*this)[0] = bool3(m00, m01, m02);
+    (*this)[1] = bool3(m10, m11, m12);
+    (*this)[2] = bool3(m20, m21, m22);
+}
+
+HLSLMATH_INLINE bool3& bool3x3::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((bool3*)data)[index];
+}
+
+HLSLMATH_INLINE const bool3& bool3x3::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((bool3*)data)[index];
+}
+HLSLMATH_CONSTEXPR bool4x4::bool4x4()
+    : data()
+{
+}
+
+HLSLMATH_INLINE bool4x4::bool4x4(
+    const bool4& m0, 
+    const bool4& m1, 
+    const bool4& m2, 
+    const bool4& m3
+)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+    (*this)[2] = m2;
+    (*this)[3] = m3;
+}
+
+HLSLMATH_INLINE bool4x4::bool4x4(
+    bool m00, bool m01, bool m02, bool m03,
+    bool m10, bool m11, bool m12, bool m13,
+    bool m20, bool m21, bool m22, bool m23,
+    bool m30, bool m31, bool m32, bool m33
+)
+{
+    (*this)[0] = bool4(m00, m01, m02, m03);
+    (*this)[1] = bool4(m10, m11, m12, m13);
+    (*this)[2] = bool4(m20, m21, m22, m23);
+    (*this)[3] = bool4(m30, m31, m32, m33);
+}
+
+HLSLMATH_INLINE bool4x4::bool4x4(bool s)
+{
+    (*this)[0] = bool4(s, s, s, s);
+    (*this)[1] = bool4(s, s, s, s);
+    (*this)[2] = bool4(s, s, s, s);
+    (*this)[3] = bool4(s, s, s, s);
+}
+
+HLSLMATH_INLINE bool4& bool4x4::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((bool4*)data)[index];
+}
+
+HLSLMATH_INLINE const bool4& bool4x4::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((bool4*)data)[index];
+}
+HLSLMATH_CONSTEXPR float2x2::float2x2()
+    : data()
+{
+}
+
+HLSLMATH_INLINE float2x2::float2x2(float s)    
+{
+    (*this)[0] = float2(s, s);
+    (*this)[1] = float2(s, s);
+}
+
+HLSLMATH_INLINE float2x2::float2x2(const float2& m0, const float2& m1)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+}
+
+HLSLMATH_INLINE float2x2::float2x2(
+    float m00, float m01, 
+    float m10, float m11
+)
+{
+    (*this)[0] = float2(m00, m01);
+    (*this)[1] = float2(m10, m11);
+}
+
+HLSLMATH_INLINE float2& float2x2::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((float2*)data)[index];
+}
+
+HLSLMATH_INLINE const float2& float2x2::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
+    return ((float2*)data)[index];
+}
+
+HLSLMATH_INLINE float2x2 float2x2::identity()
+{
+    return float2x2(1, 0, 0, 1);
+}
+HLSLMATH_CONSTEXPR float3x3::float3x3()
+    : data()
+{
+}
+
+HLSLMATH_INLINE float3x3::float3x3(const float3& m0, const float3& m1, const float3& m2)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+    (*this)[2] = m2;
+}
+
+HLSLMATH_INLINE float3x3::float3x3(
+    float m00, float m01, float m02,
+    float m10, float m11, float m12,
+    float m20, float m21, float m22
+)
+{
+    (*this)[0] = float3(m00, m01, m02);
+    (*this)[1] = float3(m10, m11, m12);
+    (*this)[2] = float3(m20, m21, m22);
+}
+
+HLSLMATH_INLINE float3x3::float3x3(float s)
+{
+    (*this)[0] = float3(s, s, s);
+    (*this)[1] = float3(s, s, s);
+    (*this)[2] = float3(s, s, s);
+}
+
+HLSLMATH_INLINE float3& float3x3::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((float3*)data)[index];
+}
+
+HLSLMATH_INLINE const float3& float3x3::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
+    return ((float3*)data)[index];
+}
+
+HLSLMATH_INLINE float3x3 float3x3::identity()
+{
+    return float3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+}
+HLSLMATH_CONSTEXPR float4x4::float4x4()
+    : data()
+{
+}
+
+HLSLMATH_INLINE float4x4::float4x4(
+    const float4& m0,
+    const float4& m1,
+    const float4& m2,
+    const float4& m3
+)
+{
+    (*this)[0] = m0;
+    (*this)[1] = m1;
+    (*this)[2] = m2;
+    (*this)[3] = m3;
+}
+
+HLSLMATH_INLINE float4x4::float4x4(
+    float m00, float m01, float m02, float m03,
+    float m10, float m11, float m12, float m13,
+    float m20, float m21, float m22, float m23,
+    float m30, float m31, float m32, float m33
+)
+{
+    (*this)[0] = float4(m00, m01, m02, m03);
+    (*this)[1] = float4(m10, m11, m12, m13);
+    (*this)[2] = float4(m20, m21, m22, m23);
+    (*this)[3] = float4(m30, m31, m32, m33);
+}
+
+HLSLMATH_INLINE float4x4::float4x4(float s)
+{
+    (*this)[0] = float4(s);
+    (*this)[1] = float4(s);
+    (*this)[2] = float4(s);
+    (*this)[3] = float4(s);
+}
+
+HLSLMATH_INLINE float4& float4x4::operator[](int index)
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((float4*)data)[index];
+}
+
+HLSLMATH_INLINE const float4& float4x4::operator[](int index) const
+{
+    HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
+    return ((float4*)data)[index];
+}
+
+HLSLMATH_INLINE float4x4 float4x4::identity()
+{
+    return float4x4(
+        1, 0, 0, 0, 
+        0, 1, 0, 0, 
+        0, 0, 1, 0, 
+        0, 0, 0, 1
+    );
+}
 HLSLMATH_INLINE int2 operator-(const int2& v)
 {
     return int2(-v.x, -v.y);

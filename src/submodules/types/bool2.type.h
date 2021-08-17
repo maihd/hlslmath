@@ -1,32 +1,14 @@
 union bool2
 {
-public: // @region: Fields
     struct
     {
-        bool x, y;
+        bool            x, y;
     };
 
-public: // @region: Constructors
-    HLSLMATH_CONSTEXPR bool2() {}
+    HLSLMATH_CONSTEXPR  bool2();
+                        bool2(bool s);
+                        bool2(bool x, bool y);
 
-    HLSLMATH_INLINE bool2(bool x, bool y)
-        : x(x)
-        , y(y) {}
-
-    HLSLMATH_INLINE bool2(bool s)
-        : x(s)
-        , y(s) {}
-
-public: // @region: Operators
-    HLSLMATH_INLINE bool& operator[](int index)
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((bool*)this)[index];
-    }
-
-    HLSLMATH_INLINE int  operator[](int index) const
-    {
-        HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
-        return ((bool*)this)[index];
-    }
+    bool&               operator[](int index);
+    bool                operator[](int index) const;
 };
