@@ -1,4 +1,4 @@
-# HLSL's Math library ![Build Status](https://travis-ci.org/maihd/hlslmath.svg?branch=master) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+# HLSL's Math library ![Build Status](https://github.com/maihd/hlslmath/actions/workflows/unit-tests.yml/badge.svg) [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
 **Vectors and matrices for based on HLSL language for C++.**
     
