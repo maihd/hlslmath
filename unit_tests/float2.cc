@@ -1,4 +1,4 @@
-#include "./hlslmath.h"
+#include HLSLMATH_H
 #include "./test_framework.h"
 
 int main(int argc, char* argv[])

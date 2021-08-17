@@ -19,58 +19,77 @@
 
 /* Total sources/modules files exclude DEF file */
 const char* filenames[] = {
-    "../src/submodules/int2.type.h",
-    "../src/submodules/int3.type.h",
-    "../src/submodules/int4.type.h",
-    "../src/submodules/uint.type.h",
-    "../src/submodules/uint2.type.h",
-    "../src/submodules/uint3.type.h",
-    "../src/submodules/uint4.type.h",
-    "../src/submodules/bool2.type.h",
-    "../src/submodules/bool3.type.h",
-    "../src/submodules/bool4.type.h",
-    "../src/submodules/float2.type.h",
-    "../src/submodules/float3.type.h",
-    "../src/submodules/float4.type.h",
-
-    "../src/submodules/int2x2.type.h",
-    "../src/submodules/int3x3.type.h",
-    "../src/submodules/int4x4.type.h",
-    "../src/submodules/uint2x2.type.h",
-    "../src/submodules/uint3x3.type.h",
-    "../src/submodules/uint4x4.type.h",
-    "../src/submodules/bool2x2.type.h",
-    "../src/submodules/bool3x3.type.h",
-    "../src/submodules/bool4x4.type.h",
-    "../src/submodules/float2x2.type.h",
-    "../src/submodules/float3x3.type.h",
-    "../src/submodules/float4x4.type.h",
+    "../src/submodules/types/int2.type.h",
+    "../src/submodules/types/int3.type.h",
+    "../src/submodules/types/int4.type.h",
+    "../src/submodules/types/uint2.type.h",
+    "../src/submodules/types/uint3.type.h",
+    "../src/submodules/types/uint4.type.h",
+    "../src/submodules/types/bool2.type.h",
+    "../src/submodules/types/bool3.type.h",
+    "../src/submodules/types/bool4.type.h",
+    "../src/submodules/types/float2.type.h",
+    "../src/submodules/types/float3.type.h",
+    "../src/submodules/types/float4.type.h",
     
-    "../src/submodules/bool.func.h",
-    "../src/submodules/conversion.h",
+    "../src/submodules/types/int2x2.type.h",
+    "../src/submodules/types/int3x3.type.h",
+    "../src/submodules/types/int4x4.type.h",
+    "../src/submodules/types/uint2x2.type.h",
+    "../src/submodules/types/uint3x3.type.h",
+    "../src/submodules/types/uint4x4.type.h",
+    "../src/submodules/types/bool2x2.type.h",
+    "../src/submodules/types/bool3x3.type.h",
+    "../src/submodules/types/bool4x4.type.h",
+    "../src/submodules/types/float2x2.type.h",
+    "../src/submodules/types/float3x3.type.h",
+    "../src/submodules/types/float4x4.type.h",
 
-    "../src/submodules/int.func.h",
-    "../src/submodules/int2.func.h",
-    "../src/submodules/int3.func.h",
-    "../src/submodules/int4.func.h",
-    "../src/submodules/uint.func.h",
-    "../src/submodules/uint2.func.h",
-    "../src/submodules/uint3.func.h",
-    "../src/submodules/uint4.func.h",
-    "../src/submodules/float.func.h",
-    "../src/submodules/float2.func.h",
-    "../src/submodules/float3.func.h",
-    "../src/submodules/float4.func.h",
+    "../src/submodules/operators/int2.operators.h",
+    "../src/submodules/operators/int3.operators.h",
+    "../src/submodules/operators/int4.operators.h",
+    "../src/submodules/operators/uint2.operators.h",
+    "../src/submodules/operators/uint3.operators.h",
+    "../src/submodules/operators/uint4.operators.h",
+    "../src/submodules/operators/float2.operators.h",
+    "../src/submodules/operators/float3.operators.h",
+    "../src/submodules/operators/float4.operators.h",
+    
+    "../src/submodules/operators/int2x2.operators.h",
+    "../src/submodules/operators/int3x3.operators.h",
+    "../src/submodules/operators/int4x4.operators.h",
+    "../src/submodules/operators/uint2x2.operators.h",
+    "../src/submodules/operators/uint3x3.operators.h",
+    "../src/submodules/operators/uint4x4.operators.h",
+    "../src/submodules/operators/float2x2.operators.h",
+    "../src/submodules/operators/float3x3.operators.h",
+    "../src/submodules/operators/float4x4.operators.h",
 
-    "../src/submodules/int2x2.func.h",
-    "../src/submodules/int3x3.func.h",
-    "../src/submodules/int4x4.func.h",
-    "../src/submodules/uint2x2.func.h",
-    "../src/submodules/uint3x3.func.h",
-    "../src/submodules/uint4x4.func.h",
-    "../src/submodules/float2x2.func.h",
-    "../src/submodules/float3x3.func.h",
-    "../src/submodules/float4x4.func.h",
+    "../src/submodules/functions/bool.func.h",
+    "../src/submodules/functions/conversion.h",
+
+    "../src/submodules/functions/int.func.h",
+    "../src/submodules/functions/int2.func.h",
+    "../src/submodules/functions/int3.func.h",
+    "../src/submodules/functions/int4.func.h",
+    "../src/submodules/functions/uint.func.h",
+    "../src/submodules/functions/uint2.func.h",
+    "../src/submodules/functions/uint3.func.h",
+    "../src/submodules/functions/uint4.func.h",
+    "../src/submodules/functions/float.func.h",
+    "../src/submodules/functions/float2.func.h",
+    "../src/submodules/functions/float3.func.h",
+    "../src/submodules/functions/float4.func.h",
+
+    "../src/submodules/functions/int2x2.func.h",
+    "../src/submodules/functions/int3x3.func.h",
+    "../src/submodules/functions/int4x4.func.h",     
+    "../src/submodules/functions/uint2x2.func.h",
+    "../src/submodules/functions/uint3x3.func.h",
+    "../src/submodules/functions/uint4x4.func.h",     
+    "../src/submodules/functions/float2x2.func.h",
+    "../src/submodules/functions/float3x3.func.h",
+    "../src/submodules/functions/float4x4.func.h",
 };
 
 /* Byte order mark of UTF-8 */
@@ -236,6 +255,14 @@ static void file_concat(FILE* dstfile, const char* srcfilename)
     FILE* srcfile = fopen(srcfilename, "r");
     if (srcfile)
     {
+        fseek(srcfile, 0, SEEK_END);
+        long srcfilesize = ftell(srcfile);
+        fseek(srcfile, 0, SEEK_SET);
+        if (srcfilesize <= 0)
+        {
+            return;
+        }
+
         unsigned char bom[2]; /* First 2 bytes byte-order-mark */
         fread(bom, sizeof(bom), 1, srcfile);
         if (bom[0] == utf16LEBOM[0] && bom[1] == utf16LEBOM[1])
@@ -444,18 +471,26 @@ int main(int argc, char* argv[])
         timeinfo = localtime(&rawtime);
         strftime(timestr, sizeof(timestr), "%c", timeinfo);
         
-        fprintf(targetFile, "// You can put your copyright here!%s\n");
+        fprintf(targetFile, "// You can put your copyright here!\n");
         fprintf(targetFile, "// Generate with hlslmath/tools/%s\n", argv[0]);
         fprintf(targetFile, "// Filename: %s\n", outputfile);
         fprintf(targetFile, "// Datetime: %s\n\n", timestr);
     } while (0);
 
-    /* Include define.h before other modules */
+    /* Include module_begin.h before other modules */
     do
     {
         char deffile_path[512];
-        sprintf(deffile_path, "%s/../src/module_begin.cc", exedir);
+        sprintf(deffile_path, "%s/../src/module_begin.h", exedir);
         file_concat(targetFile, deffile_path);
+
+        fprintf(targetFile, 
+            "\n"
+            "//\n"
+            "// Custom build settings\n"
+            "//\n"
+            "\n"
+        );
 
         /* HLSL_DEFINE_INTRINSICS */
         if (namespace)
@@ -478,16 +513,24 @@ int main(int argc, char* argv[])
         /* HLSL_ASSERT */
         if (assertname)
         {
-            fprintf(targetFile, "#define HLSL_ASSERT(exp, msg) %s(exp, msg)\n\n", assertname);
+            fprintf(targetFile, "#define HLSL_ASSERT(exp, msg) %s((exp), msg)\n\n", assertname);
         }
         else
         {
             const char content[] = 
                 "#include <assert.h>\n"
-                "#define HLSL_ASSERT(exp, msg) assert(exp && msg)\n\n";
+                "#define HLSL_ASSERT(exp, msg) assert((exp) && msg)\n";
             fwrite(content, sizeof(content) - 1, 1, targetFile);
         }
     } while (0);
+
+    fprintf(targetFile, 
+        "\n"
+        "//\n"
+        "// Define types\n"
+        "//\n"
+        "\n"
+    );
 
     /* Begin of namespace */
     if (namespace && strlen(namespace) > 0)
@@ -509,8 +552,9 @@ int main(int argc, char* argv[])
         fprintf(targetFile, "\n}\n");
     }
 
+    /* Append module_end.h */
     char deffile_path[512];
-    sprintf(deffile_path, "%s/../src/module_begin.cc", exedir);
+    sprintf(deffile_path, "%s/../src/module_end.h", exedir);
     file_concat(targetFile, deffile_path);
 
     /* End of file */

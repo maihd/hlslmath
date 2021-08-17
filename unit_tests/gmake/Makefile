@@ -1,6 +1,7 @@
 CC=gcc
 CFLAGS=-Wall
-LFLAGS=-lm
+LFLAGS=
+HLSLMATH="./hlslmath.h"
 
 SRC=$(wildcard ../*.cc)
 EXE=$(patsubst %.cc,%.exe,$(SRC))
@@ -10,7 +11,7 @@ EXE=$(patsubst %.cc,%.exe,$(SRC))
 %.exe: %.cc 
 	@echo "Execute unit test for '$(patsubst ../%.cc,%,$<)'"
 	@echo "===> Compiling $<"
-	@$(CC) -o $@ $< $(CFLAGS) $(LFLAGS)
+	@$(CC) -o $@ $< $(CFLAGS) $(LFLAGS) "-DSTR(X)=#X" "-DHLSLMATH_H=STR($(HLSLMATH))"
 	@echo "===> Running $@"
 	@./$@
 	@echo "===> DONE!"
