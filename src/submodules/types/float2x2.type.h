@@ -10,11 +10,18 @@ union float2x2
     float2&             operator[](int index);
     const float2&       operator[](int index) const;
    
-    static float2x2     identity();
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
+    static HLSLMATH_CONSTEXPR float2x2 identity();
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float2x2     rotation(float angle);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float2x2     scalation(float x);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float2x2     scalation(const float2& v);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float2x2     scalation(float x, float y);
 };

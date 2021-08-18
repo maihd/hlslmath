@@ -459,18 +459,22 @@ HLSLMATH_INLINE float4 qconj(const float4& q)
     return float4(-q.x, -q.y, -q.z, q.w);
 }
 
-HLSLMATH_INLINE float4 float4::quat(const float3& axis, float angle)
+HLSLMATH_INLINE float4 quatFromAxisAngle(const float3& axis, float angle)
 {
     if (lensqr(axis) == 0.0f)
     {
         return float4(0, 0, 0, 1);
     }
 
-    float4 r = float4(normalize(axis) * sin(angle * 0.5f), cosf(angle * 0.5f));
-    return r;
+    return float4(normalize(axis) * sin(angle * 0.5f), cosf(angle * 0.5f));
 }
 
-HLSLMATH_INLINE float4 float4::toaxis(const float4& quat)
+HLSLMATH_INLINE float4 float4::quat(const float3& axis, float angle)
+{
+    return quatFromAxisAngle(axis, angle);
+}
+
+HLSLMATH_INLINE float4 quatToAxisAngle(const float4& quat)
 {
     float4 c = quat;
     if (c.w != 0.0f)
@@ -478,22 +482,36 @@ HLSLMATH_INLINE float4 float4::toaxis(const float4& quat)
         c = normalize(quat);
     }
 
-    float3 axis;
     const float den = sqrtf(1.0f - c.w * c.w);
-    if (den > 0.0001f)
-    {
-        axis = float3(c.x, c.y, c.z) / den;
-    }
-    else
-    {
-        axis = float3(1, 0, 0);
-    }
+    const float3 axis = (den > 0.0001f) 
+        ? float3(c.x, c.y, c.z) / den
+        : float3(1, 0, 0);
 
-    float angle = 2.0f * cosf(c.w);
+    const float angle = 2.0f * cosf(c.w);
     return float4(axis, angle);
 }
 
-HLSLMATH_INLINE float4 float4::euler(float x, float y, float z)
+HLSLMATH_INLINE void quatToAxisAngle(const float4& quat, float3* axis, float* angle)
+{
+    float4 axisAngle = quatToAxisAngle(quat);
+    if (axis) *axis = (float3)axisAngle;
+    if (angle) *angle = axisAngle.w;
+}
+
+HLSLMATH_INLINE float4 float4::toaxis(const float4& quat)
+{
+    return quatToAxisAngle(quat);
+}
+
+/* Convert quaternion to axisangle
+    * @note: xyz is axis, w is angle
+    */
+HLSLMATH_INLINE void float4::toaxis(const float4& quat, float3* axis, float* angle)
+{
+    quatToAxisAngle(quat, axis, angle);
+}
+
+HLSLMATH_INLINE float4 quatFromEuler(float x, float y, float z)
 {
     float r;
     float p;
@@ -515,4 +533,16 @@ HLSLMATH_INLINE float4 float4::euler(float x, float y, float z)
         c1 * s2 * c3 - s1 * c2 * s3,
         c1 * c2 * c3 - s1 * s2 * s3
     );
+}
+
+HLSLMATH_INLINE float4 float4::euler(float x, float y, float z)
+{
+    return quatFromEuler(x, y, z);
+}
+
+/* Quaternion from euler
+    */
+HLSLMATH_INLINE float4 float4::euler(const float3& v)
+{
+    return quatFromEuler(v.x, v.y, v.z);
 }

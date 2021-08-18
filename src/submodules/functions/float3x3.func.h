@@ -400,12 +400,22 @@ HLSLMATH_INLINE float3x3 inverse(const float3x3& m)
 // @region: Graphics functions
 //
 
-HLSLMATH_INLINE float3x3 float3x3::translation(const float2& v)
+HLSLMATH_CONSTEXPR float3x3 float3x3Identity()
 {
-    return float3x3::translation(v.x, v.y);
+    float3x3 result;
+    result.data[0][0] = 1;
+    result.data[0][1] = 0;
+    result.data[0][2] = 0;
+    result.data[1][0] = 0;
+    result.data[1][1] = 1;
+    result.data[1][2] = 0;
+    result.data[2][0] = 0;
+    result.data[2][1] = 0;
+    result.data[2][2] = 1;
+    return result;
 }
 
-HLSLMATH_INLINE float3x3 float3x3::translation(float x, float y)
+HLSLMATH_INLINE float3x3 float3x3Translation(float x, float y)
 {
     return float3x3(
         1, 0, 0,
@@ -414,7 +424,12 @@ HLSLMATH_INLINE float3x3 float3x3::translation(float x, float y)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3::rotation(float angle)
+HLSLMATH_INLINE float3x3 float3x3Translation(const float2& v)
+{
+    return float3x3Translation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3Rotation(float angle)
 {
     const float c = cos(angle);
     const float s = sin(angle);
@@ -425,12 +440,7 @@ HLSLMATH_INLINE float3x3 float3x3::rotation(float angle)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3::scalation(const float2& v)
-{
-    return float3x3::scalation(v.x, v.y);
-}
-
-HLSLMATH_INLINE float3x3 float3x3::scalation(float x, float y)
+HLSLMATH_INLINE float3x3 float3x3Scalation(float x, float y)
 {
     return float3x3(
         x, 0, 0,
@@ -439,7 +449,12 @@ HLSLMATH_INLINE float3x3 float3x3::scalation(float x, float y)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3::ortho(float l, float r, float b, float t)
+HLSLMATH_INLINE float3x3 float3x3Scalation(const float2& v)
+{
+    return float3x3Scalation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3Ortho(float l, float r, float b, float t)
 {
     const float w = (r - l);
     const float h = (t - b);
@@ -451,4 +466,39 @@ HLSLMATH_INLINE float3x3 float3x3::ortho(float l, float r, float b, float t)
                    0,     2.0f * y, 0,
         -x * (l + r), -y * (b + t), 1
     );
+}
+
+HLSLMATH_CONSTEXPR float3x3 float3x3::identity()
+{
+    return float3x3Identity();
+}
+
+HLSLMATH_INLINE float3x3 float3x3::translation(const float2& v)
+{
+    return float3x3Translation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::translation(float x, float y)
+{
+    return float3x3Translation(x, y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::rotation(float angle)
+{
+    return float3x3Rotation(angle);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::scalation(const float2& v)
+{
+    return float3x3Scalation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::scalation(float x, float y)
+{
+    return float3x3Scalation(x, y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::ortho(float l, float r, float b, float t)
+{
+    return float3x3Ortho(l, r, b, t);
 }

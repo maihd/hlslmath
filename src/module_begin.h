@@ -67,6 +67,17 @@
 #define HLSLMATH_CONSTEXPR HLSLMATH_INLINE
 #endif
 
+// API deprecated declaration
+#if __cplusplus >= 201103L
+#   define HLSLMATH_DEPRECATED(version, reason) [[deprecated]]
+#elif defined(_MSC_VER)
+#   define HLSLMATH_DEPRECATED(version, reason) __declspec(deprecated)
+#elif defined(__GNUC__)
+#   define HLSLMATH_DEPRECATED(version, reason) __attribute__((deprecated))
+#else
+#   define HLSLMATH_DEPRECATED(version, reason)
+#endif
+
 // Android polyfill for log2 and log2f
 #if defined(__ANDROID__) 
 extern "C"

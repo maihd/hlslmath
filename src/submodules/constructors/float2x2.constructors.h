@@ -35,8 +35,3 @@ HLSLMATH_INLINE const float2& float2x2::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 2, "Index out of range");
     return ((float2*)data)[index];
 }
-
-HLSLMATH_INLINE float2x2 float2x2::identity()
-{
-    return float2x2(1, 0, 0, 1);
-}

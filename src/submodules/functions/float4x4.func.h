@@ -473,7 +473,7 @@ HLSLMATH_INLINE float4x4 inverse(const float4x4& m)
 // @region: Graphics functions
 //
 
-HLSLMATH_INLINE float4x4 float4x4::ortho(float l, float r, float b, float t, float n, float f)
+HLSLMATH_INLINE float4x4 float4x4Ortho(float l, float r, float b, float t, float n, float f)
 {
     const float x = 1.0f / (r - l);
     const float y = 1.0f / (t - b);
@@ -487,7 +487,7 @@ HLSLMATH_INLINE float4x4 float4x4::ortho(float l, float r, float b, float t, flo
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::frustum(float l, float r, float b, float t, float n, float f)
+HLSLMATH_INLINE float4x4 float4x4Frustum(float l, float r, float b, float t, float n, float f)
 {
     const float x = 1.0f / (r - l);
     const float y = 1.0f / (t - b);
@@ -501,7 +501,7 @@ HLSLMATH_INLINE float4x4 float4x4::frustum(float l, float r, float b, float t, f
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::perspective(float fov, float aspect, float znear, float zfar)
+HLSLMATH_INLINE float4x4 float4x4Perspective(float fov, float aspect, float znear, float zfar)
 {
     const float a = 1.0f / tan(fov * 0.5f);
     const float b = zfar / (znear - zfar);
@@ -514,7 +514,7 @@ HLSLMATH_INLINE float4x4 float4x4::perspective(float fov, float aspect, float zn
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::lookat(const float3& eye, const float3& target, const float3& up)
+HLSLMATH_INLINE float4x4 float4x4LookAt(const float3& eye, const float3& target, const float3& up)
 {
     const float3 z = normalize(eye - target);
     const float3 x = normalize(cross(up, z));
@@ -528,22 +528,7 @@ HLSLMATH_INLINE float4x4 float4x4::lookat(const float3& eye, const float3& targe
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::scalation(float s)
-{
-    return float4x4::scalation(s, s, s);
-}
-
-HLSLMATH_INLINE float4x4 float4x4::scalation(const float2& v)
-{
-    return float4x4::scalation(v.x, v.y);
-}
-
-HLSLMATH_INLINE float4x4 float4x4::scalation(const float3& v)
-{
-    return float4x4::scalation(v.x, v.y, v.z);
-}
-
-HLSLMATH_INLINE float4x4 float4x4::scalation(float x, float y, float z)
+HLSLMATH_INLINE float4x4 float4x4Scalation(float x, float y, float z = 0.0f)
 {
     return float4x4(
         x, 0, 0, 0,
@@ -553,17 +538,22 @@ HLSLMATH_INLINE float4x4 float4x4::scalation(float x, float y, float z)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(const float2& v)
+HLSLMATH_INLINE float4x4 float4x4Scalation(float s)
 {
-    return float4x4::translation(v.x, v.y);
+    return float4x4Scalation(s, s, s);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(const float3& v)
+HLSLMATH_INLINE float4x4 float4x4Scalation(const float2& v)
 {
-    return float4x4::translation(v.x, v.y, v.z);
+    return float4x4Scalation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(float x, float y, float z)
+HLSLMATH_INLINE float4x4 float4x4Scalation(const float3& v)
+{
+    return float4x4Scalation(v.x, v.y, v.z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4Translation(float x, float y, float z = 0.0f)
 {
     return float4x4(
         1, 0, 0, 0,
@@ -573,12 +563,17 @@ HLSLMATH_INLINE float4x4 float4x4::translation(float x, float y, float z)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(const float3& axis, float angle)
+HLSLMATH_INLINE float4x4 float4x4Translation(const float2& v)
 {
-    return float4x4::rotation(axis.x, axis.y, axis.z, angle);
+    return float4x4Translation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(float x, float y, float z, float angle)
+HLSLMATH_INLINE float4x4 float4x4Translation(const float3& v)
+{
+    return float4x4Translation(v.x, v.y, v.z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4Rotation(float x, float y, float z, float angle)
 {
     const float c = cos(-angle);
     const float s = sin(-angle);
@@ -608,7 +603,12 @@ HLSLMATH_INLINE float4x4 float4x4::rotation(float x, float y, float z, float ang
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_x(float angle)
+HLSLMATH_INLINE float4x4 float4x4Rotation(const float3& axis, float angle)
+{
+    return float4x4Rotation(axis.x, axis.y, axis.z, angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4RotationX(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -621,7 +621,7 @@ HLSLMATH_INLINE float4x4 float4x4::rotation_x(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_y(float angle)
+HLSLMATH_INLINE float4x4 float4x4RotationY(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -634,7 +634,7 @@ HLSLMATH_INLINE float4x4 float4x4::rotation_y(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_z(float angle)
+HLSLMATH_INLINE float4x4 float4x4RotationZ(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -647,13 +647,13 @@ HLSLMATH_INLINE float4x4 float4x4::rotation_z(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(const float4& quaternion)
+HLSLMATH_INLINE float4x4 float4x4Rotation(const float4& quaternion)
 {
-    float4 axisangle = float4::toaxis(quaternion);
-    return float4x4::rotation(axisangle.x, axisangle.y, axisangle.z, axisangle.w);
+    float4 axisangle = quatToAxisAngle(quaternion);
+    return float4x4Rotation(axisangle.x, axisangle.y, axisangle.z, axisangle.w);
 }
 
-HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
+HLSLMATH_INLINE void float4x4Decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
 {
     if (translation)
     {
@@ -727,7 +727,7 @@ HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, f
     }
     else
     {
-        // Note: since xaxis, yaxis, and zaxis are normalized, 
+        // Note: since X axis, Y axis, and Z axis are normalized, 
         // we will never divide by zero in the code below.
         if (xaxis.x > yaxis.y && xaxis.x > zaxis.z)
         {
@@ -756,17 +756,112 @@ HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, f
     }
 }
 
-HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
+HLSLMATH_INLINE void float4x4Decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
 {
     if (axis || angle)
     {
         float4 quat;
-        decompose(m, scalation, &quat, translation);
+        float4x4Decompose(m, scalation, &quat, translation);
 
-        float4::toaxis(quat, axis, angle);
+        quatToAxisAngle(quat, axis, angle);
     }
     else
     {
-        decompose(m, scalation, (float4*)0, translation);
+        float4x4Decompose(m, scalation, (float4*)0, translation);
     }
+}
+
+HLSLMATH_INLINE float4x4 float4x4::ortho(float l, float r, float b, float t, float n, float f)
+{
+    return float4x4Ortho(l, r, b, t, n, f);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::frustum(float l, float r, float b, float t, float n, float f)
+{
+    return float4x4Frustum(l, r, b, t, n, f);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::perspective(float fov, float aspect, float znear, float zfar)
+{
+    return float4x4Perspective(fov, aspect, znear, zfar);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::lookat(const float3& eye, const float3& target, const float3& up)
+{
+    return float4x4LookAt(eye, target, up);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::scalation(float s)
+{
+    return float4x4Scalation(s, s, s);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::scalation(const float2& v)
+{
+    return float4x4Scalation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::scalation(const float3& v)
+{
+    return float4x4Scalation(v.x, v.y, v.z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::scalation(float x, float y, float z)
+{
+    return float4x4Scalation(x, y, z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::translation(const float2& v)
+{
+    return float4x4Translation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::translation(const float3& v)
+{
+    return float4x4Translation(v.x, v.y, v.z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::translation(float x, float y, float z)
+{
+    return float4x4Translation(x, y, z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation(const float3& axis, float angle)
+{
+    return float4x4Rotation(axis.x, axis.y, axis.z, angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation(float x, float y, float z, float angle)
+{
+    return float4x4Rotation(x, y, z, angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation_x(float angle)
+{
+    return float4x4RotationX(angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation_y(float angle)
+{
+    return float4x4RotationY(angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation_z(float angle)
+{
+    return float4x4RotationZ(angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation(const float4& quaternion)
+{
+    return float4x4Rotation(quaternion);
+}
+
+HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
+{
+    float4x4Decompose(m, scalation, quaternion, translation);
+}
+
+HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
+{
+    float4x4Decompose(m, scalation, axis, angle, translation);
 }

@@ -42,20 +42,3 @@ HLSLMATH_INLINE float float4::operator[](int index) const
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((float*)this)[index];
 }
-
-/* Convert quaternion to axisangle
-    * @note: xyz is axis, w is angle
-    */
-HLSLMATH_INLINE void float4::toaxis(const float4& quat, float3* axis, float* angle)
-{
-    float4 axisangle = float4::toaxis(quat);
-    if (axis)  *axis = float3(axisangle.x, axisangle.y, axisangle.z);
-    if (angle) *angle = axisangle.w;
-}
-
-/* Quaternion from euler
-    */
-HLSLMATH_INLINE float4 float4::euler(const float3& v)
-{
-    return euler(v.x, v.y, v.z);
-}

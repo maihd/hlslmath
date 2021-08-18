@@ -14,15 +14,24 @@ union float3x3
     float3&             operator[](int index);
     const float3&       operator[](int index) const;
 
-    static float3x3     identity();
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
+    static HLSLMATH_CONSTEXPR float3x3 identity();
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     translation(const float2& v);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     translation(float x, float y);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     rotation(float angle);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     scalation(const float2& v);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     scalation(float x, float y);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     ortho(float l, float r, float b, float t);
 };

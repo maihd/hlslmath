@@ -344,7 +344,17 @@ HLSLMATH_INLINE float2x2 mul(const float2x2& a, const float2x2& b)
 // @region: Graphics functions
 //
 
-HLSLMATH_INLINE float2x2 float2x2::rotation(float angle)
+HLSLMATH_CONSTEXPR float2x2 float2x2Identity()
+{
+    float2x2 result;
+    result.data[0][0] = 1;
+    result.data[0][1] = 0;
+    result.data[1][0] = 0;
+    result.data[1][1] = 1;
+    return result;
+}
+
+HLSLMATH_INLINE float2x2 float2x2Rotation(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -355,17 +365,42 @@ HLSLMATH_INLINE float2x2 float2x2::rotation(float angle)
     );
 }
 
+HLSLMATH_INLINE float2x2 float2x2Scalation(float x, float y)
+{
+    return float2x2(x, 0, 0, y);
+}
+
+HLSLMATH_INLINE float2x2 float2x2Scalation(float x)
+{
+    return float2x2Scalation(x, x);
+}
+
+HLSLMATH_INLINE float2x2 float2x2Scalation(const float2& v)
+{
+    return float2x2Scalation(v.x, v.y);
+}
+
+HLSLMATH_CONSTEXPR float2x2 float2x2::identity()
+{
+    return float2x2Identity();
+}
+
+HLSLMATH_INLINE float2x2 float2x2::rotation(float angle)
+{
+    return float2x2Rotation(angle);
+}
+
 HLSLMATH_INLINE float2x2 float2x2::scalation(float x)
 {
-    return float2x2::scalation(x, x);
+    return float2x2Scalation(x, x);
 }
 
 HLSLMATH_INLINE float2x2 float2x2::scalation(const float2& v)
 {
-    return float2x2::scalation(v.x, v.y);
+    return float2x2Scalation(v.x, v.y);
 }
 
 HLSLMATH_INLINE float2x2 float2x2::scalation(float x, float y)
 {
-    return float2x2(x, 0, 0, y);
+    return float2x2Scalation(x, y);
 }
