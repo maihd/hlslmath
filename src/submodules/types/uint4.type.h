@@ -1,4 +1,4 @@
-union uint4
+union HLSLMATH_ALIGNED(uint4)
 {
     struct
     {

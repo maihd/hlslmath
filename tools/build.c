@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <wchar.h>
 #include <string.h>
+#include <stdbool.h>
 
 #if (defined(__unix__) && !defined(__CYGWIN__)) || defined(__APPLE__)
 #define __UNIX__ 1
@@ -381,6 +382,8 @@ int getexedir(char* buffer, int length)
 
 int main(int argc, char* argv[])
 {
+    bool metadata = true;
+
     const char* namespace = NULL;
     const char* assertname = NULL;
     const char* outputfile = NULL;
@@ -405,6 +408,10 @@ int main(int argc, char* argv[])
         {
             printf("HLSL's Math %s\n", HLSL_MATH_VERSION); 
             return 0;
+        }
+        else if (strcmp(option, "--no-metadata") == 0)
+        {
+            metadata = false;
         }
         else if (strncmp(option, "--namespace=", 12) == 0)
         {
@@ -488,7 +495,7 @@ int main(int argc, char* argv[])
     fwrite(utf8BOM, 1, sizeof(utf8BOM), targetFile);
     
     /* Header of file */
-    do
+    if (metadata)
     {
         char timestr[32];
         struct tm* timeinfo;
@@ -501,7 +508,7 @@ int main(int argc, char* argv[])
         fprintf(targetFile, "// Generate with hlslmath/tools/%s\n", argv[0]);
         fprintf(targetFile, "// Filename: %s\n", outputfile);
         fprintf(targetFile, "// Datetime: %s\n\n", timestr);
-    } while (0);
+    }
 
     /* Include module_begin.h before other modules */
     do
@@ -585,7 +592,10 @@ int main(int argc, char* argv[])
     file_concat(targetFile, deffile_path);
 
     /* End of file */
-    fprintf(targetFile, "// File '%s' end here.\n", outputfile); 
+    if (metadata)
+    {
+        fprintf(targetFile, "// File '%s' end here.\n", outputfile); 
+    }
 
     /* Job done, close before quit */
     fclose(targetFile);

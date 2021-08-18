@@ -1,4 +1,4 @@
-union int4x4
+union HLSLMATH_ALIGNED(int4x4)
 {
     int                 data[4][4];
 

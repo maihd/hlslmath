@@ -1,4 +1,4 @@
-union float3x3
+union HLSLMATH_ALIGNED(float3x3)
 {
     float               data[3][3];
 

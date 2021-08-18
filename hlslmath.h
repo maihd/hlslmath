@@ -1,9 +1,4 @@
-﻿// You can put your copyright here!
-// Generate with hlslmath/tools/build
-// Filename: D:\Projects\hlslmath\tools/../hlslmath.h
-// Datetime: Wed Aug 18 03:19:45 2021
-
-#pragma once
+﻿#pragma once
 
 #include <math.h>
 
@@ -72,6 +67,28 @@
 #define HLSLMATH_CONSTEXPR HLSLMATH_INLINE
 #endif
 
+// API deprecated declaration
+#if __cplusplus >= 201103L
+#   define HLSLMATH_DEPRECATED(version, reason) [[deprecated]]
+#elif defined(_MSC_VER)
+#   define HLSLMATH_DEPRECATED(version, reason) __declspec(deprecated)
+#elif defined(__GNUC__)
+#   define HLSLMATH_DEPRECATED(version, reason) __attribute__((deprecated))
+#else
+#   define HLSLMATH_DEPRECATED(version, reason)
+#endif
+
+// Supporting data alignment for cache-friendly
+#if __cplusplus >= 201103L
+#   define HLSLMATH_ALIGNED(Type)   alignas(16) Type
+#elif defined(_MSC_VER)
+#   define HLSLMATH_ALIGNED(Type)   __declspec(align(16)) Type
+#elif defined(__GNUC__)
+#   define HLSLMATH_ALIGNED(Type)   Type __attribute__((aligned(16)))
+#else
+#   error "Define HLSLMATH_ALIGNED for your compiler or platform!"
+#endif
+
 // Android polyfill for log2 and log2f
 #if defined(__ANDROID__) 
 extern "C"
@@ -123,7 +140,7 @@ union float4x4;
 // Custom build settings
 //
 
-#if (defined(_MSC_VER) && _MSC_VER >= 1900) || (__unix__ && !defined(__ANDROID__))
+#if (defined(_MSC_VER) && _MSC_VER >= 1900)
 #define HLSLMATH_DEFINE_INTRINSICS 1
 #else
 #define HLSLMATH_DEFINE_INTRINSICS 0
@@ -151,7 +168,7 @@ union int2
     int                 operator[](int index) const;
 };
 
-union int3
+union HLSLMATH_ALIGNED(int3)
 {
     struct
     {
@@ -166,7 +183,7 @@ union int3
     int                 operator[](int index) const;
 };
 
-union int4
+union HLSLMATH_ALIGNED(int4)
 {
     struct
     {
@@ -196,7 +213,7 @@ union uint2
     uint                operator[](int index) const;
 };
 
-union uint3
+union HLSLMATH_ALIGNED(uint3)
 {
     struct
     {
@@ -211,7 +228,7 @@ union uint3
     uint                operator[](int index) const;
 };
 
-union uint4
+union HLSLMATH_ALIGNED(uint4)
 {
     struct
     {
@@ -292,7 +309,7 @@ union float2
     float               operator[](int index) const;
 };
 
-union float3
+union HLSLMATH_ALIGNED(float3)
 {
     struct
     {
@@ -313,7 +330,7 @@ union float3
     float               operator[](int index) const;
 };
 
-union float4
+union HLSLMATH_ALIGNED(float4)
 {
     struct
     {
@@ -325,20 +342,26 @@ union float4
                         float4(const float3& xyz, float w = 0.0f);
                         float4(float x, float y, float z, float w);
 
-
     float&              operator[](int index);
     float               operator[](int index) const;
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4       quat(const float3& axis, float angle);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4       toaxis(const float4& quat);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static void         toaxis(const float4& quat, float3* axis, float* angle);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4       euler(const float3& v);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4       euler(float x, float y, float z);
 };
 
-union int2x2
+union HLSLMATH_ALIGNED(int2x2)
 {
     int                 data[2][2];
 
@@ -351,7 +374,7 @@ union int2x2
     const int2&         operator[](int index) const;
 };
 
-union int3x3
+union HLSLMATH_ALIGNED(int3x3)
 {
     int                 data[3][3];
 
@@ -368,7 +391,7 @@ union int3x3
     const int3&         operator[](int index) const;
 };
 
-union int4x4
+union HLSLMATH_ALIGNED(int4x4)
 {
     int                 data[4][4];
 
@@ -386,7 +409,7 @@ union int4x4
     const int4&         operator[](int index) const;
 };
 
-union uint2x2
+union HLSLMATH_ALIGNED(uint2x2)
 {
     uint                data[2][2];
     
@@ -399,7 +422,7 @@ union uint2x2
     const uint2&        operator[](int index) const;
 };
 
-union uint3x3
+union HLSLMATH_ALIGNED(uint3x3)
 {
     uint                data[3][3];
 
@@ -416,7 +439,7 @@ union uint3x3
     const uint3&        operator[](int index) const;
 };
 
-union uint4x4
+union HLSLMATH_ALIGNED(uint4x4)
 {
     uint                data[4][4];
 
@@ -493,7 +516,7 @@ union bool4x4
 };
 
 
-union float2x2
+union HLSLMATH_ALIGNED(float2x2)
 {
     float               data[2][2];
 
@@ -505,16 +528,23 @@ union float2x2
     float2&             operator[](int index);
     const float2&       operator[](int index) const;
    
-    static float2x2     identity();
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
+    static HLSLMATH_CONSTEXPR float2x2 identity();
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float2x2     rotation(float angle);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float2x2     scalation(float x);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float2x2     scalation(const float2& v);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float2x2     scalation(float x, float y);
 };
 
-union float3x3
+union HLSLMATH_ALIGNED(float3x3)
 {
     float               data[3][3];
 
@@ -530,21 +560,30 @@ union float3x3
     float3&             operator[](int index);
     const float3&       operator[](int index) const;
 
-    static float3x3     identity();
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
+    static HLSLMATH_CONSTEXPR float3x3 identity();
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     translation(const float2& v);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     translation(float x, float y);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     rotation(float angle);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     scalation(const float2& v);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     scalation(float x, float y);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float3x3     ortho(float l, float r, float b, float t);
 };
 
 
-union float4x4
+union HLSLMATH_ALIGNED(float4x4)
 {
     float               data[4][4];
 
@@ -566,32 +605,64 @@ union float4x4
     float4&             operator[](int index);
     const float4&       operator[](int index) const;
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     identity();
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     scalation(float s);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     scalation(const float2& v);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     scalation(const float3& v);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     scalation(float x, float y, float z = 1.0f);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     translation(const float2& v);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     translation(const float3& v);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     translation(float x, float y, float z = 0.0f);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     rotation(const float4& quaternion);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     rotation(const float3& axis, float angle);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     rotation(float x, float y, float z, float angle);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     rotation_x(float angle);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     rotation_y(float angle);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     rotation_z(float angle);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static void         decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation);
+    
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static void         decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     lookat(const float3& eye, const float3& target, const float3& up);
 
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     ortho(float l, float r, float b, float t, float n, float f);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     frustum(float l, float r, float b, float t, float n, float f);
+
+    HLSLMATH_DEPRECATED("V1.0", "Move functions in data types to outside")
     static float4x4     perspective(float fov, float aspect, float znear, float zfar);
 };
 
@@ -1040,23 +1111,6 @@ HLSLMATH_INLINE float float4::operator[](int index) const
     return ((float*)this)[index];
 }
 
-/* Convert quaternion to axisangle
-    * @note: xyz is axis, w is angle
-    */
-HLSLMATH_INLINE void float4::toaxis(const float4& quat, float3* axis, float* angle)
-{
-    float4 axisangle = float4::toaxis(quat);
-    if (axis)  *axis = float3(axisangle.x, axisangle.y, axisangle.z);
-    if (angle) *angle = axisangle.w;
-}
-
-/* Quaternion from euler
-    */
-HLSLMATH_INLINE float4 float4::euler(const float3& v)
-{
-    return euler(v.x, v.y, v.z);
-}
-
 HLSLMATH_CONSTEXPR int2x2::int2x2()
     : data()
 {
@@ -1473,11 +1527,6 @@ HLSLMATH_INLINE const float2& float2x2::operator[](int index) const
     return ((float2*)data)[index];
 }
 
-HLSLMATH_INLINE float2x2 float2x2::identity()
-{
-    return float2x2(1, 0, 0, 1);
-}
-
 HLSLMATH_CONSTEXPR float3x3::float3x3()
     : data()
 {
@@ -1518,11 +1567,6 @@ HLSLMATH_INLINE const float3& float3x3::operator[](int index) const
 {
     HLSLMATH_ASSERT(index > -1 && index < 3, "Index out of range");
     return ((float3*)data)[index];
-}
-
-HLSLMATH_INLINE float3x3 float3x3::identity()
-{
-    return float3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 }
 
 HLSLMATH_CONSTEXPR float4x4::float4x4()
@@ -7822,18 +7866,22 @@ HLSLMATH_INLINE float4 qconj(const float4& q)
     return float4(-q.x, -q.y, -q.z, q.w);
 }
 
-HLSLMATH_INLINE float4 float4::quat(const float3& axis, float angle)
+HLSLMATH_INLINE float4 quatFromAxisAngle(const float3& axis, float angle)
 {
     if (lensqr(axis) == 0.0f)
     {
         return float4(0, 0, 0, 1);
     }
 
-    float4 r = float4(normalize(axis) * sin(angle * 0.5f), cosf(angle * 0.5f));
-    return r;
+    return float4(normalize(axis) * sin(angle * 0.5f), cosf(angle * 0.5f));
 }
 
-HLSLMATH_INLINE float4 float4::toaxis(const float4& quat)
+HLSLMATH_INLINE float4 float4::quat(const float3& axis, float angle)
+{
+    return quatFromAxisAngle(axis, angle);
+}
+
+HLSLMATH_INLINE float4 quatToAxisAngle(const float4& quat)
 {
     float4 c = quat;
     if (c.w != 0.0f)
@@ -7841,22 +7889,36 @@ HLSLMATH_INLINE float4 float4::toaxis(const float4& quat)
         c = normalize(quat);
     }
 
-    float3 axis;
     const float den = sqrtf(1.0f - c.w * c.w);
-    if (den > 0.0001f)
-    {
-        axis = float3(c.x, c.y, c.z) / den;
-    }
-    else
-    {
-        axis = float3(1, 0, 0);
-    }
+    const float3 axis = (den > 0.0001f) 
+        ? float3(c.x, c.y, c.z) / den
+        : float3(1, 0, 0);
 
-    float angle = 2.0f * cosf(c.w);
+    const float angle = 2.0f * cosf(c.w);
     return float4(axis, angle);
 }
 
-HLSLMATH_INLINE float4 float4::euler(float x, float y, float z)
+HLSLMATH_INLINE void quatToAxisAngle(const float4& quat, float3* axis, float* angle)
+{
+    float4 axisAngle = quatToAxisAngle(quat);
+    if (axis) *axis = (float3)axisAngle;
+    if (angle) *angle = axisAngle.w;
+}
+
+HLSLMATH_INLINE float4 float4::toaxis(const float4& quat)
+{
+    return quatToAxisAngle(quat);
+}
+
+/* Convert quaternion to axisangle
+    * @note: xyz is axis, w is angle
+    */
+HLSLMATH_INLINE void float4::toaxis(const float4& quat, float3* axis, float* angle)
+{
+    quatToAxisAngle(quat, axis, angle);
+}
+
+HLSLMATH_INLINE float4 quatFromEuler(float x, float y, float z)
 {
     float r;
     float p;
@@ -7878,6 +7940,18 @@ HLSLMATH_INLINE float4 float4::euler(float x, float y, float z)
         c1 * s2 * c3 - s1 * c2 * s3,
         c1 * c2 * c3 - s1 * s2 * s3
     );
+}
+
+HLSLMATH_INLINE float4 float4::euler(float x, float y, float z)
+{
+    return quatFromEuler(x, y, z);
+}
+
+/* Quaternion from euler
+    */
+HLSLMATH_INLINE float4 float4::euler(const float3& v)
+{
+    return quatFromEuler(v.x, v.y, v.z);
 }
 
 /* Computes sign of 'x'
@@ -8449,7 +8523,17 @@ HLSLMATH_INLINE float2x2 mul(const float2x2& a, const float2x2& b)
 // @region: Graphics functions
 //
 
-HLSLMATH_INLINE float2x2 float2x2::rotation(float angle)
+HLSLMATH_CONSTEXPR float2x2 float2x2Identity()
+{
+    float2x2 result;
+    result.data[0][0] = 1;
+    result.data[0][1] = 0;
+    result.data[1][0] = 0;
+    result.data[1][1] = 1;
+    return result;
+}
+
+HLSLMATH_INLINE float2x2 float2x2Rotation(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -8460,19 +8544,44 @@ HLSLMATH_INLINE float2x2 float2x2::rotation(float angle)
     );
 }
 
+HLSLMATH_INLINE float2x2 float2x2Scalation(float x, float y)
+{
+    return float2x2(x, 0, 0, y);
+}
+
+HLSLMATH_INLINE float2x2 float2x2Scalation(float x)
+{
+    return float2x2Scalation(x, x);
+}
+
+HLSLMATH_INLINE float2x2 float2x2Scalation(const float2& v)
+{
+    return float2x2Scalation(v.x, v.y);
+}
+
+HLSLMATH_CONSTEXPR float2x2 float2x2::identity()
+{
+    return float2x2Identity();
+}
+
+HLSLMATH_INLINE float2x2 float2x2::rotation(float angle)
+{
+    return float2x2Rotation(angle);
+}
+
 HLSLMATH_INLINE float2x2 float2x2::scalation(float x)
 {
-    return float2x2::scalation(x, x);
+    return float2x2Scalation(x, x);
 }
 
 HLSLMATH_INLINE float2x2 float2x2::scalation(const float2& v)
 {
-    return float2x2::scalation(v.x, v.y);
+    return float2x2Scalation(v.x, v.y);
 }
 
 HLSLMATH_INLINE float2x2 float2x2::scalation(float x, float y)
 {
-    return float2x2(x, 0, 0, y);
+    return float2x2Scalation(x, y);
 }
 
 /* Computes sign of 'x'
@@ -8877,12 +8986,22 @@ HLSLMATH_INLINE float3x3 inverse(const float3x3& m)
 // @region: Graphics functions
 //
 
-HLSLMATH_INLINE float3x3 float3x3::translation(const float2& v)
+HLSLMATH_CONSTEXPR float3x3 float3x3Identity()
 {
-    return float3x3::translation(v.x, v.y);
+    float3x3 result;
+    result.data[0][0] = 1;
+    result.data[0][1] = 0;
+    result.data[0][2] = 0;
+    result.data[1][0] = 0;
+    result.data[1][1] = 1;
+    result.data[1][2] = 0;
+    result.data[2][0] = 0;
+    result.data[2][1] = 0;
+    result.data[2][2] = 1;
+    return result;
 }
 
-HLSLMATH_INLINE float3x3 float3x3::translation(float x, float y)
+HLSLMATH_INLINE float3x3 float3x3Translation(float x, float y)
 {
     return float3x3(
         1, 0, 0,
@@ -8891,7 +9010,12 @@ HLSLMATH_INLINE float3x3 float3x3::translation(float x, float y)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3::rotation(float angle)
+HLSLMATH_INLINE float3x3 float3x3Translation(const float2& v)
+{
+    return float3x3Translation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3Rotation(float angle)
 {
     const float c = cos(angle);
     const float s = sin(angle);
@@ -8902,12 +9026,7 @@ HLSLMATH_INLINE float3x3 float3x3::rotation(float angle)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3::scalation(const float2& v)
-{
-    return float3x3::scalation(v.x, v.y);
-}
-
-HLSLMATH_INLINE float3x3 float3x3::scalation(float x, float y)
+HLSLMATH_INLINE float3x3 float3x3Scalation(float x, float y)
 {
     return float3x3(
         x, 0, 0,
@@ -8916,7 +9035,12 @@ HLSLMATH_INLINE float3x3 float3x3::scalation(float x, float y)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3::ortho(float l, float r, float b, float t)
+HLSLMATH_INLINE float3x3 float3x3Scalation(const float2& v)
+{
+    return float3x3Scalation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3Ortho(float l, float r, float b, float t)
 {
     const float w = (r - l);
     const float h = (t - b);
@@ -8928,6 +9052,41 @@ HLSLMATH_INLINE float3x3 float3x3::ortho(float l, float r, float b, float t)
                    0,     2.0f * y, 0,
         -x * (l + r), -y * (b + t), 1
     );
+}
+
+HLSLMATH_CONSTEXPR float3x3 float3x3::identity()
+{
+    return float3x3Identity();
+}
+
+HLSLMATH_INLINE float3x3 float3x3::translation(const float2& v)
+{
+    return float3x3Translation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::translation(float x, float y)
+{
+    return float3x3Translation(x, y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::rotation(float angle)
+{
+    return float3x3Rotation(angle);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::scalation(const float2& v)
+{
+    return float3x3Scalation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::scalation(float x, float y)
+{
+    return float3x3Scalation(x, y);
+}
+
+HLSLMATH_INLINE float3x3 float3x3::ortho(float l, float r, float b, float t)
+{
+    return float3x3Ortho(l, r, b, t);
 }
 
 /* Computes sign of 'x'
@@ -9405,7 +9564,7 @@ HLSLMATH_INLINE float4x4 inverse(const float4x4& m)
 // @region: Graphics functions
 //
 
-HLSLMATH_INLINE float4x4 float4x4::ortho(float l, float r, float b, float t, float n, float f)
+HLSLMATH_INLINE float4x4 float4x4Ortho(float l, float r, float b, float t, float n, float f)
 {
     const float x = 1.0f / (r - l);
     const float y = 1.0f / (t - b);
@@ -9419,7 +9578,7 @@ HLSLMATH_INLINE float4x4 float4x4::ortho(float l, float r, float b, float t, flo
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::frustum(float l, float r, float b, float t, float n, float f)
+HLSLMATH_INLINE float4x4 float4x4Frustum(float l, float r, float b, float t, float n, float f)
 {
     const float x = 1.0f / (r - l);
     const float y = 1.0f / (t - b);
@@ -9433,7 +9592,7 @@ HLSLMATH_INLINE float4x4 float4x4::frustum(float l, float r, float b, float t, f
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::perspective(float fov, float aspect, float znear, float zfar)
+HLSLMATH_INLINE float4x4 float4x4Perspective(float fov, float aspect, float znear, float zfar)
 {
     const float a = 1.0f / tan(fov * 0.5f);
     const float b = zfar / (znear - zfar);
@@ -9446,7 +9605,7 @@ HLSLMATH_INLINE float4x4 float4x4::perspective(float fov, float aspect, float zn
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::lookat(const float3& eye, const float3& target, const float3& up)
+HLSLMATH_INLINE float4x4 float4x4LookAt(const float3& eye, const float3& target, const float3& up)
 {
     const float3 z = normalize(eye - target);
     const float3 x = normalize(cross(up, z));
@@ -9460,22 +9619,7 @@ HLSLMATH_INLINE float4x4 float4x4::lookat(const float3& eye, const float3& targe
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::scalation(float s)
-{
-    return float4x4::scalation(s, s, s);
-}
-
-HLSLMATH_INLINE float4x4 float4x4::scalation(const float2& v)
-{
-    return float4x4::scalation(v.x, v.y);
-}
-
-HLSLMATH_INLINE float4x4 float4x4::scalation(const float3& v)
-{
-    return float4x4::scalation(v.x, v.y, v.z);
-}
-
-HLSLMATH_INLINE float4x4 float4x4::scalation(float x, float y, float z)
+HLSLMATH_INLINE float4x4 float4x4Scalation(float x, float y, float z = 0.0f)
 {
     return float4x4(
         x, 0, 0, 0,
@@ -9485,17 +9629,22 @@ HLSLMATH_INLINE float4x4 float4x4::scalation(float x, float y, float z)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(const float2& v)
+HLSLMATH_INLINE float4x4 float4x4Scalation(float s)
 {
-    return float4x4::translation(v.x, v.y);
+    return float4x4Scalation(s, s, s);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(const float3& v)
+HLSLMATH_INLINE float4x4 float4x4Scalation(const float2& v)
 {
-    return float4x4::translation(v.x, v.y, v.z);
+    return float4x4Scalation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(float x, float y, float z)
+HLSLMATH_INLINE float4x4 float4x4Scalation(const float3& v)
+{
+    return float4x4Scalation(v.x, v.y, v.z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4Translation(float x, float y, float z = 0.0f)
 {
     return float4x4(
         1, 0, 0, 0,
@@ -9505,12 +9654,17 @@ HLSLMATH_INLINE float4x4 float4x4::translation(float x, float y, float z)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(const float3& axis, float angle)
+HLSLMATH_INLINE float4x4 float4x4Translation(const float2& v)
 {
-    return float4x4::rotation(axis.x, axis.y, axis.z, angle);
+    return float4x4Translation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(float x, float y, float z, float angle)
+HLSLMATH_INLINE float4x4 float4x4Translation(const float3& v)
+{
+    return float4x4Translation(v.x, v.y, v.z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4Rotation(float x, float y, float z, float angle)
 {
     const float c = cos(-angle);
     const float s = sin(-angle);
@@ -9540,7 +9694,12 @@ HLSLMATH_INLINE float4x4 float4x4::rotation(float x, float y, float z, float ang
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_x(float angle)
+HLSLMATH_INLINE float4x4 float4x4Rotation(const float3& axis, float angle)
+{
+    return float4x4Rotation(axis.x, axis.y, axis.z, angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4RotationX(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -9553,7 +9712,7 @@ HLSLMATH_INLINE float4x4 float4x4::rotation_x(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_y(float angle)
+HLSLMATH_INLINE float4x4 float4x4RotationY(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -9566,7 +9725,7 @@ HLSLMATH_INLINE float4x4 float4x4::rotation_y(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_z(float angle)
+HLSLMATH_INLINE float4x4 float4x4RotationZ(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -9579,13 +9738,13 @@ HLSLMATH_INLINE float4x4 float4x4::rotation_z(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(const float4& quaternion)
+HLSLMATH_INLINE float4x4 float4x4Rotation(const float4& quaternion)
 {
-    float4 axisangle = float4::toaxis(quaternion);
-    return float4x4::rotation(axisangle.x, axisangle.y, axisangle.z, axisangle.w);
+    float4 axisangle = quatToAxisAngle(quaternion);
+    return float4x4Rotation(axisangle.x, axisangle.y, axisangle.z, axisangle.w);
 }
 
-HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
+HLSLMATH_INLINE void float4x4Decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
 {
     if (translation)
     {
@@ -9659,7 +9818,7 @@ HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, f
     }
     else
     {
-        // Note: since xaxis, yaxis, and zaxis are normalized, 
+        // Note: since X axis, Y axis, and Z axis are normalized, 
         // we will never divide by zero in the code below.
         if (xaxis.x > yaxis.y && xaxis.x > zaxis.z)
         {
@@ -9688,19 +9847,113 @@ HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, f
     }
 }
 
-HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
+HLSLMATH_INLINE void float4x4Decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
 {
     if (axis || angle)
     {
         float4 quat;
-        decompose(m, scalation, &quat, translation);
+        float4x4Decompose(m, scalation, &quat, translation);
 
-        float4::toaxis(quat, axis, angle);
+        quatToAxisAngle(quat, axis, angle);
     }
     else
     {
-        decompose(m, scalation, (float4*)0, translation);
+        float4x4Decompose(m, scalation, (float4*)0, translation);
     }
 }
 
-// File 'D:\Projects\hlslmath\tools/../hlslmath.h' end here.
+HLSLMATH_INLINE float4x4 float4x4::ortho(float l, float r, float b, float t, float n, float f)
+{
+    return float4x4Ortho(l, r, b, t, n, f);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::frustum(float l, float r, float b, float t, float n, float f)
+{
+    return float4x4Frustum(l, r, b, t, n, f);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::perspective(float fov, float aspect, float znear, float zfar)
+{
+    return float4x4Perspective(fov, aspect, znear, zfar);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::lookat(const float3& eye, const float3& target, const float3& up)
+{
+    return float4x4LookAt(eye, target, up);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::scalation(float s)
+{
+    return float4x4Scalation(s, s, s);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::scalation(const float2& v)
+{
+    return float4x4Scalation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::scalation(const float3& v)
+{
+    return float4x4Scalation(v.x, v.y, v.z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::scalation(float x, float y, float z)
+{
+    return float4x4Scalation(x, y, z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::translation(const float2& v)
+{
+    return float4x4Translation(v.x, v.y);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::translation(const float3& v)
+{
+    return float4x4Translation(v.x, v.y, v.z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::translation(float x, float y, float z)
+{
+    return float4x4Translation(x, y, z);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation(const float3& axis, float angle)
+{
+    return float4x4Rotation(axis.x, axis.y, axis.z, angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation(float x, float y, float z, float angle)
+{
+    return float4x4Rotation(x, y, z, angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation_x(float angle)
+{
+    return float4x4RotationX(angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation_y(float angle)
+{
+    return float4x4RotationY(angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation_z(float angle)
+{
+    return float4x4RotationZ(angle);
+}
+
+HLSLMATH_INLINE float4x4 float4x4::rotation(const float4& quaternion)
+{
+    return float4x4Rotation(quaternion);
+}
+
+HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
+{
+    float4x4Decompose(m, scalation, quaternion, translation);
+}
+
+HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
+{
+    float4x4Decompose(m, scalation, axis, angle, translation);
+}
+

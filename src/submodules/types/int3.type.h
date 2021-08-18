@@ -1,4 +1,4 @@
-union int3
+union HLSLMATH_ALIGNED(int3)
 {
     struct
     {

@@ -1,4 +1,4 @@
-union int3x3
+union HLSLMATH_ALIGNED(int3x3)
 {
     int                 data[3][3];
 

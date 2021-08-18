@@ -1,4 +1,4 @@
-union int2x2
+union HLSLMATH_ALIGNED(int2x2)
 {
     int                 data[2][2];
 

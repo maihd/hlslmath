@@ -78,6 +78,17 @@
 #   define HLSLMATH_DEPRECATED(version, reason)
 #endif
 
+// Supporting data alignment for cache-friendly
+#if __cplusplus >= 201103L
+#   define HLSLMATH_ALIGNED(Type)   alignas(16) Type
+#elif defined(_MSC_VER)
+#   define HLSLMATH_ALIGNED(Type)   __declspec(align(16)) Type
+#elif defined(__GNUC__)
+#   define HLSLMATH_ALIGNED(Type)   Type __attribute__((aligned(16)))
+#else
+#   error "Define HLSLMATH_ALIGNED for your compiler or platform!"
+#endif
+
 // Android polyfill for log2 and log2f
 #if defined(__ANDROID__) 
 extern "C"
