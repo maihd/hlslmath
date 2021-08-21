@@ -10,6 +10,33 @@
 
 #include "../unit_tests/hlslmath.h"
 
+static_assert(HLSLMATH_ALIGNOF(float3) == 16, "Alignment float3 is wrong");
+static_assert(HLSLMATH_ALIGNOF(float4) == 16, "Alignment float4 is wrong");
+
+static_assert(HLSLMATH_ALIGNOF(int3) == 16, "Alignment int3 is wrong");
+static_assert(HLSLMATH_ALIGNOF(int4) == 16, "Alignment int4 is wrong");
+
+static_assert(HLSLMATH_ALIGNOF(uint3) == 16, "Alignment uint3 is wrong");
+static_assert(HLSLMATH_ALIGNOF(uint4) == 16, "Alignment uint4 is wrong");
+
+static_assert(HLSLMATH_ALIGNOF(float2x2) == 16, "Alignment float2x2 is wrong");
+static_assert(HLSLMATH_ALIGNOF(float3x3) == 16, "Alignment float3x3 is wrong");
+static_assert(HLSLMATH_ALIGNOF(float4x4) == 16, "Alignment float4x4 is wrong");
+
+static_assert(HLSLMATH_ALIGNOF(int3) == 16, "Alignment int3 is wrong");
+static_assert(HLSLMATH_ALIGNOF(int4) == 16, "Alignment int4 is wrong");
+
+static_assert(HLSLMATH_ALIGNOF(int2x2) == 16, "Alignment int2x2 is wrong");
+static_assert(HLSLMATH_ALIGNOF(int3x3) == 16, "Alignment int3x3 is wrong");
+static_assert(HLSLMATH_ALIGNOF(int4x4) == 16, "Alignment int4x4 is wrong");
+
+static_assert(HLSLMATH_ALIGNOF(uint3) == 16, "Alignment int3 is wrong");
+static_assert(HLSLMATH_ALIGNOF(uint4) == 16, "Alignment int4 is wrong");
+
+static_assert(HLSLMATH_ALIGNOF(uint2x2) == 16, "Alignment uint2x2 is wrong");
+static_assert(HLSLMATH_ALIGNOF(uint3x3) == 16, "Alignment uint3x3 is wrong");
+static_assert(HLSLMATH_ALIGNOF(uint4x4) == 16, "Alignment uint4x4 is wrong");
+
 #define test_operator(expect, operation)     test(expect, operation, "Testing operator: '" #operation "'")
 #define test_function(expect, function, ...) test(expect, function(##__VA_AGRS__), "Testing function: " #function)
 
