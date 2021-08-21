@@ -73,6 +73,17 @@
 #   error "Define HLSLMATH_ALIGNED for your compiler or platform!"
 #endif
 
+// Helping detect alignment of data structures
+#if __cplusplus >= 201103L
+#   define HLSLMATH_ALIGNOF(Type)   alignof(Type)
+#elif defined(_MSC_VER)
+#   define HLSLMATH_ALIGNOF(Type)   __alignof(Type)
+#elif defined(__GNUC__)
+#   define HLSLMATH_ALIGNOF(Type)   __alignof__(Type)
+#else
+#   error "Define HLSLMATH_ALIGNED for your compiler or platform!"
+#endif
+
 // Android polyfill for log2 and log2f
 #if defined(__ANDROID__) 
 extern "C"
