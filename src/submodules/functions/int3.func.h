@@ -1,6 +1,6 @@
 /* Computes sign of 'x'
  */
-HLSLMATH_INLINE int3 sign(const int3& m)
+inline int3 sign(const int3& m)
 {
     return int3(sign(m[0]),
                 sign(m[1]),
@@ -9,7 +9,7 @@ HLSLMATH_INLINE int3 sign(const int3& m)
 
 /* Computes absolute value
  */
-HLSLMATH_INLINE int3 abs(const int3& m)
+inline int3 abs(const int3& m)
 {
     return int3(abs(m[0]),
                 abs(m[1]),
@@ -18,7 +18,7 @@ HLSLMATH_INLINE int3 abs(const int3& m)
 
 /* Get the smaller value
  */
-HLSLMATH_INLINE int3 min(const int3& a, const int3& b)
+inline int3 min(const int3& a, const int3& b)
 {
     return int3(min(a[0], b[0]),
                 min(a[1], b[1]),
@@ -27,7 +27,7 @@ HLSLMATH_INLINE int3 min(const int3& a, const int3& b)
 
 /* Get the larger value
  */
-HLSLMATH_INLINE int3 max(const int3& a, const int3& b)
+inline int3 max(const int3& a, const int3& b)
 {
     return int3(max(a[0], b[0]), 
                 max(a[1], b[1]),
@@ -36,7 +36,7 @@ HLSLMATH_INLINE int3 max(const int3& a, const int3& b)
 
 /* Clamps the 'x' value to the [min, max].
  */
-HLSLMATH_INLINE int3 clamp(const int3& v, const int3& min, const int3& max)
+inline int3 clamp(const int3& v, const int3& min, const int3& max)
 {
     return int3(clamp(v[0], min[0], max[0]), 
                 clamp(v[1], min[1], max[1]), 

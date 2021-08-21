@@ -1,9 +1,4 @@
-HLSLMATH_CONSTEXPR float4x4::float4x4()
-    : data()
-{
-}
-
-HLSLMATH_INLINE float4x4::float4x4(
+inline float4x4::float4x4(
     const float4& m0,
     const float4& m1,
     const float4& m2,
@@ -16,7 +11,7 @@ HLSLMATH_INLINE float4x4::float4x4(
     (*this)[3] = m3;
 }
 
-HLSLMATH_INLINE float4x4::float4x4(
+inline float4x4::float4x4(
     float m00, float m01, float m02, float m03,
     float m10, float m11, float m12, float m13,
     float m20, float m21, float m22, float m23,
@@ -29,7 +24,7 @@ HLSLMATH_INLINE float4x4::float4x4(
     (*this)[3] = float4(m30, m31, m32, m33);
 }
 
-HLSLMATH_INLINE float4x4::float4x4(float s)
+inline float4x4::float4x4(float s)
 {
     (*this)[0] = float4(s);
     (*this)[1] = float4(s);
@@ -37,24 +32,14 @@ HLSLMATH_INLINE float4x4::float4x4(float s)
     (*this)[3] = float4(s);
 }
 
-HLSLMATH_INLINE float4& float4x4::operator[](int index)
+inline float4& float4x4::operator[](int index)
 {
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((float4*)data)[index];
 }
 
-HLSLMATH_INLINE const float4& float4x4::operator[](int index) const
+inline const float4& float4x4::operator[](int index) const
 {
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((float4*)data)[index];
-}
-
-HLSLMATH_INLINE float4x4 float4x4::identity()
-{
-    return float4x4(
-        1, 0, 0, 0, 
-        0, 1, 0, 0, 
-        0, 0, 1, 0, 
-        0, 0, 0, 1
-    );
 }

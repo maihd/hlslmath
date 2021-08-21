@@ -1,4 +1,4 @@
-HLSLMATH_INLINE float4x4 operator-(const float4x4& m)
+inline float4x4 operator-(const float4x4& m)
 {
     float4x4 result;
     result[0] = -m[0];
@@ -8,12 +8,12 @@ HLSLMATH_INLINE float4x4 operator-(const float4x4& m)
     return result;
 }
 
-HLSLMATH_INLINE const float4x4& operator+(const float4x4& m)
+inline const float4x4& operator+(const float4x4& m)
 {
     return m;
 }
 
-HLSLMATH_INLINE float4x4& operator--(float4x4& m)
+inline float4x4& operator--(float4x4& m)
 {
     --m[0];
     --m[1];
@@ -22,7 +22,7 @@ HLSLMATH_INLINE float4x4& operator--(float4x4& m)
     return m;
 }
 
-HLSLMATH_INLINE float4x4& operator++(float4x4& m)
+inline float4x4& operator++(float4x4& m)
 {
     ++m[0];
     ++m[1];
@@ -31,7 +31,7 @@ HLSLMATH_INLINE float4x4& operator++(float4x4& m)
     return m;
 }
 
-HLSLMATH_INLINE const float4x4& operator--(float4x4& m, int)
+inline const float4x4& operator--(float4x4& m, int)
 {
     m[0]--;
     m[1]--;
@@ -40,7 +40,7 @@ HLSLMATH_INLINE const float4x4& operator--(float4x4& m, int)
     return m;
 }
 
-HLSLMATH_INLINE const float4x4& operator++(float4x4& m, int)
+inline const float4x4& operator++(float4x4& m, int)
 {
     m[0]++;
     m[1]++;
@@ -49,7 +49,7 @@ HLSLMATH_INLINE const float4x4& operator++(float4x4& m, int)
     return m;
 }
 
-HLSLMATH_INLINE float4x4 operator+(const float4x4& a, const float4x4& b)
+inline float4x4 operator+(const float4x4& a, const float4x4& b)
 {
     float4x4 result;
     result[0] = a[0] + b[0];
@@ -59,7 +59,7 @@ HLSLMATH_INLINE float4x4 operator+(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator+(const float4x4& a, float b)
+inline float4x4 operator+(const float4x4& a, float b)
 {
     float4x4 result;
     result[0] = a[0] + b;
@@ -69,7 +69,7 @@ HLSLMATH_INLINE float4x4 operator+(const float4x4& a, float b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator+(float a, const float4x4& b)
+inline float4x4 operator+(float a, const float4x4& b)
 {
     float4x4 result;
     result[0] = a + b[0];
@@ -79,7 +79,7 @@ HLSLMATH_INLINE float4x4 operator+(float a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator-(const float4x4& a, const float4x4& b)
+inline float4x4 operator-(const float4x4& a, const float4x4& b)
 {
     float4x4 result;
     result[0] = a[0] - b[0];
@@ -89,7 +89,7 @@ HLSLMATH_INLINE float4x4 operator-(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator-(const float4x4& a, float b)
+inline float4x4 operator-(const float4x4& a, float b)
 {
     float4x4 result;
     result[0] = a[0] - b;
@@ -99,7 +99,7 @@ HLSLMATH_INLINE float4x4 operator-(const float4x4& a, float b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator-(float a, const float4x4& b)
+inline float4x4 operator-(float a, const float4x4& b)
 {
     float4x4 result;
     result[0] = a - b[0];
@@ -109,7 +109,7 @@ HLSLMATH_INLINE float4x4 operator-(float a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator*(const float4x4& a, const float4x4& b)
+inline float4x4 operator*(const float4x4& a, const float4x4& b)
 {
     float4x4 result;
     result[0] = a[0] * b[0];
@@ -119,7 +119,7 @@ HLSLMATH_INLINE float4x4 operator*(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator*(const float4x4& a, float b)
+inline float4x4 operator*(const float4x4& a, float b)
 {
     float4x4 result;
     result[0] = a[0] * b;
@@ -129,7 +129,7 @@ HLSLMATH_INLINE float4x4 operator*(const float4x4& a, float b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator*(float a, const float4x4& b)
+inline float4x4 operator*(float a, const float4x4& b)
 {
     float4x4 result;
     result[0] = a * b[0];
@@ -139,7 +139,7 @@ HLSLMATH_INLINE float4x4 operator*(float a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator/(const float4x4& a, const float4x4& b)
+inline float4x4 operator/(const float4x4& a, const float4x4& b)
 {
     float4x4 result;
     result[0] = a[0] / b[0];
@@ -149,7 +149,7 @@ HLSLMATH_INLINE float4x4 operator/(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator/(const float4x4& a, float b)
+inline float4x4 operator/(const float4x4& a, float b)
 {
     float4x4 result;
     result[0] = a[0] / b;
@@ -159,7 +159,7 @@ HLSLMATH_INLINE float4x4 operator/(const float4x4& a, float b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 operator/(float a, const float4x4& b)
+inline float4x4 operator/(float a, const float4x4& b)
 {
     float4x4 result;
     result[0] = a / b[0];
@@ -169,47 +169,47 @@ HLSLMATH_INLINE float4x4 operator/(float a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4& operator+=(float4x4& a, const float4x4& b)
+inline float4x4& operator+=(float4x4& a, const float4x4& b)
 {
     return (a = a + b);
 }
 
-HLSLMATH_INLINE float4x4& operator+=(float4x4& a, float b)
+inline float4x4& operator+=(float4x4& a, float b)
 {
     return (a = a + b);
 }
 
-HLSLMATH_INLINE float4x4& operator-=(float4x4& a, const float4x4& b)
+inline float4x4& operator-=(float4x4& a, const float4x4& b)
 {
     return (a = a - b);
 }
 
-HLSLMATH_INLINE float4x4& operator-=(float4x4& a, float b)
+inline float4x4& operator-=(float4x4& a, float b)
 {
     return (a = a - b);
 }
 
-HLSLMATH_INLINE float4x4& operator*=(float4x4& a, const float4x4& b)
+inline float4x4& operator*=(float4x4& a, const float4x4& b)
 {
     return (a = a * b);
 }
 
-HLSLMATH_INLINE float4x4& operator*=(float4x4& a, float b)
+inline float4x4& operator*=(float4x4& a, float b)
 {
     return (a = a * b);
 }
 
-HLSLMATH_INLINE float4x4& operator/=(float4x4& a, const float4x4& b)
+inline float4x4& operator/=(float4x4& a, const float4x4& b)
 {
     return (a = a / b);
 }
 
-HLSLMATH_INLINE float4x4& operator/=(float4x4& a, float b)
+inline float4x4& operator/=(float4x4& a, float b)
 {
     return (a = a + b);
 }
 
-HLSLMATH_INLINE bool4x4 operator==(const float4x4& a, const float4x4& b)
+inline bool4x4 operator==(const float4x4& a, const float4x4& b)
 {
     bool4x4 result;
     result[0] = a[0] == b[0];
@@ -219,7 +219,7 @@ HLSLMATH_INLINE bool4x4 operator==(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE bool4x4 operator!=(const float4x4& a, const float4x4& b)
+inline bool4x4 operator!=(const float4x4& a, const float4x4& b)
 {
     bool4x4 result;
     result[0] = a[0] != b[0];
@@ -229,7 +229,7 @@ HLSLMATH_INLINE bool4x4 operator!=(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE bool4x4 operator<(const float4x4& a, const float4x4& b)
+inline bool4x4 operator<(const float4x4& a, const float4x4& b)
 {
     bool4x4 result;
     result[0] = a[0] < b[0];
@@ -239,7 +239,7 @@ HLSLMATH_INLINE bool4x4 operator<(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE bool4x4 operator>(const float4x4& a, const float4x4& b)
+inline bool4x4 operator>(const float4x4& a, const float4x4& b)
 {
     bool4x4 result;
     result[0] = a[0] > b[0];
@@ -249,7 +249,7 @@ HLSLMATH_INLINE bool4x4 operator>(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE bool4x4 operator<=(const float4x4& a, const float4x4& b)
+inline bool4x4 operator<=(const float4x4& a, const float4x4& b)
 {
     bool4x4 result;
     result[0] = a[0] <= b[0];
@@ -259,7 +259,7 @@ HLSLMATH_INLINE bool4x4 operator<=(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE bool4x4 operator>=(const float4x4& a, const float4x4& b)
+inline bool4x4 operator>=(const float4x4& a, const float4x4& b)
 {
     bool4x4 result;
     result[0] = a[0] >= b[0];

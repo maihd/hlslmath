@@ -19,6 +19,18 @@
     <Filter Include="src\submodules">
       <UniqueIdentifier>{17b1e337-dae5-4697-8b2e-ac0efca1c0a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\submodules\types">
+      <UniqueIdentifier>{3d693f3d-8236-479b-9327-891dcff9690e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\submodules\constructors">
+      <UniqueIdentifier>{3ae04636-acba-4fc3-ad5c-6a31e8b9f028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\submodules\functions">
+      <UniqueIdentifier>{f9e370ff-4fbc-459f-a341-9ff0b7b4e01f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\submodules\operators">
+      <UniqueIdentifier>{ffe33e6e-a870-48cf-9b4e-ffc8f71ebf00}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\hlslmath_test.cpp">
@@ -32,152 +44,275 @@
     <ClInclude Include="..\..\src\module_end.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\submodules\bool.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\bool2.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\bool2x2.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\bool3.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\bool3x3.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\bool4.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\bool4x4.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\conversion.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float2.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float2.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float2x2.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float2x2.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float3.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float3.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float3x3.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float3x3.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float4.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float4.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float4x4.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\float4x4.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int2.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int2.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int2x2.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int2x2.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int3.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int3.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int3x3.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int3x3.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int4.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int4.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int4x4.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\int4x4.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint2.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint2.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint2x2.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint2x2.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint3.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint3.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint3x3.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint3x3.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint4.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint4.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint4x4.func.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\submodules\uint4x4.type.h">
-      <Filter>src\submodules</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\unit_tests\hlslmath.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\bool2.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\bool2x2.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\bool3.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\bool3x3.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\bool4.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\bool4x4.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\float2.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\float2x2.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\float3.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\float3x3.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\float4.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\float4x4.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\int2.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\int2x2.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\int3.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\int3x3.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\int4.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\int4x4.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\uint2.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\uint2x2.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\uint3.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\uint3x3.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\uint4.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\types\uint4x4.type.h">
+      <Filter>src\submodules\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\float2.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\float2x2.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\float3.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\float3x3.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\float4.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\float4x4.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\int2.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\int2x2.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\int3.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\int3x3.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\int4.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\int4x4.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\uint2.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\uint2x2.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\uint3.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\uint3x3.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\uint4.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\operators\uint4x4.operators.h">
+      <Filter>src\submodules\operators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\bool.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\conversion.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\float.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\float2.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\float2x2.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\float3.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\float3x3.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\float4.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\float4x4.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\int.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\int2.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\int2x2.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\int3.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\int3x3.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\int4.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\int4x4.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\uint.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\uint2.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\uint2x2.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\uint3.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\uint3x3.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\uint4.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\functions\uint4x4.func.h">
+      <Filter>src\submodules\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\bool2.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\bool2x2.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\bool3.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\bool3x3.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\bool4.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\bool4x4.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\float2.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\float2x2.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\float3.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\float3x3.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\float4.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\float4x4.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\int2.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\int2x2.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\int3.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\int3x3.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\int4.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\int4x4.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\uint2.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\uint2x2.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\uint3.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\uint3x3.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\uint4.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\submodules\constructors\uint4x4.constructors.h">
+      <Filter>src\submodules\constructors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

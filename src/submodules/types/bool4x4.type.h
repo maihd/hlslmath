@@ -2,7 +2,7 @@ union bool4x4
 {
     bool                data[4][4];
 
-    HLSLMATH_CONSTEXPR  bool4x4();
+    inline              bool4x4() {} // Default constructor, do no intialization
                         bool4x4(bool s);
                         bool4x4(
                             const bool4& m0, 

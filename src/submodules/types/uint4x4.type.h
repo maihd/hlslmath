@@ -1,8 +1,8 @@
-union HLSLMATH_ALIGNED(uint4x4)
+union HLSLMATH_ALIGNAS(uint4x4)
 {
     uint                data[4][4];
 
-    HLSLMATH_CONSTEXPR  uint4x4();
+    inline              uint4x4() {} // Default constructor, do no intialization
                         uint4x4(uint s);
                         uint4x4(
                             const uint4& m0, 

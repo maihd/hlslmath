@@ -5,7 +5,7 @@ union bool4
         bool x, y, z, w;
     };
 
-    HLSLMATH_CONSTEXPR  bool4();
+    inline              bool4() {} // Default constructor, do no intialization
                         bool4(bool s);
                         bool4(bool x, bool y, bool z, bool w);
 

@@ -5,7 +5,7 @@ union uint2
         uint            x, y;
     };
 
-    HLSLMATH_CONSTEXPR  uint2();
+    inline              uint2() {} // Default constructor, do no intialization
                         uint2(uint s);
                         uint2(uint x, uint y);
 

@@ -5,7 +5,7 @@ union float2
         float           x, y;
     };
 
-    HLSLMATH_CONSTEXPR  float2();
+    inline              float2(); // Default constructor, do no intialization
                         float2(float s);
                         float2(float x, float y);
 

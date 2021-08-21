@@ -1,11 +1,11 @@
-union HLSLMATH_ALIGNED(float3)
+union HLSLMATH_ALIGNAS(float3)
 {
     struct
     {
         float           x, y, z;  
     };
 
-    HLSLMATH_CONSTEXPR  float3();
+    inline              float3(); // Default constructor, do no intialization
                         float3(float s);
                         float3(float x, float y, float z = 0.0f);
 

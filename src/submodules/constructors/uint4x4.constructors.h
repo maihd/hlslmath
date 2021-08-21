@@ -1,9 +1,4 @@
-HLSLMATH_CONSTEXPR uint4x4::uint4x4()
-    : data()
-{
-}
-
-HLSLMATH_INLINE uint4x4::uint4x4(uint s)
+inline uint4x4::uint4x4(uint s)
 {
     (*this)[0] = uint4(s);
     (*this)[1] = uint4(s);
@@ -11,7 +6,7 @@ HLSLMATH_INLINE uint4x4::uint4x4(uint s)
     (*this)[3] = uint4(s);
 }
 
-HLSLMATH_INLINE uint4x4::uint4x4(
+inline uint4x4::uint4x4(
     const uint4& m0,
     const uint4& m1,
     const uint4& m2,
@@ -24,7 +19,7 @@ HLSLMATH_INLINE uint4x4::uint4x4(
     (*this)[3] = m3;
 }
 
-HLSLMATH_INLINE uint4x4::uint4x4(
+inline uint4x4::uint4x4(
     uint m00, uint m01, uint m02, uint m03,
     uint m10, uint m11, uint m12, uint m13,
     uint m20, uint m21, uint m22, uint m23,
@@ -37,13 +32,13 @@ HLSLMATH_INLINE uint4x4::uint4x4(
     (*this)[3] = uint4(m30, m31, m32, m33);
 }
 
-HLSLMATH_INLINE uint4& uint4x4::operator[](int index)
+inline uint4& uint4x4::operator[](int index)
 {
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((uint4*)data)[index];
 }
 
-HLSLMATH_INLINE const uint4& uint4x4::operator[](int index) const
+inline const uint4& uint4x4::operator[](int index) const
 {
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((uint4*)data)[index];

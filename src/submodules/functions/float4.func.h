@@ -1,6 +1,6 @@
 /* Computes sign of 'x'
  */
-HLSLMATH_INLINE int4 sign(const float4& v)
+inline int4 sign(const float4& v)
 {
     return int4(sign(v.x),
                 sign(v.y),
@@ -10,7 +10,7 @@ HLSLMATH_INLINE int4 sign(const float4& v)
 
 /* Computes absolute value
  */
-HLSLMATH_INLINE float4 abs(const float4& v)
+inline float4 abs(const float4& v)
 {
     return float4(abs(v.x),
                   abs(v.y),
@@ -20,7 +20,7 @@ HLSLMATH_INLINE float4 abs(const float4& v)
 
 /* Computes cosine
  */
-HLSLMATH_INLINE float4 cos(const float4& v)
+inline float4 cos(const float4& v)
 {
     return float4(cos(v.x),
                   cos(v.y),
@@ -30,7 +30,7 @@ HLSLMATH_INLINE float4 cos(const float4& v)
 
 /* Computes sine
  */
-HLSLMATH_INLINE float4 sin(const float4& v)
+inline float4 sin(const float4& v)
 {
     return float4(sin(v.x),
                   sin(v.y),
@@ -40,7 +40,7 @@ HLSLMATH_INLINE float4 sin(const float4& v)
 
 /* Computes tangent
  */
-HLSLMATH_INLINE float4 tan(const float4& v)
+inline float4 tan(const float4& v)
 {
     return float4(tan(v.x),
                   tan(v.y),
@@ -50,7 +50,7 @@ HLSLMATH_INLINE float4 tan(const float4& v)
 
 /* Computes hyperbolic cosine
  */
-HLSLMATH_INLINE float4 cosh(const float4& v)
+inline float4 cosh(const float4& v)
 {
     return float4(cosh(v.x),
                   cosh(v.y),
@@ -60,7 +60,7 @@ HLSLMATH_INLINE float4 cosh(const float4& v)
 
 /* Computes hyperbolic sine
  */
-HLSLMATH_INLINE float4 sinh(const float4& v)
+inline float4 sinh(const float4& v)
 {
     return float4(sinh(v.x),
                   sinh(v.y),
@@ -70,7 +70,7 @@ HLSLMATH_INLINE float4 sinh(const float4& v)
 
 /* Computes hyperbolic tangent
  */
-HLSLMATH_INLINE float4 tanh(const float4& v)
+inline float4 tanh(const float4& v)
 {
     return float4(tanh(v.x),
                   tanh(v.y),
@@ -80,7 +80,7 @@ HLSLMATH_INLINE float4 tanh(const float4& v)
 
 /* Computes inverse cosine
  */
-HLSLMATH_INLINE float4 acos(const float4& v)
+inline float4 acos(const float4& v)
 {
     return float4(acos(v.x),
                   acos(v.y),
@@ -90,7 +90,7 @@ HLSLMATH_INLINE float4 acos(const float4& v)
 
 /* Computes inverse sine
  */
-HLSLMATH_INLINE float4 asin(const float4& v)
+inline float4 asin(const float4& v)
 {
     return float4(asin(v.x),
                   asin(v.y),
@@ -100,7 +100,7 @@ HLSLMATH_INLINE float4 asin(const float4& v)
 
 /* Computes inverse tangent
  */
-HLSLMATH_INLINE float4 atan(const float4& v)
+inline float4 atan(const float4& v)
 {
     return float4(atan(v.x),
                   atan(v.y),
@@ -110,7 +110,7 @@ HLSLMATH_INLINE float4 atan(const float4& v)
 
 /* Computes inverse tangent with 2 args
  */
-HLSLMATH_INLINE float4 atan2(const float4& a, const float4& b)
+inline float4 atan2(const float4& a, const float4& b)
 {
     return float4(atan2(a.x, b.x),
                   atan2(a.y, b.y),
@@ -120,7 +120,7 @@ HLSLMATH_INLINE float4 atan2(const float4& a, const float4& b)
 
 /* Computes Euler number raised to the power 'x'
  */
-HLSLMATH_INLINE float4 exp(const float4& v)
+inline float4 exp(const float4& v)
 {
     return float4(exp(v.x),
                   exp(v.y),
@@ -130,7 +130,7 @@ HLSLMATH_INLINE float4 exp(const float4& v)
 
 /* Computes 2 raised to the power 'x'
  */
-HLSLMATH_INLINE float4 exp2(const float4& v)
+inline float4 exp2(const float4& v)
 {
     return float4(exp2(v.x),
                   exp2(v.y),
@@ -140,7 +140,7 @@ HLSLMATH_INLINE float4 exp2(const float4& v)
 
 /* Computes the base Euler number logarithm
  */
-HLSLMATH_INLINE float4 log(const float4& v)
+inline float4 log(const float4& v)
 {
     return float4(log(v.x),
                   log(v.y),
@@ -150,7 +150,7 @@ HLSLMATH_INLINE float4 log(const float4& v)
 
 /* Computes the base 2 logarithm
  */
-HLSLMATH_INLINE float4 log2(const float4& v)
+inline float4 log2(const float4& v)
 {
     return float4(log2(v.x),
                   log2(v.y),
@@ -160,7 +160,7 @@ HLSLMATH_INLINE float4 log2(const float4& v)
 
 /* Computes the base 10 logarithm
  */
-HLSLMATH_INLINE float4 log10(const float4& v)
+inline float4 log10(const float4& v)
 {
     return float4(log10(v.x),
                   log10(v.y),
@@ -170,7 +170,7 @@ HLSLMATH_INLINE float4 log10(const float4& v)
 
 /* Computes the value of base raised to the power exponent
  */
-HLSLMATH_INLINE float4 pow(const float4& a, const float4& b)
+inline float4 pow(const float4& a, const float4& b)
 {
     return float4(pow(a.x, b.x),
                   pow(a.y, b.y),
@@ -180,7 +180,7 @@ HLSLMATH_INLINE float4 pow(const float4& a, const float4& b)
 
 /* Get the fractal part of floating point
  */
-HLSLMATH_INLINE float4 frac(const float4& v)
+inline float4 frac(const float4& v)
 {
     return float4(frac(v.x),
                   frac(v.y),
@@ -190,7 +190,7 @@ HLSLMATH_INLINE float4 frac(const float4& v)
 
 /* Computes the floating-point remainder of the division operation x/y
  */
-HLSLMATH_INLINE float4 fmod(const float4& a, const float4& b)
+inline float4 fmod(const float4& a, const float4& b)
 {
     return float4(fmod(a.x, b.x),
                   fmod(a.y, b.y),
@@ -200,7 +200,7 @@ HLSLMATH_INLINE float4 fmod(const float4& a, const float4& b)
 
 /* Computes the smallest integer value not less than 'x'
  */
-HLSLMATH_INLINE float4 ceil(const float4& v)
+inline float4 ceil(const float4& v)
 {
     return float4(ceil(v.x),
                   ceil(v.y),
@@ -210,7 +210,7 @@ HLSLMATH_INLINE float4 ceil(const float4& v)
 
 /* Computes the largest integer value not greater than 'x'
  */
-HLSLMATH_INLINE float4 floor(const float4& v)
+inline float4 floor(const float4& v)
 {
     return float4(floor(v.x),
                   floor(v.y),
@@ -220,7 +220,7 @@ HLSLMATH_INLINE float4 floor(const float4& v)
 
 /* Computes the nearest integer value
  */
-HLSLMATH_INLINE float4 round(const float4& v)
+inline float4 round(const float4& v)
 {
     return float4(round(v.x),
                   round(v.y),
@@ -230,7 +230,7 @@ HLSLMATH_INLINE float4 round(const float4& v)
 
 /* Computes the nearest integer not greater in magnitude than 'x'
  */
-HLSLMATH_INLINE float4 trunc(const float4& v)
+inline float4 trunc(const float4& v)
 {
     return float4(trunc(v.x),
                   trunc(v.y),
@@ -240,7 +240,7 @@ HLSLMATH_INLINE float4 trunc(const float4& v)
 
 /* Get the smaller value
  */
-HLSLMATH_INLINE float4 min(const float4& a, const float4& b)
+inline float4 min(const float4& a, const float4& b)
 {
     return float4(min(a.x, b.x),
                   min(a.y, b.y),
@@ -250,7 +250,7 @@ HLSLMATH_INLINE float4 min(const float4& a, const float4& b)
 
 /* Get the larger value
  */
-HLSLMATH_INLINE float4 max(const float4& a, const float4& b)
+inline float4 max(const float4& a, const float4& b)
 {
     return float4(max(a.x, b.x), 
                   max(a.y, b.y),
@@ -260,7 +260,7 @@ HLSLMATH_INLINE float4 max(const float4& a, const float4& b)
 
 /* Clamps the 'x' value to the [min, max].
  */
-HLSLMATH_INLINE float4 clamp(const float4& v, const float4& min, const float4& max)
+inline float4 clamp(const float4& v, const float4& min, const float4& max)
 {
     return float4(clamp(v.x, min.x, max.x), 
                   clamp(v.y, min.y, max.y), 
@@ -270,7 +270,7 @@ HLSLMATH_INLINE float4 clamp(const float4& v, const float4& min, const float4& m
 
 /* Clamps the specified value within the range of 0 to 1
  */
-HLSLMATH_INLINE float4 saturate(const float4& v)
+inline float4 saturate(const float4& v)
 {
     return float4(saturate(v.x),
                   saturate(v.y),
@@ -280,7 +280,7 @@ HLSLMATH_INLINE float4 saturate(const float4& v)
 
 /* Compares two values, returning 0 or 1 based on which value is greater.
  */
-HLSLMATH_INLINE float4 step(const float4& a, const float4& b)
+inline float4 step(const float4& a, const float4& b)
 {
     return float4(step(a.x, b.x),
                   step(a.y, b.y),
@@ -290,7 +290,7 @@ HLSLMATH_INLINE float4 step(const float4& a, const float4& b)
 
 /* Performs a linear interpolation.
  */
-HLSLMATH_INLINE float4 lerp(const float4& a, const float4& b, const float4& t)
+inline float4 lerp(const float4& a, const float4& b, const float4& t)
 {
     return float4(lerp(a.x, b.x, t.x),
                   lerp(a.y, b.y, t.y), 
@@ -300,7 +300,7 @@ HLSLMATH_INLINE float4 lerp(const float4& a, const float4& b, const float4& t)
 
 /* Performs a linear interpolation.
  */
-HLSLMATH_INLINE float4 lerp(const float4& a, const float4& b, float t)
+inline float4 lerp(const float4& a, const float4& b, float t)
 {
     return float4(lerp(a.x, b.x, t),
                   lerp(a.y, b.y, t), 
@@ -310,7 +310,7 @@ HLSLMATH_INLINE float4 lerp(const float4& a, const float4& b, float t)
 
 /* Compute a smooth Hermite interpolation
  */
-HLSLMATH_INLINE float4 smoothstep(const float4& a, const float4& b, const float4& t)
+inline float4 smoothstep(const float4& a, const float4& b, const float4& t)
 {
     return float4(smoothstep(a.x, b.x, t.x),
                   smoothstep(a.y, b.y, t.y),
@@ -320,7 +320,7 @@ HLSLMATH_INLINE float4 smoothstep(const float4& a, const float4& b, const float4
 
 /* Computes square root of 'x'.
  */
-HLSLMATH_INLINE float4 sqrt(const float4& v)
+inline float4 sqrt(const float4& v)
 {
     return float4(sqrt(v.x),
                   sqrt(v.y),
@@ -330,7 +330,7 @@ HLSLMATH_INLINE float4 sqrt(const float4& v)
 
 /* Computes inverse square root of 'x'.
  */
-HLSLMATH_INLINE float4 rsqrt(const float4& v)
+inline float4 rsqrt(const float4& v)
 {
     return float4(rsqrt(v.x),
                   rsqrt(v.y),
@@ -340,7 +340,7 @@ HLSLMATH_INLINE float4 rsqrt(const float4& v)
 
 /* Computes fast inverse square root of 'x'.
  */
-HLSLMATH_INLINE float4 fsqrt(const float4& v)
+inline float4 fsqrt(const float4& v)
 {
     return float4(fsqrt(v.x),
                   fsqrt(v.y),
@@ -350,7 +350,7 @@ HLSLMATH_INLINE float4 fsqrt(const float4& v)
 
 /* Computes fast inverse square root of 'x'.
  */
-HLSLMATH_INLINE float4 frsqrt(const float4& v)
+inline float4 frsqrt(const float4& v)
 {
     return float4(frsqrt(v.x),
                   frsqrt(v.y),
@@ -364,42 +364,42 @@ HLSLMATH_INLINE float4 frsqrt(const float4& v)
 
 /* Compute dot product of two vectors
  */
-HLSLMATH_INLINE float dot(const float4& a, const float4& b)
+inline float dot(const float4& a, const float4& b)
 {
     return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 }
 
 /* Compute squared length of vector
  */
-HLSLMATH_INLINE float lensqr(const float4& v)
+inline float lensqr(const float4& v)
 {
     return dot(v, v);
 }
 
 /* Compute length of vector
  */
-HLSLMATH_INLINE float length(const float4& v)
+inline float length(const float4& v)
 {
     return sqrt(lensqr(v));
 }
 
 /* Compute distance from 'a' to b
  */
-HLSLMATH_INLINE float distance(const float4& a, const float4& b)
+inline float distance(const float4& a, const float4& b)
 {
     return length(a - b);
 }
 
 /* Compute squared distance from 'a' to b
  */
-HLSLMATH_INLINE float distsqr(const float4& a, const float4& b)
+inline float distsqr(const float4& a, const float4& b)
 {
     return lensqr(a - b);
 }
 
 /* Compute normalized vector
  */
-HLSLMATH_INLINE float4 normalize(const float4& v)
+inline float4 normalize(const float4& v)
 {
     const float lsqr = lensqr(v);
     if (lsqr > 0.0f)
@@ -415,14 +415,14 @@ HLSLMATH_INLINE float4 normalize(const float4& v)
 
 /* Compute reflection vector
  */
-HLSLMATH_INLINE float4 reflect(const float4& v, const float4& n)
+inline float4 reflect(const float4& v, const float4& n)
 {
     return v - 2.0f * dot(v, n) * n;
 }
 
 /* Compute refraction vector
  */
-HLSLMATH_INLINE float4 refract(const float4& v, const float4& n, float eta)
+inline float4 refract(const float4& v, const float4& n, float eta)
 {
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
     return k < 0.0f
@@ -432,14 +432,14 @@ HLSLMATH_INLINE float4 refract(const float4& v, const float4& n, float eta)
 
 /* Compute faceforward vector
  */
-HLSLMATH_INLINE float4 faceforward(const float4& n, const float4& i, const float4& nref)
+inline float4 faceforward(const float4& n, const float4& i, const float4& nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }
 
 /* Quaternion multiplication
  */
-HLSLMATH_INLINE float4 qmul(const float4& a, const float4& b)
+inline float4 qmul(const float4& a, const float4& b)
 {
     const float3 a3 = float3(a.x, a.y, a.z);
     const float3 b3 = float3(b.x, b.y, b.z);
@@ -449,17 +449,17 @@ HLSLMATH_INLINE float4 qmul(const float4& a, const float4& b)
     return float4(xyz, w);
 }
 
-HLSLMATH_INLINE float4 qinverse(const float4& q)
+inline float4 qinverse(const float4& q)
 {
     return float4(q.x, q.y, q.z, -q.w);
 }
 
-HLSLMATH_INLINE float4 qconj(const float4& q)
+inline float4 qconj(const float4& q)
 {
     return float4(-q.x, -q.y, -q.z, q.w);
 }
 
-HLSLMATH_INLINE float4 quatFromAxisAngle(const float3& axis, float angle)
+inline float4 quatFromAxisAngle(const float3& axis, float angle)
 {
     if (lensqr(axis) == 0.0f)
     {
@@ -469,12 +469,12 @@ HLSLMATH_INLINE float4 quatFromAxisAngle(const float3& axis, float angle)
     return float4(normalize(axis) * sin(angle * 0.5f), cosf(angle * 0.5f));
 }
 
-HLSLMATH_INLINE float4 float4::quat(const float3& axis, float angle)
+inline float4 float4::quat(const float3& axis, float angle)
 {
     return quatFromAxisAngle(axis, angle);
 }
 
-HLSLMATH_INLINE float4 quatToAxisAngle(const float4& quat)
+inline float4 quatToAxisAngle(const float4& quat)
 {
     float4 c = quat;
     if (c.w != 0.0f)
@@ -491,14 +491,14 @@ HLSLMATH_INLINE float4 quatToAxisAngle(const float4& quat)
     return float4(axis, angle);
 }
 
-HLSLMATH_INLINE void quatToAxisAngle(const float4& quat, float3* axis, float* angle)
+inline void quatToAxisAngle(const float4& quat, float3* axis, float* angle)
 {
     float4 axisAngle = quatToAxisAngle(quat);
     if (axis) *axis = (float3)axisAngle;
     if (angle) *angle = axisAngle.w;
 }
 
-HLSLMATH_INLINE float4 float4::toaxis(const float4& quat)
+inline float4 float4::toaxis(const float4& quat)
 {
     return quatToAxisAngle(quat);
 }
@@ -506,12 +506,12 @@ HLSLMATH_INLINE float4 float4::toaxis(const float4& quat)
 /* Convert quaternion to axisangle
     * @note: xyz is axis, w is angle
     */
-HLSLMATH_INLINE void float4::toaxis(const float4& quat, float3* axis, float* angle)
+inline void float4::toaxis(const float4& quat, float3* axis, float* angle)
 {
     quatToAxisAngle(quat, axis, angle);
 }
 
-HLSLMATH_INLINE float4 quatFromEuler(float x, float y, float z)
+inline float4 quatFromEuler(float x, float y, float z)
 {
     float r;
     float p;
@@ -535,14 +535,14 @@ HLSLMATH_INLINE float4 quatFromEuler(float x, float y, float z)
     );
 }
 
-HLSLMATH_INLINE float4 float4::euler(float x, float y, float z)
+inline float4 float4::euler(float x, float y, float z)
 {
     return quatFromEuler(x, y, z);
 }
 
 /* Quaternion from euler
     */
-HLSLMATH_INLINE float4 float4::euler(const float3& v)
+inline float4 float4::euler(const float3& v)
 {
     return quatFromEuler(v.x, v.y, v.z);
 }

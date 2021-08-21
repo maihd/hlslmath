@@ -51,22 +51,6 @@
 #   define HLSLMATH_SSE_ENABLE 0
 #endif
 
-// Better inline functions
-#if defined(_MSC_VER)
-#   define HLSLMATH_INLINE __forceinline
-#elif defined(__GNUC__)
-#   define HLSLMATH_INLINE __attribute__((always_inline)) inline
-#else
-#   define HLSLMATH_INLINE inline
-#endif
-
-// Multiple compiler support for constexpr
-#if __cplusplus >= 201103L
-#define HLSLMATH_CONSTEXPR constexpr
-#else
-#define HLSLMATH_CONSTEXPR HLSLMATH_INLINE
-#endif
-
 // API deprecated declaration
 #if __cplusplus >= 201103L
 #   define HLSLMATH_DEPRECATED(version, reason) [[deprecated]]
@@ -80,11 +64,11 @@
 
 // Supporting data alignment for cache-friendly
 #if __cplusplus >= 201103L
-#   define HLSLMATH_ALIGNED(Type)   alignas(16) Type
+#   define HLSLMATH_ALIGNAS(Type)   alignas(16) Type
 #elif defined(_MSC_VER)
-#   define HLSLMATH_ALIGNED(Type)   __declspec(align(16)) Type
+#   define HLSLMATH_ALIGNAS(Type)   __declspec(align(16)) Type
 #elif defined(__GNUC__)
-#   define HLSLMATH_ALIGNED(Type)   Type __attribute__((aligned(16)))
+#   define HLSLMATH_ALIGNAS(Type)   Type __attribute__((aligned(16)))
 #else
 #   error "Define HLSLMATH_ALIGNED for your compiler or platform!"
 #endif
@@ -93,12 +77,12 @@
 #if defined(__ANDROID__) 
 extern "C"
 {
-    HLSLMATH_INLINE float log2f(float x)
+    inline float log2f(float x)
     {
         return (logf(x) / 0.693147180559945f);
     }
 
-    HLSLMATH_INLINE double log2(double x)
+    inline double log2(double x)
     {
         return (log(x) / 0.693147180559945);
     }

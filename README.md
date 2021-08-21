@@ -89,6 +89,9 @@ Work in progress.
 ## Further reading
 - [HLSL data types](https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-data-types)
 - [HLSL Math functions (intrinsics)](https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-intrinsic-functions)
+- [Inline functions FQA](https://yosefk.com/c++fqa/inline.html)
+> FQA: To summarize: the compiler has the right to inline or not inline any function, whether it's declared inline in any of the several ways or not.<br/>
+> => I decise to remove hard-to-read HLSLMATH_INLINE and HLSLMATH_CONSTEXPR macros. Use simple 'inline' keyword, just to hint the compilers. Sony's Math library do the same.
 - [Operator overloading FQA](https://yosefk.com/c++fqa/operator.html)
 - [TDD and Math library](https://gamesfromwithin.com/when-is-it-ok-not-to-tdd)
 > On the other hand, I would argue that using TDD on a math library is a bad idea. It’s essential to write good unit tests for a math library, but probably not to design it through TDD. Are you really going to implement a cross product differently just because you wrote tests before? The emphasis there has to be on correctness and performance, not on creating the interface or implementation through tests.<br/>

@@ -1,6 +1,6 @@
 /* Computes sign of 'x'
  */
-HLSLMATH_INLINE int4x4 sign(const float4x4& m)
+inline int4x4 sign(const float4x4& m)
 {
     return int4x4(sign(m[0]),
                   sign(m[1]),
@@ -10,7 +10,7 @@ HLSLMATH_INLINE int4x4 sign(const float4x4& m)
 
 /* Computes absolute value
  */
-HLSLMATH_INLINE float4x4 abs(const float4x4& m)
+inline float4x4 abs(const float4x4& m)
 {
     return float4x4(abs(m[0]),
                     abs(m[1]),
@@ -20,7 +20,7 @@ HLSLMATH_INLINE float4x4 abs(const float4x4& m)
 
 /* Computes cosine
  */
-HLSLMATH_INLINE float4x4 cos(const float4x4& m)
+inline float4x4 cos(const float4x4& m)
 {
     return float4x4(cos(m[0]),
                     cos(m[1]),
@@ -30,7 +30,7 @@ HLSLMATH_INLINE float4x4 cos(const float4x4& m)
 
 /* Computes sine
  */
-HLSLMATH_INLINE float4x4 sin(const float4x4& m)
+inline float4x4 sin(const float4x4& m)
 {
     return float4x4(sin(m[0]),
                     sin(m[1]),
@@ -40,7 +40,7 @@ HLSLMATH_INLINE float4x4 sin(const float4x4& m)
 
 /* Computes tangent
  */
-HLSLMATH_INLINE float4x4 tan(const float4x4& m)
+inline float4x4 tan(const float4x4& m)
 {
     return float4x4(tan(m[0]),
                     tan(m[1]),
@@ -50,7 +50,7 @@ HLSLMATH_INLINE float4x4 tan(const float4x4& m)
 
 /* Computes hyperbolic cosine
  */
-HLSLMATH_INLINE float4x4 cosh(const float4x4& m)
+inline float4x4 cosh(const float4x4& m)
 {
     return float4x4(cosh(m[0]),
                     cosh(m[1]),
@@ -60,7 +60,7 @@ HLSLMATH_INLINE float4x4 cosh(const float4x4& m)
 
 /* Computes hyperbolic sine
  */
-HLSLMATH_INLINE float4x4 sinh(const float4x4& m)
+inline float4x4 sinh(const float4x4& m)
 {
     return float4x4(sinh(m[0]),
                     sinh(m[1]),
@@ -70,7 +70,7 @@ HLSLMATH_INLINE float4x4 sinh(const float4x4& m)
 
 /* Computes hyperbolic tangent
  */
-HLSLMATH_INLINE float4x4 tanh(const float4x4& m)
+inline float4x4 tanh(const float4x4& m)
 {
     return float4x4(tanh(m[0]),
                     tanh(m[1]),
@@ -80,7 +80,7 @@ HLSLMATH_INLINE float4x4 tanh(const float4x4& m)
 
 /* Computes inverse cosine
  */
-HLSLMATH_INLINE float4x4 acos(const float4x4& m)
+inline float4x4 acos(const float4x4& m)
 {
     return float4x4(acos(m[0]),
                     acos(m[1]),
@@ -90,7 +90,7 @@ HLSLMATH_INLINE float4x4 acos(const float4x4& m)
 
 /* Computes inverse sine
  */
-HLSLMATH_INLINE float4x4 asin(const float4x4& m)
+inline float4x4 asin(const float4x4& m)
 {
     return float4x4(asin(m[0]),
                     asin(m[1]),
@@ -100,7 +100,7 @@ HLSLMATH_INLINE float4x4 asin(const float4x4& m)
 
 /* Computes inverse tangent
  */
-HLSLMATH_INLINE float4x4 atan(const float4x4& m)
+inline float4x4 atan(const float4x4& m)
 {
     return float4x4(atan(m[0]),
                     atan(m[1]),
@@ -110,7 +110,7 @@ HLSLMATH_INLINE float4x4 atan(const float4x4& m)
 
 /* Computes inverse tangent with 2 args
  */
-HLSLMATH_INLINE float4x4 atan2(const float4x4& a, const float4x4& b)
+inline float4x4 atan2(const float4x4& a, const float4x4& b)
 {
     return float4x4(atan2(a[0], b[0]),
                     atan2(a[1], b[1]),
@@ -120,7 +120,7 @@ HLSLMATH_INLINE float4x4 atan2(const float4x4& a, const float4x4& b)
 
 /* Computes Euler number raised to the power 'x'
  */
-HLSLMATH_INLINE float4x4 exp(const float4x4& m)
+inline float4x4 exp(const float4x4& m)
 {
     return float4x4(exp(m[0]),
                     exp(m[1]),
@@ -130,7 +130,7 @@ HLSLMATH_INLINE float4x4 exp(const float4x4& m)
 
 /* Computes 2 raised to the power 'x'
  */
-HLSLMATH_INLINE float4x4 exp2(const float4x4& m)
+inline float4x4 exp2(const float4x4& m)
 {
     return float4x4(exp2(m[0]),
                     exp2(m[1]),
@@ -140,7 +140,7 @@ HLSLMATH_INLINE float4x4 exp2(const float4x4& m)
 
 /* Computes the base Euler number logarithm
  */
-HLSLMATH_INLINE float4x4 log(const float4x4& m)
+inline float4x4 log(const float4x4& m)
 {
     return float4x4(log(m[0]),
                     log(m[1]),
@@ -150,7 +150,7 @@ HLSLMATH_INLINE float4x4 log(const float4x4& m)
 
 /* Computes the base 2 logarithm
  */
-HLSLMATH_INLINE float4x4 log2(const float4x4& m)
+inline float4x4 log2(const float4x4& m)
 {
     return float4x4(log2(m[0]),
                     log2(m[1]),
@@ -160,7 +160,7 @@ HLSLMATH_INLINE float4x4 log2(const float4x4& m)
 
 /* Computes the base 10 logarithm
  */
-HLSLMATH_INLINE float4x4 log10(const float4x4& m)
+inline float4x4 log10(const float4x4& m)
 {
     return float4x4(log10(m[0]),
                     log10(m[1]),
@@ -170,7 +170,7 @@ HLSLMATH_INLINE float4x4 log10(const float4x4& m)
 
 /* Computes the value of base raised to the power exponent
  */
-HLSLMATH_INLINE float4x4 pow(const float4x4& a, const float4x4& b)
+inline float4x4 pow(const float4x4& a, const float4x4& b)
 {
     return float4x4(pow(a[0], b[0]),
                     pow(a[1], b[1]),
@@ -180,7 +180,7 @@ HLSLMATH_INLINE float4x4 pow(const float4x4& a, const float4x4& b)
 
 /* Get the fractal part of floating point
  */
-HLSLMATH_INLINE float4x4 frac(const float4x4& m)
+inline float4x4 frac(const float4x4& m)
 {
     return float4x4(frac(m[0]),
                     frac(m[1]),
@@ -190,7 +190,7 @@ HLSLMATH_INLINE float4x4 frac(const float4x4& m)
 
 /* Computes the floating-point remainder of the division operation x/y
  */
-HLSLMATH_INLINE float4x4 fmod(const float4x4& a, const float4x4& b)
+inline float4x4 fmod(const float4x4& a, const float4x4& b)
 {
     return float4x4(fmod(a[0], b[0]),
                     fmod(a[1], b[1]),
@@ -200,7 +200,7 @@ HLSLMATH_INLINE float4x4 fmod(const float4x4& a, const float4x4& b)
 
 /* Computes the smallest integer value not less than 'x'
  */
-HLSLMATH_INLINE float4x4 ceil(const float4x4& m)
+inline float4x4 ceil(const float4x4& m)
 {
     return float4x4(ceil(m[0]),
                     ceil(m[1]),
@@ -210,7 +210,7 @@ HLSLMATH_INLINE float4x4 ceil(const float4x4& m)
 
 /* Computes the largest integer value not greater than 'x'
  */
-HLSLMATH_INLINE float4x4 floor(const float4x4& m)
+inline float4x4 floor(const float4x4& m)
 {
     return float4x4(floor(m[0]),
                     floor(m[1]),
@@ -220,7 +220,7 @@ HLSLMATH_INLINE float4x4 floor(const float4x4& m)
 
 /* Computes the nearest integer value
  */
-HLSLMATH_INLINE float4x4 round(const float4x4& m)
+inline float4x4 round(const float4x4& m)
 {
     return float4x4(round(m[0]),
                     round(m[1]),
@@ -230,7 +230,7 @@ HLSLMATH_INLINE float4x4 round(const float4x4& m)
 
 /* Computes the nearest integer not greater in magnitude than 'x'
  */
-HLSLMATH_INLINE float4x4 trunc(const float4x4& m)
+inline float4x4 trunc(const float4x4& m)
 {
     return float4x4(trunc(m[0]),
                     trunc(m[1]),
@@ -240,7 +240,7 @@ HLSLMATH_INLINE float4x4 trunc(const float4x4& m)
 
 /* Get the smaller value
  */
-HLSLMATH_INLINE float4x4 min(const float4x4& a, const float4x4& b)
+inline float4x4 min(const float4x4& a, const float4x4& b)
 {
     return float4x4(min(a[0], b[0]),
                     min(a[1], b[1]),
@@ -250,7 +250,7 @@ HLSLMATH_INLINE float4x4 min(const float4x4& a, const float4x4& b)
 
 /* Get the larger value
  */
-HLSLMATH_INLINE float4x4 max(const float4x4& a, const float4x4& b)
+inline float4x4 max(const float4x4& a, const float4x4& b)
 {
     return float4x4(max(a[0], b[0]), 
                     max(a[1], b[1]),
@@ -260,7 +260,7 @@ HLSLMATH_INLINE float4x4 max(const float4x4& a, const float4x4& b)
 
 /* Clamps the 'x' value to the [min, max].
  */
-HLSLMATH_INLINE float4x4 clamp(const float4x4& v, const float4x4& min, const float4x4& max)
+inline float4x4 clamp(const float4x4& v, const float4x4& min, const float4x4& max)
 {
     return float4x4(clamp(v[0], min[0], max[0]), 
                     clamp(v[1], min[1], max[1]), 
@@ -270,7 +270,7 @@ HLSLMATH_INLINE float4x4 clamp(const float4x4& v, const float4x4& min, const flo
 
 /* Clamps the specified value within the range of 0 to 1
  */
-HLSLMATH_INLINE float4x4 saturate(const float4x4& m)
+inline float4x4 saturate(const float4x4& m)
 {
     return float4x4(saturate(m[0]),
                     saturate(m[1]),
@@ -280,7 +280,7 @@ HLSLMATH_INLINE float4x4 saturate(const float4x4& m)
 
 /* Compares two values, returning 0 or 1 based on which value is greater.
  */
-HLSLMATH_INLINE float4x4 step(const float4x4& a, const float4x4& b)
+inline float4x4 step(const float4x4& a, const float4x4& b)
 {
     return float4x4(step(a[0], b[0]),
                     step(a[1], b[1]),
@@ -290,7 +290,7 @@ HLSLMATH_INLINE float4x4 step(const float4x4& a, const float4x4& b)
 
 /* Performs a linear interpolation.
  */
-HLSLMATH_INLINE float4x4 lerp(const float4x4& a, const float4x4& b, const float4x4& t)
+inline float4x4 lerp(const float4x4& a, const float4x4& b, const float4x4& t)
 {
     return float4x4(lerp(a[0], b[0], t[0]),
                     lerp(a[1], b[1], t[1]), 
@@ -300,7 +300,7 @@ HLSLMATH_INLINE float4x4 lerp(const float4x4& a, const float4x4& b, const float4
 
 /* Performs a linear interpolation.
  */
-HLSLMATH_INLINE float4x4 lerp(const float4x4& a, const float4x4& b, float t)
+inline float4x4 lerp(const float4x4& a, const float4x4& b, float t)
 {
     return float4x4(lerp(a[0], b[0], t),
                     lerp(a[1], b[1], t), 
@@ -310,7 +310,7 @@ HLSLMATH_INLINE float4x4 lerp(const float4x4& a, const float4x4& b, float t)
 
 /* Compute a smooth Hermite interpolation
  */
-HLSLMATH_INLINE float4x4 smoothstep(const float4x4& a, const float4x4& b, const float4x4& t)
+inline float4x4 smoothstep(const float4x4& a, const float4x4& b, const float4x4& t)
 {
     return float4x4(smoothstep(a[0], b[0], t[0]),
                     smoothstep(a[1], b[1], t[1]),
@@ -320,7 +320,7 @@ HLSLMATH_INLINE float4x4 smoothstep(const float4x4& a, const float4x4& b, const 
 
 /* Computes square root of 'x'.
  */
-HLSLMATH_INLINE float4x4 sqrt(const float4x4& m)
+inline float4x4 sqrt(const float4x4& m)
 {
     return float4x4(sqrt(m[0]),
                     sqrt(m[1]),
@@ -330,7 +330,7 @@ HLSLMATH_INLINE float4x4 sqrt(const float4x4& m)
 
 /* Computes inverse square root of 'x'.
  */
-HLSLMATH_INLINE float4x4 rsqrt(const float4x4& m)
+inline float4x4 rsqrt(const float4x4& m)
 {
     return float4x4(rsqrt(m[0]),
                     rsqrt(m[1]),
@@ -340,7 +340,7 @@ HLSLMATH_INLINE float4x4 rsqrt(const float4x4& m)
 
 /* Computes fast inverse square root of 'x'.
  */
-HLSLMATH_INLINE float4x4 fsqrt(const float4x4& m)
+inline float4x4 fsqrt(const float4x4& m)
 {
     return float4x4(fsqrt(m[0]),
                     fsqrt(m[1]),
@@ -350,7 +350,7 @@ HLSLMATH_INLINE float4x4 fsqrt(const float4x4& m)
 
 /* Computes fast inverse square root of 'x'.
  */
-HLSLMATH_INLINE float4x4 frsqrt(const float4x4& m)
+inline float4x4 frsqrt(const float4x4& m)
 {
     return float4x4(frsqrt(m[0]),
                     frsqrt(m[1]),
@@ -362,7 +362,7 @@ HLSLMATH_INLINE float4x4 frsqrt(const float4x4& m)
 // @region: Matrix operations
 //
 
-HLSLMATH_INLINE float4 mul(const float4x4& a, const float4& b)
+inline float4 mul(const float4x4& a, const float4& b)
 {
     const float4 c0 = float4(a[0][0], a[1][0], a[2][0], a[3][0]);
     const float4 c1 = float4(a[0][1], a[1][1], a[2][1], a[3][1]);
@@ -377,7 +377,7 @@ HLSLMATH_INLINE float4 mul(const float4x4& a, const float4& b)
     );
 }
 
-HLSLMATH_INLINE float4 mul(const float4& a, const float4x4& b)
+inline float4 mul(const float4& a, const float4x4& b)
 {
     return float4(
         dot(a, b[0]),
@@ -387,7 +387,7 @@ HLSLMATH_INLINE float4 mul(const float4& a, const float4x4& b)
     );
 }
 
-HLSLMATH_INLINE float3 mul(const float4x4& a, const float3& b)
+inline float3 mul(const float4x4& a, const float3& b)
 {
     const float4 b0 = float4(b.x, b.y, b.z, 1.0f);
     const float4 b1 = mul(a, b0);
@@ -396,7 +396,7 @@ HLSLMATH_INLINE float3 mul(const float4x4& a, const float3& b)
     return float3(b1.x * iw, b1.y * iw, b1.z * iw);
 }
 
-HLSLMATH_INLINE float3 mul(const float3& a, const float4x4& b)
+inline float3 mul(const float3& a, const float4x4& b)
 {
     const float4 a0 = float4(a.x, a.y, a.z, 1.0f);
     const float4 a1 = mul(a0, b);
@@ -405,7 +405,7 @@ HLSLMATH_INLINE float3 mul(const float3& a, const float4x4& b)
     return float3(a1.x * iw, a1.y * iw, a1.z * iw);
 }
 
-HLSLMATH_INLINE float4x4 mul(const float4x4& a, const float4x4& b)
+inline float4x4 mul(const float4x4& a, const float4x4& b)
 {
     float4x4 result;
     result[0] = mul(a, b[0]);
@@ -415,7 +415,7 @@ HLSLMATH_INLINE float4x4 mul(const float4x4& a, const float4x4& b)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 transpose(const float4x4& m)
+inline float4x4 transpose(const float4x4& m)
 {
     float4x4 result;
     result[0][0] = m[0][0]; result[0][1] = m[1][0]; result[0][2] = m[2][0]; result[0][3] = m[3][0];
@@ -425,7 +425,7 @@ HLSLMATH_INLINE float4x4 transpose(const float4x4& m)
     return result;
 }
 
-HLSLMATH_INLINE float4x4 inverse(const float4x4& m)
+inline float4x4 inverse(const float4x4& m)
 {
     const float n11 = m[0][0], n12 = m[1][0], n13 = m[2][0], n14 = m[3][0];
     const float n21 = m[0][1], n22 = m[1][1], n23 = m[2][1], n24 = m[3][1];
@@ -473,7 +473,18 @@ HLSLMATH_INLINE float4x4 inverse(const float4x4& m)
 // @region: Graphics functions
 //
 
-HLSLMATH_INLINE float4x4 float4x4Ortho(float l, float r, float b, float t, float n, float f)
+inline float4x4 float4x4Identity()
+{
+    return float4x4(
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1
+    );
+}
+
+
+inline float4x4 float4x4Ortho(float l, float r, float b, float t, float n, float f)
 {
     const float x = 1.0f / (r - l);
     const float y = 1.0f / (t - b);
@@ -487,7 +498,7 @@ HLSLMATH_INLINE float4x4 float4x4Ortho(float l, float r, float b, float t, float
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4Frustum(float l, float r, float b, float t, float n, float f)
+inline float4x4 float4x4Frustum(float l, float r, float b, float t, float n, float f)
 {
     const float x = 1.0f / (r - l);
     const float y = 1.0f / (t - b);
@@ -501,7 +512,7 @@ HLSLMATH_INLINE float4x4 float4x4Frustum(float l, float r, float b, float t, flo
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4Perspective(float fov, float aspect, float znear, float zfar)
+inline float4x4 float4x4Perspective(float fov, float aspect, float znear, float zfar)
 {
     const float a = 1.0f / tan(fov * 0.5f);
     const float b = zfar / (znear - zfar);
@@ -514,7 +525,7 @@ HLSLMATH_INLINE float4x4 float4x4Perspective(float fov, float aspect, float znea
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4LookAt(const float3& eye, const float3& target, const float3& up)
+inline float4x4 float4x4LookAt(const float3& eye, const float3& target, const float3& up)
 {
     const float3 z = normalize(eye - target);
     const float3 x = normalize(cross(up, z));
@@ -528,7 +539,7 @@ HLSLMATH_INLINE float4x4 float4x4LookAt(const float3& eye, const float3& target,
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4Scalation(float x, float y, float z = 0.0f)
+inline float4x4 float4x4Scalation(float x, float y, float z = 0.0f)
 {
     return float4x4(
         x, 0, 0, 0,
@@ -538,22 +549,22 @@ HLSLMATH_INLINE float4x4 float4x4Scalation(float x, float y, float z = 0.0f)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4Scalation(float s)
+inline float4x4 float4x4Scalation(float s)
 {
     return float4x4Scalation(s, s, s);
 }
 
-HLSLMATH_INLINE float4x4 float4x4Scalation(const float2& v)
+inline float4x4 float4x4Scalation(const float2& v)
 {
     return float4x4Scalation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float4x4 float4x4Scalation(const float3& v)
+inline float4x4 float4x4Scalation(const float3& v)
 {
     return float4x4Scalation(v.x, v.y, v.z);
 }
 
-HLSLMATH_INLINE float4x4 float4x4Translation(float x, float y, float z = 0.0f)
+inline float4x4 float4x4Translation(float x, float y, float z = 0.0f)
 {
     return float4x4(
         1, 0, 0, 0,
@@ -563,17 +574,17 @@ HLSLMATH_INLINE float4x4 float4x4Translation(float x, float y, float z = 0.0f)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4Translation(const float2& v)
+inline float4x4 float4x4Translation(const float2& v)
 {
     return float4x4Translation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float4x4 float4x4Translation(const float3& v)
+inline float4x4 float4x4Translation(const float3& v)
 {
     return float4x4Translation(v.x, v.y, v.z);
 }
 
-HLSLMATH_INLINE float4x4 float4x4Rotation(float x, float y, float z, float angle)
+inline float4x4 float4x4Rotation(float x, float y, float z, float angle)
 {
     const float c = cos(-angle);
     const float s = sin(-angle);
@@ -603,12 +614,12 @@ HLSLMATH_INLINE float4x4 float4x4Rotation(float x, float y, float z, float angle
     return result;
 }
 
-HLSLMATH_INLINE float4x4 float4x4Rotation(const float3& axis, float angle)
+inline float4x4 float4x4Rotation(const float3& axis, float angle)
 {
     return float4x4Rotation(axis.x, axis.y, axis.z, angle);
 }
 
-HLSLMATH_INLINE float4x4 float4x4RotationX(float angle)
+inline float4x4 float4x4RotationX(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -621,7 +632,7 @@ HLSLMATH_INLINE float4x4 float4x4RotationX(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4RotationY(float angle)
+inline float4x4 float4x4RotationY(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -634,7 +645,7 @@ HLSLMATH_INLINE float4x4 float4x4RotationY(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4RotationZ(float angle)
+inline float4x4 float4x4RotationZ(float angle)
 {
     const float s = sin(angle);
     const float c = cos(angle);
@@ -647,13 +658,13 @@ HLSLMATH_INLINE float4x4 float4x4RotationZ(float angle)
     );
 }
 
-HLSLMATH_INLINE float4x4 float4x4Rotation(const float4& quaternion)
+inline float4x4 float4x4Rotation(const float4& quaternion)
 {
     float4 axisangle = quatToAxisAngle(quaternion);
     return float4x4Rotation(axisangle.x, axisangle.y, axisangle.z, axisangle.w);
 }
 
-HLSLMATH_INLINE void float4x4Decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
+inline void float4x4Decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
 {
     if (translation)
     {
@@ -756,7 +767,7 @@ HLSLMATH_INLINE void float4x4Decompose(const float4x4& m, float3* scalation, flo
     }
 }
 
-HLSLMATH_INLINE void float4x4Decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
+inline void float4x4Decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
 {
     if (axis || angle)
     {
@@ -771,97 +782,102 @@ HLSLMATH_INLINE void float4x4Decompose(const float4x4& m, float3* scalation, flo
     }
 }
 
-HLSLMATH_INLINE float4x4 float4x4::ortho(float l, float r, float b, float t, float n, float f)
+inline float4x4 float4x4::identity()
+{
+    return float4x4Identity();
+}
+
+inline float4x4 float4x4::ortho(float l, float r, float b, float t, float n, float f)
 {
     return float4x4Ortho(l, r, b, t, n, f);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::frustum(float l, float r, float b, float t, float n, float f)
+inline float4x4 float4x4::frustum(float l, float r, float b, float t, float n, float f)
 {
     return float4x4Frustum(l, r, b, t, n, f);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::perspective(float fov, float aspect, float znear, float zfar)
+inline float4x4 float4x4::perspective(float fov, float aspect, float znear, float zfar)
 {
     return float4x4Perspective(fov, aspect, znear, zfar);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::lookat(const float3& eye, const float3& target, const float3& up)
+inline float4x4 float4x4::lookat(const float3& eye, const float3& target, const float3& up)
 {
     return float4x4LookAt(eye, target, up);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::scalation(float s)
+inline float4x4 float4x4::scalation(float s)
 {
     return float4x4Scalation(s, s, s);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::scalation(const float2& v)
+inline float4x4 float4x4::scalation(const float2& v)
 {
     return float4x4Scalation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::scalation(const float3& v)
+inline float4x4 float4x4::scalation(const float3& v)
 {
     return float4x4Scalation(v.x, v.y, v.z);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::scalation(float x, float y, float z)
+inline float4x4 float4x4::scalation(float x, float y, float z)
 {
     return float4x4Scalation(x, y, z);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(const float2& v)
+inline float4x4 float4x4::translation(const float2& v)
 {
     return float4x4Translation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(const float3& v)
+inline float4x4 float4x4::translation(const float3& v)
 {
     return float4x4Translation(v.x, v.y, v.z);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::translation(float x, float y, float z)
+inline float4x4 float4x4::translation(float x, float y, float z)
 {
     return float4x4Translation(x, y, z);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(const float3& axis, float angle)
+inline float4x4 float4x4::rotation(const float3& axis, float angle)
 {
     return float4x4Rotation(axis.x, axis.y, axis.z, angle);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(float x, float y, float z, float angle)
+inline float4x4 float4x4::rotation(float x, float y, float z, float angle)
 {
     return float4x4Rotation(x, y, z, angle);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_x(float angle)
+inline float4x4 float4x4::rotation_x(float angle)
 {
     return float4x4RotationX(angle);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_y(float angle)
+inline float4x4 float4x4::rotation_y(float angle)
 {
     return float4x4RotationY(angle);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation_z(float angle)
+inline float4x4 float4x4::rotation_z(float angle)
 {
     return float4x4RotationZ(angle);
 }
 
-HLSLMATH_INLINE float4x4 float4x4::rotation(const float4& quaternion)
+inline float4x4 float4x4::rotation(const float4& quaternion)
 {
     return float4x4Rotation(quaternion);
 }
 
-HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
+inline void float4x4::decompose(const float4x4& m, float3* scalation, float4* quaternion, float3* translation)
 {
     float4x4Decompose(m, scalation, quaternion, translation);
 }
 
-HLSLMATH_INLINE void float4x4::decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
+inline void float4x4::decompose(const float4x4& m, float3* scalation, float3* axis, float* angle, float3* translation)
 {
     float4x4Decompose(m, scalation, axis, angle, translation);
 }

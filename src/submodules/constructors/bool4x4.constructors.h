@@ -1,9 +1,4 @@
-HLSLMATH_CONSTEXPR bool4x4::bool4x4()
-    : data()
-{
-}
-
-HLSLMATH_INLINE bool4x4::bool4x4(
+inline bool4x4::bool4x4(
     const bool4& m0, 
     const bool4& m1, 
     const bool4& m2, 
@@ -16,7 +11,7 @@ HLSLMATH_INLINE bool4x4::bool4x4(
     (*this)[3] = m3;
 }
 
-HLSLMATH_INLINE bool4x4::bool4x4(
+inline bool4x4::bool4x4(
     bool m00, bool m01, bool m02, bool m03,
     bool m10, bool m11, bool m12, bool m13,
     bool m20, bool m21, bool m22, bool m23,
@@ -29,7 +24,7 @@ HLSLMATH_INLINE bool4x4::bool4x4(
     (*this)[3] = bool4(m30, m31, m32, m33);
 }
 
-HLSLMATH_INLINE bool4x4::bool4x4(bool s)
+inline bool4x4::bool4x4(bool s)
 {
     (*this)[0] = bool4(s, s, s, s);
     (*this)[1] = bool4(s, s, s, s);
@@ -37,13 +32,13 @@ HLSLMATH_INLINE bool4x4::bool4x4(bool s)
     (*this)[3] = bool4(s, s, s, s);
 }
 
-HLSLMATH_INLINE bool4& bool4x4::operator[](int index)
+inline bool4& bool4x4::operator[](int index)
 {
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((bool4*)data)[index];
 }
 
-HLSLMATH_INLINE const bool4& bool4x4::operator[](int index) const
+inline const bool4& bool4x4::operator[](int index) const
 {
     HLSLMATH_ASSERT(index > -1 && index < 4, "Index out of range");
     return ((bool4*)data)[index];

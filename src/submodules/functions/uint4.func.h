@@ -1,6 +1,6 @@
 /* Get the smaller value
  */
-HLSLMATH_INLINE uint4 min(const uint4& a, const uint4& b)
+inline uint4 min(const uint4& a, const uint4& b)
 {
     return uint4(min(a[0], b[0]),
                  min(a[1], b[1]),
@@ -10,7 +10,7 @@ HLSLMATH_INLINE uint4 min(const uint4& a, const uint4& b)
 
 /* Get the larger value
  */
-HLSLMATH_INLINE uint4 max(const uint4& a, const uint4& b)
+inline uint4 max(const uint4& a, const uint4& b)
 {
     return uint4(max(a[0], b[0]), 
                  max(a[1], b[1]),
@@ -20,7 +20,7 @@ HLSLMATH_INLINE uint4 max(const uint4& a, const uint4& b)
 
 /* Clamps the 'x' value to the [min, max].
  */
-HLSLMATH_INLINE uint4 clamp(const uint4& v, const uint4& min, const uint4& max)
+inline uint4 clamp(const uint4& v, const uint4& min, const uint4& max)
 {
     return uint4(clamp(v[0], min[0], max[0]), 
                  clamp(v[1], min[1], max[1]), 

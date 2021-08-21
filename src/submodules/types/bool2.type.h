@@ -5,7 +5,7 @@ union bool2
         bool            x, y;
     };
 
-    HLSLMATH_CONSTEXPR  bool2();
+    inline              bool2() {} // Default constructor, do no intialization
                         bool2(bool s);
                         bool2(bool x, bool y);
 

@@ -1,6 +1,6 @@
 /* Computes sign of 'x'
  */
-HLSLMATH_INLINE int3 sign(const float3& v)
+inline int3 sign(const float3& v)
 {
     return int3(sign(v.x),
                 sign(v.y),
@@ -9,7 +9,7 @@ HLSLMATH_INLINE int3 sign(const float3& v)
 
 /* Computes absolute value
  */
-HLSLMATH_INLINE float3 abs(const float3& v)
+inline float3 abs(const float3& v)
 {
     return float3(abs(v.x),
                   abs(v.y),
@@ -18,7 +18,7 @@ HLSLMATH_INLINE float3 abs(const float3& v)
 
 /* Computes cosine
  */
-HLSLMATH_INLINE float3 cos(const float3& v)
+inline float3 cos(const float3& v)
 {
     return float3(cos(v.x),
                   cos(v.y),
@@ -27,7 +27,7 @@ HLSLMATH_INLINE float3 cos(const float3& v)
 
 /* Computes sine
  */
-HLSLMATH_INLINE float3 sin(const float3& v)
+inline float3 sin(const float3& v)
 {
     return float3(sin(v.x),
                   sin(v.y),
@@ -36,7 +36,7 @@ HLSLMATH_INLINE float3 sin(const float3& v)
 
 /* Computes tangent
  */
-HLSLMATH_INLINE float3 tan(const float3& v)
+inline float3 tan(const float3& v)
 {
     return float3(tan(v.x),
                   tan(v.y),
@@ -45,7 +45,7 @@ HLSLMATH_INLINE float3 tan(const float3& v)
 
 /* Computes hyperbolic cosine
  */
-HLSLMATH_INLINE float3 cosh(const float3& v)
+inline float3 cosh(const float3& v)
 {
     return float3(cosh(v.x),
                   cosh(v.y),
@@ -54,7 +54,7 @@ HLSLMATH_INLINE float3 cosh(const float3& v)
 
 /* Computes hyperbolic sine
  */
-HLSLMATH_INLINE float3 sinh(const float3& v)
+inline float3 sinh(const float3& v)
 {
     return float3(sinh(v.x),
                   sinh(v.y),
@@ -63,7 +63,7 @@ HLSLMATH_INLINE float3 sinh(const float3& v)
 
 /* Computes hyperbolic tangent
  */
-HLSLMATH_INLINE float3 tanh(const float3& v)
+inline float3 tanh(const float3& v)
 {
     return float3(tanh(v.x),
                   tanh(v.y),
@@ -72,7 +72,7 @@ HLSLMATH_INLINE float3 tanh(const float3& v)
 
 /* Computes inverse cosine
  */
-HLSLMATH_INLINE float3 acos(const float3& v)
+inline float3 acos(const float3& v)
 {
     return float3(acos(v.x),
                   acos(v.y),
@@ -81,7 +81,7 @@ HLSLMATH_INLINE float3 acos(const float3& v)
 
 /* Computes inverse sine
  */
-HLSLMATH_INLINE float3 asin(const float3& v)
+inline float3 asin(const float3& v)
 {
     return float3(asin(v.x),
                   asin(v.y),
@@ -90,7 +90,7 @@ HLSLMATH_INLINE float3 asin(const float3& v)
 
 /* Computes inverse tangent
  */
-HLSLMATH_INLINE float3 atan(const float3& v)
+inline float3 atan(const float3& v)
 {
     return float3(atan(v.x),
                   atan(v.y),
@@ -99,7 +99,7 @@ HLSLMATH_INLINE float3 atan(const float3& v)
 
 /* Computes inverse tangent with 2 args
  */
-HLSLMATH_INLINE float3 atan2(const float3& a, const float3& b)
+inline float3 atan2(const float3& a, const float3& b)
 {
     return float3(atan2(a.x, b.x),
                   atan2(a.y, b.y),
@@ -108,7 +108,7 @@ HLSLMATH_INLINE float3 atan2(const float3& a, const float3& b)
 
 /* Computes Euler number raised to the power 'x'
  */
-HLSLMATH_INLINE float3 exp(const float3& v)
+inline float3 exp(const float3& v)
 {
     return float3(exp(v.x),
                   exp(v.y),
@@ -117,7 +117,7 @@ HLSLMATH_INLINE float3 exp(const float3& v)
 
 /* Computes 2 raised to the power 'x'
  */
-HLSLMATH_INLINE float3 exp2(const float3& v)
+inline float3 exp2(const float3& v)
 {
     return float3(exp2(v.x),
                   exp2(v.y),
@@ -126,7 +126,7 @@ HLSLMATH_INLINE float3 exp2(const float3& v)
 
 /* Computes the base Euler number logarithm
  */
-HLSLMATH_INLINE float3 log(const float3& v)
+inline float3 log(const float3& v)
 {
     return float3(log(v.x),
                   log(v.y),
@@ -135,7 +135,7 @@ HLSLMATH_INLINE float3 log(const float3& v)
 
 /* Computes the base 2 logarithm
  */
-HLSLMATH_INLINE float3 log2(const float3& v)
+inline float3 log2(const float3& v)
 {
     return float3(log2(v.x),
                   log2(v.y),
@@ -144,7 +144,7 @@ HLSLMATH_INLINE float3 log2(const float3& v)
 
 /* Computes the base 10 logarithm
  */
-HLSLMATH_INLINE float3 log10(const float3& v)
+inline float3 log10(const float3& v)
 {
     return float3(log10(v.x),
                   log10(v.y),
@@ -153,7 +153,7 @@ HLSLMATH_INLINE float3 log10(const float3& v)
 
 /* Computes the value of base raised to the power exponent
  */
-HLSLMATH_INLINE float3 pow(const float3& a, const float3& b)
+inline float3 pow(const float3& a, const float3& b)
 {
     return float3(pow(a.x, b.x),
                   pow(a.y, b.y),
@@ -162,7 +162,7 @@ HLSLMATH_INLINE float3 pow(const float3& a, const float3& b)
 
 /* Get the fractal part of floating point
  */
-HLSLMATH_INLINE float3 frac(const float3& v)
+inline float3 frac(const float3& v)
 {
     return float3(frac(v.x),
                   frac(v.y),
@@ -171,7 +171,7 @@ HLSLMATH_INLINE float3 frac(const float3& v)
 
 /* Computes the floating-point remainder of the division operation x/y
  */
-HLSLMATH_INLINE float3 fmod(const float3& a, const float3& b)
+inline float3 fmod(const float3& a, const float3& b)
 {
     return float3(fmod(a.x, b.x),
                   fmod(a.y, b.y),
@@ -180,7 +180,7 @@ HLSLMATH_INLINE float3 fmod(const float3& a, const float3& b)
 
 /* Computes the smallest integer value not less than 'x'
  */
-HLSLMATH_INLINE float3 ceil(const float3& v)
+inline float3 ceil(const float3& v)
 {
     return float3(ceil(v.x),
                   ceil(v.y),
@@ -189,7 +189,7 @@ HLSLMATH_INLINE float3 ceil(const float3& v)
 
 /* Computes the largest integer value not greater than 'x'
  */
-HLSLMATH_INLINE float3 floor(const float3& v)
+inline float3 floor(const float3& v)
 {
     return float3(floor(v.x),
                   floor(v.y),
@@ -198,7 +198,7 @@ HLSLMATH_INLINE float3 floor(const float3& v)
 
 /* Computes the nearest integer value
  */
-HLSLMATH_INLINE float3 round(const float3& v)
+inline float3 round(const float3& v)
 {
     return float3(round(v.x),
                   round(v.y),
@@ -207,7 +207,7 @@ HLSLMATH_INLINE float3 round(const float3& v)
 
 /* Computes the nearest integer not greater in magnitude than 'x'
  */
-HLSLMATH_INLINE float3 trunc(const float3& v)
+inline float3 trunc(const float3& v)
 {
     return float3(trunc(v.x),
                   trunc(v.y),
@@ -216,7 +216,7 @@ HLSLMATH_INLINE float3 trunc(const float3& v)
 
 /* Get the smaller value
  */
-HLSLMATH_INLINE float3 min(const float3& a, const float3& b)
+inline float3 min(const float3& a, const float3& b)
 {
     return float3(min(a.x, b.x),
                   min(a.y, b.y),
@@ -225,7 +225,7 @@ HLSLMATH_INLINE float3 min(const float3& a, const float3& b)
 
 /* Get the larger value
  */
-HLSLMATH_INLINE float3 max(const float3& a, const float3& b)
+inline float3 max(const float3& a, const float3& b)
 {
     return float3(max(a.x, b.x), 
                   max(a.y, b.y),
@@ -234,7 +234,7 @@ HLSLMATH_INLINE float3 max(const float3& a, const float3& b)
 
 /* Clamps the 'x' value to the [min, max].
  */
-HLSLMATH_INLINE float3 clamp(const float3& v, const float3& min, const float3& max)
+inline float3 clamp(const float3& v, const float3& min, const float3& max)
 {
     return float3(clamp(v.x, min.x, max.x), 
                   clamp(v.y, min.y, max.y), 
@@ -243,7 +243,7 @@ HLSLMATH_INLINE float3 clamp(const float3& v, const float3& min, const float3& m
 
 /* Clamps the specified value within the range of 0 to 1
  */
-HLSLMATH_INLINE float3 saturate(const float3& v)
+inline float3 saturate(const float3& v)
 {
     return float3(saturate(v.x),
                   saturate(v.y),
@@ -252,7 +252,7 @@ HLSLMATH_INLINE float3 saturate(const float3& v)
 
 /* Compares two values, returning 0 or 1 based on which value is greater.
  */
-HLSLMATH_INLINE float3 step(const float3& a, const float3& b)
+inline float3 step(const float3& a, const float3& b)
 {
     return float3(
         step(a.x, b.x),
@@ -263,7 +263,7 @@ HLSLMATH_INLINE float3 step(const float3& a, const float3& b)
 
 /* Performs a linear interpolation.
  */
-HLSLMATH_INLINE float3 lerp(const float3& a, const float3& b, const float3& t)
+inline float3 lerp(const float3& a, const float3& b, const float3& t)
 {
     return float3(lerp(a.x, b.x, t.x),
                   lerp(a.y, b.y, t.y), 
@@ -272,7 +272,7 @@ HLSLMATH_INLINE float3 lerp(const float3& a, const float3& b, const float3& t)
 
 /* Performs a linear interpolation.
  */
-HLSLMATH_INLINE float3 lerp(const float3& a, const float3& b, float t)
+inline float3 lerp(const float3& a, const float3& b, float t)
 {
     return float3(lerp(a.x, b.x, t),
                   lerp(a.y, b.y, t), 
@@ -281,7 +281,7 @@ HLSLMATH_INLINE float3 lerp(const float3& a, const float3& b, float t)
 
 /* Compute a smooth Hermite interpolation
  */
-HLSLMATH_INLINE float3 smoothstep(const float3& a, const float3& b, const float3& t)
+inline float3 smoothstep(const float3& a, const float3& b, const float3& t)
 {
     return float3(smoothstep(a.x, b.x, t.x),
                   smoothstep(a.y, b.y, t.y),
@@ -290,7 +290,7 @@ HLSLMATH_INLINE float3 smoothstep(const float3& a, const float3& b, const float3
 
 /* Computes square root of 'x'.
  */
-HLSLMATH_INLINE float3 sqrt(const float3& v)
+inline float3 sqrt(const float3& v)
 {
     return float3(sqrt(v.x),
                   sqrt(v.y),
@@ -299,7 +299,7 @@ HLSLMATH_INLINE float3 sqrt(const float3& v)
 
 /* Computes inverse square root of 'x'.
  */
-HLSLMATH_INLINE float3 rsqrt(const float3& v)
+inline float3 rsqrt(const float3& v)
 {
     return float3(rsqrt(v.x),
                   rsqrt(v.y),
@@ -308,7 +308,7 @@ HLSLMATH_INLINE float3 rsqrt(const float3& v)
 
 /* Computes fast inverse square root of 'x'.
  */
-HLSLMATH_INLINE float3 fsqrt(const float3& v)
+inline float3 fsqrt(const float3& v)
 {
     return float3(fsqrt(v.x),
                   fsqrt(v.y),
@@ -317,7 +317,7 @@ HLSLMATH_INLINE float3 fsqrt(const float3& v)
 
 /* Computes fast inverse square root of 'x'.
  */
-HLSLMATH_INLINE float3 frsqrt(const float3& v)
+inline float3 frsqrt(const float3& v)
 {
     return float3(frsqrt(v.x),
                   frsqrt(v.y),
@@ -330,7 +330,7 @@ HLSLMATH_INLINE float3 frsqrt(const float3& v)
 
 /* Compute cross product of two vectors
  */
-HLSLMATH_INLINE float3 cross(const float3& a, const float3& b)
+inline float3 cross(const float3& a, const float3& b)
 {
     return float3(
         a.y * b.z - a.z * b.y,
@@ -341,42 +341,42 @@ HLSLMATH_INLINE float3 cross(const float3& a, const float3& b)
 
 /* Compute dot product of two vectors
  */
-HLSLMATH_INLINE float dot(const float3& a, const float3& b)
+inline float dot(const float3& a, const float3& b)
 {
     return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
 /* Compute squared length of vector
  */
-HLSLMATH_INLINE float lensqr(const float3& v)
+inline float lensqr(const float3& v)
 {
     return dot(v, v);
 }
 
 /* Compute length of vector
  */
-HLSLMATH_INLINE float length(const float3& v)
+inline float length(const float3& v)
 {
     return sqrt(lensqr(v));
 }
 
 /* Compute distance from 'a' to b
  */
-HLSLMATH_INLINE float distance(const float3& a, const float3& b)
+inline float distance(const float3& a, const float3& b)
 {
     return length(a - b);
 }
 
 /* Compute squared distance from 'a' to b
  */
-HLSLMATH_INLINE float distsqr(const float3& a, const float3& b)
+inline float distsqr(const float3& a, const float3& b)
 {
     return lensqr(a - b);
 }
 
 /* Compute normalized vector
  */
-HLSLMATH_INLINE float3 normalize(const float3& v)
+inline float3 normalize(const float3& v)
 {
     const float lsqr = lensqr(v);
     if (lsqr > 0.0f)
@@ -392,14 +392,14 @@ HLSLMATH_INLINE float3 normalize(const float3& v)
 
 /* Compute reflection vector
  */
-HLSLMATH_INLINE float3 reflect(const float3& v, const float3& n)
+inline float3 reflect(const float3& v, const float3& n)
 {
     return v - 2.0f * dot(v, n) * n;
 }
 
 /* Compute refraction vector
  */
-HLSLMATH_INLINE float3 refract(const float3& v, const float3& n, float eta)
+inline float3 refract(const float3& v, const float3& n, float eta)
 {
     const float k = 1.0f - eta * eta * (1.0f - dot(v, n) * dot(v, n));
     return k < 0.0f
@@ -409,7 +409,7 @@ HLSLMATH_INLINE float3 refract(const float3& v, const float3& n, float eta)
 
 /* Compute faceforward vector
  */
-HLSLMATH_INLINE float3 faceforward(const float3& n, const float3& i, const float3& nref)
+inline float3 faceforward(const float3& n, const float3& i, const float3& nref)
 {
     return dot(i, nref) < 0.0f ? n : -n;
 }

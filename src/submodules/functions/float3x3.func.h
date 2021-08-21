@@ -1,6 +1,6 @@
 /* Computes sign of 'x'
  */
-HLSLMATH_INLINE int3x3 sign(const float3x3& m)
+inline int3x3 sign(const float3x3& m)
 {
     return int3x3(sign(m[0]),
                   sign(m[1]),
@@ -9,7 +9,7 @@ HLSLMATH_INLINE int3x3 sign(const float3x3& m)
 
 /* Computes absolute value
  */
-HLSLMATH_INLINE float3x3 abs(const float3x3& m)
+inline float3x3 abs(const float3x3& m)
 {
     return float3x3(abs(m[0]),
                     abs(m[1]),
@@ -18,7 +18,7 @@ HLSLMATH_INLINE float3x3 abs(const float3x3& m)
 
 /* Computes cosine
  */
-HLSLMATH_INLINE float3x3 cos(const float3x3& m)
+inline float3x3 cos(const float3x3& m)
 {
     return float3x3(cos(m[0]),
                     cos(m[1]),
@@ -27,7 +27,7 @@ HLSLMATH_INLINE float3x3 cos(const float3x3& m)
 
 /* Computes sine
  */
-HLSLMATH_INLINE float3x3 sin(const float3x3& m)
+inline float3x3 sin(const float3x3& m)
 {
     return float3x3(sin(m[0]),
                     sin(m[1]),
@@ -36,7 +36,7 @@ HLSLMATH_INLINE float3x3 sin(const float3x3& m)
 
 /* Computes tangent
  */
-HLSLMATH_INLINE float3x3 tan(const float3x3& m)
+inline float3x3 tan(const float3x3& m)
 {
     return float3x3(tan(m[0]),
                     tan(m[1]),
@@ -45,7 +45,7 @@ HLSLMATH_INLINE float3x3 tan(const float3x3& m)
 
 /* Computes hyperbolic cosine
  */
-HLSLMATH_INLINE float3x3 cosh(const float3x3& m)
+inline float3x3 cosh(const float3x3& m)
 {
     return float3x3(cosh(m[0]),
                     cosh(m[1]),
@@ -54,7 +54,7 @@ HLSLMATH_INLINE float3x3 cosh(const float3x3& m)
 
 /* Computes hyperbolic sine
  */
-HLSLMATH_INLINE float3x3 sinh(const float3x3& m)
+inline float3x3 sinh(const float3x3& m)
 {
     return float3x3(sinh(m[0]),
                     sinh(m[1]),
@@ -63,7 +63,7 @@ HLSLMATH_INLINE float3x3 sinh(const float3x3& m)
 
 /* Computes hyperbolic tangent
  */
-HLSLMATH_INLINE float3x3 tanh(const float3x3& m)
+inline float3x3 tanh(const float3x3& m)
 {
     return float3x3(tanh(m[0]),
                     tanh(m[1]),
@@ -72,7 +72,7 @@ HLSLMATH_INLINE float3x3 tanh(const float3x3& m)
 
 /* Computes inverse cosine
  */
-HLSLMATH_INLINE float3x3 acos(const float3x3& m)
+inline float3x3 acos(const float3x3& m)
 {
     return float3x3(acos(m[0]),
                     acos(m[1]),
@@ -81,7 +81,7 @@ HLSLMATH_INLINE float3x3 acos(const float3x3& m)
 
 /* Computes inverse sine
  */
-HLSLMATH_INLINE float3x3 asin(const float3x3& m)
+inline float3x3 asin(const float3x3& m)
 {
     return float3x3(asin(m[0]),
                     asin(m[1]),
@@ -90,7 +90,7 @@ HLSLMATH_INLINE float3x3 asin(const float3x3& m)
 
 /* Computes inverse tangent
  */
-HLSLMATH_INLINE float3x3 atan(const float3x3& m)
+inline float3x3 atan(const float3x3& m)
 {
     return float3x3(atan(m[0]),
                     atan(m[1]),
@@ -99,7 +99,7 @@ HLSLMATH_INLINE float3x3 atan(const float3x3& m)
 
 /* Computes inverse tangent with 2 args
  */
-HLSLMATH_INLINE float3x3 atan2(const float3x3& a, const float3x3& b)
+inline float3x3 atan2(const float3x3& a, const float3x3& b)
 {
     return float3x3(atan2(a[0], b[0]),
                     atan2(a[1], b[1]),
@@ -108,7 +108,7 @@ HLSLMATH_INLINE float3x3 atan2(const float3x3& a, const float3x3& b)
 
 /* Computes Euler number raised to the power 'x'
  */
-HLSLMATH_INLINE float3x3 exp(const float3x3& m)
+inline float3x3 exp(const float3x3& m)
 {
     return float3x3(exp(m[0]),
                     exp(m[1]),
@@ -117,7 +117,7 @@ HLSLMATH_INLINE float3x3 exp(const float3x3& m)
 
 /* Computes 2 raised to the power 'x'
  */
-HLSLMATH_INLINE float3x3 exp2(const float3x3& m)
+inline float3x3 exp2(const float3x3& m)
 {
     return float3x3(exp2(m[0]),
                     exp2(m[1]),
@@ -126,7 +126,7 @@ HLSLMATH_INLINE float3x3 exp2(const float3x3& m)
 
 /* Computes the base Euler number logarithm
  */
-HLSLMATH_INLINE float3x3 log(const float3x3& m)
+inline float3x3 log(const float3x3& m)
 {
     return float3x3(log(m[0]),
                     log(m[1]),
@@ -135,7 +135,7 @@ HLSLMATH_INLINE float3x3 log(const float3x3& m)
 
 /* Computes the base 2 logarithm
  */
-HLSLMATH_INLINE float3x3 log2(const float3x3& m)
+inline float3x3 log2(const float3x3& m)
 {
     return float3x3(log2(m[0]),
                     log2(m[1]),
@@ -144,7 +144,7 @@ HLSLMATH_INLINE float3x3 log2(const float3x3& m)
 
 /* Computes the base 10 logarithm
  */
-HLSLMATH_INLINE float3x3 log10(const float3x3& m)
+inline float3x3 log10(const float3x3& m)
 {
     return float3x3(log10(m[0]),
                     log10(m[1]),
@@ -153,7 +153,7 @@ HLSLMATH_INLINE float3x3 log10(const float3x3& m)
 
 /* Computes the value of base raised to the power exponent
  */
-HLSLMATH_INLINE float3x3 pow(const float3x3& a, const float3x3& b)
+inline float3x3 pow(const float3x3& a, const float3x3& b)
 {
     return float3x3(pow(a[0], b[0]),
                     pow(a[1], b[1]),
@@ -162,7 +162,7 @@ HLSLMATH_INLINE float3x3 pow(const float3x3& a, const float3x3& b)
 
 /* Get the fractal part of floating point
  */
-HLSLMATH_INLINE float3x3 frac(const float3x3& v)
+inline float3x3 frac(const float3x3& v)
 {
     return float3x3(frac(v[0]),
                     frac(v[1]),
@@ -171,7 +171,7 @@ HLSLMATH_INLINE float3x3 frac(const float3x3& v)
 
 /* Computes the floating-point remainder of the division operation x/y
  */
-HLSLMATH_INLINE float3x3 fmod(const float3x3& a, const float3x3& b)
+inline float3x3 fmod(const float3x3& a, const float3x3& b)
 {
     return float3x3(fmod(a[0], b[0]),
                     fmod(a[1], b[1]),
@@ -180,7 +180,7 @@ HLSLMATH_INLINE float3x3 fmod(const float3x3& a, const float3x3& b)
 
 /* Computes the smallest integer value not less than 'x'
  */
-HLSLMATH_INLINE float3x3 ceil(const float3x3& m)
+inline float3x3 ceil(const float3x3& m)
 {
     return float3x3(ceil(m[0]),
                     ceil(m[1]),
@@ -189,7 +189,7 @@ HLSLMATH_INLINE float3x3 ceil(const float3x3& m)
 
 /* Computes the largest integer value not greater than 'x'
  */
-HLSLMATH_INLINE float3x3 floor(const float3x3& m)
+inline float3x3 floor(const float3x3& m)
 {
     return float3x3(floor(m[0]),
                     floor(m[1]),
@@ -198,7 +198,7 @@ HLSLMATH_INLINE float3x3 floor(const float3x3& m)
 
 /* Computes the nearest integer value
  */
-HLSLMATH_INLINE float3x3 round(const float3x3& m)
+inline float3x3 round(const float3x3& m)
 {
     return float3x3(round(m[0]),
                     round(m[1]),
@@ -207,7 +207,7 @@ HLSLMATH_INLINE float3x3 round(const float3x3& m)
 
 /* Computes the nearest integer not greater in magnitude than 'x'
  */
-HLSLMATH_INLINE float3x3 trunc(const float3x3& m)
+inline float3x3 trunc(const float3x3& m)
 {
     return float3x3(trunc(m[0]),
                     trunc(m[1]),
@@ -216,7 +216,7 @@ HLSLMATH_INLINE float3x3 trunc(const float3x3& m)
 
 /* Get the smaller value
  */
-HLSLMATH_INLINE float3x3 min(const float3x3& a, const float3x3& b)
+inline float3x3 min(const float3x3& a, const float3x3& b)
 {
     return float3x3(min(a[0], b[0]),
                     min(a[1], b[1]),
@@ -225,7 +225,7 @@ HLSLMATH_INLINE float3x3 min(const float3x3& a, const float3x3& b)
 
 /* Get the larger value
  */
-HLSLMATH_INLINE float3x3 max(const float3x3& a, const float3x3& b)
+inline float3x3 max(const float3x3& a, const float3x3& b)
 {
     return float3x3(max(a[0], b[0]), 
                     max(a[1], b[1]),
@@ -234,7 +234,7 @@ HLSLMATH_INLINE float3x3 max(const float3x3& a, const float3x3& b)
 
 /* Clamps the 'x' value to the [min, max].
  */
-HLSLMATH_INLINE float3x3 clamp(const float3x3& v, const float3x3& min, const float3x3& max)
+inline float3x3 clamp(const float3x3& v, const float3x3& min, const float3x3& max)
 {
     return float3x3(clamp(v[0], min[0], max[0]), 
                     clamp(v[1], min[1], max[1]), 
@@ -243,7 +243,7 @@ HLSLMATH_INLINE float3x3 clamp(const float3x3& v, const float3x3& min, const flo
 
 /* Clamps the specified value within the range of 0 to 1
  */
-HLSLMATH_INLINE float3x3 saturate(const float3x3& m)
+inline float3x3 saturate(const float3x3& m)
 {
     return float3x3(saturate(m[0]),
                     saturate(m[1]),
@@ -252,7 +252,7 @@ HLSLMATH_INLINE float3x3 saturate(const float3x3& m)
 
 /* Compares two values, returning 0 or 1 based on which value is greater.
  */
-HLSLMATH_INLINE float3x3 step(const float3x3& a, const float3x3& b)
+inline float3x3 step(const float3x3& a, const float3x3& b)
 {
     return float3x3(step(a[0], b[0]),
                     step(a[1], b[1]),
@@ -261,7 +261,7 @@ HLSLMATH_INLINE float3x3 step(const float3x3& a, const float3x3& b)
 
 /* Performs a linear interpolation.
  */
-HLSLMATH_INLINE float3x3 lerp(const float3x3& a, const float3x3& b, const float3x3& t)
+inline float3x3 lerp(const float3x3& a, const float3x3& b, const float3x3& t)
 {
     return float3x3(lerp(a[0], b[0], t[0]),
                     lerp(a[1], b[1], t[1]), 
@@ -270,7 +270,7 @@ HLSLMATH_INLINE float3x3 lerp(const float3x3& a, const float3x3& b, const float3
 
 /* Performs a linear interpolation.
  */
-HLSLMATH_INLINE float3x3 lerp(const float3x3& a, const float3x3& b, float t)
+inline float3x3 lerp(const float3x3& a, const float3x3& b, float t)
 {
     return float3x3(lerp(a[0], b[0], t),
                     lerp(a[1], b[1], t), 
@@ -279,7 +279,7 @@ HLSLMATH_INLINE float3x3 lerp(const float3x3& a, const float3x3& b, float t)
 
 /* Compute a smooth Hermite interpolation
  */
-HLSLMATH_INLINE float3x3 smoothstep(const float3x3& a, const float3x3& b, const float3x3& t)
+inline float3x3 smoothstep(const float3x3& a, const float3x3& b, const float3x3& t)
 {
     return float3x3(smoothstep(a[0], b[0], t[0]),
                     smoothstep(a[1], b[1], t[1]),
@@ -288,7 +288,7 @@ HLSLMATH_INLINE float3x3 smoothstep(const float3x3& a, const float3x3& b, const 
 
 /* Computes square root of 'x'.
  */
-HLSLMATH_INLINE float3x3 sqrt(const float3x3& m)
+inline float3x3 sqrt(const float3x3& m)
 {
     return float3x3(sqrt(m[0]),
                     sqrt(m[1]),
@@ -297,7 +297,7 @@ HLSLMATH_INLINE float3x3 sqrt(const float3x3& m)
 
 /* Computes inverse square root of 'x'.
  */
-HLSLMATH_INLINE float3x3 rsqrt(const float3x3& m)
+inline float3x3 rsqrt(const float3x3& m)
 {
     return float3x3(rsqrt(m[0]),
                     rsqrt(m[1]),
@@ -306,7 +306,7 @@ HLSLMATH_INLINE float3x3 rsqrt(const float3x3& m)
 
 /* Computes fast inverse square root of 'x'.
  */
-HLSLMATH_INLINE float3x3 fsqrt(const float3x3& m)
+inline float3x3 fsqrt(const float3x3& m)
 {
     return float3x3(fsqrt(m[0]),
                     fsqrt(m[1]),
@@ -315,7 +315,7 @@ HLSLMATH_INLINE float3x3 fsqrt(const float3x3& m)
 
 /* Computes fast inverse square root of 'x'.
  */
-HLSLMATH_INLINE float3x3 frsqrt(const float3x3& m)
+inline float3x3 frsqrt(const float3x3& m)
 {
     return float3x3(frsqrt(m[0]),
                     frsqrt(m[1]),
@@ -326,7 +326,7 @@ HLSLMATH_INLINE float3x3 frsqrt(const float3x3& m)
 // @region: Matrix operations
 //
 
-HLSLMATH_INLINE float3x3 transpose(const float3x3& m)
+inline float3x3 transpose(const float3x3& m)
 {
     return float3x3(
         m[0][0], m[1][0], m[2][0],
@@ -335,7 +335,7 @@ HLSLMATH_INLINE float3x3 transpose(const float3x3& m)
     );
 }
 
-HLSLMATH_INLINE float3 mul(const float3x3& a, const float3& b)
+inline float3 mul(const float3x3& a, const float3& b)
 {
     const float3 a0 = float3(a[0][0], a[1][0], a[2][0]);
     const float3 a1 = float3(a[0][1], a[1][1], a[2][1]);
@@ -348,7 +348,7 @@ HLSLMATH_INLINE float3 mul(const float3x3& a, const float3& b)
     );
 }
 
-HLSLMATH_INLINE float3 mul(const float3& a, const float3x3& b)
+inline float3 mul(const float3& a, const float3x3& b)
 {
     return float3(
         dot(a, b[0]),
@@ -357,7 +357,7 @@ HLSLMATH_INLINE float3 mul(const float3& a, const float3x3& b)
     );
 }
 
-HLSLMATH_INLINE float3x3 mul(const float3x3& a, const float3x3& b)
+inline float3x3 mul(const float3x3& a, const float3x3& b)
 {
     return float3x3(
         mul(a, b[0]),
@@ -366,7 +366,7 @@ HLSLMATH_INLINE float3x3 mul(const float3x3& a, const float3x3& b)
     );
 }
 
-HLSLMATH_INLINE float3x3 inverse(const float3x3& m)
+inline float3x3 inverse(const float3x3& m)
 {
     const float det = 
           m[0][0] * m[1][1] * m[2][2] - m[0][0] * m[1][2] * m[2][1]
@@ -400,7 +400,7 @@ HLSLMATH_INLINE float3x3 inverse(const float3x3& m)
 // @region: Graphics functions
 //
 
-HLSLMATH_CONSTEXPR float3x3 float3x3Identity()
+inline float3x3 float3x3Identity()
 {
     float3x3 result;
     result.data[0][0] = 1;
@@ -415,7 +415,7 @@ HLSLMATH_CONSTEXPR float3x3 float3x3Identity()
     return result;
 }
 
-HLSLMATH_INLINE float3x3 float3x3Translation(float x, float y)
+inline float3x3 float3x3Translation(float x, float y)
 {
     return float3x3(
         1, 0, 0,
@@ -424,12 +424,12 @@ HLSLMATH_INLINE float3x3 float3x3Translation(float x, float y)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3Translation(const float2& v)
+inline float3x3 float3x3Translation(const float2& v)
 {
     return float3x3Translation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float3x3 float3x3Rotation(float angle)
+inline float3x3 float3x3Rotation(float angle)
 {
     const float c = cos(angle);
     const float s = sin(angle);
@@ -440,7 +440,7 @@ HLSLMATH_INLINE float3x3 float3x3Rotation(float angle)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3Scalation(float x, float y)
+inline float3x3 float3x3Scalation(float x, float y)
 {
     return float3x3(
         x, 0, 0,
@@ -449,12 +449,12 @@ HLSLMATH_INLINE float3x3 float3x3Scalation(float x, float y)
     );
 }
 
-HLSLMATH_INLINE float3x3 float3x3Scalation(const float2& v)
+inline float3x3 float3x3Scalation(const float2& v)
 {
     return float3x3Scalation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float3x3 float3x3Ortho(float l, float r, float b, float t)
+inline float3x3 float3x3Ortho(float l, float r, float b, float t)
 {
     const float w = (r - l);
     const float h = (t - b);
@@ -468,37 +468,37 @@ HLSLMATH_INLINE float3x3 float3x3Ortho(float l, float r, float b, float t)
     );
 }
 
-HLSLMATH_CONSTEXPR float3x3 float3x3::identity()
+inline float3x3 float3x3::identity()
 {
     return float3x3Identity();
 }
 
-HLSLMATH_INLINE float3x3 float3x3::translation(const float2& v)
+inline float3x3 float3x3::translation(const float2& v)
 {
     return float3x3Translation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float3x3 float3x3::translation(float x, float y)
+inline float3x3 float3x3::translation(float x, float y)
 {
     return float3x3Translation(x, y);
 }
 
-HLSLMATH_INLINE float3x3 float3x3::rotation(float angle)
+inline float3x3 float3x3::rotation(float angle)
 {
     return float3x3Rotation(angle);
 }
 
-HLSLMATH_INLINE float3x3 float3x3::scalation(const float2& v)
+inline float3x3 float3x3::scalation(const float2& v)
 {
     return float3x3Scalation(v.x, v.y);
 }
 
-HLSLMATH_INLINE float3x3 float3x3::scalation(float x, float y)
+inline float3x3 float3x3::scalation(float x, float y)
 {
     return float3x3Scalation(x, y);
 }
 
-HLSLMATH_INLINE float3x3 float3x3::ortho(float l, float r, float b, float t)
+inline float3x3 float3x3::ortho(float l, float r, float b, float t)
 {
     return float3x3Ortho(l, r, b, t);
 }

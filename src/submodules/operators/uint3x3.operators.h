@@ -1,9 +1,9 @@
-HLSLMATH_INLINE const uint3x3& operator+(const uint3x3& m)
+inline const uint3x3& operator+(const uint3x3& m)
 {
     return m;
 }
 
-HLSLMATH_INLINE uint3x3& operator--(uint3x3& m)
+inline uint3x3& operator--(uint3x3& m)
 {
     --m[0];
     --m[1];
@@ -11,7 +11,7 @@ HLSLMATH_INLINE uint3x3& operator--(uint3x3& m)
     return m;
 }
 
-HLSLMATH_INLINE uint3x3& operator++(uint3x3& m)
+inline uint3x3& operator++(uint3x3& m)
 {
     ++m[0];
     ++m[1];
@@ -19,7 +19,7 @@ HLSLMATH_INLINE uint3x3& operator++(uint3x3& m)
     return m;
 }
 
-HLSLMATH_INLINE const uint3x3& operator--(uint3x3& m, int)
+inline const uint3x3& operator--(uint3x3& m, int)
 {
     m[0]--;
     m[1]--;
@@ -27,7 +27,7 @@ HLSLMATH_INLINE const uint3x3& operator--(uint3x3& m, int)
     return m;
 }
 
-HLSLMATH_INLINE const uint3x3& operator++(uint3x3& m, int)
+inline const uint3x3& operator++(uint3x3& m, int)
 {
     m[0]++;
     m[1]++;
@@ -35,7 +35,7 @@ HLSLMATH_INLINE const uint3x3& operator++(uint3x3& m, int)
     return m;
 }
 
-HLSLMATH_INLINE uint3x3 operator+(const uint3x3& a, const uint3x3& b)
+inline uint3x3 operator+(const uint3x3& a, const uint3x3& b)
 {
     uint3x3 result;
     result[0] = a[0] + b[0];
@@ -44,7 +44,7 @@ HLSLMATH_INLINE uint3x3 operator+(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator-(const uint3x3& a, const uint3x3& b)
+inline uint3x3 operator-(const uint3x3& a, const uint3x3& b)
 {
     uint3x3 result;
     result[0] = a[0] - b[0];
@@ -53,7 +53,7 @@ HLSLMATH_INLINE uint3x3 operator-(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator*(const uint3x3& a, const uint3x3& b)
+inline uint3x3 operator*(const uint3x3& a, const uint3x3& b)
 {
     uint3x3 result;
     result[0] = a[0] * b[0];
@@ -62,7 +62,7 @@ HLSLMATH_INLINE uint3x3 operator*(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator/(const uint3x3& a, const uint3x3& b)
+inline uint3x3 operator/(const uint3x3& a, const uint3x3& b)
 {
     uint3x3 result;
     result[0] = a[0] / b[0];
@@ -71,7 +71,7 @@ HLSLMATH_INLINE uint3x3 operator/(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator+(const uint3x3& a, uint b)
+inline uint3x3 operator+(const uint3x3& a, uint b)
 {
     uint3x3 result;
     result[0] = a[0] + b;
@@ -80,7 +80,7 @@ HLSLMATH_INLINE uint3x3 operator+(const uint3x3& a, uint b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator-(const uint3x3& a, uint b)
+inline uint3x3 operator-(const uint3x3& a, uint b)
 {
     uint3x3 result;
     result[0] = a[0] - b;
@@ -89,7 +89,7 @@ HLSLMATH_INLINE uint3x3 operator-(const uint3x3& a, uint b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator*(const uint3x3& a, uint b)
+inline uint3x3 operator*(const uint3x3& a, uint b)
 {
     uint3x3 result;
     result[0] = a[0] * b;
@@ -98,7 +98,7 @@ HLSLMATH_INLINE uint3x3 operator*(const uint3x3& a, uint b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator/(const uint3x3& a, uint b)
+inline uint3x3 operator/(const uint3x3& a, uint b)
 {
     uint3x3 result;
     result[0] = a[0] / b;
@@ -107,7 +107,7 @@ HLSLMATH_INLINE uint3x3 operator/(const uint3x3& a, uint b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator+(uint a, const uint3x3& b)
+inline uint3x3 operator+(uint a, const uint3x3& b)
 {
     uint3x3 result;
     result[0] = a + b[0];
@@ -116,7 +116,7 @@ HLSLMATH_INLINE uint3x3 operator+(uint a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator-(uint a, const uint3x3& b)
+inline uint3x3 operator-(uint a, const uint3x3& b)
 {
     uint3x3 result;
     result[0] = a - b[0];
@@ -125,7 +125,7 @@ HLSLMATH_INLINE uint3x3 operator-(uint a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator*(uint a, const uint3x3& b)
+inline uint3x3 operator*(uint a, const uint3x3& b)
 {
     uint3x3 result;
     result[0] = a * b[0];
@@ -134,7 +134,7 @@ HLSLMATH_INLINE uint3x3 operator*(uint a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3 operator/(uint a, const uint3x3& b)
+inline uint3x3 operator/(uint a, const uint3x3& b)
 {
     uint3x3 result;
     result[0] = a / b[0];
@@ -143,47 +143,47 @@ HLSLMATH_INLINE uint3x3 operator/(uint a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE uint3x3& operator+=(uint3x3& a, const uint3x3& b)
+inline uint3x3& operator+=(uint3x3& a, const uint3x3& b)
 {
     return (a = a + b);
 }
 
-HLSLMATH_INLINE uint3x3& operator+=(uint3x3& a, uint b)
+inline uint3x3& operator+=(uint3x3& a, uint b)
 {
     return (a = a + b);
 }
 
-HLSLMATH_INLINE uint3x3& operator-=(uint3x3& a, const uint3x3& b)
+inline uint3x3& operator-=(uint3x3& a, const uint3x3& b)
 {
     return (a = a - b);
 }
 
-HLSLMATH_INLINE uint3x3& operator-=(uint3x3& a, uint b)
+inline uint3x3& operator-=(uint3x3& a, uint b)
 {
     return (a = a - b);
 }
 
-HLSLMATH_INLINE uint3x3& operator*=(uint3x3& a, const uint3x3& b)
+inline uint3x3& operator*=(uint3x3& a, const uint3x3& b)
 {
     return (a = a * b);
 }
 
-HLSLMATH_INLINE uint3x3& operator*=(uint3x3& a, uint b)
+inline uint3x3& operator*=(uint3x3& a, uint b)
 {
     return (a = a * b);
 }
 
-HLSLMATH_INLINE uint3x3& operator/=(uint3x3& a, const uint3x3& b)
+inline uint3x3& operator/=(uint3x3& a, const uint3x3& b)
 {
     return (a = a / b);
 }
 
-HLSLMATH_INLINE uint3x3& operator/=(uint3x3& a, uint b)
+inline uint3x3& operator/=(uint3x3& a, uint b)
 {
     return (a = a + b);
 }
 
-HLSLMATH_INLINE bool3x3 operator==(const uint3x3& a, const uint3x3& b)
+inline bool3x3 operator==(const uint3x3& a, const uint3x3& b)
 {
     bool3x3 result;
     result[0] = a[0] == b[0];
@@ -192,7 +192,7 @@ HLSLMATH_INLINE bool3x3 operator==(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE bool3x3 operator!=(const uint3x3& a, const uint3x3& b)
+inline bool3x3 operator!=(const uint3x3& a, const uint3x3& b)
 {
     bool3x3 result;
     result[0] = a[0] != b[0];
@@ -201,7 +201,7 @@ HLSLMATH_INLINE bool3x3 operator!=(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE bool3x3 operator<(const uint3x3& a, const uint3x3& b)
+inline bool3x3 operator<(const uint3x3& a, const uint3x3& b)
 {
     bool3x3 result;
     result[0] = a[0] < b[0];
@@ -210,7 +210,7 @@ HLSLMATH_INLINE bool3x3 operator<(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE bool3x3 operator>(const uint3x3& a, const uint3x3& b)
+inline bool3x3 operator>(const uint3x3& a, const uint3x3& b)
 {
     bool3x3 result;
     result[0] = a[0] > b[0];
@@ -219,7 +219,7 @@ HLSLMATH_INLINE bool3x3 operator>(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE bool3x3 operator<=(const uint3x3& a, const uint3x3& b)
+inline bool3x3 operator<=(const uint3x3& a, const uint3x3& b)
 {
     bool3x3 result;
     result[0] = a[0] <= b[0];
@@ -228,7 +228,7 @@ HLSLMATH_INLINE bool3x3 operator<=(const uint3x3& a, const uint3x3& b)
     return result;
 }
 
-HLSLMATH_INLINE bool3x3 operator>=(const uint3x3& a, const uint3x3& b)
+inline bool3x3 operator>=(const uint3x3& a, const uint3x3& b)
 {
     bool3x3 result;
     result[0] = a[0] >= b[0];
