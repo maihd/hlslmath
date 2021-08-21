@@ -70,7 +70,7 @@
 #elif defined(__GNUC__)
 #   define HLSLMATH_ALIGNAS(Type)   Type __attribute__((aligned(16)))
 #else
-#   error "Define HLSLMATH_ALIGNED for your compiler or platform!"
+#   error "Define HLSLMATH_ALIGNAS for your compiler or platform!"
 #endif
 
 // Helping detect alignment of data structures
@@ -81,7 +81,7 @@
 #elif defined(__GNUC__)
 #   define HLSLMATH_ALIGNOF(Type)   __alignof__(Type)
 #else
-#   error "Define HLSLMATH_ALIGNED for your compiler or platform!"
+#   error "Define HLSLMATH_ALIGNOF for your compiler or platform!"
 #endif
 
 // Android polyfill for log2 and log2f
