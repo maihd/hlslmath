@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+
+#ifndef HLSLMATH_H // Shut the mouth of VSCode
+#define HLSLMATH_H "./hlslmath_prebuild.h"
+#endif
+
 #include HLSLMATH_H
 
 // ------------------------------------------------------------------------------------------

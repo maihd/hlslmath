@@ -1,5 +1,12 @@
 #include "../test_framework.h"
 
+/// This struct to prove that float2 is trivial data structure
+union IsFloat2Trivial
+{
+    float2 data;
+    float2 extraData;
+};
+
 DEFINE_UNIT_TEST("Working with float2")
 {
     float2 a = float2(0, 0);

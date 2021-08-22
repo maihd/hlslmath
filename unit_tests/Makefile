@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall
 LFLAGS=
-HLSLMATH="./hlslmath.h"
+HLSLMATH="./hlslmath_prebuild.h"
 
 ifneq ($(OS),Windows_NT)
 LFLAGS+=-lm
