@@ -7,11 +7,11 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  unit-tests:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Run unit tests
-      run: cd unit_tests/gmake && make
+      run: cd unit_tests && make
