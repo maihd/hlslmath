@@ -1,8 +1,11 @@
+# Inputs
 CC=gcc
-CFLAGS=-Wall
-LFLAGS=
+RUN_ALLS=false
 HLSLMATH="./hlslmath_prebuild.h"
 
+# Build flags
+CFLAGS=-Wall
+LFLAGS=
 ifneq ($(OS),Windows_NT)
 LFLAGS+=-lm
 endif
@@ -30,9 +33,15 @@ $(OUT_DIR)/%.exe: $(UNIT_TESTS_DIR)/%.cpp
 	@echo "===> DONE!"
 	@echo ""
 
-all: clean $(UNIT_TESTS_EXE)
+all: 
+ifeq ($(RUN_ALLS),true)
+	@make clean
+endif
+	@make run
 # @echo "============================================="
 # @echo "Execute all unit tests complete successfully!"
+
+run: $(UNIT_TESTS_EXE)
 
 clean:
 	rm -rf $(OUT_DIR)

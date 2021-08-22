@@ -3,7 +3,7 @@
 #include <string.h>
 #include <Windows.h>
 
-static void RunTests(const char* directory, const char* file, const char* compiler);
+static void RunTests(const char* directory, const char* watchDirectory, const char* compiler);
 
 int main(const int argc, const char* const argv[])
 {
@@ -15,8 +15,8 @@ int main(const int argc, const char* const argv[])
 
 	const char* buildDirectory = "";
 
-	const char* watchDirectory[] = { "cases", "../src" };
-	enum { watchDirectoryCount = sizeof(watchDirectory) / sizeof(watchDirectory[0]) };
+	const char* watchDirectories[] = { "cases", "../src" };
+	enum { watchDirectoryCount = sizeof(watchDirectories) / sizeof(watchDirectories[0]) };
 
     DWORD dwWaitStatus;
 	HANDLE dwChangeHandles[watchDirectoryCount];
@@ -25,7 +25,7 @@ int main(const int argc, const char* const argv[])
 	{
 		// Watch the directory for file creation and deletion. 
 		dwChangeHandles[i] = FindFirstChangeNotificationA(
-			watchDirectory[i],					// directory to watch 
+			watchDirectories[i],					// directory to watch 
 			TRUE,								// watch subtree 
 			FILE_NOTIFY_CHANGE_FILE_NAME		
 			| FILE_NOTIFY_CHANGE_DIR_NAME
@@ -47,7 +47,7 @@ int main(const int argc, const char* const argv[])
 		if (dwWaitStatus >= WAIT_OBJECT_0 && dwWaitStatus < WAIT_OBJECT_0 + watchDirectoryCount)
 		{
 			int index = (int)(dwWaitStatus - WAIT_OBJECT_0);
-			RunTests(buildDirectory, "", compiler);
+			RunTests(buildDirectory, watchDirectories[index], compiler);
 
 			Sleep(1000);
 			if (FindNextChangeNotification(dwChangeHandles[index]) == FALSE)
@@ -80,20 +80,16 @@ int main(const int argc, const char* const argv[])
     return 0;
 }
 
-void RunTests(const char* buildDirectory, const char* file, const char* compiler)
+void RunTests(const char* buildDirectory, const char* watchDirectory, const char* compiler)
 {
-	const int supportCheckFileChanged = 0;
-	if (supportCheckFileChanged)
+	char buildInput[1024] = "";
+	if (strcmp(watchDirectory, "../src") == 0)
 	{
-		const char* ext = ".cpp";
-		if (strcmp(file - strlen(file) - strlen(ext), ext) != 0)
-		{
-			return;
-		}
+		snprintf(buildInput, sizeof(buildInput), "RUN_ALLS=true");
 	}
 
 	char buildCommand[1024];
-	snprintf(buildCommand, sizeof(buildCommand), "make CC=%s --quiet", compiler);
+	snprintf(buildCommand, sizeof(buildCommand), "make CC=%s %s --quiet", compiler, buildInput);
 
     char command[1024];
 	if (strlen(buildDirectory) > 0)

@@ -11,6 +11,6 @@
 /tests/**/ARM
 /tests/**/ARM64
 
-/unit_tests/*.exe
+/unit_tests/out
 /unit_tests/ndkbuild/obj
 /unit_tests/ndkbuild/libs
