@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include <emmintrin.h>
 
-#include "../unit_tests/hlslmath.h"
+#include "../unit_tests/hlslmath_prebuild.h"
 
 static_assert(HLSLMATH_ALIGNOF(float3) == 16, "Alignment float3 is wrong");
 static_assert(HLSLMATH_ALIGNOF(float4) == 16, "Alignment float4 is wrong");

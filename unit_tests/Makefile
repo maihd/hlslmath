@@ -35,9 +35,9 @@ $(OUT_DIR)/%.exe: $(UNIT_TESTS_DIR)/%.cpp
 
 all: 
 ifeq ($(RUN_ALLS),true)
-	@make clean
+	@make clean --quiet
 endif
-	@make run
+	@make run --quiet
 # @echo "============================================="
 # @echo "Execute all unit tests complete successfully!"
 

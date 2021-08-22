@@ -6,7 +6,7 @@
 #undef max // When Windows.h was included, max is an macro
 
 // API deprecated declaration
-#if __cplusplus >= 201103L
+#if (defined(__cplusplus) && __cplusplus >= 201103L) || (defined(_MSC_VER) && _MSC_VER >= 1900)
 #   define HLSLMATH_DEPRECATED(version, reason) [[deprecated]]
 #elif defined(_MSC_VER)
 #   define HLSLMATH_DEPRECATED(version, reason) __declspec(deprecated)
@@ -17,7 +17,7 @@
 #endif
 
 // Supporting data alignment for cache-friendly
-#if __cplusplus >= 201103L
+#if (defined(__cplusplus) && __cplusplus >= 201103L) || (defined(_MSC_VER) && _MSC_VER >= 1900)
 #   define HLSLMATH_ALIGNAS(Type)   alignas(16) Type
 #elif defined(_MSC_VER)
 #   define HLSLMATH_ALIGNAS(Type)   __declspec(align(16)) Type
@@ -28,7 +28,7 @@
 #endif
 
 // Helping detect alignment of data structures
-#if __cplusplus >= 201103L
+#if (defined(__cplusplus) && __cplusplus >= 201103L) || (defined(_MSC_VER) && _MSC_VER >= 1900)
 #   define HLSLMATH_ALIGNOF(Type)   alignof(Type)
 #elif defined(_MSC_VER)
 #   define HLSLMATH_ALIGNOF(Type)   __alignof(Type)
