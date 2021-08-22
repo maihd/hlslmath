@@ -1,7 +1,15 @@
+#include <type_traits>
+
 #include "../test_framework.h"
 
-/// This struct to prove that float2 is trivial data structure
-union IsFloat2Trivial
+/// We don't care about: trivial, pod, standard layout.
+/// What we care is that float2 memcpyable, but standard layout is memcpyable.
+static_assert(!std::is_pod<float2>::value, "float2 is pod");
+static_assert(!std::is_trivial<float2>::value, "float2 is trivial");
+static_assert(std::is_standard_layout<float2>::value, "float2 is not trivial");
+
+/// This struct to prove that float2 is memcpyable
+union Float2MustBeComposableInUnion
 {
     float2 data;
     float2 extraData;

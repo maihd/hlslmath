@@ -1,6 +1,7 @@
 #pragma once
 
 #include <math.h>
+#include <stdlib.h> // Why abs contain in stdlib.h instead of math.h???
 
 #undef min // When Windows.h was included, min is an macro
 #undef max // When Windows.h was included, max is an macro

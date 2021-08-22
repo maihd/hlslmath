@@ -12,12 +12,15 @@ inline int sign(float x)
 }
 
 #if HLSLMATH_DEFINE_INTRINSICS != 0
+
+#if !defined(_CSTDLIB_)
 /* Computes absolute value
  */
 inline float abs(float x)
 {
     return fabsf(x);
 }
+#endif
 
 /* Computes cosine
  */
