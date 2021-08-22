@@ -101,11 +101,32 @@ static int          gUnitTestsExitCode  = 0;
 static const char*  gUnitTestsLogHeader = "Box2D-C99";
 
 // `defined` operator on expression, the implementation is hard to understand
-#define IS_DEFINED(macro)               IS_DEFINED_1(macro)
-#define MACRO_TEST_1                    ,
-#define IS_DEFINED_1(value)             IS_DEFINED_2(MACRO_TEST_##value)
-#define IS_DEFINED_2(comma)             IS_DEFINED_3(comma 1, 0)
-#define IS_DEFINED_3(_, v, ...)         v
+#define IS_DEFINED(macro)               IS_DEFINED_1(#macro, macro)
+#define IS_DEFINED_1(name, value)       IS_DEFINED_2(name, sizeof(name), #value, sizeof(#value))
+constexpr bool IS_DEFINED_2(const char* name, const int nameLength, const char* value, const int valueLength)
+{
+    if (nameLength != valueLength)
+    {
+        return true;
+    }
+
+    for (int i = 0; i < nameLength; i++)
+    {
+        if (name[i] != value[i])
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+#define __EMPTYDEFINE
+
+// Test IS_DEFINED
+static_assert(IS_DEFINED(__cplusplus), "IS_DEFINED is wrong!");
+static_assert(IS_DEFINED(__EMPTYDEFINE), "IS_DEFINED is wrong!");
+static_assert(!IS_DEFINED(__NODEFINEMACRO), "IS_DEFINED is wrong!");
 
 #ifndef UNIT_TEST_GOTO_FILE_COMMAND
 #define UNIT_TEST_GOTO_FILE_COMMAND     "code --goto %s:%d"
