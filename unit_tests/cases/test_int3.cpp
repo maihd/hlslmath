@@ -15,7 +15,7 @@ union int3MustBeComposableInUnion
     int3 extraData;
 };
 
-DEFINE_UNIT_TEST("Working with int4")
+DEFINE_UNIT_TEST("Working with int3")
 {
     const int3 a = int3(0, 0, 0);
     const int3 b = int3(0, 0, 0);
