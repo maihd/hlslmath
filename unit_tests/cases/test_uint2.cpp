@@ -9,7 +9,7 @@ static_assert(!std::is_trivial<uint2>::value, "uint2 is trivial");
 static_assert(std::is_standard_layout<uint2>::value, "uint2 is not trivial");
 
 /// This struct to prove that int2 is memcpyable
-union unt2MustBeComposableInUnion
+union uint2MustBeComposableInUnion
 {
     uint2 data;
     uint2 extraData;

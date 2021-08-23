@@ -155,19 +155,19 @@ int UnitTest::TestFailed(const char* file, const int line)
     if (!IS_DEFINED(CONTINUE_UNIT_TEST_ON_FAIL))
     {
         char notifyMessage[4096];
-        snprintf(notifyMessage, sizeof(notifyMessage), "%s\nPress OK to exit!!!", message);
+        snprintf(notifyMessage, sizeof(notifyMessage), "%s\nPress OK to exit!!!", (const char*)message);
 
         bool gotoSource = false;
         #if defined(_MSC_VER) && !defined(NDEBUG)
         if (IsDebuggerPresent())
         {
             gotoSource = false;
-            snprintf(notifyMessage, sizeof(notifyMessage), "%s\nPress OK to start debug!!!", message);
+            snprintf(notifyMessage, sizeof(notifyMessage), "%s\nPress OK to start debug!!!", (const char*)message);
         }
         else
         {
             gotoSource = true;
-            snprintf(notifyMessage, sizeof(notifyMessage), "%s\nPress OK to open source file!!!", message);
+            snprintf(notifyMessage, sizeof(notifyMessage), "%s\nPress OK to open source file!!!", (const char*)message);
         }
         #endif
 
