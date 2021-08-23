@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run unit tests
-      run: cd unit_tests && make
+      run: cd unit_tests && make RUN_ALLS=true
