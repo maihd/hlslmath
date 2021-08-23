@@ -9,7 +9,7 @@ static_assert(!std::is_trivial<float3>::value, "float3 is trivial");
 static_assert(std::is_standard_layout<float3>::value, "float3 is not trivial");
 
 /// This struct to prove that float3 is memcpyable
-union Float3MustBeComposableInUnion
+union float3MustBeComposableInUnion
 {
     float3 data;
     float3 extraData;
@@ -17,8 +17,8 @@ union Float3MustBeComposableInUnion
 
 DEFINE_UNIT_TEST("Working with float4")
 {
-    const float3 a = float3(0, 0);
-    const float3 b = float3(0, 0);
+    const float3 a = float3(0, 0, 0);
+    const float3 b = float3(0, 0, 0);
 
     TEST(all(a == b), "a should equal to b");
     TEST(!any(a != b), "a should equal to b");
