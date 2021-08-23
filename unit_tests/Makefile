@@ -47,10 +47,6 @@ clean:
 	rm -rf $(OUT_DIR)
 
 autorun:
-ifeq ($(RUN_ALLS),true)
-	@make clean --quiet
-	@make run --quiet
-endif
 ifneq ($(OS),Windows_NT)
 #@echo "Auto run unit tests is not supported on current platform!"
 	@echo "Auto run unit tests can only run on Windows!"
