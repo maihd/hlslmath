@@ -17,8 +17,8 @@ union Float2MustBeComposableInUnion
 
 DEFINE_UNIT_TEST("Working with float2")
 {
-    float2 a = float2(0, 0);
-    float2 b = float2(0, 0);
+    const float2 a = float2(0, 0);
+    const float2 b = float2(0, 0);
 
     TEST(all(a == b), "a should equal to b");
     TEST(!any(a != b), "a should equal to b");

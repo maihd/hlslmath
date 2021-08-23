@@ -12,7 +12,7 @@ union float2
                         float2(const float3& v);
     explicit            float2(const float4& v);
 
-    float2&             operator=(const float2& other);
+    //float2&             operator=(const float2& other);
 
                         operator float3() const;
     explicit            operator float4() const;
