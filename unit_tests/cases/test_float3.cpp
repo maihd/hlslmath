@@ -15,7 +15,7 @@ union float3MustBeComposableInUnion
     float3 extraData;
 };
 
-DEFINE_UNIT_TEST("Working with float4")
+DEFINE_UNIT_TEST("Working with float3")
 {
     const float3 a = float3(0, 0, 0);
     const float3 b = float3(0, 0, 0);
